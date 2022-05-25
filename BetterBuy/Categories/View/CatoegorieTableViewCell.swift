@@ -15,7 +15,13 @@ class CatoegorieTableViewCell: UITableViewCell {
     static var cellIdentifier = "categorycell"
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
+        contentView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

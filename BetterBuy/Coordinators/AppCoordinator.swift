@@ -25,7 +25,7 @@ class AppCoordinator: Coordinator {
     //MARK: functions
     func start() {
          // The first time this coordinator started, is to launch login page.
-        goToFirstPage()
+        goToFirstPage()        
     }
     
     func goToFirstPage(){
@@ -48,5 +48,13 @@ class AppCoordinator: Coordinator {
             categoryViewModel.appCoordinator = self
             categoryViewController.viewModel = categoryViewModel
              navigationController.pushViewController(categoryViewController, animated: true)
+    }
+    
+    func goToProductsPage(){
+            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
+            let productsViewModel = ProductsViewModel.init()
+            productsViewModel.appCoordinator = self
+            productsViewController.viewModel = productsViewModel
+             navigationController.pushViewController(productsViewController, animated: true)
     }
 }

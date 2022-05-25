@@ -33,10 +33,11 @@ extension CategoryViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CatoegorieTableViewCell.cellIdentifier, for: indexPath) as! CatoegorieTableViewCell
-        cell.configureCell(categories[indexPath.row])
-        cell.layer.cornerRadius = 20 //set corner radius here
-        cell.layer.borderWidth = 2
+        cell.configureCell(categories[indexPath.section])
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.goToProductsScreen()
     }
     
     
@@ -51,14 +52,15 @@ extension CategoryViewController : UITableViewDelegate{
            return UIScreen.main.bounds.size.height / 5
        }
        
-       func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-           let headerView = UIView()
-           headerView.backgroundColor = view.backgroundColor
-           return headerView
-       }
-       func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-              return 20
-          }
+   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       let headerView = UIView()
+       headerView.backgroundColor = view.backgroundColor
+       return headerView
+   }
+   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+          return 20
+  }
+    
 
     
 }

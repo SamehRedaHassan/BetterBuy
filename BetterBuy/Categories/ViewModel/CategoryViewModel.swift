@@ -9,4 +9,9 @@
 import Foundation
 final class CategoryViewModel{
     var appCoordinator: AppCoordinator?
+    
+    func goToProductsScreen()
+    {
+        appCoordinator??.goToProductsPage()
+    }
 }

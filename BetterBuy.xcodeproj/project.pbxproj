@@ -16,6 +16,9 @@
 		7682F148283E8DDD004C3DBC /* CatoegorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F146283E8DDD004C3DBC /* CatoegorieTableViewCell.swift */; };
 		7682F149283E8DDD004C3DBC /* CatoegorieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F147283E8DDD004C3DBC /* CatoegorieTableViewCell.xib */; };
 		7682F14B283EA03D004C3DBC /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F14A283EA03D004C3DBC /* CategoryViewModel.swift */; };
+		7682F150283EC878004C3DBC /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F14F283EC878004C3DBC /* ProductView.xib */; };
+		7682F152283ECC21004C3DBC /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F151283ECC21004C3DBC /* ProductsViewController.swift */; };
+		7682F156283ECC85004C3DBC /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F155283ECC85004C3DBC /* ProductsViewModel.swift */; };
 		76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */; };
 		76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */; };
 		76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */; };
@@ -44,6 +47,9 @@
 		7682F146283E8DDD004C3DBC /* CatoegorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatoegorieTableViewCell.swift; sourceTree = "<group>"; };
 		7682F147283E8DDD004C3DBC /* CatoegorieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatoegorieTableViewCell.xib; sourceTree = "<group>"; };
 		7682F14A283EA03D004C3DBC /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		7682F14F283EC878004C3DBC /* ProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
+		7682F151283ECC21004C3DBC /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		7682F155283ECC85004C3DBC /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		76ED8AA8283ACFC6009F9C61 /* BetterBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -119,13 +125,55 @@
 		7682F145283E8C8D004C3DBC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				7682F14C283EC7D6004C3DBC /* View */,
+				7682F14D283EC7EC004C3DBC /* ViewModel */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7682F14C283EC7D6004C3DBC /* View */ = {
+			isa = PBXGroup;
+			children = (
 				7682F140283E8BE7004C3DBC /* CategoryView.xib */,
 				7682F143283E8C78004C3DBC /* CategoryViewController.swift */,
 				7682F146283E8DDD004C3DBC /* CatoegorieTableViewCell.swift */,
 				7682F147283E8DDD004C3DBC /* CatoegorieTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7682F14D283EC7EC004C3DBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 				7682F14A283EA03D004C3DBC /* CategoryViewModel.swift */,
 			);
-			path = Categories;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7682F14E283EC812004C3DBC /* ProductScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7682F154283ECC6E004C3DBC /* ViewModel */,
+				7682F153283ECC59004C3DBC /* View */,
+			);
+			path = ProductScreen;
+			sourceTree = "<group>";
+		};
+		7682F153283ECC59004C3DBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7682F14F283EC878004C3DBC /* ProductView.xib */,
+				7682F151283ECC21004C3DBC /* ProductsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7682F154283ECC6E004C3DBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7682F155283ECC85004C3DBC /* ProductsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		76ED8A9F283ACFC6009F9C61 = {
@@ -149,6 +197,7 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
+				7682F14E283EC812004C3DBC /* ProductScreen */,
 				76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */,
 				76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */,
 				76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */,
@@ -256,6 +305,7 @@
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */,
 				7682F141283E8BE7004C3DBC /* CategoryView.xib in Resources */,
+				7682F150283EC878004C3DBC /* ProductView.xib in Resources */,
 				046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +325,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */,
+				7682F156283ECC85004C3DBC /* ProductsViewModel.swift in Sources */,
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
 				7682F144283E8C78004C3DBC /* CategoryViewController.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
+				7682F152283ECC21004C3DBC /* ProductsViewController.swift in Sources */,
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
 				7682F148283E8DDD004C3DBC /* CatoegorieTableViewCell.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
