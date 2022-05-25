@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F4D283E96EC006853BB /* RegisterViewController.swift */; };
+		045F5F50283E96EC006853BB /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F5F4E283E96EC006853BB /* RegisterViewController.xib */; };
+		045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F53283EA590006853BB /* RegisterViewModel.swift */; };
+		045F5F57283EB2D2006853BB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F56283EB2D2006853BB /* SettingViewModel.swift */; };
+		045F5F5A283EB2E6006853BB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F58283EB2E6006853BB /* SettingsViewController.swift */; };
+		045F5F5B283EB2E6006853BB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F5F59283EB2E6006853BB /* SettingsViewController.xib */; };
+		045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F61283EB337006853BB /* ProfileViewModel.swift */; };
+		045F5F65283EB350006853BB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F63283EB350006853BB /* ProfileViewController.swift */; };
+		045F5F66283EB350006853BB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F5F64283EB350006853BB /* ProfileViewController.xib */; };
 		046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07A283D8AD0000E46E8 /* Coordinator.swift */; };
 		046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */; };
 		046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FC07E283D8BC8000E46E8 /* SplashScreen.xib */; };
@@ -36,6 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045F5F4D283E96EC006853BB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		045F5F4E283E96EC006853BB /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		045F5F53283EA590006853BB /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		045F5F56283EB2D2006853BB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		045F5F58283EB2E6006853BB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		045F5F59283EB2E6006853BB /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		045F5F61283EB337006853BB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		045F5F63283EB350006853BB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		045F5F64283EB350006853BB /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		046FC07A283D8AD0000E46E8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		046FC07E283D8BC8000E46E8 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
@@ -76,6 +94,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045F5F51283E96FA006853BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F4D283E96EC006853BB /* RegisterViewController.swift */,
+				045F5F4E283E96EC006853BB /* RegisterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045F5F52283EA574006853BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F53283EA590006853BB /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		045F5F55283EB2BE006853BB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F5D283EB2FE006853BB /* View */,
+				045F5F5C283EB2F2006853BB /* ViewController */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		045F5F5C283EB2F2006853BB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F58283EB2E6006853BB /* SettingsViewController.swift */,
+				045F5F59283EB2E6006853BB /* SettingsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		045F5F5D283EB2FE006853BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F56283EB2D2006853BB /* SettingViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045F5F5E283EB30E006853BB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F60283EB31E006853BB /* ViewModel */,
+				045F5F5F283EB317006853BB /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		045F5F5F283EB317006853BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F63283EB350006853BB /* ProfileViewController.swift */,
+				045F5F64283EB350006853BB /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045F5F60283EB31E006853BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				045F5F61283EB337006853BB /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		046FC080283D8C55000E46E8 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +201,8 @@
 		046FC08A283D9E6B000E46E8 /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
+				045F5F52283EA574006853BB /* ViewModel */,
+				045F5F51283E96FA006853BB /* View */,
 			);
 			path = RegisterScreen;
 			sourceTree = "<group>";
@@ -184,14 +273,16 @@
 				7607DE75283EB31300A014C7 /* HomeViewController */,
 				7607DE72283E8F8E00A014C7 /* BaseViewController */,
 				7607DE67283E8A9E00A014C7 /* TabBarController */,
+				046FC080283D8C55000E46E8 /* Coordinators */,
+				046FC081283D8C84000E46E8 /* SplashScreen */,
+				045F5F5E283EB30E006853BB /* Profile */,
+				046FC08A283D9E6B000E46E8 /* RegisterScreen */,
+				045F5F55283EB2BE006853BB /* Settings */,
 				76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */,
 				76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */,
 				76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */,
 				76ED8ABC283ACFC9009F9C61 /* Info.plist */,
 				76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */,
-				046FC080283D8C55000E46E8 /* Coordinators */,
-				046FC081283D8C84000E46E8 /* SplashScreen */,
-				046FC08A283D9E6B000E46E8 /* RegisterScreen */,
 				7607DE71283E8E7F00A014C7 /* Extensions */,
 			);
 			path = BetterBuy;
@@ -287,10 +378,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045F5F66283EB350006853BB /* ProfileViewController.xib in Resources */,
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */,
 				046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */,
 				7607DE79283EB44D00A014C7 /* HomeViewController.xib in Resources */,
+				045F5F50283E96EC006853BB /* RegisterViewController.xib in Resources */,
+				045F5F5B283EB2E6006853BB /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,14 +404,20 @@
 			files = (
 				046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */,
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
+				045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */,
+				045F5F5A283EB2E6006853BB /* SettingsViewController.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
+				045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */,
+				045F5F65283EB350006853BB /* ProfileViewController.swift in Sources */,
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
 				7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */,
 				7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */,
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
-				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
 				7607DE6F283E8E5200A014C7 /* UIView.swift in Sources */,
+				045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */,
+				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
+				045F5F57283EB2D2006853BB /* SettingViewModel.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
