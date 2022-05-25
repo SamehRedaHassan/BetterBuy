@@ -25,7 +25,8 @@ class AppCoordinator: Coordinator {
     //MARK: functions
     func start() {
          // The first time this coordinator started, is to launch login page.
-        goToFirstPage()        
+
+        goToSignUpPage()
     }
     
     func goToFirstPage(){
@@ -38,7 +39,8 @@ class AppCoordinator: Coordinator {
          // Set the ViewModel to ViewController
          splashScrViewController.viewModel = splashScreenViewModel
          // Push it.
-        navigationController.pushViewController(splashScrViewController, animated: true)
+//        navigationController.pushViewController(splashScrViewController, animated: true)
+        navigationController.pushViewController(TabBarContoller(), animated: true)
     }
     
     
@@ -56,5 +58,18 @@ class AppCoordinator: Coordinator {
             productsViewModel.appCoordinator = self
             productsViewController.viewModel = productsViewModel
              navigationController.pushViewController(productsViewController, animated: true)
+    }
+    
+    func goToSignUpPage() {
+        // Instantiate LoginViewController
+         let registerViewController = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+         // Instantiate LoginViewModel
+        
+        let registerViewModel = RegisterViewModel()
+        registerViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
+         // Set the ViewModel to ViewController
+         registerViewController.viewModel = registerViewModel
+         // Push it.
+        navigationController.pushViewController(registerViewController, animated: true)
     }
 }
