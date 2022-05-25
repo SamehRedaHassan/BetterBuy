@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var signInPasswordTxtView: UITextField!
     @IBOutlet weak var signUpBtn: UIButton!
     
+    @IBOutlet weak var btnCheckBox: UIButton!
     //MARK: variables
     var viewModel : RegisterViewModel?
     
@@ -25,13 +26,28 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createLoginLabel.text = "Create\nYour Account"
         signInuserNameTxtView.addBottomBorder()
         signInEmailTxtView.addBottomBorder()
         signInPasswordTxtView.addBottomBorder()
     }
 
+    @IBAction func checkBoxBtn(_ sender: UIButton) {
+        if (btnCheckBox.isSelected == true)
+           {
+            btnCheckBox.setBackgroundImage(UIImage(named: "box"), for: .normal)
 
+            //btnCheckBox.isSelected = false;
+           }
+           else
+           {
+            btnCheckBox.setBackgroundImage(UIImage(named: "checkmark.square"), for: .selected)
+            //btnCheckBox.isSelected = true;
+           }
+//        sender.isSelected = !sender.isSelected
+//        sender.setT(sender.isSelected ? #imageLiteral(resourceName: "imgThree") : #imageLiteral(resourceName: "imgTwo"), for: .normal)
+    
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -55,3 +71,5 @@ extension UITextField {
         layer.addSublayer(bottomLine)
     }
 }
+
+
