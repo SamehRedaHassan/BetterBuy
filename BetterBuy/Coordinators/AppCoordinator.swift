@@ -38,7 +38,8 @@ class AppCoordinator: Coordinator {
          // Set the ViewModel to ViewController
          splashScrViewController.viewModel = splashScreenViewModel
          // Push it.
-        navigationController.pushViewController(splashScrViewController, animated: true)
+//        navigationController.pushViewController(splashScrViewController, animated: true)
+        navigationController.pushViewController(TabBarContoller(), animated: true)
     }
     
     
