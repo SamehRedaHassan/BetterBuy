@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07A283D8AD0000E46E8 /* Coordinator.swift */; };
+		046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */; };
+		046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FC07E283D8BC8000E46E8 /* SplashScreen.xib */; };
+		046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC084283D8CF3000E46E8 /* SplashViewModel.swift */; };
 		76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */; };
-		76ED8AAE283ACFC6009F9C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAD283ACFC6009F9C61 /* SceneDelegate.swift */; };
-		76ED8AB0283ACFC6009F9C61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAF283ACFC6009F9C61 /* ViewController.swift */; };
-		76ED8AB3283ACFC6009F9C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB1283ACFC6009F9C61 /* Main.storyboard */; };
+		76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */; };
 		76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */; };
 		76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */; };
 		76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */; };
@@ -28,11 +30,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046FC07A283D8AD0000E46E8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		046FC07E283D8BC8000E46E8 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
+		046FC084283D8CF3000E46E8 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		76ED8AA8283ACFC6009F9C61 /* BetterBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76ED8AAD283ACFC6009F9C61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		76ED8AAF283ACFC6009F9C61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		76ED8AB2283ACFC6009F9C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		76ED8AB5283ACFC6009F9C61 /* BetterBuy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterBuy.xcdatamodel; sourceTree = "<group>"; };
 		76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76ED8ABA283ACFC9009F9C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +64,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046FC080283D8C55000E46E8 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				046FC07A283D8AD0000E46E8 /* Coordinator.swift */,
+				046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		046FC081283D8C84000E46E8 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				046FC083283D8CB0000E46E8 /* ViewModel */,
+				046FC082283D8C9C000E46E8 /* View */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		046FC082283D8C9C000E46E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */,
+				046FC07E283D8BC8000E46E8 /* SplashScreen.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		046FC083283D8CB0000E46E8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				046FC084283D8CF3000E46E8 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		046FC08A283D9E6B000E46E8 /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
 		76ED8A9F283ACFC6009F9C61 = {
 			isa = PBXGroup;
 			children = (
@@ -82,13 +128,13 @@
 			isa = PBXGroup;
 			children = (
 				76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */,
-				76ED8AAD283ACFC6009F9C61 /* SceneDelegate.swift */,
-				76ED8AAF283ACFC6009F9C61 /* ViewController.swift */,
-				76ED8AB1283ACFC6009F9C61 /* Main.storyboard */,
-				76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */,
 				76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */,
+				76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */,
 				76ED8ABC283ACFC9009F9C61 /* Info.plist */,
 				76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */,
+				046FC080283D8C55000E46E8 /* Coordinators */,
+				046FC081283D8C84000E46E8 /* SplashScreen */,
+				046FC08A283D9E6B000E46E8 /* RegisterScreen */,
 			);
 			path = BetterBuy;
 			sourceTree = "<group>";
@@ -185,7 +231,7 @@
 			files = (
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */,
-				76ED8AB3283ACFC6009F9C61 /* Main.storyboard in Resources */,
+				046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,10 +249,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */,
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
-				76ED8AB0283ACFC6009F9C61 /* ViewController.swift in Sources */,
+				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
+				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
+				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,
-				76ED8AAE283ACFC6009F9C61 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,14 +277,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		76ED8AB1283ACFC6009F9C61 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				76ED8AB2283ACFC6009F9C61 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -368,6 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BetterBuy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,6 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BetterBuy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
