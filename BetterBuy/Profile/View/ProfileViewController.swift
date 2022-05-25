@@ -1,14 +1,14 @@
 //
-//  HomeViewController.swift
+//  ProfileViewController.swift
 //  BetterBuy
 //
-//  Created by user222682 on 5/25/22.
+//  Created by nada elmasry on 5/25/22.
 //  Copyright © 2022 Mohamed Adel. All rights reserved.
 //
-//sameh
+
 import UIKit
 
-class HomeViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

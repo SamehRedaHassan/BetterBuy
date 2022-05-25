@@ -25,7 +25,8 @@ class AppCoordinator: Coordinator {
     //MARK: functions
     func start() {
          // The first time this coordinator started, is to launch login page.
-        goToFirstPage()
+        //goToFirstPage()
+        goToSignUpPage()
     }
     
     func goToFirstPage(){
@@ -49,5 +50,18 @@ class AppCoordinator: Coordinator {
 //        secScreenViewModel.appCoordinator = self
 //        secScreenViewController.viewModel = secScreenViewModel
 //         navigationController.pushViewController(secScreenViewController, animated: true)
+    }
+    
+    func goToSignUpPage() {
+        // Instantiate LoginViewController
+         let registerViewController = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+         // Instantiate LoginViewModel
+        
+        let registerViewModel = RegisterViewModel()
+        registerViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
+         // Set the ViewModel to ViewController
+         registerViewController.viewModel = registerViewModel
+         // Push it.
+        navigationController.pushViewController(registerViewController, animated: true)
     }
 }
