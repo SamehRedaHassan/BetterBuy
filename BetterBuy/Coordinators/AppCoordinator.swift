@@ -42,11 +42,11 @@ class AppCoordinator: Coordinator {
     }
     
     
-    func goToSecPage(){
-//        let secScreenViewController = secViewController(nibName: "secViewController", bundle: nil)
-//        let secScreenViewModel = secViewModel.init()
-//        secScreenViewModel.appCoordinator = self
-//        secScreenViewController.viewModel = secScreenViewModel
-//         navigationController.pushViewController(secScreenViewController, animated: true)
+    func goToCategoriesPage(){
+            let categoryViewController = CategoryViewController(nibName: "CategoryView", bundle: nil)
+            let categoryViewModel = CategoryViewModel.init()
+            categoryViewModel.appCoordinator = self
+            categoryViewController.viewModel = categoryViewModel
+             navigationController.pushViewController(categoryViewController, animated: true)
     }
 }

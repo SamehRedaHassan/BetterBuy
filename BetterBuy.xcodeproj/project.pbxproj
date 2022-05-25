@@ -11,6 +11,11 @@
 		046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */; };
 		046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FC07E283D8BC8000E46E8 /* SplashScreen.xib */; };
 		046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC084283D8CF3000E46E8 /* SplashViewModel.swift */; };
+		7682F141283E8BE7004C3DBC /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F140283E8BE7004C3DBC /* CategoryView.xib */; };
+		7682F144283E8C78004C3DBC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F143283E8C78004C3DBC /* CategoryViewController.swift */; };
+		7682F148283E8DDD004C3DBC /* CatoegorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F146283E8DDD004C3DBC /* CatoegorieTableViewCell.swift */; };
+		7682F149283E8DDD004C3DBC /* CatoegorieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F147283E8DDD004C3DBC /* CatoegorieTableViewCell.xib */; };
+		7682F14B283EA03D004C3DBC /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F14A283EA03D004C3DBC /* CategoryViewModel.swift */; };
 		76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */; };
 		76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */; };
 		76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */; };
@@ -34,6 +39,11 @@
 		046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		046FC07E283D8BC8000E46E8 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
 		046FC084283D8CF3000E46E8 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		7682F140283E8BE7004C3DBC /* CategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
+		7682F143283E8C78004C3DBC /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		7682F146283E8DDD004C3DBC /* CatoegorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatoegorieTableViewCell.swift; sourceTree = "<group>"; };
+		7682F147283E8DDD004C3DBC /* CatoegorieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatoegorieTableViewCell.xib; sourceTree = "<group>"; };
+		7682F14A283EA03D004C3DBC /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		76ED8AA8283ACFC6009F9C61 /* BetterBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +116,18 @@
 			path = RegisterScreen;
 			sourceTree = "<group>";
 		};
+		7682F145283E8C8D004C3DBC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7682F140283E8BE7004C3DBC /* CategoryView.xib */,
+				7682F143283E8C78004C3DBC /* CategoryViewController.swift */,
+				7682F146283E8DDD004C3DBC /* CatoegorieTableViewCell.swift */,
+				7682F147283E8DDD004C3DBC /* CatoegorieTableViewCell.xib */,
+				7682F14A283EA03D004C3DBC /* CategoryViewModel.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		76ED8A9F283ACFC6009F9C61 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +157,7 @@
 				046FC080283D8C55000E46E8 /* Coordinators */,
 				046FC081283D8C84000E46E8 /* SplashScreen */,
 				046FC08A283D9E6B000E46E8 /* RegisterScreen */,
+				7682F145283E8C8D004C3DBC /* Categories */,
 			);
 			path = BetterBuy;
 			sourceTree = "<group>";
@@ -229,8 +252,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7682F149283E8DDD004C3DBC /* CatoegorieTableViewCell.xib in Resources */,
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */,
+				7682F141283E8BE7004C3DBC /* CategoryView.xib in Resources */,
 				046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,9 +276,12 @@
 			files = (
 				046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */,
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
+				7682F144283E8C78004C3DBC /* CategoryViewController.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
+				7682F148283E8DDD004C3DBC /* CatoegorieTableViewCell.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
+				7682F14B283EA03D004C3DBC /* CategoryViewModel.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
