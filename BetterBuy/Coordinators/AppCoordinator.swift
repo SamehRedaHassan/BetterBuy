@@ -64,4 +64,11 @@ class AppCoordinator: Coordinator {
          // Push it.
         navigationController.pushViewController(registerViewController, animated: true)
     }
+    func goToProductsPage(){
+            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
+            let productsViewModel = ProductsViewModel.init()
+            productsViewModel.appCoordinator = self
+            productsViewController.viewModel = productsViewModel
+             navigationController.pushViewController(productsViewController, animated: true)
+    }
 }
