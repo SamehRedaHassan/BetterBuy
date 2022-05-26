@@ -26,7 +26,8 @@ class AppCoordinator: Coordinator {
     func start() {
          // The first time this coordinator started, is to launch login page.
         //goToFirstPage()
-        goToSignUpPage()
+//        goToSignUpPage()
+        goToFirstPage()
     }
     
     func goToFirstPage(){
@@ -44,12 +45,12 @@ class AppCoordinator: Coordinator {
     }
     
     
-    func goToSecPage(){
-//        let secScreenViewController = secViewController(nibName: "secViewController", bundle: nil)
-//        let secScreenViewModel = secViewModel.init()
-//        secScreenViewModel.appCoordinator = self
-//        secScreenViewController.viewModel = secScreenViewModel
-//         navigationController.pushViewController(secScreenViewController, animated: true)
+    func goToCategoriesPage(){
+            let categoryViewController = CategoryViewController(nibName: "CategoryView", bundle: nil)
+            let categoryViewModel = CategoryViewModel.init()
+            categoryViewModel.appCoordinator = self
+            categoryViewController.viewModel = categoryViewModel
+             navigationController.pushViewController(categoryViewController, animated: true)
     }
     
     func goToSignUpPage() {
@@ -63,5 +64,12 @@ class AppCoordinator: Coordinator {
          registerViewController.viewModel = registerViewModel
          // Push it.
         navigationController.pushViewController(registerViewController, animated: true)
+    }
+    func goToProductsPage(){
+            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
+            let productsViewModel = ProductsViewModel.init()
+            productsViewModel.appCoordinator = self
+            productsViewController.viewModel = productsViewModel
+             navigationController.pushViewController(productsViewController, animated: true)
     }
 }
