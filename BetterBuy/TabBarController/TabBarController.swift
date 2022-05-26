@@ -11,6 +11,10 @@ import UIKit
 
 class TabBarContoller: UITabBarController {
 
+    var coordinator : AppCoordinator?
+ 
+    
+   
     let floatingTabbarView = FloatingBarView(["house", "rectangle.3.offgrid",  "person"])
 
     override func viewDidLoad() {

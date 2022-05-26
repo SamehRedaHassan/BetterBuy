@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageTwoViewController" customModule="BetterBuy" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ht7-uf-zxp">
+                    <rect key="frame" x="12" y="0.0" width="390" height="862"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWZ-jU-bfs">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="431"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="hsB-fe-Kox">
+                            <rect key="frame" x="8" y="456" width="374" height="92"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nze-zx-bTL">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy Shopping with varity of brands and products to buy from the most fashioned models  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzq-0u-8VL">
+                                    <rect key="frame" x="0.0" y="53.5" width="374" height="38.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="leading" secondItem="ht7-uf-zxp" secondAttribute="leading" id="4W2-nY-lLl"/>
+                        <constraint firstItem="hsB-fe-Kox" firstAttribute="top" secondItem="PWZ-jU-bfs" secondAttribute="bottom" constant="25" id="EiI-KK-GG2"/>
+                        <constraint firstItem="hsB-fe-Kox" firstAttribute="leading" secondItem="ht7-uf-zxp" secondAttribute="leading" constant="8" id="Rg2-nV-6zm"/>
+                        <constraint firstAttribute="trailing" secondItem="PWZ-jU-bfs" secondAttribute="trailing" id="bC4-yo-1z0"/>
+                        <constraint firstAttribute="trailing" secondItem="hsB-fe-Kox" secondAttribute="trailing" constant="8" id="grQ-Yu-eU2"/>
+                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="height" secondItem="ht7-uf-zxp" secondAttribute="height" multiplier="0.5" id="hS2-zG-783"/>
+                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="top" secondItem="ht7-uf-zxp" secondAttribute="top" id="j9C-gH-XJF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="pagerColorTwo"/>
+            <constraints>
+                <constraint firstItem="ht7-uf-zxp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="CaE-6m-dXO"/>
+                <constraint firstItem="ht7-uf-zxp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-12" id="mss-s4-gpq"/>
+                <constraint firstItem="ht7-uf-zxp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tN6-Oo-xMF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ht7-uf-zxp" secondAttribute="bottom" id="wiH-5z-hNu"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="131"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="pagerColorTwo">
+            <color red="0.96470588235294119" green="0.72549019607843135" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
