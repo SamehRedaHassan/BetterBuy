@@ -41,6 +41,8 @@
 		7682F16B283EF848004C3DBC /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F169283EF848004C3DBC /* ProductView.xib */; };
 		7682F16C283EF848004C3DBC /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F16A283EF848004C3DBC /* ProductsViewController.swift */; };
 		7682F16E283EF857004C3DBC /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F16D283EF857004C3DBC /* ProductsViewModel.swift */; };
+		769321112840026A0007D369 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769321102840026A0007D369 /* UIViewController.swift */; };
+		76932113284012190007D369 /* order-delivery.json in Resources */ = {isa = PBXBuildFile; fileRef = 76932112284012190007D369 /* order-delivery.json */; };
 		76BD28D1283FDDD200030700 /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD28CF283FDDD200030700 /* PageOneViewController.swift */; };
 		76BD28D2283FDDD200030700 /* PageOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76BD28D0283FDDD200030700 /* PageOneViewController.xib */; };
 		76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD28D6283FDE2500030700 /* PageTwoViewController.swift */; };
@@ -105,6 +107,8 @@
 		7682F16A283EF848004C3DBC /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		7682F16D283EF857004C3DBC /* ProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		76850705C0E03B81FBD28BF6 /* Pods-BetterBuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBuy.release.xcconfig"; path = "Target Support Files/Pods-BetterBuy/Pods-BetterBuy.release.xcconfig"; sourceTree = "<group>"; };
+		769321102840026A0007D369 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		76932112284012190007D369 /* order-delivery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "order-delivery.json"; sourceTree = "<group>"; };
 		76BD28CF283FDDD200030700 /* PageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
 		76BD28D0283FDDD200030700 /* PageOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageOneViewController.xib; sourceTree = "<group>"; };
 		76BD28D6283FDE2500030700 /* PageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTwoViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +302,7 @@
 		7607DE71283E8E7F00A014C7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7693210F284002460007D369 /* UIViewController */,
 				7607DE70283E8E7300A014C7 /* UIView */,
 			);
 			path = Extensions;
@@ -372,6 +377,14 @@
 				7682F16D283EF857004C3DBC /* ProductsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7693210F284002460007D369 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				769321102840026A0007D369 /* UIViewController.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		76BD28CC283FD8F300030700 /* OnboardingModule */ = {
@@ -451,7 +464,6 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
-
 				76BD28CC283FD8F300030700 /* OnboardingModule */,
 				0489FE83283FE27900EC5974 /* UIHelper */,
 				7682F166283EF80C004C3DBC /* ProductScreen */,
@@ -470,6 +482,7 @@
 				76ED8ABC283ACFC9009F9C61 /* Info.plist */,
 				76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */,
 				76BD28E7283FF04B00030700 /* cartAnimation.json */,
+				76932112284012190007D369 /* order-delivery.json */,
 				76BD28E8283FF04B00030700 /* girlAtShopping.json */,
 				76BD28E9283FF04B00030700 /* paymentMethod.json */,
 				7607DE71283E8E7F00A014C7 /* Extensions */,
@@ -590,11 +603,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				76BD28D9283FDE2500030700 /* PageTwoViewController.xib in Resources */,
 				0489FE7E283FD95600EC5974 /* WishListTableViewCell.xib in Resources */,
 				7682F161283EF7A9004C3DBC /* CatoegorieTableViewCell.xib in Resources */,
 				045F5F66283EB350006853BB /* ProfileViewController.xib in Resources */,
+				76932113284012190007D369 /* order-delivery.json in Resources */,
 				76BD28D2283FDDD200030700 /* PageOneViewController.xib in Resources */,
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76BD28E6283FEA9C00030700 /* PageThreeViewController.xib in Resources */,
@@ -717,6 +730,7 @@
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
 				76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */,
+				769321112840026A0007D369 /* UIViewController.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
 				7607DE6F283E8E5200A014C7 /* UIView.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,

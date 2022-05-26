@@ -7,24 +7,30 @@
 //
 
 import UIKit
+import Lottie
 
 class PageOneViewController: UIViewController {
+    // MARK: - IBOutlet
+    @IBOutlet weak var animationView: UIView!
+    
+    // MARK: - Variables
+    private var lottieAnimationView: AnimationView?
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      super.viewDidLoad()
+        playAnumation()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - Functions
+    func playAnumation(){
+        lottieAnimationView = .init(name: "order-delivery")
+        lottieAnimationView!.frame = animationView.bounds
+        lottieAnimationView!.contentMode = .scaleAspectFit
+        lottieAnimationView!.loopMode = .loop
+        lottieAnimationView!.animationSpeed = 1.0
+        animationView.addSubview(lottieAnimationView!)
+        lottieAnimationView!.play()
     }
-    */
 
 }

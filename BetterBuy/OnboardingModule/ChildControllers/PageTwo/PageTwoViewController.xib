@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageTwoViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="PWZ-jU-bfs" id="Ecz-rj-652"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,22 +24,22 @@
                     <rect key="frame" x="12" y="0.0" width="390" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWZ-jU-bfs">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="431"/>
+                            <rect key="frame" x="0.0" y="60" width="390" height="345"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="hsB-fe-Kox">
-                            <rect key="frame" x="8" y="456" width="374" height="92"/>
+                            <rect key="frame" x="8" y="430" width="374" height="92"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nze-zx-bTL">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy Shopping with varity of brands and products to buy from the most fashioned models  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzq-0u-8VL">
                                     <rect key="frame" x="0.0" y="53.5" width="374" height="38.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -51,8 +52,8 @@
                         <constraint firstItem="hsB-fe-Kox" firstAttribute="leading" secondItem="ht7-uf-zxp" secondAttribute="leading" constant="8" id="Rg2-nV-6zm"/>
                         <constraint firstAttribute="trailing" secondItem="PWZ-jU-bfs" secondAttribute="trailing" id="bC4-yo-1z0"/>
                         <constraint firstAttribute="trailing" secondItem="hsB-fe-Kox" secondAttribute="trailing" constant="8" id="grQ-Yu-eU2"/>
-                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="height" secondItem="ht7-uf-zxp" secondAttribute="height" multiplier="0.5" id="hS2-zG-783"/>
-                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="top" secondItem="ht7-uf-zxp" secondAttribute="top" id="j9C-gH-XJF"/>
+                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="height" secondItem="ht7-uf-zxp" secondAttribute="height" multiplier="0.4" id="hS2-zG-783"/>
+                        <constraint firstItem="PWZ-jU-bfs" firstAttribute="top" secondItem="ht7-uf-zxp" secondAttribute="top" constant="60" id="j9C-gH-XJF"/>
                     </constraints>
                 </view>
             </subviews>
@@ -69,7 +70,7 @@
     </objects>
     <resources>
         <namedColor name="pagerColorTwo">
-            <color red="0.96470588235294119" green="0.72549019607843135" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96100002527236938" green="0.94900000095367432" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
