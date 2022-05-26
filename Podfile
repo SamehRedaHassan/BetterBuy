@@ -15,6 +15,21 @@ pod 'RxGesture'
 pod 'RxAlamofire'
 pod 'SDWebImage'
 
+
+
+pod 'ImageSlideshow'
+pod 'EasyNotificationBadge'
+pod 'SimpleCheckbox'
+pod 'Cosmos'
+pod 'FSPagerView'
+
+pod 'Loaf'
+pod 'AMPopTip'
+pod 'SCPageControl'	
+pod 'liquid-swipe'
+
+
+
 pod 'NVActivityIndicatorView/Extended'
   target 'BetterBuyTests' do
     inherit! :search_paths
