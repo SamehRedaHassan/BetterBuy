@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.5.0)
   - AMPopTip (4.6.1)
   - Cosmos (23.0.0)
+  - DynamicBlurView (4.1.0)
   - EasyNotificationBadge (1.2.5)
   - FSPagerView (0.8.3)
   - ImageSlideshow (1.9.2):
@@ -15,6 +16,8 @@ PODS:
   - NVActivityIndicatorView/Extended (5.1.1):
     - NVActivityIndicatorView/Base
   - pop (1.0.12)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - Presentr (1.9)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
@@ -46,6 +49,7 @@ DEPENDENCIES:
   - liquid-swipe
   - Loaf
   - NVActivityIndicatorView/Extended
+  - PopupDialog
   - Presentr
   - RxAlamofire
   - RxCocoa
@@ -60,6 +64,7 @@ SPEC REPOS:
     - Alamofire
     - AMPopTip
     - Cosmos
+    - DynamicBlurView
     - EasyNotificationBadge
     - FSPagerView
     - ImageSlideshow
@@ -68,6 +73,7 @@ SPEC REPOS:
     - Loaf
     - NVActivityIndicatorView
     - pop
+    - PopupDialog
     - Presentr
     - RxAlamofire
     - RxCocoa
@@ -82,6 +88,7 @@ SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   AMPopTip: a9384bcc42013831dcce185d8687b0abf946496b
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   EasyNotificationBadge: a3ebbcb1de0c0558e102e954380c75801f352702
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
@@ -90,6 +97,7 @@ SPEC CHECKSUMS:
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
@@ -100,6 +108,6 @@ SPEC CHECKSUMS:
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
 
-PODFILE CHECKSUM: e7c772afe818e7abb9345341e3ad23be9dffc050
+PODFILE CHECKSUM: 0d6875efc7d0b1b1a5e28441952ad9a135c398f7
 
 COCOAPODS: 1.11.2

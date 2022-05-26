@@ -30,6 +30,10 @@ pod 'liquid-swipe'
 
 
 
+pod 'PopupDialog'
+
+
+
 pod 'NVActivityIndicatorView/Extended'
   target 'BetterBuyTests' do
     inherit! :search_paths
