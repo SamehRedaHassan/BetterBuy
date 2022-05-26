@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+final class ProfileViewModel{
+    
+    //MARK: vars
+    var appCoordinator: AppCoordinator?
+        
+    
+    //MARK: functions
+//    func goToSignUpScreen() {
+//        appCoordinator?.goToSignUpPage()
+//    }
+    
+}
