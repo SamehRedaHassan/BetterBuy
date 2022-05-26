@@ -32,6 +32,8 @@ pod 'liquid-swipe'
 
 pod 'PopupDialog'
 
+pod 'lottie-ios'
+
 
 
 pod 'NVActivityIndicatorView/Extended'
