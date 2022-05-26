@@ -1,5 +1,5 @@
 //
-//  ProfileViewModel.swift
+//  SettingViewModel.swift
 //  BetterBuy
 //
 //  Created by nada elmasry on 5/25/22.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ProfileViewModel{
+class SettingViewModel{
     
     //MARK: vars
     var appCoordinator: AppCoordinator?
