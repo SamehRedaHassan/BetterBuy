@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,13 @@
 		046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */; };
 		046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FC07E283D8BC8000E46E8 /* SplashScreen.xib */; };
 		046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC084283D8CF3000E46E8 /* SplashViewModel.swift */; };
+		0489FE7D283FD95600EC5974 /* WishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FE7B283FD95600EC5974 /* WishListTableViewCell.swift */; };
+		0489FE7E283FD95600EC5974 /* WishListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0489FE7C283FD95600EC5974 /* WishListTableViewCell.xib */; };
+		0489FE81283FD97200EC5974 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FE7F283FD97200EC5974 /* OrderTableViewCell.swift */; };
+		0489FE82283FD97200EC5974 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0489FE80283FD97200EC5974 /* OrderTableViewCell.xib */; };
+		0489FE85283FE2A000EC5974 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FE84283FE2A000EC5974 /* RoundedImageView.swift */; };
+		0489FE87283FE6D100EC5974 /* CornerRadiusViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FE86283FE6D100EC5974 /* CornerRadiusViewExtension.swift */; };
+		38D187A779488176D8323251 /* Pods_BetterBuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82086639DCACF0023E52FFFF /* Pods_BetterBuy.framework */; };
 		7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607DE68283E8B0500A014C7 /* TabBarController.swift */; };
 		7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607DE6C283E8BF900A014C7 /* FloatingBarView.swift */; };
 		7607DE6F283E8E5200A014C7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607DE6E283E8E5200A014C7 /* UIView.swift */; };
@@ -40,6 +47,7 @@
 		76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */; };
 		76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */; };
 		76ED8AC6283ACFCA009F9C61 /* BetterBuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */; };
+		77989A06EECE7E1BBBEF0070 /* Pods_BetterBuyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC13EA2C83F870CBA99DFC9A /* Pods_BetterBuyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +74,12 @@
 		046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		046FC07E283D8BC8000E46E8 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
 		046FC084283D8CF3000E46E8 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		0489FE7B283FD95600EC5974 /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
+		0489FE7C283FD95600EC5974 /* WishListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListTableViewCell.xib; sourceTree = "<group>"; };
+		0489FE7F283FD97200EC5974 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		0489FE80283FD97200EC5974 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		0489FE84283FE2A000EC5974 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		0489FE86283FE6D100EC5974 /* CornerRadiusViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewExtension.swift; sourceTree = "<group>"; };
 		7607DE68283E8B0500A014C7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7607DE6C283E8BF900A014C7 /* FloatingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingBarView.swift; sourceTree = "<group>"; };
 		7607DE6E283E8E5200A014C7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -80,6 +94,7 @@
 		7682F169283EF848004C3DBC /* ProductView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
 		7682F16A283EF848004C3DBC /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		7682F16D283EF857004C3DBC /* ProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		76850705C0E03B81FBD28BF6 /* Pods-BetterBuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBuy.release.xcconfig"; path = "Target Support Files/Pods-BetterBuy/Pods-BetterBuy.release.xcconfig"; sourceTree = "<group>"; };
 		76ED8AA8283ACFC6009F9C61 /* BetterBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ED8AAB283ACFC6009F9C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ED8AAF283ACFC6009F9C61 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +105,11 @@
 		76ED8AC1283ACFCA009F9C61 /* BetterBuyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterBuyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBuyTests.swift; sourceTree = "<group>"; };
 		76ED8AC7283ACFCA009F9C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82086639DCACF0023E52FFFF /* Pods_BetterBuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterBuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8723F5DDB7E7161793ABED33 /* Pods-BetterBuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBuyTests.release.xcconfig"; path = "Target Support Files/Pods-BetterBuyTests/Pods-BetterBuyTests.release.xcconfig"; sourceTree = "<group>"; };
+		988333F01EC070347851F037 /* Pods-BetterBuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBuy.debug.xcconfig"; path = "Target Support Files/Pods-BetterBuy/Pods-BetterBuy.debug.xcconfig"; sourceTree = "<group>"; };
+		BC13EA2C83F870CBA99DFC9A /* Pods_BetterBuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterBuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF18885C963FA63EF91DF1A8 /* Pods-BetterBuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBuyTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterBuyTests/Pods-BetterBuyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D187A779488176D8323251 /* Pods_BetterBuy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77989A06EECE7E1BBBEF0070 /* Pods_BetterBuyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,27 +152,27 @@
 		045F5F55283EB2BE006853BB /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				045F5F5D283EB2FE006853BB /* View */,
-				045F5F5C283EB2F2006853BB /* ViewController */,
+				045F5F5D283EB2FE006853BB /* ViewModel */,
+				045F5F5C283EB2F2006853BB /* View */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		045F5F5C283EB2F2006853BB /* ViewController */ = {
+		045F5F5C283EB2F2006853BB /* View */ = {
 			isa = PBXGroup;
 			children = (
 				045F5F58283EB2E6006853BB /* SettingsViewController.swift */,
 				045F5F59283EB2E6006853BB /* SettingsViewController.xib */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
-		045F5F5D283EB2FE006853BB /* View */ = {
+		045F5F5D283EB2FE006853BB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				045F5F56283EB2D2006853BB /* SettingViewModel.swift */,
 			);
-			path = View;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		045F5F5E283EB30E006853BB /* Profile */ = {
@@ -167,6 +189,10 @@
 			children = (
 				045F5F63283EB350006853BB /* ProfileViewController.swift */,
 				045F5F64283EB350006853BB /* ProfileViewController.xib */,
+				0489FE7B283FD95600EC5974 /* WishListTableViewCell.swift */,
+				0489FE7C283FD95600EC5974 /* WishListTableViewCell.xib */,
+				0489FE7F283FD97200EC5974 /* OrderTableViewCell.swift */,
+				0489FE80283FD97200EC5974 /* OrderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,6 +247,15 @@
 				045F5F51283E96FA006853BB /* View */,
 			);
 			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		0489FE83283FE27900EC5974 /* UIHelper */ = {
+			isa = PBXGroup;
+			children = (
+				0489FE84283FE2A000EC5974 /* RoundedImageView.swift */,
+				0489FE86283FE6D100EC5974 /* CornerRadiusViewExtension.swift */,
+			);
+			path = UIHelper;
 			sourceTree = "<group>";
 		};
 		7607DE67283E8A9E00A014C7 /* TabBarController */ = {
@@ -325,6 +360,8 @@
 				76ED8AAA283ACFC6009F9C61 /* BetterBuy */,
 				76ED8AC4283ACFCA009F9C61 /* BetterBuyTests */,
 				76ED8AA9283ACFC6009F9C61 /* Products */,
+				D75F7BDA08F016D474B46A3B /* Pods */,
+				EA9A17CFB9A1F558B6C68BA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,6 +377,7 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
+				0489FE83283FE27900EC5974 /* UIHelper */,
 				7682F166283EF80C004C3DBC /* ProductScreen */,
 				7682F159283EF769004C3DBC /* Categories */,
 				046FC080283D8C55000E46E8 /* Coordinators */,
@@ -369,6 +407,26 @@
 			path = BetterBuyTests;
 			sourceTree = "<group>";
 		};
+		D75F7BDA08F016D474B46A3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				988333F01EC070347851F037 /* Pods-BetterBuy.debug.xcconfig */,
+				76850705C0E03B81FBD28BF6 /* Pods-BetterBuy.release.xcconfig */,
+				DF18885C963FA63EF91DF1A8 /* Pods-BetterBuyTests.debug.xcconfig */,
+				8723F5DDB7E7161793ABED33 /* Pods-BetterBuyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA9A17CFB9A1F558B6C68BA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82086639DCACF0023E52FFFF /* Pods_BetterBuy.framework */,
+				BC13EA2C83F870CBA99DFC9A /* Pods_BetterBuyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,9 +434,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76ED8ACA283ACFCA009F9C61 /* Build configuration list for PBXNativeTarget "BetterBuy" */;
 			buildPhases = (
+				D54DBC63090D741C9757775F /* [CP] Check Pods Manifest.lock */,
 				76ED8AA4283ACFC6009F9C61 /* Sources */,
 				76ED8AA5283ACFC6009F9C61 /* Frameworks */,
 				76ED8AA6283ACFC6009F9C61 /* Resources */,
+				40AB541DA4F035235099A212 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -393,6 +453,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76ED8ACD283ACFCA009F9C61 /* Build configuration list for PBXNativeTarget "BetterBuyTests" */;
 			buildPhases = (
+				B945D4AFCB36DCA946EEDEB8 /* [CP] Check Pods Manifest.lock */,
 				76ED8ABD283ACFCA009F9C61 /* Sources */,
 				76ED8ABE283ACFCA009F9C61 /* Frameworks */,
 				76ED8ABF283ACFCA009F9C61 /* Resources */,
@@ -450,11 +511,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0489FE7E283FD95600EC5974 /* WishListTableViewCell.xib in Resources */,
 				7682F161283EF7A9004C3DBC /* CatoegorieTableViewCell.xib in Resources */,
 				045F5F66283EB350006853BB /* ProfileViewController.xib in Resources */,
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				7682F160283EF7A9004C3DBC /* CategoryView.xib in Resources */,
 				76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */,
+				0489FE82283FD97200EC5974 /* OrderTableViewCell.xib in Resources */,
 				046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */,
 				045F5F50283E96EC006853BB /* RegisterViewController.xib in Resources */,
 				045F5F5B283EB2E6006853BB /* SettingsViewController.xib in Resources */,
@@ -472,6 +535,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40AB541DA4F035235099A212 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterBuy/Pods-BetterBuy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterBuy/Pods-BetterBuy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BetterBuy/Pods-BetterBuy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B945D4AFCB36DCA946EEDEB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterBuyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D54DBC63090D741C9757775F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterBuy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		76ED8AA4283ACFC6009F9C61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -481,6 +608,7 @@
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
 				045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */,
 				7682F163283EF7A9004C3DBC /* CategoryViewController.swift in Sources */,
+				0489FE85283FE2A000EC5974 /* RoundedImageView.swift in Sources */,
 				045F5F5A283EB2E6006853BB /* SettingsViewController.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
 				045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */,
@@ -490,10 +618,13 @@
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
 				045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */,
 				7682F16E283EF857004C3DBC /* ProductsViewModel.swift in Sources */,
+				0489FE7D283FD95600EC5974 /* WishListTableViewCell.swift in Sources */,
 				045F5F57283EB2D2006853BB /* SettingViewModel.swift in Sources */,
 				7682F165283EF7BF004C3DBC /* CategoryViewModel.swift in Sources */,
 				7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */,
 				7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */,
+				0489FE81283FD97200EC5974 /* OrderTableViewCell.swift in Sources */,
+				0489FE87283FE6D100EC5974 /* CornerRadiusViewExtension.swift in Sources */,
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
@@ -648,6 +779,7 @@
 		};
 		76ED8ACB283ACFCA009F9C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 988333F01EC070347851F037 /* Pods-BetterBuy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -666,6 +798,7 @@
 		};
 		76ED8ACC283ACFCA009F9C61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76850705C0E03B81FBD28BF6 /* Pods-BetterBuy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -684,6 +817,7 @@
 		};
 		76ED8ACE283ACFCA009F9C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF18885C963FA63EF91DF1A8 /* Pods-BetterBuyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -705,6 +839,7 @@
 		};
 		76ED8ACF283ACFCA009F9C61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8723F5DDB7E7161793ABED33 /* Pods-BetterBuyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

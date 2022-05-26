@@ -1,0 +1,117 @@
+PODS:
+  - Alamofire (5.5.0)
+  - AMPopTip (4.6.1)
+  - Cosmos (23.0.0)
+  - DynamicBlurView (4.1.0)
+  - EasyNotificationBadge (1.2.5)
+  - FSPagerView (0.8.3)
+  - ImageSlideshow (1.9.2):
+    - ImageSlideshow/Core (= 1.9.2)
+  - ImageSlideshow/Core (1.9.2)
+  - IQKeyboardManagerSwift (6.5.10)
+  - liquid-swipe (0.7.0):
+    - pop (~> 1.0)
+  - Loaf (0.7.0)
+  - lottie-ios (3.3.0)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - NVActivityIndicatorView/Extended (5.1.1):
+    - NVActivityIndicatorView/Base
+  - pop (1.0.12)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
+  - Presentr (1.9)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SCPageControl (0.4.0)
+  - SDWebImage (5.12.2):
+    - SDWebImage/Core (= 5.12.2)
+  - SDWebImage/Core (5.12.2)
+  - SimpleCheckbox (2.1.0)
+
+DEPENDENCIES:
+  - AMPopTip
+  - Cosmos
+  - EasyNotificationBadge
+  - FSPagerView
+  - ImageSlideshow
+  - IQKeyboardManagerSwift
+  - liquid-swipe
+  - Loaf
+  - lottie-ios
+  - NVActivityIndicatorView/Extended
+  - PopupDialog
+  - Presentr
+  - RxAlamofire
+  - RxCocoa
+  - RxGesture
+  - RxSwift
+  - SCPageControl
+  - SDWebImage
+  - SimpleCheckbox
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AMPopTip
+    - Cosmos
+    - DynamicBlurView
+    - EasyNotificationBadge
+    - FSPagerView
+    - ImageSlideshow
+    - IQKeyboardManagerSwift
+    - liquid-swipe
+    - Loaf
+    - lottie-ios
+    - NVActivityIndicatorView
+    - pop
+    - PopupDialog
+    - Presentr
+    - RxAlamofire
+    - RxCocoa
+    - RxGesture
+    - RxRelay
+    - RxSwift
+    - SCPageControl
+    - SDWebImage
+    - SimpleCheckbox
+
+SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  AMPopTip: a9384bcc42013831dcce185d8687b0abf946496b
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
+  EasyNotificationBadge: a3ebbcb1de0c0558e102e954380c75801f352702
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  liquid-swipe: 850f88c0717fe58ba83f0f571c47a191f29ddc1f
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
+  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
+  SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
+
+PODFILE CHECKSUM: 3ec0a60e86e3e6c42b797cde42b20e01c5b5a64d
+
+COCOAPODS: 1.11.2
