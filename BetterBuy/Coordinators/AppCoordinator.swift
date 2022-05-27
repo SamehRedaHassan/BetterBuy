@@ -28,7 +28,9 @@ class AppCoordinator: Coordinator {
         //goToFirstPage()
 //        goToSignUpPage()
         //goToFirstPage()
-        goToProfilePage()
+        //goToProfilePage()
+        //goToNotLoogedInProfilePage()
+        goToProductDetailsPage()
     }
     
     func goToFirstPage(){
@@ -97,5 +99,28 @@ class AppCoordinator: Coordinator {
             orderListViewController.viewModel = orderListViewModel
              navigationController.pushViewController(orderListViewController, animated: true)
     }
+    
+    
+    func goToNotLoogedInProfilePage(){
+        let notLoggedInViewController = NotLoggedInProfileViewController(nibName: String(describing: NotLoggedInProfileViewController.self), bundle: nil)
+            let notLoggedInViewModel = NotLoggedInViewModel.init()
+            notLoggedInViewModel.appCoordinator = self
+            notLoggedInViewController.viewModel = notLoggedInViewModel
+             navigationController.pushViewController(notLoggedInViewController, animated: true)
+    }
+    
+    func goToLoginPage(){
+        
+    }
+    
+    
+    func goToProductDetailsPage(){
+        let goToProductDetailsViewController = DetailsViewController(nibName: String(describing: DetailsViewController.self), bundle: nil)
+            let goToProductDetailsViewModel = DetailsViewModel.init()
+            goToProductDetailsViewModel.appCoordinator = self
+            goToProductDetailsViewController.viewModel = goToProductDetailsViewModel
+             navigationController.pushViewController(goToProductDetailsViewController, animated: true)
+    }
+    
     
 }
