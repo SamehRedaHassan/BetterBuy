@@ -27,8 +27,13 @@ class AppCoordinator: Coordinator {
          // The first time this coordinator started, is to launch login page.
         //goToFirstPage()
 //        goToSignUpPage()
+
         //goToFirstPage()
-        goToProfilePage()
+  //      goToProfilePage()
+
+      //  goToFirstPage()
+        goToOnboardingScreen()
+
     }
     
     func goToFirstPage(){
@@ -54,6 +59,8 @@ class AppCoordinator: Coordinator {
              navigationController.pushViewController(categoryViewController, animated: true)
     }
     
+
+    
     func goToSignUpPage() {
         // Instantiate LoginViewController
          let registerViewController = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
@@ -73,6 +80,7 @@ class AppCoordinator: Coordinator {
             productsViewController.viewModel = productsViewModel
              navigationController.pushViewController(productsViewController, animated: true)
     }
+
     
     func goToProfilePage(){
         let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
@@ -98,4 +106,13 @@ class AppCoordinator: Coordinator {
              navigationController.pushViewController(orderListViewController, animated: true)
     }
     
+
+    func goToOnboardingScreen(){
+            let onboardingViewController = SlideContainerViewController()
+          //  let productsViewModel = ProductsViewModel.init()
+          //  productsViewModel.appCoordinator = self
+           // productsViewController.viewModel = productsViewModel
+             navigationController.pushViewController(onboardingViewController, animated: true)
+    }
+
 }
