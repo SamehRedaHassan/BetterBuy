@@ -15,8 +15,12 @@ final class ProfileViewModel{
         
     
     //MARK: functions
-//    func goToSignUpScreen() {
-//        appCoordinator?.goToSignUpPage()
-//    }
+    func goToWishListScreen() {
+        appCoordinator?.goToWishListPage()
+    }
+    
+    func goToOrderListScreen() {
+        appCoordinator?.goToProfileOrderListPage()
+    }
     
 }

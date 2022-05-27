@@ -27,7 +27,8 @@ class AppCoordinator: Coordinator {
          // The first time this coordinator started, is to launch login page.
         //goToFirstPage()
 //        goToSignUpPage()
-        goToFirstPage()
+        //goToFirstPage()
+        goToProfilePage()
     }
     
     func goToFirstPage(){
@@ -72,4 +73,29 @@ class AppCoordinator: Coordinator {
             productsViewController.viewModel = productsViewModel
              navigationController.pushViewController(productsViewController, animated: true)
     }
+    
+    func goToProfilePage(){
+        let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
+            let profileViewModel = ProfileViewModel.init()
+            profileViewModel.appCoordinator = self
+            profileViewController.viewModel = profileViewModel
+             navigationController.pushViewController(profileViewController, animated: true)
+    }
+    
+    func goToWishListPage(){
+        let wishListViewController = WishListViewController(nibName: String(describing: WishListViewController.self), bundle: nil)
+            let wishListViewModel = WishListViewModel.init()
+            wishListViewModel.appCoordinator = self
+            wishListViewController.viewModel = wishListViewModel
+             navigationController.pushViewController(wishListViewController, animated: true)
+    }
+    
+    func goToProfileOrderListPage(){
+        let orderListViewController = OrderListViewController(nibName: String(describing: OrderListViewController.self), bundle: nil)
+            let orderListViewModel = OrderListViewModel.init()
+            orderListViewModel.appCoordinator = self
+            orderListViewController.viewModel = orderListViewModel
+             navigationController.pushViewController(orderListViewController, animated: true)
+    }
+    
 }
