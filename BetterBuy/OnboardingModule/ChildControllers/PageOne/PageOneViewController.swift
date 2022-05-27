@@ -15,7 +15,7 @@ class PageOneViewController: UIViewController {
     
     // MARK: - Variables
     private var lottieAnimationView: AnimationView?
-
+    var coordinator : AppCoordinator?
     // MARK: - Life Cycle
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -32,5 +32,9 @@ class PageOneViewController: UIViewController {
         animationView.addSubview(lottieAnimationView!)
         lottieAnimationView!.play()
     }
-
+    // MARK: - IBAction
+    @IBAction func skip(_ sender: UIButton) {
+        coordinator?.goToFirstPage()
+    }
+    
 }
