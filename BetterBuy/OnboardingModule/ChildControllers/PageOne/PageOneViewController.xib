@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageOneViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="Z3v-NA-Dg1" id="gCN-yp-vnk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,22 +24,22 @@
                     <rect key="frame" x="12" y="0.0" width="390" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3v-NA-Dg1">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="448"/>
+                            <rect key="frame" x="0.0" y="60" width="390" height="358.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-Sp-w3k">
-                            <rect key="frame" x="8" y="473" width="374" height="92"/>
+                            <rect key="frame" x="8" y="443.5" width="374" height="92"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast Delivery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAm-a1-2A2">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy our express delivery service all over the world" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qt-Ak-H7a">
                                     <rect key="frame" x="0.0" y="53.5" width="374" height="38.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -50,7 +51,13 @@
                                 <constraint firstAttribute="height" constant="46" id="bQC-yI-t1w"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Let's Start"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Let's Start">
+                                <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="skip:" destination="-1" eventType="touchUpInside" id="nep-2h-U7T"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,16 +66,16 @@
                         <constraint firstItem="ZEv-E3-NUQ" firstAttribute="leading" secondItem="8JD-Ur-9Z2" secondAttribute="leading" constant="24" id="9fL-lc-tbd"/>
                         <constraint firstAttribute="trailing" secondItem="fcS-Sp-w3k" secondAttribute="trailing" constant="8" id="JeI-vN-WNc"/>
                         <constraint firstAttribute="trailing" secondItem="ZEv-E3-NUQ" secondAttribute="trailing" constant="24" id="TM4-a0-Bbf"/>
-                        <constraint firstItem="Z3v-NA-Dg1" firstAttribute="top" secondItem="8JD-Ur-9Z2" secondAttribute="top" id="ZkQ-fS-zYy"/>
+                        <constraint firstItem="Z3v-NA-Dg1" firstAttribute="top" secondItem="8JD-Ur-9Z2" secondAttribute="top" constant="60" id="ZkQ-fS-zYy"/>
                         <constraint firstItem="Z3v-NA-Dg1" firstAttribute="leading" secondItem="8JD-Ur-9Z2" secondAttribute="leading" id="feL-i8-8ch"/>
                         <constraint firstItem="fcS-Sp-w3k" firstAttribute="leading" secondItem="8JD-Ur-9Z2" secondAttribute="leading" constant="8" id="kgT-Nd-sZh"/>
-                        <constraint firstItem="Z3v-NA-Dg1" firstAttribute="height" secondItem="8JD-Ur-9Z2" secondAttribute="height" multiplier="0.5" id="oTy-xa-o4d"/>
+                        <constraint firstItem="Z3v-NA-Dg1" firstAttribute="height" secondItem="8JD-Ur-9Z2" secondAttribute="height" multiplier="0.4" id="oTy-xa-o4d"/>
                         <constraint firstItem="fcS-Sp-w3k" firstAttribute="top" secondItem="Z3v-NA-Dg1" secondAttribute="bottom" constant="25" id="xGX-K1-ckx"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="pagerColorThree"/>
+            <color key="backgroundColor" name="pagerColorOne"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8JD-Ur-9Z2" secondAttribute="bottom" id="1qV-dW-Pyy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZEv-E3-NUQ" secondAttribute="bottom" constant="8" id="CPv-vN-9zp"/>
@@ -80,8 +87,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="pagerColorThree">
-            <color red="0.96078431372549022" green="0.94901960784313721" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="pagerColorOne">
+            <color red="0.9649999737739563" green="0.72500002384185791" blue="0.47099998593330383" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

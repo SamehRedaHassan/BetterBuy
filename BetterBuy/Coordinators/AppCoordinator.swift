@@ -47,7 +47,8 @@ class AppCoordinator: Coordinator {
          splashScrViewController.viewModel = splashScreenViewModel
          // Push it.
 //        navigationController.pushViewController(splashScrViewController, animated: true)
-        navigationController.pushViewController(TabBarContoller(), animated: true)
+        navigationController.viewControllers = [TabBarContoller()]
+      
     }
     
     
@@ -112,6 +113,7 @@ class AppCoordinator: Coordinator {
           //  let productsViewModel = ProductsViewModel.init()
           //  productsViewModel.appCoordinator = self
            // productsViewController.viewModel = productsViewModel
+        onboardingViewController.coordinator = self
              navigationController.pushViewController(onboardingViewController, animated: true)
     }
 
