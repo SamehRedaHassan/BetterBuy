@@ -9,13 +9,31 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
+    //OutLets
+    @IBOutlet weak var productImgsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var productSizesCollectionView: UICollectionView!
+    
     //MARK: variables
     var viewModel : DetailsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
     }
+    
 
+    func setCollectionDelegates(){
+        
+    }
+
+
+
+}
+
+extension DetailsViewController{
+    
 }

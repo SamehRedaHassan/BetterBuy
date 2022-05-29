@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="productImgsCollectionView" destination="kvF-x0-au2" id="kxA-Ly-GBb"/>
+                <outlet property="productSizesCollectionView" destination="kvF-x0-au2" id="Zt9-hO-Ook"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,10 +26,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTS-fG-v8o">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="823"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-PC-hgr">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="823"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoe1" translatesAutoresizingMaskIntoConstraints="NO" id="2ao-Uw-xR4">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="356"/>
@@ -46,7 +48,7 @@
                                                     <state key="normal" image="heart" catalog="system"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIZ-gg-w2m">
-                                                    <rect key="frame" x="0.0" y="318" width="414" height="506"/>
+                                                    <rect key="frame" x="0.0" y="318" width="414" height="505"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEN-cm-w43">
                                                             <rect key="frame" x="25" y="45" width="269" height="41"/>
@@ -64,30 +66,54 @@
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Egk-6d-QEc">
                                                             <rect key="frame" x="25" y="125" width="362" height="95"/>
+                                                            <subviews>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RCY-an-uyP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="362" height="95"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WdN-Tl-fH4">
+                                                                        <size key="itemSize" width="128" height="128"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                </collectionView>
+                                                            </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="95" id="npJ-PY-lmU"/>
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaa-7a-I4Z">
-                                                            <rect key="frame" x="26" y="275" width="362" height="63"/>
+                                                            <rect key="frame" x="26" y="274.5" width="362" height="63"/>
+                                                            <subviews>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kvF-x0-au2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="362" height="63"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mif-lI-Tf6">
+                                                                        <size key="itemSize" width="128" height="128"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                </collectionView>
+                                                            </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="63" id="TVx-HL-ePD"/>
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joi-8Y-84n">
-                                                            <rect key="frame" x="25" y="360" width="100" height="22"/>
+                                                            <rect key="frame" x="25" y="359.5" width="100" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTT-13-DXp">
-                                                            <rect key="frame" x="25" y="238" width="37" height="22"/>
+                                                            <rect key="frame" x="25" y="238" width="36.5" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yo-Jn-0FA">
-                                                            <rect key="frame" x="25" y="453" width="363" height="40"/>
+                                                            <rect key="frame" x="25" y="452" width="363" height="40"/>
                                                             <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="iqb-Ux-TVq"/>
@@ -113,7 +139,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A shoe is an item of footwear intended to protect and comfort the human foot. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-ig-J6B">
-                                                            <rect key="frame" x="26" y="399" width="362" height="41"/>
+                                                            <rect key="frame" x="26" y="398" width="362" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

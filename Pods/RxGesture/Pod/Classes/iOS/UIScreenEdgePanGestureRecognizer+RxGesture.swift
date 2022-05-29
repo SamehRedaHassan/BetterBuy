@@ -18,8 +18,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -28,26 +26,25 @@ public typealias ScreenEdgePanConfiguration = Configuration<UIScreenEdgePanGestu
 public typealias ScreenEdgePanControlEvent = ControlEvent<UIScreenEdgePanGestureRecognizer>
 public typealias ScreenEdgePanObservable = Observable<UIScreenEdgePanGestureRecognizer>
 
-extension Factory where Gesture == RxGestureRecognizer {
+extension Factory where Gesture == GestureRecognizer {
 
     /**
      Returns an `AnyFactory` for `UIScreenEdgePanGestureRecognizer`
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public static func screenEdgePan(configuration: ScreenEdgePanConfiguration? = nil) -> AnyFactory {
-        make(configuration: configuration).abstracted()
+        return make(configuration: configuration).abstracted()
     }
 }
 
-extension Reactive where Base: RxGestureView {
+extension Reactive where Base: View {
 
     /**
      Returns an observable `UIScreenEdgePanGestureRecognizer` events sequence
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public func screenEdgePanGesture(configuration: ScreenEdgePanConfiguration? = nil) -> ScreenEdgePanControlEvent {
-        gesture(make(configuration: configuration))
+        return gesture(make(configuration: configuration))
     }
 }
 
-#endif

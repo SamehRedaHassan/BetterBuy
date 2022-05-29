@@ -3,7 +3,7 @@ RxAlamofire
 
 RxAlamofire is a [RxSwift](https://github.com/ReactiveX/RxSwift) wrapper around the elegant HTTP networking in Swift [Alamofire](https://github.com/Alamofire/Alamofire).
 
-![Create release](https://github.com/RxSwiftCommunity/RxAlamofire/workflows/Create%20release/badge.svg)
+[![CircleCI](https://img.shields.io/circleci/project/github/RxSwiftCommunity/RxAlamofire/master.svg)](https://circleci.com/gh/RxSwiftCommunity/RxAlamofire/tree/master)
 [![Version](https://img.shields.io/cocoapods/v/RxAlamofire.svg?style=flat)](http://cocoapods.org/pods/RxAlamofire)
 [![License](https://img.shields.io/cocoapods/l/RxAlamofire.svg?style=flat)](http://cocoapods.org/pods/RxAlamofire)
 [![Platform](https://img.shields.io/cocoapods/p/RxAlamofire.svg?style=flat)](http://cocoapods.org/pods/RxAlamofire)
@@ -17,7 +17,7 @@ A basic usage is (considering a simple currency converter):
 
 ```swift
 let formatter = NSNumberFormatter()
-formatter.numberStyle = .currencyStyle
+formatter.numberStyle = .CurrencyStyle
 formatter.currencyCode = "USD"
 if let fromValue = NSNumberFormatter().numberFromString(self.fromTextField.text!) {
 
@@ -50,11 +50,6 @@ let stringURL = ""
 
 // MARK: URLSession simple and fast
 let session = URLSession.shared()
-
-_ = session.rx
-    .response(.get, stringURL)
-    .observeOn(MainScheduler.instance)
-    .subscribe { print($0) }
 
 _ = session.rx
     .json(.get, stringURL)
@@ -108,28 +103,28 @@ _ = request(.get, stringURL)
     .subscribe { print($0) }
 
 
-// MARK: Alamofire Session
-// same methods with any Alamofire Session
+// MARK: Alamofire manager
+// same methods with any alamofire manager
 
-let session = Session.default
+let manager = SessionManager.default
 
 // simple case
-_ = session.rx.json(.get, stringURL)
+_ = manager.rx.json(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
 // URLHTTPResponse + JSON
-_ = session.rx.responseJSON(.get, stringURL)
+_ = manager.rx.responseJSON(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
 // URLHTTPResponse + String
-_ = session.rx.responseString(.get, stringURL)
+_ = manager.rx.responseString(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
 // URLHTTPResponse + Validation + JSON
-_ = session.rx.request(.get, stringURL)
+_ = manager.rx.request(.get, stringURL)
     .validate(statusCode: 200 ..< 300)
     .validate(contentType: ["text/json"])
     .json()
@@ -137,7 +132,7 @@ _ = session.rx.request(.get, stringURL)
     .subscribe { print($0) }
 
 // URLHTTPResponse + Validation + URLHTTPResponse + JSON
-_ = session.rx.request(.get, stringURL)
+_ = manager.rx.request(.get, stringURL)
     .validate(statusCode: 200 ..< 300)
     .validate(contentType: ["text/json"])
     .responseJSON()
@@ -145,7 +140,7 @@ _ = session.rx.request(.get, stringURL)
     .subscribe { print($0) }
 
 // URLHTTPResponse + Validation + URLHTTPResponse + String + Progress
-_ = session.rx.request(.get, stringURL)
+_ = manager.rx.request(.get, stringURL)
     .validate(statusCode: 200 ..< 300)
     .validate(contentType: ["text/something"])
     .flatMap { request -> Observable<(String?, RxProgress)> in
@@ -156,17 +151,6 @@ _ = session.rx.request(.get, stringURL)
         let progressPart = request.rx.progress()
         return Observable.combineLatest(stringPart, progressPart) { ($0, $1) }
     }
-    .observeOn(MainScheduler.instance)
-    .subscribe { print($0) }
-
-// Interceptor + URLHTTPResponse + Validation + JSON
-let adapter = // Some RequestAdapter
-let retrier = // Some RequestRetrier
-let interceptor = Interceptor(adapter: adapter, retrier: retrier)
-_ = session.rx.request(.get, stringURL)
-    .validate()
-    .validate(contentType: ["text/json"])
-    .responseJSON()
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 ```
@@ -188,7 +172,7 @@ pod 'RxAlamofire'
 Add following to `Cartfile`:
 
 ```
-github "RxSwiftCommunity/RxAlamofire" ~> 6.1
+github "RxSwiftCommunity/RxAlamofire" "master"
 ```
 
 ### Swift Package manager
@@ -196,7 +180,7 @@ github "RxSwiftCommunity/RxAlamofire" ~> 6.1
 Create a `Package.swift`  file
 
 ```
-// swift-tools-version:5.0
+// swift-tools-version:4.0
 
 import PackageDescription
 
@@ -205,7 +189,7 @@ let package = Package(
 
         dependencies: [
             .package(url: "https://github.com/RxSwiftCommunity/RxAlamofire.git",
-                     from: "6.1.0"),
+                     from: "4.0.0"),
         ],
 
         targets: [
@@ -223,10 +207,4 @@ To manual install this extension you should get the `RxAlamofire/Source/RxAlamof
 
 ## Requirements
 
-RxAlamofire requires Swift 5.1 and dedicated versions of Alamofire (5.4.1) and RxSwift (6.0.0).
-
-For the last RxSwift 5.1 support, please use RxAlamofire 5.7.1.
-
-For the last Swift 5.0 support, please use RxAlamofire 5.1.0.
-
-For the last Swift 4.2 support, please use RxAlamofire 4.5.0.
+RxAlamofire requires Swift 4.0 and dedicated versions of Alamofire (4.5.1) and RxSwift (4.0.0-beta.0).
