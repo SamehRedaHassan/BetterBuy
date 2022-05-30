@@ -39,6 +39,7 @@
 		7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607DE73283E8FA800A014C7 /* BaseViewController.swift */; };
 		7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607DE76283EB44D00A014C7 /* HomeViewController.swift */; };
 		7607DE79283EB44D00A014C7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7607DE77283EB44D00A014C7 /* HomeViewController.xib */; };
+		7616B7BE28457BA6008FB86C /* SelfSizedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616B7BD28457BA6008FB86C /* SelfSizedCollectionView.swift */; };
 		7682F160283EF7A9004C3DBC /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F15C283EF7A8004C3DBC /* CategoryView.xib */; };
 		7682F161283EF7A9004C3DBC /* CatoegorieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F15D283EF7A8004C3DBC /* CatoegorieTableViewCell.xib */; };
 		7682F162283EF7A9004C3DBC /* CatoegorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F15E283EF7A8004C3DBC /* CatoegorieTableViewCell.swift */; };
@@ -114,6 +115,7 @@
 		7607DE73283E8FA800A014C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7607DE76283EB44D00A014C7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7607DE77283EB44D00A014C7 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7616B7BD28457BA6008FB86C /* SelfSizedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedCollectionView.swift; sourceTree = "<group>"; };
 		7682F15C283EF7A8004C3DBC /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
 		7682F15D283EF7A8004C3DBC /* CatoegorieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatoegorieTableViewCell.xib; sourceTree = "<group>"; };
 		7682F15E283EF7A8004C3DBC /* CatoegorieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatoegorieTableViewCell.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			children = (
 				7607DE76283EB44D00A014C7 /* HomeViewController.swift */,
 				7607DE77283EB44D00A014C7 /* HomeViewController.xib */,
+				7616B7BD28457BA6008FB86C /* SelfSizedCollectionView.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				0489FE7D283FD95600EC5974 /* WishListTableViewCell.swift in Sources */,
 				045F5F57283EB2D2006853BB /* SettingViewModel.swift in Sources */,
 				0489FE8F2840465700EC5974 /* WishListViewController.swift in Sources */,
+				7616B7BE28457BA6008FB86C /* SelfSizedCollectionView.swift in Sources */,
 				7682F165283EF7BF004C3DBC /* CategoryViewModel.swift in Sources */,
 				7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */,
 				7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */,
