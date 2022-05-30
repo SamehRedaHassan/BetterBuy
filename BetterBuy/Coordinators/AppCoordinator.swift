@@ -27,10 +27,16 @@ class AppCoordinator: Coordinator {
          // The first time this coordinator started, is to launch login page.
         //goToFirstPage()
 //        goToSignUpPage()
+
         //goToFirstPage()
         //goToProfilePage()
         //goToNotLoogedInProfilePage()
         goToProductDetailsPage()
+  //      goToProfilePage()
+
+      //  goToFirstPage()
+     //   goToOnboardingScreen()
+
     }
     
     func goToFirstPage(){
@@ -44,7 +50,8 @@ class AppCoordinator: Coordinator {
          splashScrViewController.viewModel = splashScreenViewModel
          // Push it.
 //        navigationController.pushViewController(splashScrViewController, animated: true)
-        navigationController.pushViewController(TabBarContoller(), animated: true)
+        navigationController.viewControllers = [TabBarContoller()]
+      
     }
     
     
@@ -55,6 +62,8 @@ class AppCoordinator: Coordinator {
             categoryViewController.viewModel = categoryViewModel
              navigationController.pushViewController(categoryViewController, animated: true)
     }
+    
+
     
     func goToSignUpPage() {
         // Instantiate LoginViewController
@@ -75,6 +84,7 @@ class AppCoordinator: Coordinator {
             productsViewController.viewModel = productsViewModel
              navigationController.pushViewController(productsViewController, animated: true)
     }
+
     
     func goToProfilePage(){
         let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
@@ -123,4 +133,14 @@ class AppCoordinator: Coordinator {
     }
     
     
+
+    func goToOnboardingScreen(){
+            let onboardingViewController = SlideContainerViewController()
+          //  let productsViewModel = ProductsViewModel.init()
+          //  productsViewModel.appCoordinator = self
+           // productsViewController.viewModel = productsViewModel
+        onboardingViewController.coordinator = self
+             navigationController.pushViewController(onboardingViewController, animated: true)
+    }
+
 }
