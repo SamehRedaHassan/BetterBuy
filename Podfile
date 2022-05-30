@@ -25,7 +25,7 @@ pod 'FSPagerView'
 
 pod 'Loaf'
 pod 'AMPopTip'
-pod 'SCPageControl'	
+pod 'SCPageControl'
 pod 'liquid-swipe'
 
 

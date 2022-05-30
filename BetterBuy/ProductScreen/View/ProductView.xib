@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="productCollectionView" destination="Ef5-vO-dlE" id="epS-gJ-Svh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eXX-AJ-yOl"/>
             </connections>
         </placeholder>
@@ -16,9 +17,22 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-vO-dlE">
+                    <rect key="frame" x="20" y="54" width="374" height="842"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewLayout key="collectionViewLayout" id="Ebv-AR-B7W" customClass="ProductsCollectionViewLayout" customModule="BetterBuy" customModuleProvider="target"/>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ef5-vO-dlE" secondAttribute="trailing" constant="20" id="PIL-iC-Foa"/>
+                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="YG2-It-N5N"/>
+                <constraint firstAttribute="bottom" secondItem="Ef5-vO-dlE" secondAttribute="bottom" id="bbC-LS-VDN"/>
+                <constraint firstItem="Ef5-vO-dlE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="urN-6t-8FG"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="133" y="154"/>
+            <point key="canvasLocation" x="72" y="39"/>
         </view>
     </objects>
 </document>

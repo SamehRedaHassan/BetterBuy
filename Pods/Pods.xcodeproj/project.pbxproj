@@ -2132,7 +2132,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		126947E8C46F0966E424CBBBB70335B3 /* Frameworks */ = {
+		6FE29F193379EDDD02B3EE39E2EC1BA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3990,7 +3990,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18FCCCEFE9DBF9BB8AA2A0F835B73A00 /* Headers */ = {
+		3E4DF8AB94F7C569011DFD1FE0C1B4C1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -6192,7 +6192,7 @@
 		};
 		242E799898355B4B89E90BD17EABA6E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1673375A5B8104DDC62ABA26B9F7763 /* Pods-BetterBuyTests.debug.xcconfig */;
+			baseConfigurationReference = 5247C0EBDBBECFFA18D46B03FB914645 /* Pods-BetterBuyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -6227,7 +6227,7 @@
 			};
 			name = Debug;
 		};
-		2F8943E407C496EDA58E7EB34DC339BA /* Release */ = {
+		43CE477070BFCD1827454ED1115C522B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A95A666E2D08279D46C925CFC6375E7 /* NVActivityIndicatorView.release.xcconfig */;
 			buildSettings = {
@@ -6668,6 +6668,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2666A5043AD94C883886426271FF4E13 /* AMPopTip.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6677,18 +6678,21 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AMPopTip/AMPopTip-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-BetterBuy/Pods-BetterBuy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
-				PRODUCT_MODULE_NAME = AMPopTip;
-				PRODUCT_NAME = AMPopTip;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BetterBuy/Pods-BetterBuy.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -7563,7 +7567,7 @@
 		};
 		D5B269EB96AE082045680859500E37CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1D02F23DF07F27162B30A347205C274 /* Pods-BetterBuyTests.release.xcconfig */;
+			baseConfigurationReference = 16056BCFD012C4E295DEE395EBF22702 /* Pods-BetterBuyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -7897,7 +7901,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59586984B55D24745EA6FC83E35BD02F /* Build configuration list for PBXNativeTarget "liquid-swipe" */ = {
+		903D4E315FBB6CC19DE5B1DF8F1796E6 /* Build configuration list for PBXNativeTarget "Pods-BetterBuy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0F8511FBCF8683750B235B5A4B529A69 /* Debug */,
