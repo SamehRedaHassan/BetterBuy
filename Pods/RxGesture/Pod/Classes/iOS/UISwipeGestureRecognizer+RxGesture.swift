@@ -18,8 +18,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -27,8 +25,12 @@ import RxCocoa
 public enum SwipeDirection {
     case right, left, up, down
 
+    #if swift(>=4.2)
     fileprivate typealias SwipeGestureRecognizerDirection = UISwipeGestureRecognizer.Direction
-    
+    #else
+    fileprivate typealias SwipeGestureRecognizerDirection = UISwipeGestureRecognizerDirection
+    #endif
+
     fileprivate var direction: SwipeGestureRecognizerDirection {
         switch self {
         case .right: return .right
@@ -40,7 +42,7 @@ public enum SwipeDirection {
 }
 
 private func make(direction: SwipeDirection, configuration: Configuration<UISwipeGestureRecognizer>?) -> Factory<UISwipeGestureRecognizer> {
-    make {
+    return make {
         $0.direction = direction.direction
         configuration?($0, $1)
     }
@@ -50,25 +52,25 @@ public typealias SwipeConfiguration = Configuration<UISwipeGestureRecognizer>
 public typealias SwipeControlEvent = ControlEvent<UISwipeGestureRecognizer>
 public typealias SwipeObservable = Observable<UISwipeGestureRecognizer>
 
-extension Factory where Gesture == RxGestureRecognizer {
+extension Factory where Gesture == GestureRecognizer {
 
     /**
      Returns an `AnyFactory` for `UISwipeGestureRecognizer`
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public static func swipe(direction: SwipeDirection, configuration: SwipeConfiguration? = nil) -> AnyFactory {
-        make(direction: direction, configuration: configuration).abstracted()
+        return make(direction: direction, configuration: configuration).abstracted()
     }
 }
 
-extension Reactive where Base: RxGestureView {
+extension Reactive where Base: View {
 
     /**
      Returns an observable `UISwipeGestureRecognizer` events sequence
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     private func swipeGesture(direction: SwipeDirection,configuration: SwipeConfiguration? = nil) -> SwipeControlEvent {
-        gesture(make(direction: direction, configuration: configuration))
+        return gesture(make(direction: direction, configuration: configuration))
     }
 
     /**
@@ -87,9 +89,7 @@ extension Reactive where Base: RxGestureView {
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public func swipeGesture(_ directions: SwipeDirection...,configuration: SwipeConfiguration? = nil) -> SwipeControlEvent {
-        swipeGesture(Set(directions), configuration: configuration)
+        return swipeGesture(Set(directions), configuration: configuration)
     }
 
 }
-
-#endif
