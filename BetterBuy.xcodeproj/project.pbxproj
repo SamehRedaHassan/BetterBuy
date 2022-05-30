@@ -49,6 +49,10 @@
 		7682F16E283EF857004C3DBC /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F16D283EF857004C3DBC /* ProductsViewModel.swift */; };
 		769321112840026A0007D369 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769321102840026A0007D369 /* UIViewController.swift */; };
 		76932113284012190007D369 /* order-delivery.json in Resources */ = {isa = PBXBuildFile; fileRef = 76932112284012190007D369 /* order-delivery.json */; };
+		76A65AF3284235C900723AF7 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A65AF2284235C900723AF7 /* NavBar.swift */; };
+		76A65AF5284235DC00723AF7 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A65AF4284235DC00723AF7 /* NavBar.xib */; };
+		76A65AF9284279CF00723AF7 /* advertiseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A65AF7284279CF00723AF7 /* advertiseCollectionViewCell.swift */; };
+		76A65AFA284279CF00723AF7 /* advertiseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A65AF8284279CF00723AF7 /* advertiseCollectionViewCell.xib */; };
 		76BD28D1283FDDD200030700 /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD28CF283FDDD200030700 /* PageOneViewController.swift */; };
 		76BD28D2283FDDD200030700 /* PageOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76BD28D0283FDDD200030700 /* PageOneViewController.xib */; };
 		76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD28D6283FDE2500030700 /* PageTwoViewController.swift */; };
@@ -121,6 +125,10 @@
 		76850705C0E03B81FBD28BF6 /* Pods-BetterBuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBuy.release.xcconfig"; path = "Target Support Files/Pods-BetterBuy/Pods-BetterBuy.release.xcconfig"; sourceTree = "<group>"; };
 		769321102840026A0007D369 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		76932112284012190007D369 /* order-delivery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "order-delivery.json"; sourceTree = "<group>"; };
+		76A65AF2284235C900723AF7 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		76A65AF4284235DC00723AF7 /* NavBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
+		76A65AF7284279CF00723AF7 /* advertiseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advertiseCollectionViewCell.swift; sourceTree = "<group>"; };
+		76A65AF8284279CF00723AF7 /* advertiseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = advertiseCollectionViewCell.xib; sourceTree = "<group>"; };
 		76BD28CF283FDDD200030700 /* PageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
 		76BD28D0283FDDD200030700 /* PageOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageOneViewController.xib; sourceTree = "<group>"; };
 		76BD28D6283FDE2500030700 /* PageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTwoViewController.swift; sourceTree = "<group>"; };
@@ -467,6 +475,33 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		76A65AF02842354400723AF7 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				76A65AF62842793F00723AF7 /* advertiseCollectionViewCell */,
+				76A65AF12842354F00723AF7 /* navBar */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		76A65AF12842354F00723AF7 /* navBar */ = {
+			isa = PBXGroup;
+			children = (
+				76A65AF2284235C900723AF7 /* NavBar.swift */,
+				76A65AF4284235DC00723AF7 /* NavBar.xib */,
+			);
+			path = navBar;
+			sourceTree = "<group>";
+		};
+		76A65AF62842793F00723AF7 /* advertiseCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				76A65AF7284279CF00723AF7 /* advertiseCollectionViewCell.swift */,
+				76A65AF8284279CF00723AF7 /* advertiseCollectionViewCell.xib */,
+			);
+			path = advertiseCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		76BD28CC283FD8F300030700 /* OnboardingModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +579,7 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
+				76A65AF02842354400723AF7 /* Xibs */,
 				0489FE96284047AB00EC5974 /* OrderList */,
 				0489FE8A2840455C00EC5974 /* WishList */,
 				76BD28CC283FD8F300030700 /* OnboardingModule */,
@@ -694,6 +730,7 @@
 				76BD28D2283FDDD200030700 /* PageOneViewController.xib in Resources */,
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76BD28E6283FEA9C00030700 /* PageThreeViewController.xib in Resources */,
+				76A65AFA284279CF00723AF7 /* advertiseCollectionViewCell.xib in Resources */,
 				76BD28EB283FF04B00030700 /* girlAtShopping.json in Resources */,
 				7682F160283EF7A9004C3DBC /* CategoryView.xib in Resources */,
 				76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */,
@@ -704,6 +741,7 @@
 				045F5F5B283EB2E6006853BB /* SettingsViewController.xib in Resources */,
 				0489FE902840465700EC5974 /* WishListViewController.xib in Resources */,
 				7682F16B283EF848004C3DBC /* ProductView.xib in Resources */,
+				76A65AF5284235DC00723AF7 /* NavBar.xib in Resources */,
 				76BD28EA283FF04B00030700 /* cartAnimation.json in Resources */,
 				7607DE79283EB44D00A014C7 /* HomeViewController.xib in Resources */,
 			);
@@ -816,10 +854,12 @@
 				0489FE8928400D8800EC5974 /* CustomUIView.swift in Sources */,
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				0489FEA828405C5400EC5974 /* OrderListViewController.swift in Sources */,
+				76A65AF3284235C900723AF7 /* NavBar.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
 				76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */,
 				769321112840026A0007D369 /* UIViewController.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
+				76A65AF9284279CF00723AF7 /* advertiseCollectionViewCell.swift in Sources */,
 				7607DE6F283E8E5200A014C7 /* UIView.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,
 			);
