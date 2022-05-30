@@ -111,9 +111,7 @@ class AppCoordinator: Coordinator {
              navigationController.pushViewController(notLoggedInViewController, animated: true)
     }
 
-    func goToLoginPage(){
-
-    }
+   
 
 
     func goToProductDetailsPage(){

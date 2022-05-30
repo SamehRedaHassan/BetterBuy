@@ -20,9 +20,9 @@ class TabBarContoller: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let HomeViewController = HomeViewController(nibName: String(describing: HomeViewController.self), bundle: nil)
+        let homeViewController = HomeViewController(nibName: String(describing: HomeViewController.self), bundle: nil)
         
-        let ProfileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
+        let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
         // Instantiate LoginViewModel
        
      //  let splashScreenViewModel = SplashViewModel()
@@ -34,9 +34,9 @@ class TabBarContoller: UITabBarController {
         
         
         viewControllers = [
-            createNavViewController(viewController: HomeViewController, title: "Home", imageName: "house.fill"),
+            createNavViewController(viewController: homeViewController, title: "Home", imageName: "house.fill"),
             createNavViewController(viewController: UIViewController(), title: "Categories", imageName: "flame.fill"),
-            createNavViewController(viewController: ProfileViewController, title: "Profile", imageName: "rectangle.3.offgrid.fill")
+            createNavViewController(viewController: profileViewController, title: "Profile", imageName: "rectangle.3.offgrid.fill")
         ]
         tabBar.isHidden = true
 
