@@ -18,8 +18,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -28,29 +26,29 @@ public typealias PanConfiguration = Configuration<UIPanGestureRecognizer>
 public typealias PanControlEvent = ControlEvent<UIPanGestureRecognizer>
 public typealias PanObservable = Observable<UIPanGestureRecognizer>
 
-extension Factory where Gesture == RxGestureRecognizer {
+extension Factory where Gesture == GestureRecognizer {
 
     /**
      Returns an `AnyFactory` for `UIPanGestureRecognizer`
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public static func pan(configuration: PanConfiguration? = nil) -> AnyFactory {
-        make(configuration: configuration).abstracted()
+        return make(configuration: configuration).abstracted()
     }
 }
 
-extension Reactive where Base: RxGestureView {
+extension Reactive where Base: View {
 
     /**
      Returns an observable `UIPanGestureRecognizer` events sequence
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public func panGesture(configuration: PanConfiguration? = nil) -> PanControlEvent {
-        gesture(make(configuration: configuration))
+        return gesture(make(configuration: configuration))
     }
 }
 
-extension ObservableType where Element: UIPanGestureRecognizer {
+extension ObservableType where E: UIPanGestureRecognizer {
 
     /**
      Maps the observable `GestureRecognizer` events sequence to an observable sequence of translation values of the pan gesture in the coordinate system of the specified `view` alongside the gesture velocity.
@@ -58,7 +56,7 @@ extension ObservableType where Element: UIPanGestureRecognizer {
      - parameter view: A `TargetView` value on which the gesture took place.
      */
     public func asTranslation(in view: TargetView = .view) -> Observable<(translation: CGPoint, velocity: CGPoint)> {
-        self.map { gesture in
+        return self.map { gesture in
             let view = view.targetView(for: gesture)
             return (
                 gesture.translation(in: view),
@@ -67,5 +65,3 @@ extension ObservableType where Element: UIPanGestureRecognizer {
         }
     }
 }
-
-#endif

@@ -26,8 +26,8 @@
         /// Parent object associated with delegate proxy.
         private weak var _parentObject: ParentObject?
 
-        private let _currentDelegateFor: (ParentObject) -> AnyObject?
-        private let _setCurrentDelegateTo: (AnyObject?, ParentObject) -> Void
+        fileprivate let _currentDelegateFor: (ParentObject) -> AnyObject?
+        fileprivate let _setCurrentDelegateTo: (AnyObject?, ParentObject) -> Void
 
         /// Initializes new instance.
         ///
@@ -200,7 +200,7 @@
         /// Sets reference of normal delegate that receives all forwarded messages
         /// through `self`.
         ///
-        /// - parameter delegate: Reference of delegate that receives all messages through `self`.
+        /// - parameter forwardToDelegate: Reference of delegate that receives all messages through `self`.
         /// - parameter retainDelegate: Should `self` retain `forwardToDelegate`.
         open func setForwardToDelegate(_ delegate: Delegate?, retainDelegate: Bool) {
             #if DEBUG // 4.0 all configurations
@@ -225,7 +225,6 @@
         }
 
         override open func responds(to aSelector: Selector!) -> Bool {
-            guard let aSelector = aSelector else { return false }
             return super.responds(to: aSelector)
                 || (self._forwardToDelegate?.responds(to: aSelector) ?? false)
                 || (self.voidDelegateMethodsContain(aSelector) && self.hasObservers(selector: aSelector))
@@ -259,7 +258,7 @@
 
     private let mainScheduler = MainScheduler()
 
-    private final class MessageDispatcher {
+    fileprivate final class MessageDispatcher {
         private let dispatcher: PublishSubject<[Any]>
         private let result: Observable<[Any]>
 
@@ -275,7 +274,7 @@
             self.result = dispatcher
                 .do(onSubscribed: { weakDelegateProxy?.checkSelectorIsObservable(selector); weakDelegateProxy?.reset() }, onDispose: { weakDelegateProxy?.reset() })
                 .share()
-                .subscribe(on: mainScheduler)
+                .subscribeOn(mainScheduler)
         }
 
         var on: (Event<[Any]>) -> Void {

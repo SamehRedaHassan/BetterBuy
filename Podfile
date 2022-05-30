@@ -9,13 +9,12 @@ target 'BetterBuy' do
 
 pod 'IQKeyboardManagerSwift'
 pod "Presentr"
-pod 'RxSwift'
-pod 'RxCocoa'
-pod 'RxGesture'
-pod 'RxAlamofire'
+pod 'RxAlamofire','4.3'
+pod 'RxSwift','4.5'
+pod 'RxGesture','2.2.0'
+pod 'RxCocoa','4.5'
+
 pod 'SDWebImage'
-
-
 
 pod 'ImageSlideshow'
 pod 'EasyNotificationBadge'
