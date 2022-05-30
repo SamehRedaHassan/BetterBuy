@@ -69,8 +69,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
             }()
             //safe characters +
             //unsafe characters " "
-            
-            let url = URL(string: (baseURL + (relativeURL ?? "")).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!
+            //.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
+            let url = URL(string: (baseURL + (relativeURL ?? "")))!
             return url
         }()
         
@@ -99,7 +99,12 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = headers
         print(urlRequest)
-        return try encoding.encode(urlRequest, with: params)
+        switch self {
+        case .getAllCustomers:
+                    return try encoding.encode(urlRequest, with: nil)
+
+       
+        }
     }
     
     

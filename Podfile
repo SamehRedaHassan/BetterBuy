@@ -14,6 +14,7 @@ pod 'RxCocoa','4.5'
 pod 'RxGesture','2.2.0'
 pod 'RxAlamofire','4.3'
 pod 'SDWebImage'
+pod 'Alamofire','4.9.1'
 
 
 pod 'ImageSlideshow'

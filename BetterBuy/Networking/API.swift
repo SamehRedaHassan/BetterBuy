@@ -10,15 +10,15 @@ import Foundation
 import RxSwift
 import RxAlamofire
 import Alamofire
-
+//
 //let sessionManager: Session
-
-func setupSession() {
-    let configuration = URLSessionConfiguration.default
-    configuration.timeoutIntervalForRequest = 60
-    configuration.urlCache = nil
-    sessionManager = Alamofire.Session(configuration: configuration)
-}
+//
+//func setupSession() {
+//    let configuration = URLSessionConfiguration.default
+//    configuration.timeoutIntervalForRequest = 60
+//    configuration.urlCache = nil
+//    sessionManager = Alamofire.Session(configuration: configuration)
+//}
 
 func getApi(apiRouter :APIRouter) -> Observable<APIResult<[String:Any]>> {
     return handleDataRequest(dataRequest: requestObservable(api: apiRouter)).map({ (response) -> APIResult<[String:Any]> in
@@ -97,5 +97,6 @@ func getApi(apiRouter :APIRouter) -> Observable<APIResult<[String:Any]>> {
 }
 func requestObservable(api:APIRouter) -> Observable<DataRequest> {
     
-    return sessionManager.rx.request(urlRequest: api)
+    return Alamofire.SessionManager.default.rx.request( urlRequest: api)
+    //sessionManager.rx.request(urlRequest: api)
 }

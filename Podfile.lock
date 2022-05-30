@@ -38,6 +38,7 @@ PODS:
   - SimpleCheckbox (2.1.0)
 
 DEPENDENCIES:
+  - Alamofire (= 4.9.1)
   - AMPopTip
   - Cosmos
   - EasyNotificationBadge
@@ -107,6 +108,6 @@ SPEC CHECKSUMS:
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
 
-PODFILE CHECKSUM: b502c9f853925f8531bd7791a624fa39539fcb5b
+PODFILE CHECKSUM: 346b52faca2b6be0de618a7a949d75a10de9d1e5
 
 COCOAPODS: 1.11.2

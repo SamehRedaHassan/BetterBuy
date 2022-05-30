@@ -25,9 +25,9 @@ class AppCoordinator: Coordinator {
     //MARK: functions
     func start() {
          // The first time this coordinator started, is to launch login page.
-        //goToFirstPage()
-//        goToSignUpPage()
-        goToCartPage()
+        goToFirstPage()
+       // goToSignUpPage()
+        
     }
 
     func goToFirstPage(){
