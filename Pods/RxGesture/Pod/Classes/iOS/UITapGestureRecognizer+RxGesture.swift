@@ -18,8 +18,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -28,26 +26,24 @@ public typealias TapConfiguration = Configuration<UITapGestureRecognizer>
 public typealias TapControlEvent = ControlEvent<UITapGestureRecognizer>
 public typealias TapObservable = Observable<UITapGestureRecognizer>
 
-extension Factory where Gesture == RxGestureRecognizer {
+extension Factory where Gesture == GestureRecognizer {
 
     /**
      Returns an `AnyFactory` for `UITapGestureRecognizer`
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public static func tap(configuration: TapConfiguration? = nil) -> AnyFactory {
-        make(configuration: configuration).abstracted()
+        return make(configuration: configuration).abstracted()
     }
 }
 
-extension Reactive where Base: RxGestureView {
+extension Reactive where Base: View {
 
     /**
      Returns an observable `UITapGestureRecognizer` events sequence
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public func tapGesture(configuration: TapConfiguration? = nil) -> TapControlEvent {
-        gesture(make(configuration: configuration))
+        return gesture(make(configuration: configuration))
     }
 }
-
-#endif

@@ -20,9 +20,8 @@
 
 import RxSwift
 import RxCocoa
-import Dispatch
 
-extension Reactive where Base: RxGestureView {
+extension Reactive where Base: View {
 
     /**
      Reactive wrapper for multiple view gesture recognizers.
@@ -33,9 +32,9 @@ extension Reactive where Base: RxGestureView {
      - parameter factories: a `(Factory + state)` collection you want to use to create the `GestureRecognizers` to add and observe
      - returns: a `ControlEvent<G>` that re-emit the gesture recognizer itself
      */
-    public func anyGesture(_ factories: (AnyFactory, when: RxGestureRecognizerState)...) -> ControlEvent<RxGestureRecognizer> {
+    public func anyGesture(_ factories: (AnyFactory, when: GestureRecognizerState)...) -> ControlEvent<GestureRecognizer> {
         let observables = factories.map { gesture, state in
-            self.gesture(gesture).when(state).asObservable() as Observable<RxGestureRecognizer>
+            self.gesture(gesture).when(state).asObservable() as Observable<GestureRecognizer>
         }
         let source = Observable.from(observables).merge()
         return ControlEvent(events: source)
@@ -50,9 +49,9 @@ extension Reactive where Base: RxGestureView {
      - parameter factories: a `Factory` collection you want to use to create the `GestureRecognizers` to add and observe
      - returns: a `ControlEvent<G>` that re-emit the gesture recognizer itself
      */
-    public func anyGesture(_ factories: AnyFactory...) -> ControlEvent<RxGestureRecognizer> {
+    public func anyGesture(_ factories: AnyFactory...) -> ControlEvent<GestureRecognizer> {
         let observables = factories.map { factory in
-            self.gesture(factory).asObservable() as Observable<RxGestureRecognizer>
+            self.gesture(factory).asObservable() as Observable<GestureRecognizer>
         }
         let source = Observable.from(observables).merge()
         return ControlEvent(events: source)
@@ -68,7 +67,7 @@ extension Reactive where Base: RxGestureView {
      - returns: a `ControlEvent<G>` that re-emit the gesture recognizer itself
      */
     public func gesture<G>(_ factory: Factory<G>) -> ControlEvent<G> {
-        self.gesture(factory.gesture)
+        return self.gesture(factory.gesture)
     }
 
     /**
@@ -80,14 +79,15 @@ extension Reactive where Base: RxGestureView {
      - parameter gesture: a `GestureRecognizer` you want to add and observe
      - returns: a `ControlEvent<G>` that re-emit the gesture recognizer itself
      */
-    public func gesture<G: RxGestureRecognizer>(_ gesture: G) -> ControlEvent<G> {
+    public func gesture<G: GestureRecognizer>(_ gesture: G) -> ControlEvent<G> {
 
-        let source = Observable.deferred { [weak control = self.base] () -> Observable<G> in
+        let source = Observable.deferred {
+            [weak control = self.base] () -> Observable<G> in
             MainScheduler.ensureExecutingOnScheduler()
 
             guard let control = control else { return .empty() }
 
-            let genericGesture = gesture as RxGestureRecognizer
+            let genericGesture = gesture as GestureRecognizer
 
             #if os(iOS)
                 control.isUserInteractionEnabled = true
@@ -96,15 +96,13 @@ extension Reactive where Base: RxGestureView {
             control.addGestureRecognizer(gesture)
 
             return genericGesture.rx.event
-                .compactMap { $0 as? G }
+                .map { $0 as! G }
                 .startWith(gesture)
                 .do(onDispose: { [weak control, weak gesture] () in
                     guard let gesture = gesture else { return }
-                    DispatchQueue.main.async {
-                        control?.removeGestureRecognizer(gesture)
-                    }
+                    control?.removeGestureRecognizer(gesture)
                 })
-                .take(until: control.rx.deallocated)
+                .takeUntil(control.rx.deallocated)
         }
 
         return ControlEvent(events: source)

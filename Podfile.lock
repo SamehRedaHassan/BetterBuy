@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.5.0)
+  - Alamofire (4.9.1)
   - AMPopTip (4.6.1)
   - Cosmos (23.0.0)
   - DynamicBlurView (4.1.0)
@@ -20,20 +20,17 @@ PODS:
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - Presentr (1.9)
-  - RxAlamofire (6.1.1):
-    - RxAlamofire/Core (= 6.1.1)
-  - RxAlamofire/Core (6.1.1):
-    - Alamofire (~> 5.4)
-    - RxSwift (~> 6.0)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxGesture (4.0.4):
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
+  - RxAlamofire (4.3.0):
+    - RxAlamofire/Core (= 4.3.0)
+  - RxAlamofire/Core (4.3.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxGesture (2.2.0):
+    - RxCocoa (~> 4.5)
+    - RxSwift (~> 4.5)
+  - RxSwift (4.5.0)
   - SCPageControl (0.4.0)
   - SDWebImage (5.12.2):
     - SDWebImage/Core (= 5.12.2)
@@ -53,10 +50,10 @@ DEPENDENCIES:
   - NVActivityIndicatorView/Extended
   - PopupDialog
   - Presentr
-  - RxAlamofire
-  - RxCocoa
-  - RxGesture
-  - RxSwift
+  - RxAlamofire (= 4.3)
+  - RxCocoa (= 4.5)
+  - RxGesture (= 2.2.0)
+  - RxSwift (= 4.5)
   - SCPageControl
   - SDWebImage
   - SimpleCheckbox
@@ -81,14 +78,13 @@ SPEC REPOS:
     - RxAlamofire
     - RxCocoa
     - RxGesture
-    - RxRelay
     - RxSwift
     - SCPageControl
     - SDWebImage
     - SimpleCheckbox
 
 SPEC CHECKSUMS:
-  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AMPopTip: a9384bcc42013831dcce185d8687b0abf946496b
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
@@ -103,15 +99,14 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
-  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxGesture: c1b7bf17166b0ef9d642a9510f8bac5785f18990
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
 
-PODFILE CHECKSUM: 3ec0a60e86e3e6c42b797cde42b20e01c5b5a64d
+PODFILE CHECKSUM: f83cf350a57395519732f497d05d146892ea15c8
 
 COCOAPODS: 1.11.2

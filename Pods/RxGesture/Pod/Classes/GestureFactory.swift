@@ -17,18 +17,18 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-#if canImport(ObjectiveC)
+
 import RxSwift
 import RxCocoa
 import ObjectiveC
 
-public typealias Configuration<Gesture: RxGestureRecognizer> = (Gesture, GenericRxGestureRecognizerDelegate<Gesture>) -> Void
+public typealias Configuration<Gesture> = (Gesture, RxGestureRecognizerDelegate) -> Void
 
-public struct Factory<Gesture: RxGestureRecognizer> {
+public struct Factory<Gesture: GestureRecognizer> {
     public let gesture: Gesture
     public init(_ configuration: Configuration<Gesture>?) {
         let gesture = Gesture()
-        let delegate = GenericRxGestureRecognizerDelegate<Gesture>()
+        let delegate = RxGestureRecognizerDelegate()
         objc_setAssociatedObject(
             gesture,
             &gestureRecognizerStrongDelegateKey,
@@ -41,20 +41,19 @@ public struct Factory<Gesture: RxGestureRecognizer> {
     }
 
     internal func abstracted() -> AnyFactory {
-        AnyFactory(self.gesture)
+        return AnyFactory(self.gesture)
     }
 }
 
 internal func make<G>(configuration: Configuration<G>? = nil) -> Factory<G> {
-    Factory<G>(configuration)
+    return Factory<G>(configuration)
 }
 
-public typealias AnyFactory = Factory<RxGestureRecognizer>
-extension Factory where Gesture == RxGestureRecognizer {
-    private init<G: RxGestureRecognizer>(_ gesture: G) {
+public typealias AnyFactory = Factory<GestureRecognizer>
+extension Factory where Gesture == GestureRecognizer {
+    private init<G: GestureRecognizer>(_ gesture: G) {
         self.gesture = gesture
     }
 }
 
 private var gestureRecognizerStrongDelegateKey: UInt8 = 0
-#endif

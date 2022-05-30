@@ -18,8 +18,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -36,34 +34,39 @@ public struct TransformVelocity {
     let scale: CGFloat
 }
 
+public typealias TransformConfiguration = Configuration<TransformGestureRecognizers>
 public typealias TransformControlEvent = ControlEvent<TransformGestureRecognizers>
 public typealias TransformObservable = Observable<TransformGestureRecognizers>
 
-extension Reactive where Base: RxGestureView {
-    public func transformGestures() -> TransformControlEvent {
+extension Reactive where Base: View {
+    public func transformGestures(
+        configuration: TransformConfiguration? = nil
+        ) -> TransformControlEvent {
+
         let source = Observable.combineLatest(panGesture(), rotationGesture(), pinchGesture()) {
-            TransformGestureRecognizers(
+            return TransformGestureRecognizers(
                 panGesture: $0,
                 rotationGesture: $1,
                 pinchGesture: $2
             )
         }
+
         return ControlEvent(events: source)
     }
 }
 
-extension ObservableType where Element == TransformGestureRecognizers {
+extension ObservableType where E == TransformGestureRecognizers {
 
-    public func when(_ states: RxGestureRecognizerState...) -> Observable<Element> {
-        filter { gestures in
-            states.contains(gestures.panGesture.state)
+    public func when(_ states: GestureRecognizerState...) -> Observable<E> {
+        return filter { gestures in
+            return states.contains(gestures.panGesture.state)
                 || states.contains(gestures.rotationGesture.state)
                 || states.contains(gestures.pinchGesture.state)
         }
     }
 
     public func asTransform(in view: TargetView = .view) -> Observable<(transform: CGAffineTransform, velocity: TransformVelocity)> {
-        map { gestures in
+        return self.map { gestures in
             let translationView = view.targetView(for: gestures.panGesture)
             let translation = gestures.panGesture.translation(in: translationView)
 
@@ -82,5 +85,3 @@ extension ObservableType where Element == TransformGestureRecognizers {
         }
     }
 }
-
-#endif

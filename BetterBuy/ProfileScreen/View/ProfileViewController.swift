@@ -119,10 +119,5 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         print("my wish")
         viewModel?.goToWishListScreen()
     }
-    
-    
-    
-    
-    
-    
+
 }

@@ -123,40 +123,33 @@
 			<key>orderHint</key>
 			<integer>20</integer>
 		</dict>
-		<key>RxRelay.xcscheme</key>
+		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>21</integer>
 		</dict>
-		<key>RxSwift.xcscheme</key>
+		<key>SCPageControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>22</integer>
 		</dict>
-		<key>SCPageControl.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>23</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>24</integer>
-		</dict>
 		<key>SimpleCheckbox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>25</integer>
+			<integer>24</integer>
 		</dict>
 		<key>liquid-swipe-liquid-swipe.xcscheme</key>
 		<dict>

@@ -17,10 +17,10 @@ extension UITableView: HasPrefetchDataSource {
 }
 
 @available(iOS 10.0, tvOS 10.0, *)
-private let tableViewPrefetchDataSourceNotSet = TableViewPrefetchDataSourceNotSet()
+fileprivate let tableViewPrefetchDataSourceNotSet = TableViewPrefetchDataSourceNotSet()
 
 @available(iOS 10.0, tvOS 10.0, *)
-private final class TableViewPrefetchDataSourceNotSet
+fileprivate final class TableViewPrefetchDataSourceNotSet
     : NSObject
     , UITableViewDataSourcePrefetching {
 
@@ -31,7 +31,8 @@ private final class TableViewPrefetchDataSourceNotSet
 @available(iOS 10.0, tvOS 10.0, *)
 open class RxTableViewDataSourcePrefetchingProxy
     : DelegateProxy<UITableView, UITableViewDataSourcePrefetching>
-    , DelegateProxyType {
+    , DelegateProxyType
+    , UITableViewDataSourcePrefetching {
 
     /// Typed parent object.
     public weak private(set) var tableView: UITableView?
@@ -47,7 +48,7 @@ open class RxTableViewDataSourcePrefetchingProxy
         self.register { RxTableViewDataSourcePrefetchingProxy(tableView: $0) }
     }
 
-    private var _prefetchRowsPublishSubject: PublishSubject<[IndexPath]>?
+    fileprivate var _prefetchRowsPublishSubject: PublishSubject<[IndexPath]>?
 
     /// Optimized version used for observing prefetch rows callbacks.
     internal var prefetchRowsPublishSubject: PublishSubject<[IndexPath]> {
@@ -63,6 +64,17 @@ open class RxTableViewDataSourcePrefetchingProxy
 
     private weak var _requiredMethodsPrefetchDataSource: UITableViewDataSourcePrefetching? = tableViewPrefetchDataSourceNotSet
 
+    // MARK: delegate
+
+    /// Required delegate method implementation.
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if let subject = _prefetchRowsPublishSubject {
+            subject.on(.next(indexPaths))
+        }
+
+        (_requiredMethodsPrefetchDataSource ?? tableViewPrefetchDataSourceNotSet).tableView(tableView, prefetchRowsAt: indexPaths)
+    }
+
     /// For more information take a look at `DelegateProxyType`.
     open override func setForwardToDelegate(_ forwardToDelegate: UITableViewDataSourcePrefetching?, retainDelegate: Bool) {
         _requiredMethodsPrefetchDataSource = forwardToDelegate ?? tableViewPrefetchDataSourceNotSet
@@ -75,18 +87,6 @@ open class RxTableViewDataSourcePrefetchingProxy
         }
     }
 
-}
-
-@available(iOS 10.0, tvOS 10.0, *)
-extension RxTableViewDataSourcePrefetchingProxy: UITableViewDataSourcePrefetching {
-    /// Required delegate method implementation.
-    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        if let subject = _prefetchRowsPublishSubject {
-            subject.on(.next(indexPaths))
-        }
-
-        (_requiredMethodsPrefetchDataSource ?? tableViewPrefetchDataSourceNotSet).tableView(tableView, prefetchRowsAt: indexPaths)
-    }
 }
 
 #endif

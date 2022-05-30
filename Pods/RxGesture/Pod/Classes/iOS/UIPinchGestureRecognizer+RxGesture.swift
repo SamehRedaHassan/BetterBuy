@@ -18,8 +18,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -28,38 +26,36 @@ public typealias PinchConfiguration = Configuration<UIPinchGestureRecognizer>
 public typealias PinchControlEvent = ControlEvent<UIPinchGestureRecognizer>
 public typealias PinchObservable = Observable<UIPinchGestureRecognizer>
 
-extension Factory where Gesture == RxGestureRecognizer {
+extension Factory where Gesture == GestureRecognizer {
 
     /**
      Returns an `AnyFactory` for `UIPinchGestureRecognizer`
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public static func pinch(configuration: PinchConfiguration? = nil) -> AnyFactory {
-        make(configuration: configuration).abstracted()
+        return make(configuration: configuration).abstracted()
     }
 }
 
-extension Reactive where Base: RxGestureView {
+extension Reactive where Base: View {
 
     /**
      Returns an observable `UIPinchGestureRecognizer` events sequence
      - parameter configuration: A closure that allows to fully configure the gesture recognizer
      */
     public func pinchGesture(configuration: PinchConfiguration? = nil) -> PinchControlEvent {
-        gesture(make(configuration: configuration))
+        return gesture(make(configuration: configuration))
     }
 }
 
-extension ObservableType where Element: UIPinchGestureRecognizer {
+extension ObservableType where E: UIPinchGestureRecognizer {
 
     /**
      Maps the observable `GestureRecognizer` events sequence to an observable sequence of scale factors relative to the points of the two touches in screen coordinates alongside the gesture velocity.
      */
     public func asScale() -> Observable<(scale: CGFloat, velocity: CGFloat)> {
-        self.map { gesture in
-            (gesture.scale, gesture.velocity)
+        return self.map { gesture in
+            return (gesture.scale, gesture.velocity)
         }
     }
 }
-
-#endif
