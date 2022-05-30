@@ -14,15 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-<<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/nadaelmasry.xcuserdatad/xcschemes/lottie-ios.xcscheme
                BlueprintIdentifier = "0B967D7F8561D42493EE289EC8D450D1"
                BuildableName = "Lottie.framework"
                BlueprintName = "lottie-ios"
-========
-               BlueprintIdentifier = "05CD444C00C6CAA111C79CAB43F093D4"
-               BuildableName = "Pods_BetterBuy.framework"
-               BlueprintName = "Pods-BetterBuy"
->>>>>>>> FinalMerge:Pods/Pods.xcodeproj/xcuserdata/mohamedadel.xcuserdatad/xcschemes/Pods-BetterBuy.xcscheme
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

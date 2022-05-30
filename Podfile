@@ -16,7 +16,6 @@ pod 'RxAlamofire','4.3'
 pod 'SDWebImage'
 
 
-
 pod 'ImageSlideshow'
 pod 'EasyNotificationBadge'
 pod 'SimpleCheckbox'

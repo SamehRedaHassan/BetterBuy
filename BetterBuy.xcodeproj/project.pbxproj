@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044702052844FB3600DD62BE /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044702042844FB3600DD62BE /* APIRouter.swift */; };
+		0447020728451FE800DD62BE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447020628451FE800DD62BE /* API.swift */; };
+		04470209284520D700DD62BE /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04470208284520D700DD62BE /* APIResult.swift */; };
+		0447020B2845218E00DD62BE /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447020A2845218E00DD62BE /* APICallError.swift */; };
 		045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F4D283E96EC006853BB /* RegisterViewController.swift */; };
 		045F5F50283E96EC006853BB /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F5F4E283E96EC006853BB /* RegisterViewController.xib */; };
 		045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F53283EA590006853BB /* RegisterViewModel.swift */; };
@@ -98,6 +102,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044702042844FB3600DD62BE /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		0447020628451FE800DD62BE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		04470208284520D700DD62BE /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		0447020A2845218E00DD62BE /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
 		045F5F4D283E96EC006853BB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		045F5F4E283E96EC006853BB /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		045F5F53283EA590006853BB /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -206,6 +214,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044702032844FB0400DD62BE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				044702042844FB3600DD62BE /* APIRouter.swift */,
+				0447020628451FE800DD62BE /* API.swift */,
+				04470208284520D700DD62BE /* APIResult.swift */,
+				0447020A2845218E00DD62BE /* APICallError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		045F5F51283E96FA006853BB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +738,7 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
+				044702032844FB0400DD62BE /* Networking */,
 				0489FEE928417E4800EC5974 /* DetailsScreen */,
 				0489FE96284047AB00EC5974 /* OrderList */,
 				0489FE8A2840455C00EC5974 /* WishList */,
@@ -969,6 +989,7 @@
 				045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */,
 				7682F163283EF7A9004C3DBC /* CategoryViewController.swift in Sources */,
 				0489FE85283FE2A000EC5974 /* RoundedImageView.swift in Sources */,
+				0447020B2845218E00DD62BE /* APICallError.swift in Sources */,
 				0489FE95284046CC00EC5974 /* WishListViewModel.swift in Sources */,
 				045F5F5A283EB2E6006853BB /* SettingsViewController.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
@@ -994,12 +1015,14 @@
 				7682F165283EF7BF004C3DBC /* CategoryViewModel.swift in Sources */,
 				7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */,
 				7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */,
+				04470209284520D700DD62BE /* APIResult.swift in Sources */,
 				0489FE81283FD97200EC5974 /* OrderTableViewCell.swift in Sources */,
 				0489FE8928400D8800EC5974 /* CustomUIView.swift in Sources */,
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				0489FEA828405C5400EC5974 /* OrderListViewController.swift in Sources */,
 				0489FED52840DD7700EC5974 /* NotLoggedInViewModel.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
+				044702052844FB3600DD62BE /* APIRouter.swift in Sources */,
 				0489FEED28417E8900EC5974 /* DetailsViewModel.swift in Sources */,
 				76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */,
 				769321112840026A0007D369 /* UIViewController.swift in Sources */,
@@ -1010,6 +1033,7 @@
 				7682F175284026F5004C3DBC /* ProductCell.swift in Sources */,
 				763BA70228440B7C008DC092 /* CartViewController.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,
+				0447020728451FE800DD62BE /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
