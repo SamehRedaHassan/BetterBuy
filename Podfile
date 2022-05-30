@@ -7,33 +7,6 @@ target 'BetterBuy' do
 
   # Pods for BetterBuy
 
-pod 'IQKeyboardManagerSwift'
-pod "Presentr"
-pod 'RxAlamofire','4.3'
-pod 'RxSwift','4.5'
-pod 'RxGesture','2.2.0'
-pod 'RxCocoa','4.5'
-
-pod 'SDWebImage'
-
-pod 'ImageSlideshow'
-pod 'EasyNotificationBadge'
-pod 'SimpleCheckbox'
-pod 'Cosmos'
-pod 'FSPagerView'
-
-pod 'Loaf'
-pod 'AMPopTip'
-pod 'SCPageControl'	
-pod 'liquid-swipe'
-
-
-
-pod 'PopupDialog'
-
-
-
-pod 'NVActivityIndicatorView/Extended'
   target 'BetterBuyTests' do
     inherit! :search_paths
     # Pods for testing
