@@ -77,13 +77,13 @@ class HomeViewController: BaseViewController {
         
         brandsCollectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         brandsCollectionView.collectionViewLayout = generateLayout()
-        photos.subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background)).asDriver(onErrorJustReturn: [])
+        photos.asDriver(onErrorJustReturn: [])
             .drive( brandsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self)  ) ){( row, model, cell) in
                 
             }.disposed(by: dp)
         
         adsCollectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        ads.subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background)).asDriver(onErrorJustReturn: [])
+        ads.asDriver(onErrorJustReturn: [])
             .drive( adsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self)  ) ){( row, model, cell) in
                 
             }.disposed(by: dp)
