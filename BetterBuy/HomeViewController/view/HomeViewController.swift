@@ -10,7 +10,15 @@ import RxCocoa
 import RxSwift
 import UIKit
 import Foundation
+extension UIViewController {
+    static func loadFromNib() -> Self {
+        func instantiateFromNib<T: UIViewController>() -> T {
+            return T.init(nibName: String(describing: T.self), bundle: nil)
+        }
 
+        return instantiateFromNib()
+    }
+}
 class HomeViewController: BaseViewController {
     // MARK: - IBOutlet
     @IBOutlet private weak var adsCollectionView: UICollectionView!
@@ -20,15 +28,31 @@ class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     private let dp = DisposeBag()
-    let photos = BehaviorSubject<[UIImage]>(value: [UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!])
+    private var homeViewModel : HomeViewModelType?
     
-    let ads = BehaviorSubject<[UIImage]>(value: [UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!,UIImage(named: "adidas")!])
+    let ads : Observable<String> = Observable.of( "banner1", "banner2", "banner3")
     
     // MARK: - Life Cycle
+    
+    convenience init() {
+        self.init(homeViewModel: nil)
+    }
+
+    init(homeViewModel: HomeViewModelType?) {
+        self.homeViewModel = homeViewModel
+        super.init(nibName: String(describing: HomeViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionViews()
-        getCustomers()
+        homeViewModel?.getCustomers()
+        
     }
     
     
@@ -36,30 +60,7 @@ class HomeViewController: BaseViewController {
 
 
 
-    func getCustomers() {
-        getApi(apiRouter: .getAllCustomers)
-      //      .trackActivity(isLoading)
-            .observeOn(MainScheduler.asyncInstance)
-            .subscribe {[weak self] (event) in
-                guard let `self` = self else { return }
-                switch event {
-                case .next(let result):
-                    switch result {
-                    case .success(value: let response):
-                        print(response)
-                    default:
-                        print("EROOOOR")
-//                    case .internetFailure(let error):
-//                        self.Internetmsg.accept(error.message)
-//
-//                    case .failure(let error):
-//                        self.msg.accept(error.message)
-                    }
-                default:
-                    break
-                }
-            }.disposed(by: dp)
-    }
+  
     private func configureCollectionViews(){
         
         brandsCollectionView.register(UINib(nibName: String(describing: advertiseCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: advertiseCollectionViewCell.self))
@@ -77,36 +78,37 @@ class HomeViewController: BaseViewController {
         
         brandsCollectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         brandsCollectionView.collectionViewLayout = generateLayout()
-        photos.asDriver(onErrorJustReturn: [])
-            .drive( brandsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self)  ) ){( row, model, cell) in
-                
+        homeViewModel?.brandsObservable.asDriver(onErrorJustReturn: [])
+            .drive( brandsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self) ,cellType: advertiseCollectionViewCell.self ) ){( row, model, cell) in
+                cell.brandImageUrl = model.image?.src
             }.disposed(by: dp)
         
         adsCollectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        ads.asDriver(onErrorJustReturn: [])
-            .drive( adsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self)  ) ){( row, model, cell) in
-                
-            }.disposed(by: dp)
-        
-        
-        scrollView.rx.didScroll.asObservable().bind {[weak self] () in
-            guard let self = self else {return}
-            let yTranslation = self.scrollView.panGestureRecognizer.translation(in: self.scrollView.superview).y
-            
-            if yTranslation > 0 {
-                print("down")
-                UIView.animate(withDuration: 0.2, animations: { () -> Void in
-                    self.navBar.isHidden = false
-                    self.view.layoutIfNeeded()
-                })               } else if yTranslation < 0 {
-                    print("up")
-                    UIView.animate(withDuration: 0.2, animations: { () -> Void in
-                        self.navBar.isHidden = true
-                        self.view.layoutIfNeeded()
-                    })                } else {
-                    print("no scroll")
-                }
+        ads.asDriver(onErrorJustReturn: "").drive( adsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self)  ,cellType: advertiseCollectionViewCell.self) ){( row, model, cell) in
+            cell.brandLitteralImage = "banner2"
         }.disposed(by: dp)
+        
+          
+        
+        
+//        scrollView.rx.didScroll.asObservable().bind {[weak self] () in
+//            guard let self = self else {return}
+//            let yTranslation = self.scrollView.panGestureRecognizer.translation(in: self.scrollView.superview).y
+//
+//            if yTranslation > 0 {
+//                print("down")
+//                UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//                    self.navBar.isHidden = false
+//                    self.view.layoutIfNeeded()
+//                })               } else if yTranslation < 0 {
+//                    print("up")
+//                    UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//                        self.navBar.isHidden = true
+//                        self.view.layoutIfNeeded()
+//                    })                } else {
+//                    print("no scroll")
+//                }
+//        }.disposed(by: dp)
         
         
     }

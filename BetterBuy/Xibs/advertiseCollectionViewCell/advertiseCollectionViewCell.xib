@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rr-Xl-cry">
                         <rect key="frame" x="0.0" y="0.0" width="279" height="111"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adidas" translatesAutoresizingMaskIntoConstraints="NO" id="n2B-xD-fae">
-                                <rect key="frame" x="0.0" y="0.0" width="279" height="111"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adidas" translatesAutoresizingMaskIntoConstraints="NO" id="n2B-xD-fae">
+                                <rect key="frame" x="4" y="4" width="271" height="103"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
@@ -47,13 +47,36 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="n2B-xD-fae" secondAttribute="bottom" id="E9R-WO-WLy"/>
-                            <constraint firstAttribute="trailing" secondItem="n2B-xD-fae" secondAttribute="trailing" id="RTo-nO-LiV"/>
-                            <constraint firstItem="n2B-xD-fae" firstAttribute="leading" secondItem="5rr-Xl-cry" secondAttribute="leading" id="Sr9-6e-Dg8"/>
-                            <constraint firstItem="n2B-xD-fae" firstAttribute="top" secondItem="5rr-Xl-cry" secondAttribute="top" id="g2W-JG-BEg"/>
+                            <constraint firstAttribute="bottom" secondItem="n2B-xD-fae" secondAttribute="bottom" constant="4" id="E9R-WO-WLy"/>
+                            <constraint firstAttribute="trailing" secondItem="n2B-xD-fae" secondAttribute="trailing" constant="4" id="RTo-nO-LiV"/>
+                            <constraint firstItem="n2B-xD-fae" firstAttribute="leading" secondItem="5rr-Xl-cry" secondAttribute="leading" constant="4" id="Sr9-6e-Dg8"/>
+                            <constraint firstItem="n2B-xD-fae" firstAttribute="top" secondItem="5rr-Xl-cry" secondAttribute="top" constant="4" id="g2W-JG-BEg"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="2" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -65,6 +88,9 @@
                 <constraint firstItem="5rr-Xl-cry" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ha3-zN-zDN"/>
             </constraints>
             <size key="customSize" width="279" height="111"/>
+            <connections>
+                <outlet property="brandImage" destination="n2B-xD-fae" id="l4F-1V-LJw"/>
+            </connections>
             <point key="canvasLocation" x="303.62318840579712" y="151.00446428571428"/>
         </collectionViewCell>
     </objects>

@@ -19,8 +19,8 @@ class TabBarContoller: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let homeViewController = HomeViewController(nibName: String(describing: HomeViewController.self), bundle: nil)
+let viewModel = HomeViewModel()
+        let homeViewController = HomeViewController(homeViewModel: viewModel)
         
         let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
         // Instantiate LoginViewModel
