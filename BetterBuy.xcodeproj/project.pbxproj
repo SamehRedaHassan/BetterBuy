@@ -62,6 +62,8 @@
 		763BA6FD2844090F008DC092 /* CartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763BA6FC2844090F008DC092 /* CartView.xib */; };
 		763BA70228440B7C008DC092 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BA70128440B7C008DC092 /* CartViewController.swift */; };
 		763BA70428440BBE008DC092 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BA70328440BBE008DC092 /* CartViewModel.swift */; };
+		763BA71B2846AD37008DC092 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BA7192846AD37008DC092 /* ProductTableViewCell.swift */; };
+		763BA71C2846AD37008DC092 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763BA71A2846AD37008DC092 /* ProductTableViewCell.xib */; };
 		7682F160283EF7A9004C3DBC /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F15C283EF7A8004C3DBC /* CategoryView.xib */; };
 		7682F161283EF7A9004C3DBC /* CatoegorieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7682F15D283EF7A8004C3DBC /* CatoegorieTableViewCell.xib */; };
 		7682F162283EF7A9004C3DBC /* CatoegorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682F15E283EF7A8004C3DBC /* CatoegorieTableViewCell.swift */; };
@@ -167,6 +169,8 @@
 		763BA6FC2844090F008DC092 /* CartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartView.xib; sourceTree = "<group>"; };
 		763BA70128440B7C008DC092 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		763BA70328440BBE008DC092 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		763BA7192846AD37008DC092 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		763BA71A2846AD37008DC092 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		7682F15C283EF7A8004C3DBC /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
 		7682F15D283EF7A8004C3DBC /* CatoegorieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatoegorieTableViewCell.xib; sourceTree = "<group>"; };
 		7682F15E283EF7A8004C3DBC /* CatoegorieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatoegorieTableViewCell.swift; sourceTree = "<group>"; };
@@ -627,6 +631,8 @@
 			children = (
 				763BA6FC2844090F008DC092 /* CartView.xib */,
 				763BA70128440B7C008DC092 /* CartViewController.swift */,
+				763BA7192846AD37008DC092 /* ProductTableViewCell.swift */,
+				763BA71A2846AD37008DC092 /* ProductTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -959,6 +965,7 @@
 				76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */,
 				76BD28E6283FEA9C00030700 /* PageThreeViewController.xib in Resources */,
 				76A65AFA284279CF00723AF7 /* advertiseCollectionViewCell.xib in Resources */,
+				763BA71C2846AD37008DC092 /* ProductTableViewCell.xib in Resources */,
 				045DA50628462325006BF27D /* PaymentViewController.xib in Resources */,
 				76BD28EB283FF04B00030700 /* girlAtShopping.json in Resources */,
 				7682F160283EF7A9004C3DBC /* CategoryView.xib in Resources */,
@@ -1099,6 +1106,7 @@
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				0489FEA828405C5400EC5974 /* OrderListViewController.swift in Sources */,
 				0489FED52840DD7700EC5974 /* NotLoggedInViewModel.swift in Sources */,
+				763BA71B2846AD37008DC092 /* ProductTableViewCell.swift in Sources */,
 				76A65AF3284235C900723AF7 /* NavBar.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
 				044702052844FB3600DD62BE /* APIRouter.swift in Sources */,
