@@ -14,5 +14,14 @@ class BaseViewController: UIViewController {
         guard let tabBar = tabBarController as? TabBarContoller else { return }
         tabBar.toggle(hide: hide)
     }
+    
+    func animateTheHeightOfTheView(height : CGFloat ,view : UIView){
+        view.layoutIfNeeded() // force any pending operations to finish
+
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            view.constrainHeight(constant: height)
+            self.view.layoutIfNeeded()
+        })
+    }
 }
 

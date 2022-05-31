@@ -34,7 +34,10 @@ class TabBarContoller: UITabBarController {
         
         
         viewControllers = [
-            createNavViewController(viewController: homeViewController, title: "Home", imageName: "house.fill"),
+
+
+            createNavViewController(viewController: homeViewController, title: "", imageName: "house.fill"),
+
             createNavViewController(viewController: UIViewController(), title: "Categories", imageName: "flame.fill"),
             createNavViewController(viewController: profileViewController, title: "Profile", imageName: "rectangle.3.offgrid.fill")
         ]
@@ -45,11 +48,11 @@ class TabBarContoller: UITabBarController {
 
     private func createNavViewController(viewController: UIViewController, title: String, imageName: String) -> UIViewController {
 
-        viewController.navigationItem.title = title
+      //  viewController.navigationItem.title = title
 
         let navController = UINavigationController(rootViewController: viewController)
-        navController.navigationBar.prefersLargeTitles = true
-        navController.tabBarItem.title = title
+        navController.isNavigationBarHidden = true
+      //  navController.tabBarItem.title = title
         navController.tabBarItem.image = UIImage(systemName: imageName)
 
         return navController
