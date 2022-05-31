@@ -25,8 +25,9 @@ class AppCoordinator: Coordinator {
     //MARK: functions
     func start() {
          // The first time this coordinator started, is to launch login page.
-        goToFirstPage()
+        //goToFirstPage()
        // goToSignUpPage()
+        goToSettingsPage()
         
     }
 
@@ -147,6 +148,14 @@ class AppCoordinator: Coordinator {
             cartViewModel.appCoordinator = self
             cartViewController.viewModel = cartViewModel
             navigationController.pushViewController(cartViewController, animated: true)
+    }
+    
+    func goToSettingsPage(){
+        let settingsViewController = SettingsViewController(nibName: String(describing: SettingsViewController.self), bundle: nil)
+            let settingsViewModel = SettingViewModel.init()
+            settingsViewModel.appCoordinator = self
+            settingsViewController.viewModel = settingsViewModel
+            navigationController.pushViewController(settingsViewController, animated: true)
     }
 
 }

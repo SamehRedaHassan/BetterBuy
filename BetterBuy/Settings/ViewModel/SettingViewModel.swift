@@ -10,6 +10,7 @@ import Foundation
 
 class SettingViewModel{
     
+    
     //MARK: vars
     var appCoordinator: AppCoordinator?
         
