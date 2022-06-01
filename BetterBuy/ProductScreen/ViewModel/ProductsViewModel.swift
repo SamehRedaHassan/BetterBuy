@@ -10,8 +10,19 @@ import Foundation
 import RxSwift
 
 final class ProductsViewModel : ProductViewModelType{
+    func goToProductDetailsScreen(product: Int) {
+         do {products = try productResponse.value()
+                           appCoordinator?.goToProductDetailsPage(product: products![product])
+                       }
+                       catch {
+                           print ("error")
+                       }
+                   
+    }
+    
         
     var appCoordinator:AppCoordinator?
+    var products : [Product]?
     
     var productsObservable: Observable<[Product]>
     let disposeBag = DisposeBag()
@@ -19,6 +30,7 @@ final class ProductsViewModel : ProductViewModelType{
     
     init() {
         productsObservable = productResponse.asObservable()
+        
     }
     func getProducts() {
         getApi(apiRouter: .getAllProducts)
@@ -44,8 +56,14 @@ final class ProductsViewModel : ProductViewModelType{
                     }
                 
          }.disposed(by: disposeBag)
+       
+        
         
     }
+    
+   
+    
+    
     
     
 }

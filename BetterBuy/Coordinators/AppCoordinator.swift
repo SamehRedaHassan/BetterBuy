@@ -29,8 +29,8 @@ class AppCoordinator: Coordinator {
         //goToFirstPage()
         //goToSignUpPage()
         //goToSettingsPage()
-        goToProfilePage()
-        
+        //goToProfilePage()
+        goToProductsPage()
     }
 
     func goToFirstPage(){

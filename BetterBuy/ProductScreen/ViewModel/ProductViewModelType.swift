@@ -11,5 +11,6 @@ import RxSwift
 
 protocol ProductViewModelType {
     var productsObservable : Observable<[Product]> {get}
+    func goToProductDetailsScreen(product : Int) 
     func getProducts()
 }

@@ -41,7 +41,7 @@ class ProductsViewController: UIViewController{
         super.viewDidLoad()
         setUpCollectionView()
         productViewModel?.getProducts()
-        
+        onClick()
     }
     
     private func setUpCollectionView(){
@@ -64,6 +64,12 @@ class ProductsViewController: UIViewController{
         
     }
     
+    func onClick(){
+        productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
+            self.productViewModel?.goToProductDetailsScreen(product: indexPath.row)
+        })
+    }
+    
 }
 
 
@@ -73,6 +79,8 @@ extension ProductsViewController: ProductsLayoutDelegate {
         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
         return image[0].size.height
     }
+    
+    
 }
 
 
