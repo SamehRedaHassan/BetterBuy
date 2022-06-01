@@ -38,6 +38,7 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
     //all available endpoints
     case getAllCustomers
     case getAllBrands
+    case getAllProducts
 
     
     //https://4a798eacca0d39cc2048369ad2025b47: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@mad-sv.myshopify.com/admin/api/2021-04/customers.json
@@ -52,6 +53,9 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 
             case .getAllBrands:
                 return [:]
+                
+            case .getAllProducts:
+                return [:]
             }
         }()
         
@@ -64,12 +68,12 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
             
             let relativeURL : String? = {//endpoint
                 switch self {
-                case .getAllCustomers:
-                    return "2021-04/customers.json"
-            
-                    
-                case .getAllBrands:
-                    return "2022-04/smart_collections.json"
+                    case .getAllCustomers:
+                        return "2021-04/customers.json"
+                    case .getAllProducts:
+                        return "2022-04/products.json"
+                    case .getAllBrands:
+                        return "2022-04/smart_collections.json"
                 }
             }()
             //safe characters +
@@ -98,6 +102,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
             case .getAllCustomers:
                 return HTTPMethod.get
             case .getAllBrands:
+                return HTTPMethod.get
+            case .getAllProducts:
                 return HTTPMethod.get
             }
         }()

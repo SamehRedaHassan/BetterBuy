@@ -24,7 +24,7 @@
                     <collectionViewLayout key="collectionViewLayout" id="Ebv-AR-B7W" customClass="ProductsCollectionViewLayout" customModule="BetterBuy" customModuleProvider="target"/>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ef5-vO-dlE" secondAttribute="trailing" constant="20" id="PIL-iC-Foa"/>
                 <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="YG2-It-N5N"/>
