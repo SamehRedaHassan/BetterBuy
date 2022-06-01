@@ -36,7 +36,7 @@ let BASE_URL = "https://4a798eacca0d39cc2048369ad2025b47:shpat_df5dd0b91df587be0
 
 enum APIRouter : URLRequestConvertible{ //used to construct url Request
     //all available endpoints
-    case getAllCustomers
+//    case getAllCustomers
     case getAllBrands
     case getAllProducts
     case getCustomerById(id : String)
@@ -51,12 +51,14 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
         let params : ([String : Any]?) = {
             //what goes through the request bodyz
             switch self {
-            default:
-                return [:]
-                
             case .getAllProducts:
                 return [:]
+            
+            default:
+                return [:]
+             
             }
+            
         }()
         
         
@@ -68,12 +70,10 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
             
             let relativeURL : String? = {//endpoint
                 switch self {
-                    case .getAllCustomers:
-                        return "2021-04/customers.json"
-                    case .getAllProducts:
-                        return "2022-04/products.json"
-                    case .getAllBrands:
-                        return "2022-04/smart_collections.json"
+                case .getAllProducts:
+                    return "2022-04/products.json"
+                case .getAllBrands:
+                    return "2022-04/smart_collections.json"
                     
                 case .getAllBrands:
                     return "2022-04/smart_collections.json"
@@ -108,14 +108,13 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
         
         let method : HTTPMethod = {
             switch self {
-            case .getAllCustomers:
-                return HTTPMethod.get
             case .getAllBrands:
                 return HTTPMethod.get
-            case .getAllProducts:
             case .getCustomerById(id: _):
                 return HTTPMethod.get
             case .getCustomerOrders(id: _):
+                return HTTPMethod.get
+            default:
                 return HTTPMethod.get
             }
         }()
