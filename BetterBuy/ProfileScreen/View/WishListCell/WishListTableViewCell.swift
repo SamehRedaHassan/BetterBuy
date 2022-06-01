@@ -19,6 +19,18 @@ class WishListTableViewCell: UITableViewCell {
     @IBOutlet weak var wishListItemNameLabel: UILabel!
     @IBOutlet weak var wishListItemNameDescLabel: UILabel!
     
+    var wishListItemNameValue : String? {
+        didSet{
+            wishListItemNameLabel.text = wishListItemNameValue
+        }
+    }
+    
+    var wishListItemNameDescValue : String? {
+        didSet{
+            wishListItemNameDescLabel.text = wishListItemNameDescValue
+        }
+    }
+    
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {

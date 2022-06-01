@@ -25,10 +25,11 @@ class AppCoordinator: Coordinator {
 
     //MARK: functions
     func start() {
-         // The first time this coordinator started, is to launch login page.
-        goToFirstPage()
-       // goToSignUpPage()
+        // The first time this coordinator started, is to launch login page.
+        //goToFirstPage()
+        //goToSignUpPage()
         //goToSettingsPage()
+        goToProfilePage()
         
     }
 
@@ -81,24 +82,25 @@ class AppCoordinator: Coordinator {
 
 
     func goToProfilePage(){
-        let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
-            let profileViewModel = ProfileViewModel.init()
+        let profileViewModel = ProfileViewModel()
+        let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
+            
             profileViewModel.appCoordinator = self
             profileViewController.viewModel = profileViewModel
              navigationController.pushViewController(profileViewController, animated: true)
     }
 
-    func goToWishListPage(){
+    func goToWishListPage(orders : [Order]){
         let wishListViewController = WishListViewController(nibName: String(describing: WishListViewController.self), bundle: nil)
-            let wishListViewModel = WishListViewModel.init()
+        let wishListViewModel = WishListViewModel.init(orders: orders)
             wishListViewModel.appCoordinator = self
             wishListViewController.viewModel = wishListViewModel
              navigationController.pushViewController(wishListViewController, animated: true)
     }
 
-    func goToProfileOrderListPage(){
+    func goToProfileOrderListPage(orders : [Order]){
         let orderListViewController = OrderListViewController(nibName: String(describing: OrderListViewController.self), bundle: nil)
-            let orderListViewModel = OrderListViewModel.init()
+            let orderListViewModel = OrderListViewModel.init(orders: orders)
             orderListViewModel.appCoordinator = self
             orderListViewController.viewModel = orderListViewModel
              navigationController.pushViewController(orderListViewController, animated: true)
@@ -116,9 +118,9 @@ class AppCoordinator: Coordinator {
    
 
 
-    func goToProductDetailsPage(){
+    func goToProductDetailsPage(product: Product){
         let goToProductDetailsViewController = DetailsViewController(nibName: String(describing: DetailsViewController.self), bundle: nil)
-            let goToProductDetailsViewModel = DetailsViewModel.init()
+            let goToProductDetailsViewModel = DetailsViewModel.init(product: product)
             goToProductDetailsViewModel.appCoordinator = self
             goToProductDetailsViewController.viewModel = goToProductDetailsViewModel
              navigationController.pushViewController(goToProductDetailsViewController, animated: true)

@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     private let dp = DisposeBag()
-    private var homeViewModel : HomeViewModelType?
+    private var homeViewModel : HomeViewModelType!
     
     let ads : Observable<String> = Observable.of( "banner1", "banner2", "banner3")
     
@@ -57,10 +57,6 @@ class HomeViewController: BaseViewController {
     
     
     // MARK: - Functions
-
-
-
-  
     private func configureCollectionViews(){
         
         brandsCollectionView.register(UINib(nibName: String(describing: advertiseCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: advertiseCollectionViewCell.self))
