@@ -20,7 +20,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(viewModel?.product.title ?? "product not found")
         
 
     }
