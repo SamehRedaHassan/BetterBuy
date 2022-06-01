@@ -12,7 +12,11 @@ final class DetailsViewModel{
     
     //MARK: vars
     var appCoordinator: AppCoordinator?
-        
+    var product : Product
+      
+    init(product : Product){
+        self.product = product
+    }
     
     //MARK: functions
 //    func goToSignUpScreen() {

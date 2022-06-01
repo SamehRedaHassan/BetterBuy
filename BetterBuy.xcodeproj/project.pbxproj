@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040B64682847601C001DB17A /* ProfileViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B64672847601C001DB17A /* ProfileViewModelType.swift */; };
+		040B646A28476153001DB17A /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B646928476153001DB17A /* Customer.swift */; };
+		040B646C28476186001DB17A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B646B28476186001DB17A /* Address.swift */; };
+		040B646E28478438001DB17A /* GetProfileModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B646D28478438001DB17A /* GetProfileModelResponse.swift */; };
+		040B6471284790B1001DB17A /* DiscountCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B6470284790B1001DB17A /* DiscountCode.swift */; };
+		040B6473284790F2001DB17A /* OrderFinancialStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B6472284790F2001DB17A /* OrderFinancialStatus.swift */; };
+		040B64752847917D001DB17A /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B64742847917D001DB17A /* OrderItem.swift */; };
+		040B6477284791A7001DB17A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B6476284791A7001DB17A /* Order.swift */; };
+		040B647928479280001DB17A /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B647828479280001DB17A /* Orders.swift */; };
+		040B647B284792B9001DB17A /* PostOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B647A284792B9001DB17A /* PostOrder.swift */; };
 		044702052844FB3600DD62BE /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044702042844FB3600DD62BE /* APIRouter.swift */; };
 		0447020728451FE800DD62BE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447020628451FE800DD62BE /* API.swift */; };
 		04470209284520D700DD62BE /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04470208284520D700DD62BE /* APIResult.swift */; };
@@ -123,6 +133,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040B64672847601C001DB17A /* ProfileViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelType.swift; sourceTree = "<group>"; };
+		040B646928476153001DB17A /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		040B646B28476186001DB17A /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		040B646D28478438001DB17A /* GetProfileModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileModelResponse.swift; sourceTree = "<group>"; };
+		040B6470284790B1001DB17A /* DiscountCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCode.swift; sourceTree = "<group>"; };
+		040B6472284790F2001DB17A /* OrderFinancialStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFinancialStatus.swift; sourceTree = "<group>"; };
+		040B64742847917D001DB17A /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		040B6476284791A7001DB17A /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		040B647828479280001DB17A /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		040B647A284792B9001DB17A /* PostOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOrder.swift; sourceTree = "<group>"; };
 		044702042844FB3600DD62BE /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		0447020628451FE800DD62BE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		04470208284520D700DD62BE /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
@@ -256,6 +276,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040B646F28479031001DB17A /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				040B6470284790B1001DB17A /* DiscountCode.swift */,
+				040B6472284790F2001DB17A /* OrderFinancialStatus.swift */,
+				040B64742847917D001DB17A /* OrderItem.swift */,
+				040B6476284791A7001DB17A /* Order.swift */,
+				040B647828479280001DB17A /* Orders.swift */,
+				040B647A284792B9001DB17A /* PostOrder.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		040B647C28479D7C001DB17A /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				040B646928476153001DB17A /* Customer.swift */,
+				040B646B28476186001DB17A /* Address.swift */,
+				040B646D28478438001DB17A /* GetProfileModelResponse.swift */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
 		044702032844FB0400DD62BE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				045F5F61283EB337006853BB /* ProfileViewModel.swift */,
+				040B64672847601C001DB17A /* ProfileViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -736,6 +780,7 @@
 		769FDC282846AE0500EE820C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				040B646F28479031001DB17A /* Order */,
 				769FDC292846AE3A00EE820C /* GetBrandsResponseModel.swift */,
 				769FDC2B2846AE8500EE820C /* BrandModel.swift */,
 				769FDC352846C45A00EE820C /* ImageModel.swift */,
@@ -744,6 +789,7 @@
 				7633BF0528476D2B00C67D56 /* ProductImage.swift */,
 				7633BF0728476DA100C67D56 /* Product.swift */,
 				7633BF092847710300C67D56 /* ProductResponse.swift */,
+				040B647C28479D7C001DB17A /* Customer */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1151,6 +1197,7 @@
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
 				045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */,
 				763BA6F92843C231008DC092 /* LoginViewController.swift in Sources */,
+				040B647928479280001DB17A /* Orders.swift in Sources */,
 				7682F16E283EF857004C3DBC /* ProductsViewModel.swift in Sources */,
 				0489FE9E2840488600EC5974 /* OrderListViewModel.swift in Sources */,
 				0489FE7D283FD95600EC5974 /* WishListTableViewCell.swift in Sources */,
@@ -1161,6 +1208,7 @@
 				7616B7BE28457BA6008FB86C /* SelfSizedCollectionView.swift in Sources */,
 				769FDC342846B7E000EE820C /* HomeViewModelType.swift in Sources */,
 				7682F165283EF7BF004C3DBC /* CategoryViewModel.swift in Sources */,
+				040B647B284792B9001DB17A /* PostOrder.swift in Sources */,
 				7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */,
 				7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */,
 				04470209284520D700DD62BE /* APIResult.swift in Sources */,
@@ -1176,16 +1224,24 @@
 				76A65AF3284235C900723AF7 /* NavBar.swift in Sources */,
 				7633BF0C2847800E00C67D56 /* ProductViewModelType.swift in Sources */,
 				7607DE78283EB44D00A014C7 /* HomeViewController.swift in Sources */,
+				040B6471284790B1001DB17A /* DiscountCode.swift in Sources */,
+				040B64682847601C001DB17A /* ProfileViewModelType.swift in Sources */,
 				044702052844FB3600DD62BE /* APIRouter.swift in Sources */,
 				0489FEED28417E8900EC5974 /* DetailsViewModel.swift in Sources */,
 				76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */,
 				769321112840026A0007D369 /* UIViewController.swift in Sources */,
+				040B6473284790F2001DB17A /* OrderFinancialStatus.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
+				040B646C28476186001DB17A /* Address.swift in Sources */,
 				0489FEFA2841982B00EC5974 /* ProductSizeTableViewCell.swift in Sources */,
 				76A65AF9284279CF00723AF7 /* advertiseCollectionViewCell.swift in Sources */,
+				040B64752847917D001DB17A /* OrderItem.swift in Sources */,
 				7607DE6F283E8E5200A014C7 /* UIView.swift in Sources */,
 				0489FEF42841968400EC5974 /* ProductImgsTableViewCell.swift in Sources */,
+				040B6477284791A7001DB17A /* Order.swift in Sources */,
 				769FDC362846C45A00EE820C /* ImageModel.swift in Sources */,
+				040B646A28476153001DB17A /* Customer.swift in Sources */,
+				040B646E28478438001DB17A /* GetProfileModelResponse.swift in Sources */,
 				7682F175284026F5004C3DBC /* ProductCell.swift in Sources */,
 				763BA70228440B7C008DC092 /* CartViewController.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,

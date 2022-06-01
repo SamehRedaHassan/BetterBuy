@@ -20,6 +20,24 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var orderItemDesc: UILabel!
     @IBOutlet weak var orderItemTitleLabel: UILabel!
     
+    var orderImgValue : String? {
+        didSet{
+            orderImg.sd_setImage( with: URL(string: orderImgValue!) , placeholderImage: #imageLiteral(resourceName: "placeHolder"))
+        }
+    }
+    
+    var orderItemValue : String?{
+        didSet{
+            orderItemDesc.text = orderImgValue
+        }
+    }
+    
+    var orderItemTitleValue : String?{
+        didSet{
+            orderItemTitleLabel.text = orderImgValue
+        }
+    }
+    
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {

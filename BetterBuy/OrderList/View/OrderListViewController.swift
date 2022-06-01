@@ -10,6 +10,8 @@ import UIKit
 
 class OrderListViewController: UIViewController {
 
+    //The Array here should come from the CoreData
+    
     @IBOutlet weak var orderTableView: UITableView!
     
     //MARK: variables
@@ -31,7 +33,7 @@ class OrderListViewController: UIViewController {
 
 extension OrderListViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return viewModel?.orders.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,8 +41,8 @@ extension OrderListViewController : UITableViewDelegate , UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
         cell.orderImg.image = #imageLiteral(resourceName: "img4")
         cell.orderImg.cornerRadius = 37.5
-        cell.orderItemTitleLabel.text = "Addidas Shoes"
-        cell.orderItemDesc.text = "German manufacturer of athletic shoes and apparel and sporting goods"
+        cell.orderItemTitleLabel.text = viewModel?.orders[indexPath.row].totalPrice
+        cell.orderItemDesc.text = "\(viewModel?.orders[indexPath.row].id ?? 0)"
         return cell
     }
     

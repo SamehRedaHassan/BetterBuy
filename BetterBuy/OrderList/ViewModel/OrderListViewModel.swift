@@ -12,7 +12,11 @@ final class OrderListViewModel{
     
     //MARK: vars
     var appCoordinator: AppCoordinator?
+    var orders : [Order]
         
+    init(orders : [Order]){
+        self.orders = orders
+    }
     
     //MARK: functions
     //    func goToSignUpScreen() {
