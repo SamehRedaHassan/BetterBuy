@@ -12,25 +12,28 @@ import RxSwift
 final class ProductsViewModel : ProductViewModelType{
     func goToProductDetailsScreen(product: Int) {
          do {products = try productResponse.value()
-                           appCoordinator?.goToProductDetailsPage(product: products![product])
-                       }
-                       catch {
-                           print ("error")
-                       }
+           appCoordinator?.goToProductDetailsPage(product: products![product])
+           }
+           catch {
+               print ("error")
+           }
                    
     }
     
-        
+//    var imageHeight : (_ index:Int)->Int = {_ in
+//        return products[index].
+//    }
     var appCoordinator:AppCoordinator?
     var products : [Product]?
-    
+    var category : String?
     var productsObservable: Observable<[Product]>
+    var imagesHeight : Observable<[Int]>?
     let disposeBag = DisposeBag()
     private var productResponse = BehaviorSubject<[Product]>(value:[])
     
-    init() {
+    init(category : String) {
         productsObservable = productResponse.asObservable()
-        
+        self.category = category
     }
     func getProducts() {
         getApi(apiRouter: .getAllProducts)
@@ -42,9 +45,8 @@ final class ProductsViewModel : ProductViewModelType{
                     case .next(let result):
                         switch result {
                         case .success(let response):
-                            let productResponseData = ProductResponse(response: response)
-                            print(response)
-                            self.productResponse.onNext(productResponseData.products ?? [])
+                            let productResponseData = ProductResponse(response: response)                            
+                            self.productResponse.onNext(self.filterProductByCategory(products: productResponseData.products ?? []))
                             print(productResponseData.products?.count ?? 0)
                         case .failure(let error):
                             print(error.message)
@@ -56,9 +58,16 @@ final class ProductsViewModel : ProductViewModelType{
                     }
                 
          }.disposed(by: disposeBag)
-       
         
-        
+    }
+    private func filterProductByCategory(products : [Product]) -> [Product]{
+        print(category!)
+        return products.filter { (product) -> Bool in
+            if(category == "men"){
+                category = " " + (category ?? "")
+            }
+            return (product.tags?.contains("\(category!)"))!
+        }
     }
     
    

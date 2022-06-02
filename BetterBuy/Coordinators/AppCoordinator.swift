@@ -30,7 +30,8 @@ class AppCoordinator: Coordinator {
         //goToSignUpPage()
         //goToSettingsPage()
         //goToProfilePage()
-        goToProductsPage()
+        goToProductsPage(category: " men")
+        
     }
 
     func goToFirstPage(){
@@ -71,10 +72,10 @@ class AppCoordinator: Coordinator {
          // Push it.
         navigationController.pushViewController(registerViewController, animated: true)
     }
-    func goToProductsPage(){
+    func goToProductsPage(category:String){
 //            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
         
-            let productsViewModel = ProductsViewModel.init()
+            let productsViewModel = ProductsViewModel.init(category: category)
             let productsViewController = ProductsViewController(productViewModel: productsViewModel)
             productsViewModel.appCoordinator = self
              navigationController.pushViewController(productsViewController, animated: true)

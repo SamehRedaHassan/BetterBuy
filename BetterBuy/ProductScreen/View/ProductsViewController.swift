@@ -41,7 +41,6 @@ class ProductsViewController: UIViewController{
         super.viewDidLoad()
         setUpCollectionView()
         productViewModel?.getProducts()
-        onClick()
     }
     
     private func setUpCollectionView(){
@@ -61,14 +60,12 @@ class ProductsViewController: UIViewController{
                 cell.productPrice = model.variants?[0].price
         }.disposed(by: disposeBag)
         
-        
-    }
-    
-    func onClick(){
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
             self.productViewModel?.goToProductDetailsScreen(product: indexPath.row)
         })
+        
     }
+    
     
 }
 
@@ -79,34 +76,6 @@ extension ProductsViewController: ProductsLayoutDelegate {
         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
         return image[0].size.height
     }
-    
-    
 }
 
 
-
-
-//MARK: - collectionview extension delegate for view purpose only
-//extension ProductsViewController : UICollectionViewDelegateFlowLayout,UICollectionViewDataSource{
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 6
-//    }
-//
-//    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.cellIdentifier, for: indexPath as IndexPath) as! ProductCell
-//        cell.productImg.image = image[indexPath.row]
-//        cell.productTitleLB.text = "BackPack"
-//        cell.productDesLB.text = "Nike backpack with many pockat plaplplaplpal papllpdflapflpap plapfldf"
-//        cell.productPriceLB.text = "159EG"
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
-//
-//        return CGSize(width: itemSize, height: itemSize)
-//    }
-//
-//
-//}

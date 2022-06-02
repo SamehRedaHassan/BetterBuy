@@ -19,20 +19,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-vO-dlE">
-                    <rect key="frame" x="20" y="54" width="374" height="842"/>
+                    <rect key="frame" x="20" y="94" width="374" height="802"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewLayout key="collectionViewLayout" id="Ebv-AR-B7W" customClass="ProductsCollectionViewLayout" customModule="BetterBuy" customModuleProvider="target"/>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhC-g4-QY5" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="dqe-Dq-0Mv"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchBtnHidden" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFavouriteBtnHidden" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCartBtnHidden" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBackBtnHidden" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zhC-g4-QY5" secondAttribute="trailing" id="8je-YC-QXm"/>
+                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="zhC-g4-QY5" secondAttribute="bottom" id="DOn-Dg-Jd1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ef5-vO-dlE" secondAttribute="trailing" constant="20" id="PIL-iC-Foa"/>
-                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="YG2-It-N5N"/>
+                <constraint firstItem="zhC-g4-QY5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VLi-ve-GvE"/>
+                <constraint firstItem="zhC-g4-QY5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vuz-O7-Y7s"/>
                 <constraint firstAttribute="bottom" secondItem="Ef5-vO-dlE" secondAttribute="bottom" id="bbC-LS-VDN"/>
                 <constraint firstItem="Ef5-vO-dlE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="urN-6t-8FG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="72" y="39"/>
+            <point key="canvasLocation" x="71.014492753623188" y="38.839285714285715"/>
         </view>
     </objects>
 </document>
