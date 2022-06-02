@@ -20,6 +20,10 @@ struct ProductOption: Codable {
         case values
     }
     
+    init(sizes : [String]){
+        self.values = sizes
+    }
+    
     init(response : [String : Any]?){
         guard let response = response else {
             print("failed To initialize \(String(describing: self))")

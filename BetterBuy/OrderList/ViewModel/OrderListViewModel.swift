@@ -12,16 +12,21 @@ final class OrderListViewModel{
     
     //MARK: vars
     var appCoordinator: AppCoordinator?
-    var orders : [Order]
+    var orders : [Product]?
+    var db : LocalDbType
         
-    init(orders : [Order]){
-        self.orders = orders
+    init(db : LocalDbType){
+        self.db = db
     }
     
     //MARK: functions
-    //    func goToSignUpScreen() {
-    //        appCoordinator?.goToSignUpPage()
-    //    }
+        func getAllFavourites() {
+            orders = db.getAllFavourites()
+        }
+    
+    func deleteProductFromFavourite(product : Product){
+        db.removeFavProduct(product: product)
+    }
         
     
 }

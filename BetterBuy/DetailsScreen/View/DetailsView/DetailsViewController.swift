@@ -11,7 +11,6 @@ import RxCocoa
 import RxSwift
 
 class DetailsViewController: UIViewController {
-    
     //OutLets
     
     @IBOutlet weak var productImgsCollectionView: UICollectionView!
@@ -31,14 +30,15 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // print(viewModel?.product.title ?? "product not found")
         self.productImgsCollectionView.delegate = nil
         self.productSizesCollectionView.dataSource = nil
         self.productSizesCollectionView.delegate = nil
         self.productImgsCollectionView.dataSource = nil
+        viewModel?.getProductsFromFavourite()
         setSize()
         setCollectionDelegates()
         setData()
+        
     }
     
     func setCollectionDelegates(){
@@ -57,17 +57,17 @@ class DetailsViewController: UIViewController {
     }
     
     func setData(){
-        
-        
         addToCartBtn.rx.tap.bind{
             
         }.disposed(by: disposeBag)
         addToFavFavouriteBtn.rx.tap.bind{
-            
+            self.viewModel?.addProductToFav(product: (self.viewModel?.product)!)
+            let imageIcon = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+            self.addToFavFavouriteBtn.imageView?.image = imageIcon
         }.disposed(by: disposeBag)
         
+        //MARK: SET The Favourite Cell Data
         productImg.sd_setImage(with: URL(string : (viewModel?.product?.images?[0].src!)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"))
-        
         productName.text = viewModel?.product?.title
         productDesc.text = viewModel?.product?.description
         productPrice.text =  viewModel?.product?.variants?[0].price

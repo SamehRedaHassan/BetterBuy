@@ -14,6 +14,10 @@ struct Variant: Codable {
     var productSize: String?
     var productColor: String?
     var inventoryQuantity: Int?
+    
+    init(price : String){
+        self.price = price
+    }
 
     enum CodingKeys: String, CodingKey {
         case id

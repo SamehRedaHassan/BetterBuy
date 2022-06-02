@@ -17,6 +17,9 @@
 		040B6477284791A7001DB17A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B6476284791A7001DB17A /* Order.swift */; };
 		040B647928479280001DB17A /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B647828479280001DB17A /* Orders.swift */; };
 		040B647B284792B9001DB17A /* PostOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B647A284792B9001DB17A /* PostOrder.swift */; };
+		040D613C284906A1004FA340 /* DbManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D613B284906A1004FA340 /* DbManager.swift */; };
+		040D613E2849071F004FA340 /* LocalDbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D613D2849071F004FA340 /* LocalDbType.swift */; };
+		040D6140284910B8004FA340 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D613F284910B8004FA340 /* Converter.swift */; };
 		044702052844FB3600DD62BE /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044702042844FB3600DD62BE /* APIRouter.swift */; };
 		0447020728451FE800DD62BE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447020628451FE800DD62BE /* API.swift */; };
 		04470209284520D700DD62BE /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04470208284520D700DD62BE /* APIResult.swift */; };
@@ -143,6 +146,9 @@
 		040B6476284791A7001DB17A /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		040B647828479280001DB17A /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		040B647A284792B9001DB17A /* PostOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOrder.swift; sourceTree = "<group>"; };
+		040D613B284906A1004FA340 /* DbManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbManager.swift; sourceTree = "<group>"; };
+		040D613D2849071F004FA340 /* LocalDbType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDbType.swift; sourceTree = "<group>"; };
+		040D613F284910B8004FA340 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		044702042844FB3600DD62BE /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		0447020628451FE800DD62BE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		04470208284520D700DD62BE /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
@@ -297,6 +303,16 @@
 				040B646D28478438001DB17A /* GetProfileModelResponse.swift */,
 			);
 			path = Customer;
+			sourceTree = "<group>";
+		};
+		040D613A2849066E004FA340 /* LocalDb */ = {
+			isa = PBXGroup;
+			children = (
+				040D613B284906A1004FA340 /* DbManager.swift */,
+				040D613D2849071F004FA340 /* LocalDbType.swift */,
+				040D613F284910B8004FA340 /* Converter.swift */,
+			);
+			path = LocalDb;
 			sourceTree = "<group>";
 		};
 		044702032844FB0400DD62BE /* Networking */ = {
@@ -924,6 +940,7 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
+				040D613A2849066E004FA340 /* LocalDb */,
 				769FDC282846AE0500EE820C /* Model */,
 				045DA500284622D6006BF27D /* PaymentScreen */,
 				044702032844FB0400DD62BE /* Networking */,
@@ -1180,6 +1197,7 @@
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
 				76BD28D1283FDDD200030700 /* PageOneViewController.swift in Sources */,
 				04F27739284804AE000E9A1C /* SizeCollectionViewCell.swift in Sources */,
+				040D6140284910B8004FA340 /* Converter.swift in Sources */,
 				045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */,
 				7682F163283EF7A9004C3DBC /* CategoryViewController.swift in Sources */,
 				7633BF0828476DA100C67D56 /* Product.swift in Sources */,
@@ -1192,6 +1210,7 @@
 				045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */,
 				7633BF0628476D2B00C67D56 /* ProductImage.swift in Sources */,
 				0489FEF028417EE700EC5974 /* DetailsViewController.swift in Sources */,
+				040D613C284906A1004FA340 /* DbManager.swift in Sources */,
 				769FDC2A2846AE3A00EE820C /* GetBrandsResponseModel.swift in Sources */,
 				76BF132C2840562A000AA09E /* ProductsCollectionViewLayout.swift in Sources */,
 				763BA6FB2843C2B5008DC092 /* LoginViewModel.swift in Sources */,
@@ -1206,6 +1225,7 @@
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
 				045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */,
 				763BA6F92843C231008DC092 /* LoginViewController.swift in Sources */,
+				040D613E2849071F004FA340 /* LocalDbType.swift in Sources */,
 				040B647928479280001DB17A /* Orders.swift in Sources */,
 				7682F16E283EF857004C3DBC /* ProductsViewModel.swift in Sources */,
 				0489FE9E2840488600EC5974 /* OrderListViewModel.swift in Sources */,

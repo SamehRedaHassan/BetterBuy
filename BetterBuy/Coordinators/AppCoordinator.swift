@@ -22,15 +22,14 @@ class AppCoordinator: Coordinator {
         navigationController.isNavigationBarHidden = true
     }
 
-
     //MARK: functions
     func start() {
         // The first time this coordinator started, is to launch login page.
         //goToFirstPage()
         //goToSignUpPage()
         //goToSettingsPage()
-        //goToProfilePage()
-        goToProductsPage(category: " men")
+        goToProfilePage()
+        //goToProductsPage(category: " men")
         
     }
 
@@ -84,7 +83,7 @@ class AppCoordinator: Coordinator {
 
 
     func goToProfilePage(){
-        let profileViewModel = ProfileViewModel()
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
         let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
             
             profileViewModel.appCoordinator = self
@@ -94,15 +93,16 @@ class AppCoordinator: Coordinator {
 
     func goToWishListPage(orders : [Order]){
         let wishListViewController = WishListViewController(nibName: String(describing: WishListViewController.self), bundle: nil)
-        let wishListViewModel = WishListViewModel.init(orders: orders)
+        let wishListViewModel = WishListViewModel.init(  orders: orders, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             wishListViewModel.appCoordinator = self
             wishListViewController.viewModel = wishListViewModel
              navigationController.pushViewController(wishListViewController, animated: true)
     }
 
-    func goToProfileOrderListPage(orders : [Order]){
+    func goToProfileOrderListPage(){
         let orderListViewController = OrderListViewController(nibName: String(describing: OrderListViewController.self), bundle: nil)
-            let orderListViewModel = OrderListViewModel.init(orders: orders)
+            let orderListViewModel = OrderListViewModel.init(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+
             orderListViewModel.appCoordinator = self
             orderListViewController.viewModel = orderListViewModel
              navigationController.pushViewController(orderListViewController, animated: true)
@@ -122,7 +122,7 @@ class AppCoordinator: Coordinator {
 
     func goToProductDetailsPage(product: Product){
         let goToProductDetailsViewController = DetailsViewController(nibName: String(describing: DetailsViewController.self), bundle: nil)
-            let goToProductDetailsViewModel = DetailsViewModel.init(product: product)
+        let goToProductDetailsViewModel = DetailsViewModel.init(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             goToProductDetailsViewModel.appCoordinator = self
             goToProductDetailsViewController.viewModel = goToProductDetailsViewModel
              navigationController.pushViewController(goToProductDetailsViewController, animated: true)

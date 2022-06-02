@@ -11,10 +11,13 @@ import RxSwift
 protocol ProfileViewModelType{
     //var profileObservable : Observable<Customer?> {get}
     var customer : Customer? {get}
+    var favourites : [Product]? {get}
     var orders: [Order]? {get}
     var didFetchData: (() -> ())? {get set}
     func getProfileDetails()
-    func goToOrderListScreen(orders : [Order])
-    func goToWishListScreen(orders : [Order])
+    func goToOrderListScreen()
+    func goToWishListScreen()
     func getCustomerOrders()
+    func getAllFavourites()
+    func deleteProductFromFav(product : Product)
 }

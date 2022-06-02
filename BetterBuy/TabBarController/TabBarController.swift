@@ -21,7 +21,7 @@ class TabBarContoller: UITabBarController {
         super.viewDidLoad()
         
         let viewModel = HomeViewModel()
-        let profileViewModel = ProfileViewModel()
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
         
 
         let homeViewController = HomeViewController(homeViewModel: viewModel)

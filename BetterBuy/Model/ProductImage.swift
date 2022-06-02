@@ -17,6 +17,10 @@ struct ProductImage: Codable {
         case src
     }
     
+    init(src: String){
+        self.src = src
+    }
+    
     init(response : [String : Any]?){
         guard let response = response else {
             print("failed To initialize \(String(describing: self))")
