@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
         registerTableView()
         viewModel?.getProfileDetails()
         viewModel?.getCustomerOrders()
+        viewModel?.getAllFavourites()
         viewModel?.didFetchData = {[weak self] in
             guard let self = self else {return}
             DispatchQueue.main.async {
@@ -71,7 +72,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 1){
-            return 2
+            return ((viewModel?.favourites?.count ?? 0) >= 2 ? 2 : viewModel?.favourites?.count) ?? 0
         }
         return ((viewModel?.customer?.ordersCount ?? 0) >= 4 ? 4 : viewModel?.customer?.ordersCount) ?? 0
         
@@ -81,10 +82,13 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         if(indexPath.section == 1){
             tableView.register(UINib.init(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
-            cell.orderImg.image = #imageLiteral(resourceName: "img4")
+            cell.orderImgValue = viewModel?.favourites?[indexPath.row].images?[0].src
             cell.orderImg.cornerRadius = 37.5
-            cell.orderItemTitleLabel.text = "Addidas Shoes"
-            cell.orderItemDesc.text = "German manufacturer of athletic shoes and apparel and sporting goods"
+            cell.orderItemTitleLabel.text = viewModel?.favourites?[indexPath.row].title
+            cell.orderItemDesc.text = viewModel?.favourites?[indexPath.row].variants?[0].price
+            cell.deleteBtn.rx.tap.bind{
+                self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
+            }.disposed(by: disposeBag)
             return cell
         }
         
@@ -143,12 +147,12 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     @objc func myOrderAction(_ sender : AnyObject) {
         //MARK: HEREEEEEEEEEEEEEE
         print("my order")
-        viewModel?.goToOrderListScreen(orders: viewModel?.orders ?? [])
+        viewModel?.goToOrderListScreen()
     }
     
     @objc func myWishListAction(_ sender : AnyObject) {
         print("my wish")
-        viewModel?.goToWishListScreen(orders: viewModel?.orders ?? [])
+        viewModel?.goToWishListScreen()
     }
 
 }

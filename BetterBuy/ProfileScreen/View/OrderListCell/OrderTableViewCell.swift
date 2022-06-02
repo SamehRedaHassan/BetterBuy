@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class OrderTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
+    
     
     //MARK:IBOutlets
     @IBOutlet weak var orderImg: UIImageView!
     @IBOutlet weak var orderItemDesc: UILabel!
+    @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var orderItemTitleLabel: UILabel!
+
+    var disposeBag = DisposeBag()
+    
     
     var orderImgValue : String? {
         didSet{
@@ -40,11 +48,19 @@ class OrderTableViewCell: UITableViewCell {
     
     
     
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
+//    typealias deletType = (Product) -> Void
+//    func onClick(closure : deletType){
+//        deleteBtn.rx.tap.bind{
+//            closure(product)
+//        }.disposed(by: disposeBag)
+//    }
     
     
     

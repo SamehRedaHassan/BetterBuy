@@ -24,6 +24,10 @@ struct Product: Codable {
     var options: [ProductOption]?
     var images: [ProductImage]?
     
+    init(){
+        
+    }
+    
     init(response : [String : Any]?){
         guard let response = response else {
             print("failed To initialize \(String(describing: self))")

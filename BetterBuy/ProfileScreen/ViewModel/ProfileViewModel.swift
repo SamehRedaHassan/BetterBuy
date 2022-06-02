@@ -3,13 +3,13 @@
 //  BetterBuy
 //
 //  Created by nada elmasry on 5/25/22.
-//  Copyright © 2022 Mohamed Adel. All rights reserved.
 //
 
 import Foundation
 import RxSwift
 
 final class ProfileViewModel : ProfileViewModelType{
+    var favourites: [Product]?
     var customer: Customer?
     var orders: [Order]?
     var didFetchData: (() -> ())?
@@ -25,13 +25,15 @@ final class ProfileViewModel : ProfileViewModelType{
     private var profileResponse   = BehaviorSubject<Customer?>(value:nil)
     var orderObservable: Observable<Orders?>
     private var orderResponse   = BehaviorSubject<Orders?>(value:nil)
+    var db : LocalDbType
 
 
     
     //MARK: init
-    init(){
+    init(db : LocalDbType){
         profileObservable = profileResponse.asObservable()
         orderObservable = orderResponse.asObservable()
+        self.db = db
     }
     
     
@@ -97,16 +99,25 @@ final class ProfileViewModel : ProfileViewModelType{
     }
     
     
-    func goToWishListScreen(orders: [Order]) {
-        appCoordinator?.goToWishListPage(orders: orders)
+    func goToWishListScreen() {
+        appCoordinator?.goToWishListPage(orders: orders ?? [])
     }
     
-    func goToOrderListScreen(orders : [Order]) {
-        appCoordinator?.goToProfileOrderListPage(orders : orders)
+    func goToOrderListScreen() {
+        appCoordinator?.goToProfileOrderListPage()
     }
     
+    //MARK: Change To user id from user defaults
     func getUserId() -> String {
         return "6236240937195"
+    }
+    
+    func getAllFavourites(){
+        favourites = db.getAllFavourites()
+    }
+    
+    func deleteProductFromFav(product : Product){
+        db.removeFavProduct(product: product)
     }
     
 }
