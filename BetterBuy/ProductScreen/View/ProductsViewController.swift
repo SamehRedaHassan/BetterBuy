@@ -49,7 +49,7 @@ class ProductsViewController: UIViewController{
         
         productCollectionView?.backgroundColor = .clear
         productCollectionView?.contentInset = UIEdgeInsets(top: 5, left: 4, bottom: 5, right: 4)
-        if let layout = productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout {
+        if (productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout) != nil {
 //            layout.delegate = self
         }
         productViewModel?.productsObservable.asDriver(onErrorJustReturn: [])

@@ -31,6 +31,8 @@ class AppCoordinator: Coordinator {
         //goToSettingsPage()
         //goToProfilePage()
         goToProductsPage()
+        //goToLoginPage()
+        //goToNotLoogedInProfilePage()
     }
 
     func goToFirstPage(){
@@ -47,7 +49,6 @@ class AppCoordinator: Coordinator {
         navigationController.viewControllers = [TabBarContoller()]
 
     }
-
 
     func goToCategoriesPage(){
             let categoryViewController = CategoryViewController(nibName: "CategoryView", bundle: nil)
@@ -66,6 +67,7 @@ class AppCoordinator: Coordinator {
 
         let registerViewModel = RegisterViewModel()
         registerViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
+        registerViewModel.appCoordinator=self
          // Set the ViewModel to ViewController
          registerViewController.viewModel = registerViewModel
          // Push it.
