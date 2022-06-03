@@ -26,14 +26,13 @@ class AppCoordinator: Coordinator {
     
     //MARK: functions
     func start() {
-        // The first time this coordinator started, is to launch login page.
         //goToFirstPage()
         //goToSignUpPage()
         //goToSettingsPage()
         //goToProfilePage()
         // goToProductsPage(category: " men")
         goToSplashScreen()
-        
+        //goToNotLoogedInProfilePage()
     }
     
     func goToSplashScreen(){
@@ -74,18 +73,12 @@ class AppCoordinator: Coordinator {
     
     
     func goToSignUpPage() {
-        // Instantiate LoginViewController
-        let registerViewController = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        // Instantiate LoginViewModel
-        
-        let registerViewModel = RegisterViewModel()
-        registerViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
-        registerViewModel.appCoordinator=self
-        // Set the ViewModel to ViewController
-        registerViewController.viewModel = registerViewModel
-        // Push it.
+        let registerViewModel = RegisterViewModel(coordinator: self)
+        let registerViewController = RegisterViewController(viewModel: registerViewModel)
         navigationController.pushViewController(registerViewController, animated: true)
     }
+    
+    
     func goToProductsPage(category:String){
         //            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
         
@@ -96,29 +89,22 @@ class AppCoordinator: Coordinator {
     }
     
     
-    
     func goToProfilePage(){
-        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
         let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
-        
-        profileViewModel.appCoordinator = self
-        profileViewController.viewModel = profileViewModel
         navigationController.pushViewController(profileViewController, animated: true)
     }
     
     func goToWishListPage(orders : [Order]){
         let wishListViewController = WishListViewController(nibName: String(describing: WishListViewController.self), bundle: nil)
-        let wishListViewModel = WishListViewModel.init(  orders: orders, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
-        wishListViewModel.appCoordinator = self
+        let wishListViewModel = WishListViewModel.init(  orders: orders, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
         wishListViewController.viewModel = wishListViewModel
         navigationController.pushViewController(wishListViewController, animated: true)
     }
     
     func goToProfileOrderListPage(){
         let orderListViewController = OrderListViewController(nibName: String(describing: OrderListViewController.self), bundle: nil)
-        let orderListViewModel = OrderListViewModel.init(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
-        
-        orderListViewModel.appCoordinator = self
+        let orderListViewModel = OrderListViewModel.init(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
         orderListViewController.viewModel = orderListViewModel
         navigationController.pushViewController(orderListViewController, animated: true)
     }
@@ -126,27 +112,17 @@ class AppCoordinator: Coordinator {
     
     func goToNotLoogedInProfilePage(){
         let notLoggedInViewController = NotLoggedInProfileViewController(nibName: String(describing: NotLoggedInProfileViewController.self), bundle: nil)
-        let notLoggedInViewModel = NotLoggedInViewModel.init()
-        notLoggedInViewModel.appCoordinator = self
+        let notLoggedInViewModel = NotLoggedInViewModel.init(coordinator: self)
         notLoggedInViewController.viewModel = notLoggedInViewModel
         navigationController.pushViewController(notLoggedInViewController, animated: true)
     }
     
-    
-    
-    
+
     func goToProductDetailsPage(product: Product){
-        let goToProductDetailsViewController = DetailsViewController(nibName: String(describing: DetailsViewController.self), bundle: nil)
-        let goToProductDetailsViewModel = DetailsViewModel.init(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
-        goToProductDetailsViewModel.appCoordinator = self
-        goToProductDetailsViewController.viewModel = goToProductDetailsViewModel
-        navigationController.pushViewController(goToProductDetailsViewController, animated: true)
+       let productDetailsViewModel = DetailsViewModel.init(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
+        let productDetailsViewController = DetailsViewController(viewModel: productDetailsViewModel as! DetailsViewModelType)
+        navigationController.pushViewController(productDetailsViewController, animated: true)
     }
-    
-    
-    
-    
-    
     
     func goToLoginPage(){
         let loginViewController = LoginViewController(nibName: "LoginView", bundle: nil)

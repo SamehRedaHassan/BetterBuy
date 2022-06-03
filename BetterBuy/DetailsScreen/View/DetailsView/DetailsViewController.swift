@@ -25,8 +25,17 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var addToCartBtn: UIButton!
     //MARK: variables
-    var viewModel : DetailsViewModel?
+    var viewModel : DetailsViewModelType
     var disposeBag = DisposeBag()
+    
+    init(viewModel: DetailsViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: DetailsViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +43,7 @@ class DetailsViewController: UIViewController {
         self.productSizesCollectionView.dataSource = nil
         self.productSizesCollectionView.delegate = nil
         self.productImgsCollectionView.dataSource = nil
-        viewModel?.getProductsFromFavourite()
+        viewModel.getProductsFromFavourite()
         setSize()
         setCollectionDelegates()
         setData()
@@ -46,11 +55,11 @@ class DetailsViewController: UIViewController {
 
         self.productSizesCollectionView.register(UINib(nibName: String(describing: SizeCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: SizeCollectionViewCell.self))
         
-        viewModel?.images.asDriver(onErrorJustReturn: []).drive( productImgsCollectionView.rx.items(cellIdentifier: String(describing: ImgsCollectionViewCell.self) ,cellType: ImgsCollectionViewCell.self ) ){( row, model, cell) in
+        viewModel.images.asDriver(onErrorJustReturn: []).drive( productImgsCollectionView.rx.items(cellIdentifier: String(describing: ImgsCollectionViewCell.self) ,cellType: ImgsCollectionViewCell.self ) ){( row, model, cell) in
             cell.imgValue = model.src
         }.disposed(by: disposeBag)
         
-        viewModel?.sizes.asDriver(onErrorJustReturn: []).drive( productSizesCollectionView.rx.items(cellIdentifier: String(describing: SizeCollectionViewCell.self) ,cellType: SizeCollectionViewCell.self ) ){( row, model, cell) in
+        viewModel.sizes.asDriver(onErrorJustReturn: []).drive( productSizesCollectionView.rx.items(cellIdentifier: String(describing: SizeCollectionViewCell.self) ,cellType: SizeCollectionViewCell.self ) ){( row, model, cell) in
             cell.sizeTxt = model
             
         }.disposed(by: disposeBag)
@@ -61,16 +70,16 @@ class DetailsViewController: UIViewController {
             
         }.disposed(by: disposeBag)
         addToFavFavouriteBtn.rx.tap.bind{
-            self.viewModel?.addProductToFav(product: (self.viewModel?.product)!)
+            self.viewModel.addProductToFav(product: (self.viewModel.product)!)
             let imageIcon = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
-            self.addToFavFavouriteBtn.imageView?.image = imageIcon
+            self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
         }.disposed(by: disposeBag)
         
         //MARK: SET The Favourite Cell Data
-        productImg.sd_setImage(with: URL(string : (viewModel?.product?.images?[0].src!)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"))
-        productName.text = viewModel?.product?.title
-        productDesc.text = viewModel?.product?.description
-        productPrice.text =  viewModel?.product?.variants?[0].price
+        productImg.sd_setImage(with: URL(string : (viewModel.product?.images?[0].src!)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"))
+        productName.text = viewModel.product?.title
+        productDesc.text = viewModel.product?.description
+        productPrice.text =  viewModel.product?.variants?[0].price
         
 
 

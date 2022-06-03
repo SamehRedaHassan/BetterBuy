@@ -11,9 +11,7 @@ import RxCocoa
 
 class RegisterViewController: UIViewController {
     
-    
     //MARK: Outlets
-
     @IBOutlet weak var LoginBtn: UIButton!
     @IBOutlet weak var signInuserNameTxtView: UITextField!
     
@@ -22,8 +20,19 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var signUpBtn: UIButton!
     
     //MARK: variables
-    var viewModel : RegisterViewModel?
-    var disposeBag = DisposeBag()
+    var viewModel : RegisterViewModelType
+    let disposeBag = DisposeBag()
+    
+    init(viewModel : RegisterViewModelType) {
+           self.viewModel = viewModel
+           super.init(nibName: String(describing: RegisterViewController.self), bundle: nil)
+       }
+       
+       required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+       }
+
+    
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,21 +45,14 @@ class RegisterViewController: UIViewController {
     func BindButtons(){
         
         LoginBtn.rx.tap.bind{
-            self.viewModel?.goToLoginUpScreen()
+            self.viewModel.goToLoginUpScreen()
             
             print ("Clicked")
         }.disposed(by: disposeBag)
         signUpBtn.rx.tap.bind{
             
         }.disposed(by: disposeBag)
-        
-//        LoginBtn.rx.tap.bind{
-//            self.viewModel?.goToLoginUpScreen()
-//            print ("Clicked")
-//        }.disposed(by: disposeBag)
-//        signUpBtn.rx.tap.bind{
-//
-//        }.disposed(by: disposeBag)
+
     }
 
 }

@@ -27,6 +27,8 @@
 		045DA50528462325006BF27D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DA50328462325006BF27D /* PaymentViewController.swift */; };
 		045DA50628462325006BF27D /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045DA50428462325006BF27D /* PaymentViewController.xib */; };
 		045DA5082846233A006BF27D /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DA5072846233A006BF27D /* PaymentViewModel.swift */; };
+		045EB120284A8D5A0009ADFE /* RegisterViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EB11F284A8D5A0009ADFE /* RegisterViewModelType.swift */; };
+		045EB122284A98570009ADFE /* DetailsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EB121284A98570009ADFE /* DetailsViewModelType.swift */; };
 		045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F4D283E96EC006853BB /* RegisterViewController.swift */; };
 		045F5F50283E96EC006853BB /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F5F4E283E96EC006853BB /* RegisterViewController.xib */; };
 		045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F53283EA590006853BB /* RegisterViewModel.swift */; };
@@ -172,6 +174,8 @@
 		045DA50328462325006BF27D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		045DA50428462325006BF27D /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		045DA5072846233A006BF27D /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		045EB11F284A8D5A0009ADFE /* RegisterViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelType.swift; sourceTree = "<group>"; };
+		045EB121284A98570009ADFE /* DetailsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelType.swift; sourceTree = "<group>"; };
 		045F5F4D283E96EC006853BB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		045F5F4E283E96EC006853BB /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		045F5F53283EA590006853BB /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -397,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				045F5F53283EA590006853BB /* RegisterViewModel.swift */,
+				045EB11F284A8D5A0009ADFE /* RegisterViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 			isa = PBXGroup;
 			children = (
 				0489FEEC28417E8900EC5974 /* DetailsViewModel.swift */,
+				045EB121284A98570009ADFE /* DetailsViewModelType.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -1345,6 +1351,7 @@
 				7680429D284A73D80011EF6F /* SplashViewModelType.swift in Sources */,
 				7682F165283EF7BF004C3DBC /* CategoryViewModel.swift in Sources */,
 				04F2773528480292000E9A1C /* ImgsCollectionViewCell.swift in Sources */,
+				045EB122284A98570009ADFE /* DetailsViewModelType.swift in Sources */,
 				040B647B284792B9001DB17A /* PostOrder.swift in Sources */,
 				7607DE6D283E8BF900A014C7 /* FloatingBarView.swift in Sources */,
 				7607DE74283E8FA800A014C7 /* BaseViewController.swift in Sources */,
@@ -1367,6 +1374,7 @@
 				0489FEED28417E8900EC5974 /* DetailsViewModel.swift in Sources */,
 				76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */,
 				769321112840026A0007D369 /* UIViewController.swift in Sources */,
+				045EB120284A8D5A0009ADFE /* RegisterViewModelType.swift in Sources */,
 				040B6473284790F2001DB17A /* OrderFinancialStatus.swift in Sources */,
 				76ED8AB0283ACFC6009F9C61 /* SplashViewController.swift in Sources */,
 				768042A3284A7D300011EF6F /* PageOneViewModelType.swift in Sources */,

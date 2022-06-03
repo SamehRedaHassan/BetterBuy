@@ -8,15 +8,18 @@
 
 import Foundation
 
-class RegisterViewModel{
+class RegisterViewModel : RegisterViewModelType {
     
     //MARK: vars
-    var appCoordinator: AppCoordinator?
-        
+    var coordinator: Coordinator
+    
+    init(coordinator: Coordinator){
+        self.coordinator = coordinator
+    }
     
     //MARK: functions
     func goToLoginUpScreen() {
-        appCoordinator?.goToLoginPage()
+        coordinator.goToLoginPage()
     }
     
 }

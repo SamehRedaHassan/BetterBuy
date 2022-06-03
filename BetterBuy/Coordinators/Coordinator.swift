@@ -17,5 +17,12 @@ protocol Coordinator : AnyObject{
     
     func navigateToHomeOrIntro()
     func goToHomeScreen()
+    func goToSignUpPage()
+    func goToProfilePage()
+    func goToWishListPage(orders : [Order])
+    func goToProfileOrderListPage()
+    func goToNotLoogedInProfilePage()
+    func goToProductDetailsPage(product: Product)
+    func goToLoginPage()
     
 }

@@ -11,11 +11,12 @@ import Foundation
 final class OrderListViewModel{
     
     //MARK: vars
-    var appCoordinator: AppCoordinator?
+    var coordinator: Coordinator
     var orders : [Product]?
     var db : LocalDbType
         
-    init(db : LocalDbType){
+    init(db : LocalDbType , coordinator: Coordinator){
+        self.coordinator = coordinator
         self.db = db
     }
     
