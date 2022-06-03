@@ -8,7 +8,7 @@
 
 import Foundation
 import RxSwift
-protocol HomeViewModelType{
+protocol HomeViewModelType : AnyObject{
     var brandsObservable : Observable<[BrandModel]> {get}
     var ads : Observable<[String]> {get}
     var isLoading: ActivityIndicator {get}

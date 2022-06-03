@@ -15,8 +15,21 @@ class PageOneViewController: UIViewController {
     
     // MARK: - Variables
     private var lottieAnimationView: AnimationView?
-    var coordinator : AppCoordinator?
+    private var viewModel : PageOneViewModelType?
     // MARK: - Life Cycle
+    convenience init() {
+        self.init(viewModel: nil)
+    }
+
+    init(viewModel: PageOneViewModelType?) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: PageOneViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
       super.viewDidLoad()
         playAnumation()
@@ -34,7 +47,7 @@ class PageOneViewController: UIViewController {
     }
     // MARK: - IBAction
     @IBAction func skip(_ sender: UIButton) {
-        coordinator?.goToFirstPage()
+        viewModel?.goToHomeScreen()
     }
     
 }
