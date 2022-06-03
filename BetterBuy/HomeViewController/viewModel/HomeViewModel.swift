@@ -9,7 +9,7 @@ import RxSwift
 import Foundation
 //import NVActivityIndicatorView
 class HomeViewModel : HomeViewModelType{
-    //let isLoading: ActivityIndicator =  ActivityIndicator()
+    let isLoading: ActivityIndicator =  ActivityIndicator()
     let disposeBag = DisposeBag()
     var brandsObservable : Observable<[BrandModel]>
     var ads : Observable<[String]>
@@ -25,7 +25,7 @@ class HomeViewModel : HomeViewModelType{
   
     func getCustomers() {
         getApi(apiRouter: .getAllBrands)
-      //      .trackActivity(isLoading)
+            .trackActivity(isLoading)
             .observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated))
             .subscribe {[weak self] (event) in
                 guard let self = self else { return }
@@ -35,7 +35,7 @@ class HomeViewModel : HomeViewModelType{
                     case .success(value: let response):
                         let apiResponse = GetBrandsResponseModel(response: response)
                         self.brandsResponse.onNext(apiResponse.brands ?? [])
-                        print(apiResponse.brands?.count)
+                     //   print(apiResponse.brands?.count)
                    
                     case .internetFailure(let error):
                         self.Internetmsg.onNext(error.message)

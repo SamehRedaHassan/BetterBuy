@@ -13,6 +13,7 @@ import Foundation
 
 class HomeViewController: BaseViewController {
     // MARK: - IBOutlet
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet private weak var adsCollectionView: UICollectionView!
     @IBOutlet private weak var brandsCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -73,6 +74,19 @@ class HomeViewController: BaseViewController {
         homeViewModel?.ads.asDriver(onErrorJustReturn: []).drive( adsCollectionView.rx.items(cellIdentifier: String(describing: advertiseCollectionViewCell.self)  ,cellType: advertiseCollectionViewCell.self) ){( row, model, cell) in
             cell.brandLitteralImage = model
         }.disposed(by: dp)
+        
+        homeViewModel?.isLoading
+            .distinctUntilChanged()
+            .drive(onNext: { [weak self] (isLoading) in
+                guard let self = self else { return }
+                self.rootView.isHidden = false
+                self.killLoading()
+                if isLoading {
+                    self.rootView.isHidden = true
+                    self.loading()
+                }
+            })
+            .disposed(by: dp)
     }
 }
 // MARK: - Extensions
