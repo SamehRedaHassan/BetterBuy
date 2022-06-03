@@ -23,6 +23,7 @@ class HomeViewController: BaseViewController {
     // MARK: - Properties
     private let dp = DisposeBag()
     private var homeViewModel : HomeViewModelType!
+
     
     // MARK: - Life Cycle
     convenience init() {

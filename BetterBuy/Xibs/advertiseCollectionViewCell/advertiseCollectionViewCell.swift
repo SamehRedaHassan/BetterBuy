@@ -18,10 +18,11 @@ class advertiseCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    var brandImageUrl : String? {
+   var brandImageUrl : String? {
            didSet{
                guard let brandImageUrl = brandImageUrl else {return}
                guard let url = URL(string:brandImageUrl) else {
+                
                    print("cannot generate url")
                    return
                }

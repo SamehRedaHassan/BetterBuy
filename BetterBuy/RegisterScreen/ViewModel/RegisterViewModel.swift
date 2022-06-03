@@ -15,8 +15,8 @@ class RegisterViewModel{
         
     
     //MARK: functions
-    func goToSignUpScreen() {
-        appCoordinator?.goToSignUpPage()
+    func goToLoginUpScreen() {
+        appCoordinator?.goToLoginPage()
     }
     
 }

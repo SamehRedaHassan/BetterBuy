@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProfileViewController: UIViewController {
     
@@ -17,15 +19,43 @@ class ProfileViewController: UIViewController {
     
     
     //MARK: variables
-    var viewModel : ProfileViewModel?
+    var viewModel : ProfileViewModelType?
+    private let disposeBag = DisposeBag()
+    
+
+    // MARK: - Life Cycle
+    
+    convenience init() {
+        self.init(profileViewModel: nil)
+    }
+
+    init(profileViewModel: ProfileViewModelType?) {
+        self.viewModel = profileViewModel
+        super.init(nibName: String(describing: ProfileViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
-    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
-        
+        viewModel?.getProfileDetails()
+        viewModel?.getCustomerOrders()
+        viewModel?.getAllFavourites()
+        viewModel?.didFetchData = {[weak self] in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.profileTableView.reloadData()
+            }
+        }
+       // configurePreviousOrdersTableView()
+       // configureWishListTableView()
+        //homeViewModel?.getCustomers()
     }
+    
     
     func registerTableView() {
         profileTableView.delegate = self
@@ -41,29 +71,33 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0){
-            return 2
+        if(section == 1){
+            return ((viewModel?.favourites?.count ?? 0) >= 2 ? 2 : viewModel?.favourites?.count) ?? 0
         }
-        return 4
+        return ((viewModel?.customer?.ordersCount ?? 0) >= 4 ? 4 : viewModel?.customer?.ordersCount) ?? 0
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(indexPath.section == 0){
+        if(indexPath.section == 1){
             tableView.register(UINib.init(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
-            cell.orderImg.image = #imageLiteral(resourceName: "img4")
+            cell.orderImgValue = viewModel?.favourites?[indexPath.row].images?[0].src
             cell.orderImg.cornerRadius = 37.5
-            cell.orderItemTitleLabel.text = "Addidas Shoes"
-            cell.orderItemDesc.text = "German manufacturer of athletic shoes and apparel and sporting goods"
+            cell.orderItemTitleLabel.text = viewModel?.favourites?[indexPath.row].title
+            cell.orderItemDesc.text = viewModel?.favourites?[indexPath.row].variants?[0].price
+            cell.deleteBtn.rx.tap.bind{
+                self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
+            }.disposed(by: disposeBag)
             return cell
         }
         
         
-        if (indexPath.section == 1) {
+        if (indexPath.section == 0) {
             tableView.register(UINib.init(nibName: "WishListTableViewCell", bundle: nil), forCellReuseIdentifier: "WishListTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-            cell.wishListItemNameLabel.text = "Addidas Shoes"
-            cell.wishListItemNameDescLabel.text = "German manufacturer of athletic shoes and apparel and sporting goods"
+            cell.wishListItemNameLabel.text = viewModel?.orders?[indexPath.row].totalPrice
+            cell.wishListItemNameDescLabel.text = "\(viewModel?.orders?[indexPath.row].id ?? 0)"
             return cell
         }
         return UITableViewCell()
@@ -74,10 +108,10 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
 
         let sectionName: String
         switch section {
-            case 0:
-                sectionName = "Orders"
             case 1:
                 sectionName = "Wish List"
+            case 0:
+                sectionName = "Order"
             default:
                 sectionName = ""
         }
@@ -95,7 +129,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
             let myButton = UIButton(type: .custom)
 
             myButton.setTitle("View more", for: .normal)
-        if (section == 0) //else { return nil } // Can remove if want button for all sections
+        if (section == 1) //else { return nil } // Can remove if want button for all sections
         {
             myButton.addTarget(self, action: #selector(myOrderAction(_:)), for: .touchUpInside)
         } else {
@@ -111,6 +145,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     }
 
     @objc func myOrderAction(_ sender : AnyObject) {
+        //MARK: HEREEEEEEEEEEEEEE
         print("my order")
         viewModel?.goToOrderListScreen()
     }

@@ -12,10 +12,16 @@ final class WishListViewModel{
     
     //MARK: vars
     var appCoordinator: AppCoordinator?
-        
+    var orders : [Order]
+    var  db : LocalDbType
+    
+    init(orders:[Order] , db : LocalDbType) {
+        self.orders = orders
+        self.db = db
+    }
     
     //MARK: functions
-//    func goToSignUpScreen() {
+//    func viewAllFavourites() {
 //        appCoordinator?.goToSignUpPage()
 //    }
     

@@ -19,10 +19,14 @@ class TabBarContoller: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-let viewModel = HomeViewModel()
+        
+        let viewModel = HomeViewModel()
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+        
+
         let homeViewController = HomeViewController(homeViewModel: viewModel)
         
-        let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
+        let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
         // Instantiate LoginViewModel
        
      //  let splashScreenViewModel = SplashViewModel()
