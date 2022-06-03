@@ -10,7 +10,5 @@ import Foundation
 import RxSwift
 protocol HomeViewModelType{
     var brandsObservable : Observable<[BrandModel]> {get}
-    var ads : Observable<[String]> {get}
-    var isLoading: ActivityIndicator {get}
     func getCustomers()
 }

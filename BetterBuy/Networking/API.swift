@@ -22,7 +22,6 @@ import Alamofire
 
 func getApi(apiRouter :APIRouter) -> Observable<APIResult<[String:Any]>> {
     return handleDataRequest(dataRequest: requestObservable(api: apiRouter)).map({ (response) -> APIResult<[String:Any]> in
-        print(response)
         if (response ?? [:]).keys.contains("Error") {
             if (response ?? [:]).keys.contains("IsInternetOff") {
                 if let isInternetOff = response!["IsInternetOff"] as? Bool {
