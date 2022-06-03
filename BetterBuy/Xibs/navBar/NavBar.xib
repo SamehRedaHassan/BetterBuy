@@ -35,7 +35,7 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEf-EY-HGl">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VEf-EY-HGl">
                             <rect key="frame" x="264" y="0.0" width="150" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37g-Dw-PSa">
@@ -43,12 +43,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="i8f-Fp-5Ig"/>
                                     </constraints>
-                                    <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                     <state key="normal" title="Button"/>
-
-                                    <buttonConfiguration key="configuration" style="plain" image="search" title=" " imagePadding="0.0"/>
-
-
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfT-a7-Av8">
                                     <rect key="frame" x="50" y="0.0" width="50" height="50"/>
@@ -62,7 +57,6 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="VJ3-ig-ScX"/>
                                     </constraints>
-                                    <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                     <state key="normal" title="Button"/>
                                 </button>
                             </subviews>
