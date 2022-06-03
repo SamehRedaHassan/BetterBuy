@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     private let dp = DisposeBag()
-    private var homeViewModel : HomeViewModelType!
+    private weak var homeViewModel : HomeViewModelType!
 
     
     // MARK: - Life Cycle
