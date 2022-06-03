@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rb-RF-oDn">
-                    <rect key="frame" x="0.0" y="60" width="414" height="188"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgThree" translatesAutoresizingMaskIntoConstraints="NO" id="kSa-kz-x8i">
-                            <rect key="frame" x="34" y="45" width="100" height="100"/>
+                            <rect key="frame" x="26" y="97" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="eh3-Se-Kks"/>
                                 <constraint firstAttribute="width" constant="100" id="lxG-dS-ASd"/>
@@ -63,13 +63,13 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nada Mohammed Kamal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fu-CN-EHU">
-                            <rect key="frame" x="156" y="106" width="187" height="20.5"/>
+                            <rect key="frame" x="148" y="158" width="187" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9Y-zR-so7">
-                            <rect key="frame" x="156" y="66" width="258" height="32"/>
+                            <rect key="frame" x="148" y="118" width="258" height="32"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -77,14 +77,16 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="M9Y-zR-so7" firstAttribute="top" secondItem="0rb-RF-oDn" secondAttribute="top" constant="66" id="24s-Cn-6yT"/>
+                        <constraint firstItem="M9Y-zR-so7" firstAttribute="top" secondItem="0rb-RF-oDn" secondAttribute="top" constant="118" id="24s-Cn-6yT"/>
                         <constraint firstItem="2Fu-CN-EHU" firstAttribute="top" secondItem="M9Y-zR-so7" secondAttribute="bottom" constant="8" symbolic="YES" id="2x5-Ns-tbu"/>
+                        <constraint firstItem="2Fu-CN-EHU" firstAttribute="leading" secondItem="kSa-kz-x8i" secondAttribute="trailing" constant="22" id="E8a-AF-vG0"/>
                         <constraint firstItem="M9Y-zR-so7" firstAttribute="leading" secondItem="2Fu-CN-EHU" secondAttribute="leading" id="HVA-df-mAe"/>
-                        <constraint firstAttribute="height" constant="188" id="bra-Yx-Bdf"/>
-                        <constraint firstItem="kSa-kz-x8i" firstAttribute="leading" secondItem="0rb-RF-oDn" secondAttribute="leading" constant="34" id="kSN-PM-tZD"/>
-                        <constraint firstItem="kSa-kz-x8i" firstAttribute="top" secondItem="0rb-RF-oDn" secondAttribute="top" constant="45" id="m3F-CU-DHJ"/>
-                        <constraint firstItem="M9Y-zR-so7" firstAttribute="trailing" secondItem="0rb-RF-oDn" secondAttribute="trailingMargin" constant="8" id="sZO-YO-YfS"/>
-                        <constraint firstAttribute="trailing" secondItem="2Fu-CN-EHU" secondAttribute="trailing" constant="71" id="xdx-2H-T0q"/>
+                        <constraint firstAttribute="height" constant="230" id="bra-Yx-Bdf"/>
+                        <constraint firstItem="kSa-kz-x8i" firstAttribute="leading" secondItem="0rb-RF-oDn" secondAttribute="leading" constant="26" id="kSN-PM-tZD"/>
+                        <constraint firstItem="kSa-kz-x8i" firstAttribute="top" secondItem="0rb-RF-oDn" secondAttribute="top" constant="97" id="m3F-CU-DHJ"/>
+                        <constraint firstItem="M9Y-zR-so7" firstAttribute="trailing" secondItem="0rb-RF-oDn" secondAttribute="trailingMargin" id="sZO-YO-YfS"/>
+                        <constraint firstAttribute="trailing" secondItem="2Fu-CN-EHU" secondAttribute="trailing" constant="79" id="xdx-2H-T0q"/>
+                        <constraint firstItem="M9Y-zR-so7" firstAttribute="leading" secondItem="kSa-kz-x8i" secondAttribute="trailing" constant="22" id="yjU-Iy-fo0"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
@@ -132,7 +134,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="150" estimatedRowHeight="150" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Mhu-cH-g8F">
-                    <rect key="frame" x="0.0" y="256" width="414" height="591"/>
+                    <rect key="frame" x="0.0" y="238" width="414" height="609"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,9 +149,9 @@
             <constraints>
                 <constraint firstItem="0rb-RF-oDn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7bg-f6-337"/>
                 <constraint firstItem="Mhu-cH-g8F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9rW-GD-Kjw"/>
-                <constraint firstItem="0rb-RF-oDn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="InN-xF-9Of"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Mhu-cH-g8F" secondAttribute="bottom" constant="15" id="MOE-a7-603"/>
                 <constraint firstItem="0rb-RF-oDn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Qf4-Ey-lG7"/>
+                <constraint firstItem="0rb-RF-oDn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XJ7-Te-tfT"/>
                 <constraint firstItem="Mhu-cH-g8F" firstAttribute="top" secondItem="0rb-RF-oDn" secondAttribute="bottom" constant="8" id="b0A-uj-UXL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mhu-cH-g8F" secondAttribute="trailing" id="eXR-i9-6Yq"/>
             </constraints>

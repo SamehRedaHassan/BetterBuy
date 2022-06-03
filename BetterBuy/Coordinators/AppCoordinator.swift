@@ -22,13 +22,14 @@ class AppCoordinator: Coordinator {
         navigationController.isNavigationBarHidden = true
     }
 
-
     //MARK: functions
     func start() {
-         // The first time this coordinator started, is to launch login page.
-        goToFirstPage()
-       // goToSignUpPage()
+        // The first time this coordinator started, is to launch login page.
+        //goToFirstPage()
+        //goToSignUpPage()
         //goToSettingsPage()
+        goToProfilePage()
+        //goToProductsPage(category: " men")
         
     }
 
@@ -47,7 +48,6 @@ class AppCoordinator: Coordinator {
 
     }
 
-
     func goToCategoriesPage(){
             let categoryViewController = CategoryViewController(nibName: "CategoryView", bundle: nil)
             let categoryViewModel = CategoryViewModel.init()
@@ -65,32 +65,35 @@ class AppCoordinator: Coordinator {
 
         let registerViewModel = RegisterViewModel()
         registerViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
+        registerViewModel.appCoordinator=self
          // Set the ViewModel to ViewController
          registerViewController.viewModel = registerViewModel
          // Push it.
         navigationController.pushViewController(registerViewController, animated: true)
     }
-    func goToProductsPage(){
-            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
-            let productsViewModel = ProductsViewModel.init()
+    func goToProductsPage(category:String){
+//            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
+        
+            let productsViewModel = ProductsViewModel.init(category: category)
+            let productsViewController = ProductsViewController(productViewModel: productsViewModel)
             productsViewModel.appCoordinator = self
-            productsViewController.viewModel = productsViewModel
              navigationController.pushViewController(productsViewController, animated: true)
     }
 
 
 
     func goToProfilePage(){
-        let profileViewController = ProfileViewController(nibName: String(describing: ProfileViewController.self), bundle: nil)
-            let profileViewModel = ProfileViewModel.init()
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+        let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
+            
             profileViewModel.appCoordinator = self
             profileViewController.viewModel = profileViewModel
              navigationController.pushViewController(profileViewController, animated: true)
     }
 
-    func goToWishListPage(){
+    func goToWishListPage(orders : [Order]){
         let wishListViewController = WishListViewController(nibName: String(describing: WishListViewController.self), bundle: nil)
-            let wishListViewModel = WishListViewModel.init()
+        let wishListViewModel = WishListViewModel.init(  orders: orders, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             wishListViewModel.appCoordinator = self
             wishListViewController.viewModel = wishListViewModel
              navigationController.pushViewController(wishListViewController, animated: true)
@@ -98,7 +101,8 @@ class AppCoordinator: Coordinator {
 
     func goToProfileOrderListPage(){
         let orderListViewController = OrderListViewController(nibName: String(describing: OrderListViewController.self), bundle: nil)
-            let orderListViewModel = OrderListViewModel.init()
+            let orderListViewModel = OrderListViewModel.init(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+
             orderListViewModel.appCoordinator = self
             orderListViewController.viewModel = orderListViewModel
              navigationController.pushViewController(orderListViewController, animated: true)
@@ -116,9 +120,9 @@ class AppCoordinator: Coordinator {
    
 
 
-    func goToProductDetailsPage(){
+    func goToProductDetailsPage(product: Product){
         let goToProductDetailsViewController = DetailsViewController(nibName: String(describing: DetailsViewController.self), bundle: nil)
-            let goToProductDetailsViewModel = DetailsViewModel.init()
+        let goToProductDetailsViewModel = DetailsViewModel.init(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             goToProductDetailsViewModel.appCoordinator = self
             goToProductDetailsViewController.viewModel = goToProductDetailsViewModel
              navigationController.pushViewController(goToProductDetailsViewController, animated: true)

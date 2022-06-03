@@ -28,15 +28,15 @@ class WishListViewController: UIViewController {
 
 extension WishListViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel?.orders.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         tableView.register(UINib.init(nibName: "WishListTableViewCell", bundle: nil), forCellReuseIdentifier: "WishListTableViewCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-        cell.wishListItemNameLabel.text = "Addidas Shoes"
-        cell.wishListItemNameDescLabel.text = "German manufacturer of athletic shoes and apparel and sporting goods"
+        cell.wishListItemNameLabel.text = "\(viewModel?.orders[indexPath.row].id ?? 0)"
+        cell.wishListItemNameDescLabel.text = viewModel?.orders[indexPath.row].totalPrice
         return cell
         
     }

@@ -11,7 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController{
 
     @IBOutlet weak var categoryTableView: UITableView!
-    var categories = ["Women","Men","Kids","Sale"]
+    var categories = ["women","men","kid","sale"]
     var viewModel: CategoryViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,11 @@ extension CategoryViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CatoegorieTableViewCell.cellIdentifier, for: indexPath) as! CatoegorieTableViewCell
-        cell.configureCell(categories[indexPath.section])
+        cell.configureCell(categories[indexPath.section].capitalized)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.goToProductsScreen()
+        viewModel?.goToProductsScreen(category: categories[indexPath.section])
     }
     
     
@@ -60,6 +60,7 @@ extension CategoryViewController : UITableViewDelegate{
    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
           return 20
   }
+    
     
 
     
