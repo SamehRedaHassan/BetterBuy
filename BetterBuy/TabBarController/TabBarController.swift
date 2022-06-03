@@ -11,15 +11,39 @@ import UIKit
 
 class TabBarContoller: UITabBarController {
 
+    var coordinator : AppCoordinator?
+ 
+    
+   
     let floatingTabbarView = FloatingBarView(["house", "rectangle.3.offgrid",  "person"])
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let viewModel = HomeViewModel()
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+        
 
+        let homeViewController = HomeViewController(homeViewModel: viewModel)
+        
+        let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
+        // Instantiate LoginViewModel
+       
+     //  let splashScreenViewModel = SplashViewModel()
+      //  splashScreenViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
+        // Set the ViewModel to ViewController
+     //   splashScrViewController.viewModel = splashScreenViewModel
+        // Push it.
+        
+        
+        
         viewControllers = [
-            createNavViewController(viewController: UIViewController(), title: "Home", imageName: "house.fill"),
-            createNavViewController(viewController: UIViewController(), title: "Trending", imageName: "flame.fill"),
-            createNavViewController(viewController: UIViewController(), title: "Settings", imageName: "rectangle.3.offgrid.fill")
+
+
+            createNavViewController(viewController: homeViewController, title: "", imageName: "house.fill"),
+
+            createNavViewController(viewController: UIViewController(), title: "Categories", imageName: "flame.fill"),
+            createNavViewController(viewController: profileViewController, title: "Profile", imageName: "rectangle.3.offgrid.fill")
         ]
         tabBar.isHidden = true
 
@@ -28,11 +52,11 @@ class TabBarContoller: UITabBarController {
 
     private func createNavViewController(viewController: UIViewController, title: String, imageName: String) -> UIViewController {
 
-        viewController.navigationItem.title = title
+      //  viewController.navigationItem.title = title
 
         let navController = UINavigationController(rootViewController: viewController)
-        navController.navigationBar.prefersLargeTitles = true
-        navController.tabBarItem.title = title
+        navController.isNavigationBarHidden = true
+      //  navController.tabBarItem.title = title
         navController.tabBarItem.image = UIImage(systemName: imageName)
 
         return navController

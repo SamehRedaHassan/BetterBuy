@@ -10,8 +10,8 @@ import Foundation
 final class CategoryViewModel{
     var appCoordinator: AppCoordinator?
     
-    func goToProductsScreen()
+    func goToProductsScreen(category:String)
     {
-        appCoordinator?.goToProductsPage()
+        appCoordinator?.goToProductsPage(category: category)
     }
 }

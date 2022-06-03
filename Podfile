@@ -9,12 +9,13 @@ target 'BetterBuy' do
 
 pod 'IQKeyboardManagerSwift'
 pod "Presentr"
-pod 'RxAlamofire','4.3'
 pod 'RxSwift','4.5'
-pod 'RxGesture','2.2.0'
 pod 'RxCocoa','4.5'
-
+pod 'RxGesture','2.2.0'
+pod 'RxAlamofire','4.3'
 pod 'SDWebImage'
+pod 'Alamofire','4.9.1'
+
 
 pod 'ImageSlideshow'
 pod 'EasyNotificationBadge'
@@ -24,12 +25,14 @@ pod 'FSPagerView'
 
 pod 'Loaf'
 pod 'AMPopTip'
-pod 'SCPageControl'	
+pod 'SCPageControl'
 pod 'liquid-swipe'
 
 
 
 pod 'PopupDialog'
+
+pod 'lottie-ios'
 
 
 

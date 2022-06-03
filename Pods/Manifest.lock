@@ -12,6 +12,7 @@ PODS:
   - liquid-swipe (0.7.0):
     - pop (~> 1.0)
   - Loaf (0.7.0)
+  - lottie-ios (3.3.0)
   - NVActivityIndicatorView/Base (5.1.1)
   - NVActivityIndicatorView/Extended (5.1.1):
     - NVActivityIndicatorView/Base
@@ -37,6 +38,7 @@ PODS:
   - SimpleCheckbox (2.1.0)
 
 DEPENDENCIES:
+  - Alamofire (= 4.9.1)
   - AMPopTip
   - Cosmos
   - EasyNotificationBadge
@@ -45,6 +47,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - liquid-swipe
   - Loaf
+  - lottie-ios
   - NVActivityIndicatorView/Extended
   - PopupDialog
   - Presentr
@@ -68,6 +71,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - liquid-swipe
     - Loaf
+    - lottie-ios
     - NVActivityIndicatorView
     - pop
     - PopupDialog
@@ -91,6 +95,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   liquid-swipe: 850f88c0717fe58ba83f0f571c47a191f29ddc1f
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
@@ -103,6 +108,6 @@ SPEC CHECKSUMS:
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
 
-PODFILE CHECKSUM: c1d37e7515d9401a72e49976a5ca7ee81149b29a
+PODFILE CHECKSUM: 346b52faca2b6be0de618a7a949d75a10de9d1e5
 
 COCOAPODS: 1.11.2

@@ -7,15 +7,49 @@
 //
 
 import UIKit
+import RxCocoa
 
 class ProductCell: UICollectionViewCell {
     
-    @IBOutlet weak var productTitleLB: UILabel!
-    @IBOutlet weak var productPriceLB: UILabel!
-    @IBOutlet weak var productDesLB: UILabel!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var productImg: UIImageView!
+    //MARK: - IBOulet
+    @IBOutlet private weak var productTitleLB: UILabel!
+    @IBOutlet private weak var productPriceLB: UILabel!
+    @IBOutlet private weak var productDesLB: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var productImg: UIImageView!
+    
+    @IBOutlet weak var favouriteBtn: UIButton!
+    
+    //MARK: - internal property
     static let cellIdentifier = "ProductCell"
+    var productImage : String? {
+        didSet{
+            guard let productImage = productImage else {return}
+            guard let url = URL(string:productImage) else {
+                print("cannot generate url")
+                return
+            }
+            productImg.sd_setImage(with: url, placeholderImage: UIImage(named: "placeHolder"))
+        }
+    }
+    var productTitle : String?{
+        didSet{
+            self.productTitleLB.text = self.productTitle
+        }
+    }
+    var productPrice : String?{
+        didSet{
+            guard let price = self.productPrice else {return}
+            self.productPriceLB.text = "EG" + price
+        }
+    }
+    var productDescription:String?{
+        didSet{
+            self.productDesLB.text = self.productDescription
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     
@@ -23,7 +57,11 @@ class ProductCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 20
     }
 
-    @IBAction func addProductToWishList(_ sender: Any) {
+    @IBAction func addProductToWishList(_ sender: Any)
+    {
+
         
+        favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
+
     }
 }
