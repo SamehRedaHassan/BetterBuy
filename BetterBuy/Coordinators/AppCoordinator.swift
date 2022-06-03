@@ -32,7 +32,8 @@ class AppCoordinator: Coordinator {
         //goToSettingsPage()
         //goToProfilePage()
         // goToProductsPage(category: " men")
-        goToSplashScreen()
+//        goToSplashScreen()
+        goToCategoriesPage()
         
     }
     
@@ -64,14 +65,10 @@ class AppCoordinator: Coordinator {
     
     
     func goToCategoriesPage(){
-        let categoryViewController = CategoryViewController(nibName: "CategoryView", bundle: nil)
-        let categoryViewModel = CategoryViewModel.init()
-        categoryViewModel.appCoordinator = self
-        categoryViewController.viewModel = categoryViewModel
+        let categoryViewModel = CategoryViewModel.init(coordinator: self)
+        let categoryViewController = CategoryViewController(categoryViewModel: categoryViewModel)
         navigationController.pushViewController(categoryViewController, animated: true)
     }
-    
-    
     
     func goToSignUpPage() {
         // Instantiate LoginViewController
@@ -86,12 +83,9 @@ class AppCoordinator: Coordinator {
         // Push it.
         navigationController.pushViewController(registerViewController, animated: true)
     }
-    func goToProductsPage(category:String){
-        //            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
-        
-        let productsViewModel = ProductsViewModel.init(category: category, favouriteCoreData: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
+    func goToProductsPage(category:String,brand:String){
+        let productsViewModel = ProductsViewModel.init(category: category, brand: brand, favouriteCoreData: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
         let productsViewController = ProductsViewController(productViewModel: productsViewModel)
-        productsViewModel.appCoordinator = self
         navigationController.pushViewController(productsViewController, animated: true)
     }
     

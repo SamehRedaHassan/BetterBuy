@@ -17,5 +17,7 @@ protocol Coordinator : AnyObject{
     
     func navigateToHomeOrIntro()
     func goToHomeScreen()
+    func goToProductsPage(category:String,brand:String)
+    func goToProductDetailsPage(product: Product)
     
 }

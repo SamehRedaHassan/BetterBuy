@@ -10,30 +10,30 @@ import Foundation
 import RxSwift
 
 final class ProductsViewModel : ProductViewModelType{
-    func goToProductDetailsScreen(product: Int) {
-         do {products = try productResponse.value()
-           appCoordinator?.goToProductDetailsPage(product: products![product])
-           }
-           catch {
-               print ("error")
-           }
-                   
-    }
     
-    var appCoordinator:AppCoordinator?
-    var products : [Product]?
-    var category : String?
+    
+    
+    var coordinator:Coordinator!
+    var category : String!
+    var brand : String!
+    
+    //MARK: - data properties
     var productsObservable: Observable<[Product]>
-    var imagesHeight : Observable<[Int]>?
+    var products : [Product]?
     let disposeBag = DisposeBag()
     let favouriteCoreData : LocalDbType
     private var productResponse = BehaviorSubject<[Product]>(value:[])
     
-    init(category : String,favouriteCoreData : LocalDbType) {
+    //MARK: - Initalizer
+    init(category : String,brand : String,favouriteCoreData : LocalDbType,coordinator : Coordinator) {
         productsObservable = productResponse.asObservable()
         self.category = category
+        self.brand = brand
         self.favouriteCoreData = favouriteCoreData
+        self.coordinator = coordinator
     }
+    
+    //MARK: - functions
     func getProducts() {
         getApi(apiRouter: .getAllProducts)
         //      .trackActivity(isLoading)
@@ -59,8 +59,17 @@ final class ProductsViewModel : ProductViewModelType{
          }.disposed(by: disposeBag)
         
     }
+    func navigateToProducts(index: Int) {
+        do {
+         products = try productResponse.value()
+        coordinator?.goToProductDetailsPage(product: products![index])
+        }
+        catch {
+            print ("error")
+        }
+    }
+    
     private func filterProductByCategory(products : [Product]) -> [Product]{
-        print(category!)
         return products.filter { (product) -> Bool in
             if(category == "men"){
                 category = " " + (category ?? "")
