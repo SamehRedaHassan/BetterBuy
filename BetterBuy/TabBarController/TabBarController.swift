@@ -11,30 +11,49 @@ import UIKit
 
 class TabBarContoller: UITabBarController {
 
-    var coordinator : AppCoordinator?
- 
-    
-   
+    //MARK: - Properties
+    var coordinatorr : Coordinator?
     let floatingTabbarView = FloatingBarView(["house", "rectangle.3.offgrid",  "person"])
 
+    //MARK: - Life Cycle
+    
+    
+    init(coordinator : Coordinator){
+        self.coordinatorr = coordinator
+        super.init(nibName: nil, bundle: nil)
+
+    }
+    
+ 
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewModel = HomeViewModel()
-        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self.coordinator!)
+      
         
-
+        let viewModel = HomeViewModel(coordinator: self.coordinatorr!)
         let homeViewController = HomeViewController(homeViewModel: viewModel)
         
-        let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
-        // Instantiate LoginViewModel
-       
-     //  let splashScreenViewModel = SplashViewModel()
-      //  splashScreenViewModel.appCoordinator = AppCoordinator(navigationController: UINavigationController.init())
-        // Set the ViewModel to ViewController
-     //   splashScrViewController.viewModel = splashScreenViewModel
-        // Push it.
-        
+        let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self.coordinatorr!)
+        let profileViewController : UIViewController = {
+            
+            if(UserDefaults.getLoginStatus()){
+                return ProfileViewController(profileViewModel: profileViewModel)
+            }else {
+                let notLoggedInViewModel = NotLoggedInViewModel(coordinator: self.coordinatorr!)
+                let notLoggedInView = NotLoggedInProfileViewController(notLoggedInViewModel: notLoggedInViewModel)
+                return notLoggedInView
+            }
+            
+            
+        }()
+ 
+        let categoryViewModel = CategoryViewModel(coordinator: self.coordinatorr!)
+        let categoryViewController = CategoryViewController(categoryViewModel: categoryViewModel)
         
         
         viewControllers = [
@@ -42,7 +61,7 @@ class TabBarContoller: UITabBarController {
 
             createNavViewController(viewController: homeViewController, title: "", imageName: "house.fill"),
 
-            createNavViewController(viewController: UIViewController(), title: "Categories", imageName: "flame.fill"),
+            createNavViewController(viewController: categoryViewController, title: "Categories", imageName: "flame.fill"),
             createNavViewController(viewController: profileViewController, title: "Profile", imageName: "rectangle.3.offgrid.fill")
         ]
         tabBar.isHidden = true
@@ -50,6 +69,11 @@ class TabBarContoller: UITabBarController {
         setupFloatingTabBar()
     }
 
+    
+    func injectCoordinator(coordinator : Coordinator){
+        self.coordinatorr = coordinator
+    }
+    
     private func createNavViewController(viewController: UIViewController, title: String, imageName: String) -> UIViewController {
 
       //  viewController.navigationItem.title = title

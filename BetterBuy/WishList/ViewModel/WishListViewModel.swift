@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class WishListViewModel{
+final class WishListViewModel : WishListViewModelType{
     
     //MARK: vars
-    private var coordinator: Coordinator
+    weak  var coordinator: Coordinator!
     var orders : [Order]
     var  db : LocalDbType
     

@@ -9,8 +9,10 @@
 import Foundation
 import RxSwift
 protocol HomeViewModelType : AnyObject{
+    var coordinator: Coordinator! {get}
     var brandsObservable : Observable<[BrandModel]> {get}
     var ads : Observable<[String]> {get}
     var isLoading: ActivityIndicator {get}
     func getCustomers()
+    func navigateToProducts(withBrandAtIndex : IndexPath)
 }

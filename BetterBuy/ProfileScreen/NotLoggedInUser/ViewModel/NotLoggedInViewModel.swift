@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class NotLoggedInViewModel{
+final class NotLoggedInViewModel : NotLoggedInViewModelType{
     
     //MARK: vars
        var coordinator: Coordinator
