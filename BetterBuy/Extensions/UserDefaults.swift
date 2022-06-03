@@ -18,6 +18,15 @@ extension UserDefaults {
         return isFirstLaunch
     }
     
+    static func saveLoginStatus( _Val:Bool){
+        UserDefaults.standard.set(_Val, forKey: "isLoggedIn")
+    }
+    
+    static func getLoginStatus() -> Bool{
+        let  _val = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        return _val
+    }
+    
      func getFontFamily(){
         for family in UIFont.familyNames.sorted(){
             let Names = UIFont.fontNames(forFamilyName: family)

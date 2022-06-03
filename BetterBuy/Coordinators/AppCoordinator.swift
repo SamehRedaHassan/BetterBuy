@@ -57,7 +57,8 @@ class AppCoordinator: Coordinator {
     }
     
     func goToHomeScreen(){
-        let tabbarController = TabBarContoller(nibName: String(describing: TabBarContoller.self), bundle: nil)
+        let tabbarController = TabBarContoller(coordinator: self)
+     //   tabbarController.injectCoordinator(coordinator: self)
         self.navigationController.viewControllers = [tabbarController]
     }
     
@@ -87,9 +88,8 @@ class AppCoordinator: Coordinator {
     }
     
     func goToWishListPage(orders : [Order]){
-        let wishListViewController = WishListViewController(nibName: String(describing: WishListViewController.self), bundle: nil)
-        let wishListViewModel = WishListViewModel.init(  orders: orders, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
-        wishListViewController.viewModel = wishListViewModel
+        let wishListViewModel = WishListViewModel(  orders: orders, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
+        let wishListViewController = WishListViewController(wishListViewModel: wishListViewModel)
         navigationController.pushViewController(wishListViewController, animated: true)
     }
     
@@ -102,9 +102,9 @@ class AppCoordinator: Coordinator {
     
     
     func goToNotLoogedInProfilePage(){
-        let notLoggedInViewController = NotLoggedInProfileViewController(nibName: String(describing: NotLoggedInProfileViewController.self), bundle: nil)
         let notLoggedInViewModel = NotLoggedInViewModel.init(coordinator: self)
-        notLoggedInViewController.viewModel = notLoggedInViewModel
+
+        let notLoggedInViewController = NotLoggedInProfileViewController(notLoggedInViewModel: notLoggedInViewModel)
         navigationController.pushViewController(notLoggedInViewController, animated: true)
     }
     
@@ -123,10 +123,8 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(loginViewController, animated: true)
     }
     func goToCartPage(){
-        let cartViewController = CartViewController(nibName: "CartView", bundle: nil)
-        let cartViewModel = CartViewModel.init()
-        cartViewModel.appCoordinator = self
-        cartViewController.viewModel = cartViewModel
+        let cartViewModel = CartViewModel(coordinator: self)
+        let cartViewController = CartViewController(cartViewModel: cartViewModel)
         navigationController.pushViewController(cartViewController, animated: true)
     }
     
@@ -136,6 +134,10 @@ class AppCoordinator: Coordinator {
         settingsViewModel.appCoordinator = self
         settingsViewController.viewModel = settingsViewModel
         navigationController.pushViewController(settingsViewController, animated: true)
+    }
+    
+    func popViewController(){
+        self.navigationController.popViewController(animated: true)
     }
     
 }

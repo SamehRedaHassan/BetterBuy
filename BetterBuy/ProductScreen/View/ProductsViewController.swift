@@ -12,12 +12,18 @@ import RxCocoa
 
 class ProductsViewController: UIViewController{
     
-    
     //MARK: -IBOutlet
-    @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet private weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var navBar: NavBar!
     
-    //MARK: -Life Cycle
+    //MARK: -Properties
+    let disposeBag = DisposeBag()
+    var productViewModel:ProductViewModelType?
+    var image: [UIImage] = [UIImage(imageLiteralResourceName: "img1"),UIImage(imageLiteralResourceName: "img2"),UIImage(imageLiteralResourceName: "img3"),UIImage(imageLiteralResourceName: "img4"),UIImage(imageLiteralResourceName: "img5"),
+                            UIImage(imageLiteralResourceName: "img6")]
     
+    
+    //MARK: - Life Cycle
     convenience init() {
         self.init(productViewModel: nil)
     }
@@ -30,17 +36,17 @@ class ProductsViewController: UIViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    let disposeBag = DisposeBag()
-    var productViewModel:ProductViewModelType?
-    var image: [UIImage] = [UIImage(imageLiteralResourceName: "img1"),UIImage(imageLiteralResourceName: "img2"),UIImage(imageLiteralResourceName: "img3"),UIImage(imageLiteralResourceName: "img4"),UIImage(imageLiteralResourceName: "img5"),
-                            UIImage(imageLiteralResourceName: "img6")]
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         setUpCollectionView()
         productViewModel?.getProducts()
+    }
+    
+    //MARK: - Functions
+    private func setupNavBar(){
+        navBar.coordinator = productViewModel?.coordinator
     }
     
     private func setUpCollectionView(){
@@ -70,7 +76,7 @@ class ProductsViewController: UIViewController{
         
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
             self.productViewModel?.navigateToProducts(index: indexPath.row)
-        })
+        }).disposed(by: disposeBag)
         
     }
     

@@ -25,5 +25,6 @@ protocol Coordinator : AnyObject{
     func goToProductDetailsPage(product: Product)
     func goToLoginPage()
     func goToProductsPage(category:String,brand:String)
-    
+    func popViewController()
+    func goToCartPage()
 }

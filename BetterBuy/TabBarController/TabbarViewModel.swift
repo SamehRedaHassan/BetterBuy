@@ -1,14 +1,13 @@
 //
-//  CartViewModel.swift
+//  TabbarViewModel.swift
 //  BetterBuy
 //
-//  Created by Mohamed Adel on 5/29/22.
+//  Created by user222682 on 6/3/22.
 //  Copyright © 2022 Mohamed Adel. All rights reserved.
 //
 
 import Foundation
-class CartViewModel : CartViewModelType{
- 
+final class TabbarViewModel : TabbarViewModelType{
     //MARK: Properties
     weak var coordinator: Coordinator!
     
@@ -18,7 +17,5 @@ class CartViewModel : CartViewModelType{
     }
     
     //MARK: Functions
-    func goBack() {
-        coordinator.popViewController()
-    }
 }
+

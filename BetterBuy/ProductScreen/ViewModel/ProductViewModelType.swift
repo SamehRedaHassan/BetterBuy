@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 protocol ProductViewModelType {
+    var coordinator:Coordinator! {get}
     var productsObservable : Observable<[Product]> {get}
     var favouriteCoreData : LocalDbType {get}
     func navigateToProducts(index:Int)
