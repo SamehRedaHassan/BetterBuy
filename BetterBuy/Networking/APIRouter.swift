@@ -44,7 +44,7 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
     func asURLRequest() throws -> URLRequest {
         
         //construct the url request
-        let params : ([String : Any]?) = {
+        let params : ([String : Any]?) =  {
             //what goes through the request bodyz
             switch self {
             case .getAllCustomers:
@@ -52,7 +52,9 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 
             case .getAllBrands:
                 return [:]
+           
             }
+            
         }()
         
         
@@ -70,6 +72,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                     
                 case .getAllBrands:
                     return "2022-04/smart_collections.json"
+                    
+            
                 }
             }()
             //safe characters +
@@ -99,6 +103,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 return HTTPMethod.get
             case .getAllBrands:
                 return HTTPMethod.get
+                
+       
             }
         }()
         
@@ -107,6 +113,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
         urlRequest.allHTTPHeaderFields = headers
         print(urlRequest)
         switch self {
+
+            
         default :
             return try encoding.encode(urlRequest, with: nil)
 

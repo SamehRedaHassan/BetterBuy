@@ -12,13 +12,17 @@ class HomeViewModel : HomeViewModelType{
     //let isLoading: ActivityIndicator =  ActivityIndicator()
     let disposeBag = DisposeBag()
     var brandsObservable : Observable<[BrandModel]>
-   lazy private var msg = BehaviorSubject<String>(value: "")
-   lazy private var Internetmsg = BehaviorSubject<String>(value: "")
+    var ads : Observable<[String]>
+    lazy private var msg = BehaviorSubject<String>(value: "")
+    lazy private var Internetmsg = BehaviorSubject<String>(value: "")
     private var brandsResponse   = BehaviorSubject<[BrandModel]>(value:[])
+    private var adsResponse      = BehaviorSubject<[String]>(value:[  "banner1", "banner2", "banner3"])
+
     init(){
         brandsObservable = brandsResponse.asObservable()
+        ads              = adsResponse.asObservable()
     }
-    
+  
     func getCustomers() {
         getApi(apiRouter: .getAllBrands)
       //      .trackActivity(isLoading)

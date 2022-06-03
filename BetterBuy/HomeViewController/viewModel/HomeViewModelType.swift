@@ -10,5 +10,6 @@ import Foundation
 import RxSwift
 protocol HomeViewModelType{
     var brandsObservable : Observable<[BrandModel]> {get}
+    var ads : Observable<[String]> {get}
     func getCustomers()
 }
