@@ -24,5 +24,6 @@ protocol Coordinator : AnyObject{
     func goToNotLoogedInProfilePage()
     func goToProductDetailsPage(product: Product)
     func goToLoginPage()
+    func goToProductsPage(category:String,brand:String)
     
 }

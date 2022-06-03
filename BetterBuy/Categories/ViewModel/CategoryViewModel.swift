@@ -7,11 +7,16 @@
 //
 
 import Foundation
-final class CategoryViewModel{
-    var appCoordinator: AppCoordinator?
+final class CategoryViewModel : CategoryViewModelType{
     
-    func goToProductsScreen(category:String)
-    {
-        appCoordinator?.goToProductsPage(category: category)
+    weak var coordinator: Coordinator!
+    
+    
+    //MARK: Life cycle
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
+    func navigateToProducts(category: String, brand: String) {
+        coordinator.goToProductsPage(category: category, brand: brand)
     }
 }

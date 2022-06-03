@@ -69,7 +69,7 @@ class ProductsViewController: UIViewController{
         }.disposed(by: disposeBag)
         
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
-            self.productViewModel?.goToProductDetailsScreen(product: indexPath.row)
+            self.productViewModel?.navigateToProducts(index: indexPath.row)
         })
         
     }
