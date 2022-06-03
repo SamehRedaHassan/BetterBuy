@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     
     
     //MARK: variables
-    var viewModel : ProfileViewModelType?
+    private var viewModel : ProfileViewModelType?
     private let disposeBag = DisposeBag()
     
 

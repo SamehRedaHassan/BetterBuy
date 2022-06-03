@@ -11,16 +11,19 @@ import Foundation
 final class NotLoggedInViewModel{
     
     //MARK: vars
-       var appCoordinator: AppCoordinator?
+       var coordinator: Coordinator
            
+    init(coordinator: Coordinator){
+        self.coordinator = coordinator
+    }
        
        //MARK: functions
        func goToRegisterScreen() {
-        appCoordinator?.goToSignUpPage()
+        coordinator.goToSignUpPage()
        }
        
        func goToLoginScreen() {
-        appCoordinator?.goToLoginPage()
+        coordinator.goToLoginPage()
        }
     
 }

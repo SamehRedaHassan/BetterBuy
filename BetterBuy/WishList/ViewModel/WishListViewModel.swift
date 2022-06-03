@@ -11,11 +11,12 @@ import Foundation
 final class WishListViewModel{
     
     //MARK: vars
-    var appCoordinator: AppCoordinator?
+    private var coordinator: Coordinator
     var orders : [Order]
     var  db : LocalDbType
     
-    init(orders:[Order] , db : LocalDbType) {
+    init(orders:[Order] , db : LocalDbType , coordinator: Coordinator) {
+        self.coordinator = coordinator
         self.orders = orders
         self.db = db
     }

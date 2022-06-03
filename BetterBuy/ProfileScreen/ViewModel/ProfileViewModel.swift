@@ -17,7 +17,7 @@ final class ProfileViewModel : ProfileViewModelType{
     
     //MARK: properties
     //let isLoading: ActivityIndicator =  ActivityIndicator()
-    var appCoordinator: AppCoordinator?
+    var coordinator: Coordinator
     let disposeBag = DisposeBag()
     var profileObservable: Observable<Customer?>
     lazy private var msg = BehaviorSubject<String>(value: "")
@@ -30,7 +30,8 @@ final class ProfileViewModel : ProfileViewModelType{
 
     
     //MARK: init
-    init(db : LocalDbType){
+    init(db : LocalDbType , coordinator: Coordinator){
+        self.coordinator = coordinator
         profileObservable = profileResponse.asObservable()
         orderObservable = orderResponse.asObservable()
         self.db = db
@@ -100,11 +101,11 @@ final class ProfileViewModel : ProfileViewModelType{
     
     
     func goToWishListScreen() {
-        appCoordinator?.goToWishListPage(orders: orders ?? [])
+        coordinator.goToWishListPage(orders: orders ?? [])
     }
     
     func goToOrderListScreen() {
-        appCoordinator?.goToProfileOrderListPage()
+        coordinator.goToProfileOrderListPage()
     }
     
     //MARK: Change To user id from user defaults

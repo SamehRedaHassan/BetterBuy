@@ -12,7 +12,7 @@ import RxSwift
 final class DetailsViewModel{
     
     //MARK: vars
-    var appCoordinator: AppCoordinator?
+    private var coordinator: Coordinator
     var product : Product?
     var images : Observable<[ProductImage]>
     var sizes : Observable<[String]>
@@ -20,7 +20,8 @@ final class DetailsViewModel{
     var favourites : [Product]?
     
       
-    init(product : Product , db : LocalDbType){
+    init(product : Product , db : LocalDbType , coordinator: Coordinator){
+        self.coordinator = coordinator
         self.product = product
         self.images = Observable.of(product.images ?? [])
         self.sizes = Observable.of(product.options?[0].values ?? [])
@@ -30,7 +31,7 @@ final class DetailsViewModel{
     
     //MARK: functions
     func goToSignUpScreen() {
-        appCoordinator?.goToSignUpPage()
+        coordinator.goToSignUpPage()
     }
     
     func addProductToFav(product : Product){
