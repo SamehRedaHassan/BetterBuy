@@ -11,6 +11,7 @@ import RxSwift
 
 protocol ProductViewModelType {
     var productsObservable : Observable<[Product]> {get}
+    var favouriteCoreData : LocalDbType {get}
     func goToProductDetailsScreen(product : Int) 
     func getProducts()
 }

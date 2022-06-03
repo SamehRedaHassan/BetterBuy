@@ -28,8 +28,8 @@ class AppCoordinator: Coordinator {
         //goToFirstPage()
         //goToSignUpPage()
         //goToSettingsPage()
-        goToProfilePage()
-        //goToProductsPage(category: " men")
+        //goToProfilePage()
+        goToProductsPage(category: " men")
         
     }
 
@@ -74,7 +74,7 @@ class AppCoordinator: Coordinator {
     func goToProductsPage(category:String){
 //            let productsViewController = ProductsViewController(nibName: "ProductView", bundle: nil)
         
-            let productsViewModel = ProductsViewModel.init(category: category)
+        let productsViewModel = ProductsViewModel.init(category: category, favouriteCoreData: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             let productsViewController = ProductsViewController(productViewModel: productsViewModel)
             productsViewModel.appCoordinator = self
              navigationController.pushViewController(productsViewController, animated: true)

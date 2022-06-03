@@ -20,20 +20,19 @@ final class ProductsViewModel : ProductViewModelType{
                    
     }
     
-//    var imageHeight : (_ index:Int)->Int = {_ in
-//        return products[index].
-//    }
     var appCoordinator:AppCoordinator?
     var products : [Product]?
     var category : String?
     var productsObservable: Observable<[Product]>
     var imagesHeight : Observable<[Int]>?
     let disposeBag = DisposeBag()
+    let favouriteCoreData : LocalDbType
     private var productResponse = BehaviorSubject<[Product]>(value:[])
     
-    init(category : String) {
+    init(category : String,favouriteCoreData : LocalDbType) {
         productsObservable = productResponse.asObservable()
         self.category = category
+        self.favouriteCoreData = favouriteCoreData
     }
     func getProducts() {
         getApi(apiRouter: .getAllProducts)

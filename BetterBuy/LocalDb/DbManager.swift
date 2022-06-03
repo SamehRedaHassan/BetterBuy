@@ -122,7 +122,7 @@ class DbManager : LocalDbType {
     
     func getFavItemFromDbWithId(id: String) -> [Favourite] {
         let fetchRequest = NSFetchRequest<Favourite>(entityName: "Favourite")
-        fetchRequest.predicate = NSPredicate(format: "productId == %@ ", id)
+        fetchRequest.predicate = NSPredicate(format: "productId == %@", id)
         var products: [Favourite] = []
         do{
             products = try viewContext.fetch(fetchRequest)

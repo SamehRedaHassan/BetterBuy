@@ -18,6 +18,7 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var productImg: UIImageView!
     
+    @IBOutlet weak var favouriteBtn: UIButton!
     
     //MARK: - internal property
     static let cellIdentifier = "ProductCell"
@@ -38,7 +39,8 @@ class ProductCell: UICollectionViewCell {
     }
     var productPrice : String?{
         didSet{
-            self.productPriceLB.text = self.productPrice
+            guard let price = self.productPrice else {return}
+            self.productPriceLB.text = "EG" + price
         }
     }
     var productDescription:String?{
@@ -55,7 +57,11 @@ class ProductCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 20
     }
 
-    @IBAction func addProductToWishList(_ sender: Any) {
+    @IBAction func addProductToWishList(_ sender: Any)
+    {
+
         
+        favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
+
     }
 }

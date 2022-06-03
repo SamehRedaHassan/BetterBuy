@@ -9,27 +9,6 @@
 
 import Foundation
 import Alamofire
-/*
- enum Name : String{//raw value
- case Sameh = ""
- }
- enum FullName {//associated value
- case twoNames(label :String , String)
- }
- 
- class Test {
- 
- func getName(){
- let name : FullName = FullName.twoNames("sameh", "Reda")
- 
- 
- switch name {
- case .twoNames(let first , let secondName ):
- print("\(first)\(secondName)")
- }
- }
- }
- */
 
 let BASE_URL = "https://4a798eacca0d39cc2048369ad2025b47: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@mad-sv.myshopify.com/admin/api/"
 
@@ -72,9 +51,6 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 switch self {
                 case .getAllProducts:
                     return "2022-04/products.json"
-                case .getAllBrands:
-                    return "2022-04/smart_collections.json"
-                    
                 case .getAllBrands:
                     return "2022-04/smart_collections.json"
                     

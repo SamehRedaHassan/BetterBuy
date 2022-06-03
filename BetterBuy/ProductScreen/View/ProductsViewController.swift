@@ -47,9 +47,9 @@ class ProductsViewController: UIViewController{
         productCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: ProductCell.cellIdentifier)
         
         productCollectionView?.backgroundColor = .clear
-        productCollectionView?.contentInset = UIEdgeInsets(top: 5, left: 4, bottom: 5, right: 4)
-        if (productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout) != nil {
-//            layout.delegate = self
+        productCollectionView?.contentInset = UIEdgeInsets(top: 5, left:0, bottom: 5, right:0)
+        if let layout = productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout {
+            layout.delegate = self
         }
         productViewModel?.productsObservable.asDriver(onErrorJustReturn: [])
             .drive( productCollectionView.rx.items(cellIdentifier: String(describing: ProductCell.cellIdentifier) ,cellType: ProductCell.self ) ){( row, model, cell) in
@@ -58,6 +58,14 @@ class ProductsViewController: UIViewController{
                 cell.productTitle = model.title
                 cell.productDescription = model.description
                 cell.productPrice = model.variants?[0].price
+                //MARK:- setting user favourites product
+                if self.productViewModel?.favouriteCoreData.isInFavorites(id: String(describing: model.id)) ?? false {
+                    cell.favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
+                }
+                
+                cell.favouriteBtn.rx.tap.bind{
+                    self.productViewModel?.favouriteCoreData.addFavProduct(product: model)
+                }
         }.disposed(by: disposeBag)
         
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
@@ -74,7 +82,7 @@ extension ProductsViewController: ProductsLayoutDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return image[0].size.height
+        return 270
     }
 }
 
