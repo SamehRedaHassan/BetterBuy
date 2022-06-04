@@ -14,16 +14,34 @@ class OrderListViewController: UIViewController {
 
     //The Array here should come from the CoreData
     
-    @IBOutlet weak var orderTableView: UITableView!
+    @IBOutlet private weak var navBar: NavBar!
+    @IBOutlet private weak var orderTableView: UITableView!
+    
+    
     
     //MARK: variables
-    var viewModel : OrderListViewModel?
+    var viewModel : OrderlistViewModelType?
     var disposeBag = DisposeBag()
+    
+    // MARK: - Life Cycle
+    convenience init() {
+        self.init(viewModel: nil)
+    }
+
+    init(viewModel: OrderlistViewModelType?) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: OrderListViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.getAllFavourites()
         configTableView()
+        configureTabBar()
         
         
     }
@@ -31,6 +49,9 @@ class OrderListViewController: UIViewController {
     func configTableView(){
         orderTableView.delegate = self
         orderTableView.dataSource = self
+    }
+    private func configureTabBar(){
+        navBar.coordinator = viewModel?.coordinator
     }
    
 }

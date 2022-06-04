@@ -45,16 +45,15 @@ final class ProductsViewModel : ProductViewModelType{
                 switch event {
                     case .next(let result):
                         switch result {
-                        case .success(let response):
-                            let productResponseData = ProductResponse(response: response)
-//                            self.products = productResponseData.products
-                            let filtetedProduct = self.filterProductByCategory(products: productResponseData.products ?? [])
-                            self.products = filtetedProduct
-                            self.productResponse.onNext(filtetedProduct)
-                        case .failure(let error):
-                            print(error.message)
-                        case .internetFailure(let error):
-                            print(error.message)
+                            case .success(let response):
+                                let productResponseData = ProductResponse(response: response)
+                                let filtetedProduct = self.filterProductByCategory(products: productResponseData.products ?? [])
+                                self.products = filtetedProduct
+                                self.productResponse.onNext(filtetedProduct)
+                            case .failure(let error):
+                                print(error.message)
+                            case .internetFailure(let error):
+                                print(error.message)
                     }
                     default:
                         break
@@ -64,13 +63,6 @@ final class ProductsViewModel : ProductViewModelType{
                 
     }
     func navigateToProducts(index: Int) {
-//        do {
-//         products = try productResponse.value()
-//        coordinator?.goToProductDetailsPage(product: products![index])
-//        }
-//        catch {
-//            print ("error")
-//        }
         coordinator?.goToProductDetailsPage(product: products![index])
     }
     

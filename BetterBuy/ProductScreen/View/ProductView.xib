@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,8 +20,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-vO-dlE">
-                    <rect key="frame" x="20" y="94" width="374" height="802"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="20" y="149" width="374" height="747"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewLayout key="collectionViewLayout" id="Ebv-AR-B7W" customClass="ProductsCollectionViewLayout" customModule="BetterBuy" customModuleProvider="target"/>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhC-g4-QY5" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
@@ -39,24 +37,34 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isBackBtnHidden" value="NO"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="s39-rB-vbP">
+                    <rect key="frame" x="16" y="110" width="382" height="32"/>
+                    <segments>
+                        <segment title="All"/>
+                        <segment title="T-Shirt"/>
+                        <segment title="Accessories"/>
+                        <segment title="Shoes"/>
+                    </segments>
+                    <connections>
+                        <action selector="didChangeCategory:" destination="-1" eventType="valueChanged" id="tKZ-6B-mdi"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zhC-g4-QY5" secondAttribute="trailing" id="8je-YC-QXm"/>
-                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="zhC-g4-QY5" secondAttribute="bottom" id="DOn-Dg-Jd1"/>
+                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="s39-rB-vbP" secondAttribute="bottom" constant="8" id="HlU-wt-5WG"/>
+                <constraint firstItem="s39-rB-vbP" firstAttribute="top" secondItem="zhC-g4-QY5" secondAttribute="bottom" constant="16" id="N22-9E-Blk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ef5-vO-dlE" secondAttribute="trailing" constant="20" id="PIL-iC-Foa"/>
                 <constraint firstItem="zhC-g4-QY5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VLi-ve-GvE"/>
                 <constraint firstItem="zhC-g4-QY5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vuz-O7-Y7s"/>
+                <constraint firstItem="s39-rB-vbP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ail-3w-mxu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s39-rB-vbP" secondAttribute="trailing" constant="16" id="b6k-4b-ItB"/>
                 <constraint firstAttribute="bottom" secondItem="Ef5-vO-dlE" secondAttribute="bottom" id="bbC-LS-VDN"/>
                 <constraint firstItem="Ef5-vO-dlE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="urN-6t-8FG"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="71.014492753623188" y="38.839285714285715"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
