@@ -83,12 +83,24 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
             tableView.register(UINib.init(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
             cell.orderImgValue = viewModel?.favourites?[indexPath.row].images?[0].src
-            cell.orderImg.cornerRadius = 37.5
-            cell.orderItemTitleLabel.text = viewModel?.favourites?[indexPath.row].title
-            cell.orderItemDesc.text = viewModel?.favourites?[indexPath.row].variants?[0].price
-            cell.deleteBtn.rx.tap.bind{
+//            cell.orderImg.cornerRadius = 37.5
+            cell.orderItemTitleValue = viewModel?.favourites?[indexPath.row].title
+            cell.orderItemValue = viewModel?.favourites?[indexPath.row].variants?[0].price
+            cell.didPressDeleteBtn = {
+                print("delete product id: \(self.viewModel?.favourites?[indexPath.row].title)")
                 self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
-            }.disposed(by: disposeBag)
+                self.viewModel?.favourites?.remove(at: indexPath.row)
+                DispatchQueue.main.async{
+                    self.profileTableView.reloadData()
+                }
+            }
+//            cell.didPressDeleteBtn = {
+//                print("delete product id: \(self.viewModel?.favourites?[indexPath.row].title)")
+//                self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
+//            }
+//            cell.deleteBtn.rx.tap.bind{
+//                self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
+//            }.disposed(by: disposeBag)
             return cell
         }
         
@@ -96,8 +108,8 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         if (indexPath.section == 0) {
             tableView.register(UINib.init(nibName: "WishListTableViewCell", bundle: nil), forCellReuseIdentifier: "WishListTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-            cell.wishListItemNameLabel.text = viewModel?.orders?[indexPath.row].totalPrice
-            cell.wishListItemNameDescLabel.text = "\(viewModel?.orders?[indexPath.row].id ?? 0)"
+            cell.orderPrice = viewModel?.orders?[indexPath.row].totalPrice
+            cell.orderID = "\(viewModel?.orders?[indexPath.row].id ?? 0)"
             return cell
         }
         return UITableViewCell()
@@ -125,7 +137,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
             let myButton = UIButton(type: .custom)
 
             myButton.setTitle("View more", for: .normal)

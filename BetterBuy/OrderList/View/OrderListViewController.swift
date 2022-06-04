@@ -44,17 +44,19 @@ extension OrderListViewController : UITableViewDelegate , UITableViewDataSource 
         tableView.register(UINib.init(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
         cell.orderImgValue =  viewModel?.orders![indexPath.row].images?[0].src
-        cell.orderImg.cornerRadius = 37.5
-        cell.orderItemTitleLabel.text = viewModel?.orders?[indexPath.row].title
-        cell.orderItemDesc.text = viewModel?.orders![indexPath.row].variants?[0].price
-        cell.deleteBtn.rx.tap.bind{
-            print(indexPath.row)
-            print("before deletion \(self.viewModel?.orders!.count ?? -1)!)")
-            self.viewModel?.deleteProductFromFavourite(product: (self.viewModel?.orders![indexPath.row])!)
+        //cell.orderImg.cornerRadius = 37.5
+        cell.orderItemTitleValue = viewModel?.orders?[indexPath.row].title
+        cell.orderItemValue = viewModel?.orders![indexPath.row].variants?[0].price
+        cell.product = viewModel?.orders![indexPath.row]
+        cell.didPressDeleteBtn = {
+            self.viewModel?.deleteProductFromFavourite(product: (self.viewModel?.orders?[indexPath.row])!)
             self.viewModel?.orders!.remove(at: indexPath.row)
-            print("after deletion \(self.viewModel?.orders!.count ?? -1)!)")
-            tableView.reloadData()
-        }.disposed(by: disposeBag)
+            DispatchQueue.main.async {
+                self.orderTableView.reloadData()
+            }
+            
+        }
+
         return cell
     }
     

@@ -27,6 +27,8 @@ final class ProductsViewModel : ProductViewModelType{
     //MARK: - Initalizer
     init(category : String,brand : String,favouriteCoreData : LocalDbType,coordinator : Coordinator) {
         productsObservable = productResponse.asObservable()
+
+       
         self.category = category
         self.brand = brand
         self.favouriteCoreData = favouriteCoreData
@@ -44,9 +46,11 @@ final class ProductsViewModel : ProductViewModelType{
                     case .next(let result):
                         switch result {
                         case .success(let response):
-                            let productResponseData = ProductResponse(response: response)                            
-                            self.productResponse.onNext(self.filterProductByCategory(products: productResponseData.products ?? []))
-                            print(productResponseData.products?.count ?? 0)
+                            let productResponseData = ProductResponse(response: response)
+//                            self.products = productResponseData.products
+                            let filtetedProduct = self.filterProductByCategory(products: productResponseData.products ?? [])
+                            self.products = filtetedProduct
+                            self.productResponse.onNext(filtetedProduct)
                         case .failure(let error):
                             print(error.message)
                         case .internetFailure(let error):
@@ -57,16 +61,17 @@ final class ProductsViewModel : ProductViewModelType{
                     }
                 
          }.disposed(by: disposeBag)
-        
+                
     }
     func navigateToProducts(index: Int) {
-        do {
-         products = try productResponse.value()
+//        do {
+//         products = try productResponse.value()
+//        coordinator?.goToProductDetailsPage(product: products![index])
+//        }
+//        catch {
+//            print ("error")
+//        }
         coordinator?.goToProductDetailsPage(product: products![index])
-        }
-        catch {
-            print ("error")
-        }
     }
     
     private func filterProductByCategory(products : [Product]) -> [Product]{
@@ -76,6 +81,12 @@ final class ProductsViewModel : ProductViewModelType{
             }
             return (product.tags?.contains("\(category!)"))!
         }
+    }
+    func addProductToFav(index:Int){
+        products?[index].favProduct = true
+    }
+    func removeProductFromFav(index:Int){
+        products?[index].favProduct = false
     }
     
    

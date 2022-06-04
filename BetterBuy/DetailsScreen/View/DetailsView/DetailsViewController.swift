@@ -27,7 +27,6 @@ class DetailsViewController: UIViewController {
     //MARK: variables
     var viewModel : DetailsViewModelType
     var disposeBag = DisposeBag()
-    
     init(viewModel: DetailsViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: DetailsViewController.self), bundle: nil)
@@ -47,6 +46,15 @@ class DetailsViewController: UIViewController {
         setSize()
         setCollectionDelegates()
         setData()
+        print("pro fav :\(viewModel.product?.favProduct)")
+        if viewModel.product?.favProduct == true {
+            let imageIcon = UIImage(systemName: "heart.fill")
+            self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
+        }
+        else{
+            let imageIcon = UIImage(systemName: "heart")
+            self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
+        }
         
     }
     
@@ -70,9 +78,19 @@ class DetailsViewController: UIViewController {
             
         }.disposed(by: disposeBag)
         addToFavFavouriteBtn.rx.tap.bind{
-            self.viewModel.addProductToFav(product: (self.viewModel.product)!)
-            let imageIcon = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
-            self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
+            if self.viewModel.product?.favProduct == true {
+                self.viewModel.removeProductfromFav(product: (self.viewModel.product)!)
+                let imageIcon = UIImage(systemName: "heart")
+                self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
+                self.viewModel.product?.favProduct = false
+                
+            }
+            else{
+                self.viewModel.addProductToFav(product: (self.viewModel.product)!)
+                let imageIcon = UIImage(systemName: "heart.fill")
+                self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
+                 self.viewModel.product?.favProduct = true
+            }
         }.disposed(by: disposeBag)
         
         //MARK: SET The Favourite Cell Data

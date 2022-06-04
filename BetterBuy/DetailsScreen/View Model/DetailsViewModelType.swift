@@ -12,9 +12,10 @@ import RxSwift
 protocol DetailsViewModelType {
     func goToSignUpScreen()
     func addProductToFav(product : Product)
+    func removeProductfromFav(product : Product)
     func getProductsFromFavourite()
     func addProductToCart(product : Product)
-    var product : Product? { get }
+    var product : Product? { get set}
     var images : Observable<[ProductImage]> { get }
     var sizes : Observable<[String]> { get }
     var favourites : [Product]? { get }
