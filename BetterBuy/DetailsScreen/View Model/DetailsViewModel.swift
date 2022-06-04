@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 final class DetailsViewModel : DetailsViewModelType{
+     
     
     //MARK: vars
     var coordinator: Coordinator
@@ -44,6 +45,10 @@ final class DetailsViewModel : DetailsViewModelType{
     
     func addProductToCart(product : Product){
         
+    }
+    
+    func removeProductfromFav(product: Product) {
+           db.removeFavProduct(product: product)
     }
     
 }

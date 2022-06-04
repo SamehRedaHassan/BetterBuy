@@ -58,8 +58,8 @@ extension WishListViewController : UITableViewDataSource , UITableViewDelegate {
         
         tableView.register(UINib.init(nibName: "WishListTableViewCell", bundle: nil), forCellReuseIdentifier: "WishListTableViewCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-        cell.wishListItemNameLabel.text = "\(viewModel.orders[indexPath.row].id ?? 0)"
-        cell.wishListItemNameDescLabel.text = viewModel.orders[indexPath.row].totalPrice
+        cell.orderID = "\(viewModel?.orders[indexPath.row].id ?? 0)"
+        cell.orderPrice = viewModel?.orders[indexPath.row].totalPrice
         return cell
         
     }

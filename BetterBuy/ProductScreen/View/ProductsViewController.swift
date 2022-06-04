@@ -65,13 +65,26 @@ class ProductsViewController: UIViewController{
                 cell.productDescription = model.description
                 cell.productPrice = model.variants?[0].price
                 //MARK:- setting user favourites product
-                if self.productViewModel?.favouriteCoreData.isInFavorites(id: String(describing: model.id)) ?? false {
-                    cell.favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
+                if self.productViewModel?.favouriteCoreData.isInFavorites(id: String(describing: model.id!)) ?? false {
+                    
+                    cell.isFavourite = true
+                    self.productViewModel?.addProductToFav(index: row)
+                }
+                else{
+                    cell.isFavourite = false
+                    self.productViewModel?.removeProductFromFav(index: row)
                 }
                 
-                cell.favouriteBtn.rx.tap.bind{
+                cell.addToFav = {
                     self.productViewModel?.favouriteCoreData.addFavProduct(product: model)
+                    print("raaaaw: \(row)")
+                    self.productViewModel?.addProductToFav(index: row)
                 }
+                cell.removeFav = {
+                    self.productViewModel?.favouriteCoreData.removeFavProduct(product: model)
+                    self.productViewModel?.removeProductFromFav(index: row)
+                }
+            
         }.disposed(by: disposeBag)
         
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in

@@ -16,18 +16,18 @@ class WishListTableViewCell: UITableViewCell {
     }
 
     //MARK: IBOutlets
-    @IBOutlet weak var wishListItemNameLabel: UILabel!
-    @IBOutlet weak var wishListItemNameDescLabel: UILabel!
+    @IBOutlet private weak var wishListItemNameLabel: UILabel!
+    @IBOutlet private weak var wishListItemNameDescLabel: UILabel!
     
-    var wishListItemNameValue : String? {
+    var orderID : String? {
         didSet{
-            wishListItemNameLabel.text = wishListItemNameValue
+            wishListItemNameLabel.text = "Order id: " + (orderID ?? "null")
         }
     }
     
-    var wishListItemNameDescValue : String? {
+    var orderPrice : String? {
         didSet{
-            wishListItemNameDescLabel.text = wishListItemNameDescValue
+            wishListItemNameDescLabel.text = "Order price: " + (orderPrice ?? "0.0")
         }
     }
     

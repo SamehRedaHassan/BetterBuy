@@ -59,9 +59,6 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" backgroundImage="heart.circle" catalog="system"/>
-                                                <connections>
-                                                    <action selector="addProductToWishList:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mlX-U2-IJp"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

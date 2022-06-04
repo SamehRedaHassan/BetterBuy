@@ -20,11 +20,12 @@ class OrderTableViewCell: UITableViewCell {
     
     
     //MARK:IBOutlets
-    @IBOutlet weak var orderImg: UIImageView!
-    @IBOutlet weak var orderItemDesc: UILabel!
-    @IBOutlet weak var deleteBtn: UIButton!
-    @IBOutlet weak var orderItemTitleLabel: UILabel!
-
+    @IBOutlet private weak var orderImg: UIImageView!
+    @IBOutlet private weak var orderItemDesc: UILabel!
+    @IBOutlet private weak var deleteBtn: UIButton!
+    @IBOutlet private weak var orderItemTitleLabel: UILabel!
+    var product:Product?
+    var didPressDeleteBtn : (()->Void)?
     var disposeBag = DisposeBag()
     
     
@@ -36,13 +37,13 @@ class OrderTableViewCell: UITableViewCell {
     
     var orderItemValue : String?{
         didSet{
-            orderItemDesc.text = orderImgValue
+            orderItemDesc.text = "EG" + (orderItemValue ?? "0.0")
         }
     }
     
     var orderItemTitleValue : String?{
         didSet{
-            orderItemTitleLabel.text = orderImgValue
+            orderItemTitleLabel.text = orderItemTitleValue
         }
     }
     
@@ -63,5 +64,9 @@ class OrderTableViewCell: UITableViewCell {
 //    }
     
     
+    @IBAction func removeProduct(_ sender: Any) {
+//        DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate).removeFavProduct(product: product!)
+        didPressDeleteBtn!()
+    }
     
 }

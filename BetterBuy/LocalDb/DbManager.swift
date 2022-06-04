@@ -122,7 +122,8 @@ class DbManager : LocalDbType {
     
     func getFavItemFromDbWithId(id: String) -> [Favourite] {
         let fetchRequest = NSFetchRequest<Favourite>(entityName: "Favourite")
-        fetchRequest.predicate = NSPredicate(format: "productId == %@", id)
+        print(id)
+        fetchRequest.predicate = NSPredicate(format: "productId == '\(id)'")
         var products: [Favourite] = []
         do{
             products = try viewContext.fetch(fetchRequest)
@@ -144,7 +145,7 @@ class DbManager : LocalDbType {
     
     func removeFavProduct(product : Product){
         print(product.id)
-        //var productToDelete = productToStoredProduct(product: product)
+        print(product.title)
         var productToDelete = getFavItemFromDbWithId(id: "\(product.id!)")
         //print(productToDelete[0].title)
         //print(productToDelete[0].productId)

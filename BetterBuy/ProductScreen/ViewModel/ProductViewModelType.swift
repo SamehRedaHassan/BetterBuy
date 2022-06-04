@@ -14,5 +14,7 @@ protocol ProductViewModelType {
     var productsObservable : Observable<[Product]> {get}
     var favouriteCoreData : LocalDbType {get}
     func navigateToProducts(index:Int)
-    func getProducts()    
+    func getProducts()
+    func addProductToFav(index:Int)
+    func removeProductFromFav(index:Int)
 }
