@@ -11,6 +11,8 @@ import UIKit
 class LoginViewController: UIViewController {
     //MARK: - IBOutlets
 
+    @IBOutlet weak var emailTxtView: UITextField!
+    @IBOutlet weak var passwordTxtView: UITextField!
     //MARK: - Properties
     var viewModel : LoginViewModelType?
     
@@ -31,6 +33,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTxtView.addBottomBorder()
+        passwordTxtView.addBottomBorder()
 
     }
     
