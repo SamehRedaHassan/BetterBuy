@@ -7,7 +7,22 @@
 //
 
 import Foundation
-final class LoginViewModel
-{
-    var appCoordinator:AppCoordinator?
+final class LoginViewModel : LoginViewModelType{
+  
+    //MARK: Properties
+    weak var coordinator: Coordinator!
+    
+    //MARK: Life cycle
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
+    
+    //MARK: Functions
+    func navigateToSignup(){
+        coordinator.goToSignUpPage()
+    }
+    
+    func goBack() {
+        coordinator.popViewController()
+    }
 }

@@ -9,10 +9,10 @@
 import Foundation
 import RxSwift
 
-final class DetailsViewModel{
+final class DetailsViewModel : DetailsViewModelType{
     
     //MARK: vars
-    private var coordinator: Coordinator
+    var coordinator: Coordinator
     var product : Product?
     var images : Observable<[ProductImage]>
     var sizes : Observable<[String]>

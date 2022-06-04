@@ -121,4 +121,13 @@ final class ProfileViewModel : ProfileViewModelType{
         db.removeFavProduct(product: product)
     }
     
+    func goToRegisterScreen(){
+        coordinator.goToSignUpPage()
+    }
+    
+    func goToLoginScreen(){
+        coordinator.goToLoginPage()
+
+    }
+    
 }

@@ -19,7 +19,7 @@ class RegisterViewModel : RegisterViewModelType {
     
     //MARK: functions
     func goToLoginUpScreen() {
-        coordinator.goToLoginPage()
+        coordinator.popViewController()
     }
     
 }

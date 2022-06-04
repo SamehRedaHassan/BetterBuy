@@ -39,18 +39,7 @@ class TabBarContoller: UITabBarController {
         let homeViewController = HomeViewController(homeViewModel: viewModel)
         
         let profileViewModel = ProfileViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self.coordinatorr!)
-        let profileViewController : UIViewController = {
-            
-            if(UserDefaults.getLoginStatus()){
-                return ProfileViewController(profileViewModel: profileViewModel)
-            }else {
-                let notLoggedInViewModel = NotLoggedInViewModel(coordinator: self.coordinatorr!)
-                let notLoggedInView = NotLoggedInProfileViewController(notLoggedInViewModel: notLoggedInViewModel)
-                return notLoggedInView
-            }
-            
-            
-        }()
+        let profileViewController = ProfileViewController(profileViewModel: profileViewModel)
  
         let categoryViewModel = CategoryViewModel(coordinator: self.coordinatorr!)
         let categoryViewController = CategoryViewController(categoryViewModel: categoryViewModel)
