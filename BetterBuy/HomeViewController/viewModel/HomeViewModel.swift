@@ -9,9 +9,7 @@ import RxSwift
 import Foundation
 //import NVActivityIndicatorView
 class HomeViewModel : HomeViewModelType{
-  
- 
-    
+
     //MARK: Properties
     let isLoading: ActivityIndicator =  ActivityIndicator()
     let disposeBag = DisposeBag()

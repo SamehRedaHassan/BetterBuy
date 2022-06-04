@@ -24,6 +24,12 @@
 		0447020728451FE800DD62BE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447020628451FE800DD62BE /* API.swift */; };
 		04470209284520D700DD62BE /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04470208284520D700DD62BE /* APIResult.swift */; };
 		0447020B2845218E00DD62BE /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447020A2845218E00DD62BE /* APICallError.swift */; };
+		044A37FD284B90DA0082604A /* StringExtenssions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A37FC284B90DA0082604A /* StringExtenssions.swift */; };
+		044A37FF284BB28F0082604A /* PostApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A37FE284BB28F0082604A /* PostApiRouter.swift */; };
+		044A3801284BB2CF0082604A /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A3800284BB2CF0082604A /* PostApi.swift */; };
+		044A3803284BB3330082604A /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A3802284BB3330082604A /* LoginResponseModel.swift */; };
+		044A3807284BBADB0082604A /* PostCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A3806284BBADB0082604A /* PostCustomer.swift */; };
+		044A3809284BBD970082604A /* PostCustomerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A3808284BBD970082604A /* PostCustomerResponseModel.swift */; };
 		045DA50528462325006BF27D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DA50328462325006BF27D /* PaymentViewController.swift */; };
 		045DA50628462325006BF27D /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045DA50428462325006BF27D /* PaymentViewController.xib */; };
 		045DA5082846233A006BF27D /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DA5072846233A006BF27D /* PaymentViewModel.swift */; };
@@ -174,6 +180,12 @@
 		0447020628451FE800DD62BE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		04470208284520D700DD62BE /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		0447020A2845218E00DD62BE /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
+		044A37FC284B90DA0082604A /* StringExtenssions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtenssions.swift; sourceTree = "<group>"; };
+		044A37FE284BB28F0082604A /* PostApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiRouter.swift; sourceTree = "<group>"; };
+		044A3800284BB2CF0082604A /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
+		044A3802284BB3330082604A /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		044A3806284BBADB0082604A /* PostCustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCustomer.swift; sourceTree = "<group>"; };
+		044A3808284BBD970082604A /* PostCustomerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCustomerResponseModel.swift; sourceTree = "<group>"; };
 		045DA50328462325006BF27D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		045DA50428462325006BF27D /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		045DA5072846233A006BF27D /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
@@ -343,6 +355,7 @@
 				040B646928476153001DB17A /* Customer.swift */,
 				040B646B28476186001DB17A /* Address.swift */,
 				040B646D28478438001DB17A /* GetProfileModelResponse.swift */,
+				044A3806284BBADB0082604A /* PostCustomer.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -364,6 +377,9 @@
 				0447020628451FE800DD62BE /* API.swift */,
 				04470208284520D700DD62BE /* APIResult.swift */,
 				0447020A2845218E00DD62BE /* APICallError.swift */,
+				044A37FE284BB28F0082604A /* PostApiRouter.swift */,
+				044A3800284BB2CF0082604A /* PostApi.swift */,
+				044A3808284BBD970082604A /* PostCustomerResponseModel.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -681,6 +697,7 @@
 				7693210F284002460007D369 /* UIViewController */,
 				7607DE70283E8E7300A014C7 /* UIView */,
 				7680429E284A789B0011EF6F /* UserDefaults.swift */,
+				044A37FC284B90DA0082604A /* StringExtenssions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -865,6 +882,7 @@
 		769FDC282846AE0500EE820C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				044A3802284BB3330082604A /* LoginResponseModel.swift */,
 				040B646F28479031001DB17A /* Order */,
 				769FDC292846AE3A00EE820C /* GetBrandsResponseModel.swift */,
 				769FDC2B2846AE8500EE820C /* BrandModel.swift */,
@@ -1286,6 +1304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044A3803284BB3330082604A /* LoginResponseModel.swift in Sources */,
 				046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */,
 				76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */,
 				76BD28D1283FDDD200030700 /* PageOneViewController.swift in Sources */,
@@ -1293,6 +1312,7 @@
 				040D6140284910B8004FA340 /* Converter.swift in Sources */,
 				045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */,
 				7682F163283EF7A9004C3DBC /* CategoryViewController.swift in Sources */,
+				044A3801284BB2CF0082604A /* PostApi.swift in Sources */,
 				7633BF0828476DA100C67D56 /* Product.swift in Sources */,
 				0489FE85283FE2A000EC5974 /* RoundedImageView.swift in Sources */,
 				0447020B2845218E00DD62BE /* APICallError.swift in Sources */,
@@ -1301,8 +1321,10 @@
 				045F5F5A283EB2E6006853BB /* SettingsViewController.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
 				76BD28DF283FE0F300030700 /* SlideContainerViewController.swift in Sources */,
+				044A37FD284B90DA0082604A /* StringExtenssions.swift in Sources */,
 				045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */,
 				7633BF0628476D2B00C67D56 /* ProductImage.swift in Sources */,
+				044A3809284BBD970082604A /* PostCustomerResponseModel.swift in Sources */,
 				0489FEF028417EE700EC5974 /* DetailsViewController.swift in Sources */,
 				040D613C284906A1004FA340 /* DbManager.swift in Sources */,
 				769FDC2A2846AE3A00EE820C /* GetBrandsResponseModel.swift in Sources */,
@@ -1320,6 +1342,7 @@
 				76BD28E5283FEA9C00030700 /* PageThreeViewController.swift in Sources */,
 				7633BF02284769AA00C67D56 /* Variant.swift in Sources */,
 				046FC085283D8CF3000E46E8 /* SplashViewModel.swift in Sources */,
+				044A3807284BBADB0082604A /* PostCustomer.swift in Sources */,
 				045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */,
 				763BA6F92843C231008DC092 /* LoginViewController.swift in Sources */,
 				040D613E2849071F004FA340 /* LocalDbType.swift in Sources */,
@@ -1360,6 +1383,7 @@
 				040B64682847601C001DB17A /* ProfileViewModelType.swift in Sources */,
 				044702052844FB3600DD62BE /* APIRouter.swift in Sources */,
 				0489FEED28417E8900EC5974 /* DetailsViewModel.swift in Sources */,
+				044A37FF284BB28F0082604A /* PostApiRouter.swift in Sources */,
 				76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */,
 				769321112840026A0007D369 /* UIViewController.swift in Sources */,
 				045EB120284A8D5A0009ADFE /* RegisterViewModelType.swift in Sources */,

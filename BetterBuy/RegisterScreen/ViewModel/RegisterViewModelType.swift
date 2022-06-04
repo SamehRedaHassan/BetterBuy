@@ -7,7 +7,18 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol RegisterViewModelType {
-    func goToLoginUpScreen()
+    var passwordSubject : BehaviorSubject<String> {get set}
+    var userNameSubject : BehaviorSubject<String> {get set}
+    var emailSubject : BehaviorSubject<String> {get set}
+    var confirmPasswordSubject : BehaviorSubject<String> {get set}
+    var errorMsgSubject : PublishSubject<String?> {get}
+    var isLoading: ActivityIndicator { get }
+    func goToLoginScreen()
+    func validateInput() -> Bool
+    func registerUser()
+    
+
 }

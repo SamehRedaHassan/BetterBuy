@@ -10,6 +10,20 @@ import Foundation
 
 // MARK: - Customer
 struct Customer: Codable {
+    internal init(id: Int? = nil, email: String? = nil, firstName: String? = nil, lastName: String? = nil, ordersCount: Int? = nil, totalSpent: String? = nil, verifiedEmail: Bool? = nil, phone: String? = nil, tags: String? = nil, addresses: [Address]? = nil) {
+        self.id = id
+        self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
+        self.ordersCount = ordersCount
+        self.totalSpent = totalSpent
+        self.verifiedEmail = verifiedEmail
+        self.phone = phone
+        self.tags = tags
+        self.addresses = addresses
+    }
+    
+    
     var id: Int?
     var email: String?
     var firstName, lastName: String?
@@ -30,6 +44,7 @@ struct Customer: Codable {
         case phone, tags
         case addresses
     }
+    
     
     init(response : [String : Any]?){
         guard let response = response else {
