@@ -34,7 +34,7 @@ class ProductCell: UICollectionViewCell {
     }
     var productTitle : String?{
         didSet{
-            self.productTitleLB.text = self.productTitle
+            self.productTitleLB.text = self.productTitle?.capitalized
         }
     }
     var productPrice : String?{

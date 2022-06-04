@@ -96,9 +96,9 @@ class AppCoordinator: Coordinator {
     }
     
     func goToProfileOrderListPage(){
-        let orderListViewController = OrderListViewController(nibName: String(describing: OrderListViewController.self), bundle: nil)
-        let orderListViewModel = OrderListViewModel.init(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
-        orderListViewController.viewModel = orderListViewModel
+        let orderListViewModel = OrderListViewModel(db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
+        let orderListViewController = OrderListViewController(viewModel: orderListViewModel)
+        
         navigationController.pushViewController(orderListViewController, animated: true)
     }
     

@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class OrderListViewModel{
+final class OrderListViewModel : OrderlistViewModelType{
     
     //MARK: vars
-    var coordinator: Coordinator
+    weak var coordinator: Coordinator?
     var orders : [Product]?
     var db : LocalDbType
         

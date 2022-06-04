@@ -94,7 +94,7 @@ class NavBar: UIView {
     }
     
     @IBAction func navigateToFavourite(_ sender: UIButton) {
-        coordinator?.goToWishListPage(orders: [])
+        coordinator?.goToProfileOrderListPage()
     }
     
     @IBAction func navigateToSearch(_ sender: UIButton) {
