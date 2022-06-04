@@ -11,23 +11,23 @@ import RxCocoa
 import RxSwift
 
 class DetailsViewController: UIViewController {
-    //OutLets
-    
+    //MARK: - OutLets
+    @IBOutlet weak var navBar: NavBar!
     @IBOutlet weak var productImgsCollectionView: UICollectionView!
     @IBOutlet weak var productImg: UIImageView!
-    
     @IBOutlet weak var productVendor: UILabel!
     @IBOutlet weak var addToFavFavouriteBtn: UIButton!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDesc: UILabel!
     @IBOutlet weak var productSizesCollectionView: UICollectionView!
-    
     @IBOutlet weak var addToCartBtn: UIButton!
+    
     //MARK: variables
     var viewModel : DetailsViewModelType
     var disposeBag = DisposeBag()
     
+    //MARK: Life Cycle
     init(viewModel: DetailsViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: DetailsViewController.self), bundle: nil)
@@ -39,6 +39,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         self.productImgsCollectionView.delegate = nil
         self.productSizesCollectionView.dataSource = nil
         self.productSizesCollectionView.delegate = nil
@@ -47,7 +48,9 @@ class DetailsViewController: UIViewController {
         setSize()
         setCollectionDelegates()
         setData()
-        
+    }
+    func setupNavBar(){
+        navBar.coordinator = viewModel.coordinator
     }
     
     func setCollectionDelegates(){

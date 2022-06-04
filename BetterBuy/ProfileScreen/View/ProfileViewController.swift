@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var profileTableView: UITableView!
     
+    @IBOutlet weak var notLoggedInView: UIView!
     
     //MARK: variables
     private var viewModel : ProfileViewModelType?
@@ -51,9 +52,15 @@ class ProfileViewController: UIViewController {
                 self.profileTableView.reloadData()
             }
         }
+    
        // configurePreviousOrdersTableView()
        // configureWishListTableView()
         //homeViewModel?.getCustomers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupLoggedInView()
     }
     
     
@@ -61,7 +68,19 @@ class ProfileViewController: UIViewController {
         profileTableView.delegate = self
         profileTableView.dataSource = self
     }
+    private func setupLoggedInView(){
+        notLoggedInView.isHidden = UserDefaults.getLoginStatus()
+    }
+    //MARK: - IBActions
+    
+    @IBAction func navigateToLogin(_ sender: UIButton) {
+        viewModel?.goToLoginScreen()
+    }
+    
+    @IBAction func navigateToRegister(_ sender: UIButton) {
+        viewModel?.goToRegisterScreen()
 
+    }
 }
 
 

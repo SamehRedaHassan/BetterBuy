@@ -9,7 +9,8 @@
 import Foundation
 import RxSwift
 
-protocol DetailsViewModelType {
+protocol DetailsViewModelType : AnyObject {
+    var coordinator: Coordinator {get}
     func goToSignUpScreen()
     func addProductToFav(product : Product)
     func getProductsFromFavourite()

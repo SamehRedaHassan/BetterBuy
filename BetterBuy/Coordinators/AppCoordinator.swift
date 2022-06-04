@@ -11,6 +11,8 @@ import UIKit
 
 
 class AppCoordinator: Coordinator {
+   
+    
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
@@ -100,28 +102,20 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(orderListViewController, animated: true)
     }
     
-    
-    func goToNotLoogedInProfilePage(){
-        let notLoggedInViewModel = NotLoggedInViewModel.init(coordinator: self)
 
-        let notLoggedInViewController = NotLoggedInProfileViewController(notLoggedInViewModel: notLoggedInViewModel)
-        navigationController.pushViewController(notLoggedInViewController, animated: true)
-    }
-    
 
     func goToProductDetailsPage(product: Product){
-       let productDetailsViewModel = DetailsViewModel.init(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
-        let productDetailsViewController = DetailsViewController(viewModel: productDetailsViewModel as! DetailsViewModelType)
+       let productDetailsViewModel = DetailsViewModel(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
+        let productDetailsViewController = DetailsViewController(viewModel: productDetailsViewModel)
         navigationController.pushViewController(productDetailsViewController, animated: true)
     }
     
     func goToLoginPage(){
-        let loginViewController = LoginViewController(nibName: "LoginView", bundle: nil)
-        let loginViewModel = LoginViewModel.init()
-        loginViewModel.appCoordinator = self
-        loginViewController.viewModel = loginViewModel
+        let loginViewModel = LoginViewModel(coordinator: self)
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
         navigationController.pushViewController(loginViewController, animated: true)
     }
+    
     func goToCartPage(){
         let cartViewModel = CartViewModel(coordinator: self)
         let cartViewController = CartViewController(cartViewModel: cartViewModel)
