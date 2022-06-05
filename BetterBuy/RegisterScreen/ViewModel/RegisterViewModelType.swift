@@ -15,8 +15,11 @@ protocol RegisterViewModelType {
     var emailSubject : BehaviorSubject<String> {get set}
     var confirmPasswordSubject : BehaviorSubject<String> {get set}
     var errorMsgSubject : PublishSubject<String?> {get}
+    var successMsgSubject : PublishSubject<String> {get}
     var isLoading: ActivityIndicator { get }
+    var alreadyExistMsgSubject : PublishSubject<String> {get set}
     func goToLoginScreen()
+    func goToHomeScreen()
     func validateInput() -> Bool
-    func registerUser()
+    func getAllCustomersData()
 }

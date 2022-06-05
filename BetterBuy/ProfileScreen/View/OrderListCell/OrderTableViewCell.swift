@@ -31,6 +31,7 @@ class OrderTableViewCell: UITableViewCell {
     
     var orderImgValue : String? {
         didSet{
+            orderImg.cornerRadius = 37.5
             orderImg.sd_setImage( with: URL(string: orderImgValue!) , placeholderImage: #imageLiteral(resourceName: "placeHolder"))
         }
     }
