@@ -40,16 +40,17 @@ class RegisterViewModel : RegisterViewModelType {
             errorMsgSubject.onNext("Please provide a valid username")
             return false
         }
-        let validPassword = try! passwordSubject.value().isValidPassword
-        guard validPassword else {
-            errorMsgSubject.onNext("Please provide password with eight charachters")
-            return false
-        }
         let validEmail = try! emailSubject.value().isValidEmail
         guard validEmail else {
             errorMsgSubject.onNext("Please provide a valid email")
             return false
         }
+        let validPassword = try! passwordSubject.value().isValidPassword
+        guard validPassword else {
+            errorMsgSubject.onNext("Please provide password with eight charachters")
+            return false
+        }
+        
         let validConfirmPassword = try! confirmPasswordSubject.value() == passwordSubject.value()
         guard validConfirmPassword else {
             errorMsgSubject.onNext("Please Re-write thepassword correctly")
