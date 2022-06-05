@@ -56,6 +56,7 @@ class CartDBManager : CartDBManagerType {
     }
     
     func addToCart(product: Product) {
+        print (product)
         let productInCart = convertProductToCartObj(product: product)
         do
         {
@@ -139,7 +140,6 @@ class CartDBManager : CartDBManagerType {
     private func convertProductToCartObj(product: Product) -> Cart {
         
         let productInCart = Cart(entity: self.entity, insertInto: viewContext)
-        let favouriteProduct = Cart(entity: self.entity, insertInto: viewContext)
         productInCart.productId = "\(product.id!)"
         productInCart.title = product.title!
         productInCart.price = product.variants![0].price
@@ -165,11 +165,17 @@ class CartDBManager : CartDBManagerType {
         imagesStr.removeLast()
         
         productInCart.images = imagesStr
-        return favouriteProduct
+        print(productInCart.title! + productInCart.price!)
+
+        return productInCart
     }
-    func getUserIDFromUserDeafault() -> Int{
-        
+    func getUserIDFromUserDeafault() -> String{
+        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
+            let id = user.id
+            return "\(id ?? 0)"
+        } else {
+            return ""
+        }
         //MARK:- USER ID
-        return 0
     }
 }

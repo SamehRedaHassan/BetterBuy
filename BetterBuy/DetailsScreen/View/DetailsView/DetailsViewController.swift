@@ -50,13 +50,14 @@ class DetailsViewController: UIViewController {
         configureIsFavProduct()
         setData()
         
+        
     }
     func setupNavBar(){
         navBar.coordinator = viewModel.coordinator
         
     }
     func configureIsFavProduct(){
-        print("pro fav :\(viewModel.product?.favProduct)")
+       // print("pro fav :\(viewModel.product?.favProduct)")
         if viewModel.product?.favProduct == true {
             let imageIcon = UIImage(systemName: "heart.fill")
             self.addToFavFavouriteBtn.setBackgroundImage(imageIcon, for: .normal)
@@ -84,8 +85,13 @@ class DetailsViewController: UIViewController {
     
     func setData(){
         addToCartBtn.rx.tap.bind{
-            
+            self.viewModel.ToggleAddAndRemoveFromCart()
         }.disposed(by: disposeBag)
+        
+        viewModel.isInCartObservable.asObserver().distinctUntilChanged().subscribe(onNext: { (isInCart) in
+            self.setCartBtn(isInCart: isInCart)
+        }).disposed(by: disposeBag)
+        
         addToFavFavouriteBtn.rx.tap.bind{
             if self.viewModel.product?.favProduct == true {
                 self.viewModel.removeProductfromFav(product: (self.viewModel.product)!)
@@ -102,14 +108,16 @@ class DetailsViewController: UIViewController {
             }
         }.disposed(by: disposeBag)
         
+        productImgsCollectionView.rx.itemSelected.subscribe(onNext: { [weak self] (indxPath) in
+            guard let self = self else {return}
+            self.productImg.sd_setImage( with: URL(string: self.viewModel.product?.images?[indxPath.row].src ?? "") , placeholderImage: #imageLiteral(resourceName: "placeHolder"))
+            }).disposed(by: disposeBag)
+        
         //MARK: SET The Favourite Cell Data
         productImg.sd_setImage(with: URL(string : (viewModel.product?.images?[0].src!)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"))
         productName.text = viewModel.product?.title
         productDesc.text = viewModel.product?.description
         productPrice.text =  viewModel.product?.variants?[0].price
-        
-
-
     }
     
     func setSize(){
@@ -129,6 +137,16 @@ class DetailsViewController: UIViewController {
          secLayout.scrollDirection = .horizontal
          productSizesCollectionView.collectionViewLayout = secLayout
          
+    }
+    
+    func setCartBtn(isInCart : Bool){
+        if(isInCart){
+            addToCartBtn.setTitle("Remove From Cart", for: .normal)
+            addToCartBtn.backgroundColor = .red
+        } else {
+            addToCartBtn.setTitle("Add To Cart", for: .normal)
+            addToCartBtn.backgroundColor = .black
+        }
     }
     
     
