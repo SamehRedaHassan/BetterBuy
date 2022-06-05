@@ -30,9 +30,24 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pch-J0-o72" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE3-Ql-iYV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="a3T-WE-0e8"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="JE3-Ql-iYV" secondAttribute="trailing" id="7gD-ZL-57y"/>
                                 <constraint firstAttribute="height" constant="50" id="HBb-NF-eBe"/>
+                                <constraint firstAttribute="bottom" secondItem="JE3-Ql-iYV" secondAttribute="bottom" id="NQ1-VS-nHX"/>
+                                <constraint firstItem="JE3-Ql-iYV" firstAttribute="top" secondItem="Pch-J0-o72" secondAttribute="top" id="iT1-LO-gri"/>
+                                <constraint firstItem="JE3-Ql-iYV" firstAttribute="leading" secondItem="Pch-J0-o72" secondAttribute="leading" id="jzj-MG-fsX"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isBackBtnHidden" value="YES"/>

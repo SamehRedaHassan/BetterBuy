@@ -131,7 +131,7 @@ class AppCoordinator: Coordinator {
     func popViewController(){
         self.navigationController.popViewController(animated: true)
     }
-    func proceedToCheckout() {
+    func proceedToCheckout(withSubtotal : Float) {
         let paymentViewModel = PaymentViewModel(coordinator: self)
         let paymentViewController = PaymentViewController(paymentViewModel: paymentViewModel)
         navigationController.pushViewController(paymentViewController, animated: true)
