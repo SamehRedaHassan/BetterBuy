@@ -62,7 +62,8 @@ class ProductsViewController: UIViewController{
             layout.delegate = self
         }
         productViewModel?.productsObservable.asDriver(onErrorJustReturn: [])
-            .drive( productCollectionView.rx.items(cellIdentifier: String(describing: ProductCell.cellIdentifier) ,cellType: ProductCell.self ) ){( row, model, cell) in
+            .drive( productCollectionView.rx.items(cellIdentifier: String(describing: ProductCell.cellIdentifier)
+                ,cellType: ProductCell.self ) ){( row, model, cell) in
                 
                // if(self.selectedCategory == model.productType){
                     cell.productImage = model.images?[0].src

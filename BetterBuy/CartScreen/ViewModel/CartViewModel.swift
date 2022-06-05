@@ -7,14 +7,21 @@
 //
 
 import Foundation
+import RxSwift
 class CartViewModel : CartViewModelType{
 
     //MARK: Properties
     weak var coordinator: Coordinator!
+    var cartCoreData : CartDBManagerType!
+    var productsInCart : [Product]?
     
+    var cartObservabel : Observable<[Product]>
+    private var cartSubject : PublishSubject<[Product]> = PublishSubject<[Product]>()
     //MARK: Life cycle
-    init(coordinator: Coordinator) {
+    init(coordinator: Coordinator,cartCoreData:CartDBManagerType) {
         self.coordinator = coordinator
+        self.cartCoreData = cartCoreData
+        cartObservabel = cartSubject.asObservable()
     }
     
     //MARK: Functions
@@ -25,5 +32,17 @@ class CartViewModel : CartViewModelType{
     func proceedToCheckout() {
         coordinator.proceedToCheckout()
     }
+    //MARK:- Dealing with coredate
+    func retieveProductsInCart(){
+        cartSubject.onNext(cartCoreData.getAllProductsInCart())
+        
+    }
+    func incrementProductCount(productId : String)-> Int {
+        return cartCoreData.plusCountByOne(id: productId)
+    }
+    func decrementProductCount(productId : String)-> Int {
+        return cartCoreData.minusCountByOne(id: productId)
+    }
+    
     
 }

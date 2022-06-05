@@ -14,6 +14,11 @@ class CartViewController: UIViewController {
     @IBOutlet private weak var navBar: NavBar!
     @IBOutlet private weak var checkoutButton: UIButton!
     
+    @IBOutlet private weak var cartTableView: UITableView!
+    @IBOutlet weak var subTotalLb: UILabel!
+    @IBOutlet weak var totalPrice: UILabel!
+    //maybe make it random from 1 to 70 EG
+    @IBOutlet weak var shippingLb: UILabel!
     //MARK: - Properties
     private var viewModel : CartViewModelType!
     private let disposeBag = DisposeBag()
@@ -37,6 +42,7 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        viewModel?.retieveProductsInCart()
         bindUI()
     }
     
@@ -51,5 +57,12 @@ class CartViewController: UIViewController {
             self.viewModel.proceedToCheckout()
         }.disposed(by: disposeBag)
 
+        viewModel?.cartObservabel.bind(to: cartTableView.rx.items(cellIdentifier: String(describing: ProductTableViewCell.cellIdentifier), cellType: ProductTableViewCell.self)) {  row, element, cell in
+            cell.prodTitle = element.title
+            cell.productDesc = element.description
+            cell.currency = "EG"
+            cell.prodPrice = element.variants?[0].price
+            cell.count = String(describing: element.count)
+        }.disposed(by: disposeBag)
     }
 }

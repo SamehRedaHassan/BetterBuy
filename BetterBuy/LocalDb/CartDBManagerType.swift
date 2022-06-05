@@ -13,6 +13,6 @@ protocol CartDBManagerType {
     func addToCart(product: Product)
     func removeProduct(product : Product)
     func getProductWithId(id: String) -> [Cart]
-    func plusCountByOne(id: String)
-    func minusCountByOne(id: String)
+    func plusCountByOne(id: String)->Int
+    func minusCountByOne(id: String)->Int
 }
