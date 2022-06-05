@@ -16,27 +16,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="665" height="216"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="womenImgBanner" translatesAutoresizingMaskIntoConstraints="NO" id="0lf-Vi-ifp">
+                        <rect key="frame" x="0.0" y="0.0" width="665" height="216"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puG-lv-jZ5">
+                        <rect key="frame" x="0.0" y="0.0" width="665" height="216"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.43949593321917807" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEH-SJ-BGq">
-                        <rect key="frame" x="20" y="89.5" width="79" height="37"/>
+                        <rect key="frame" x="28" y="89.5" width="79" height="37"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0lf-Vi-ifp">
-                        <rect key="frame" x="465" y="0.0" width="200" height="216"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="200" id="1tm-H5-vlV"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="puG-lv-jZ5" secondAttribute="trailing" id="3Wb-n1-j4W"/>
                     <constraint firstItem="0lf-Vi-ifp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Qm-RC-fbg"/>
                     <constraint firstItem="LEH-SJ-BGq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hye-pf-Mk9"/>
+                    <constraint firstItem="0lf-Vi-ifp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Mks-By-ouh"/>
                     <constraint firstAttribute="trailing" secondItem="0lf-Vi-ifp" secondAttribute="trailing" id="NMX-ED-NM6"/>
                     <constraint firstAttribute="bottom" secondItem="0lf-Vi-ifp" secondAttribute="bottom" id="NNh-bm-Tul"/>
-                    <constraint firstItem="LEH-SJ-BGq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="mhT-ha-L2L"/>
+                    <constraint firstItem="LEH-SJ-BGq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="mhT-ha-L2L"/>
+                    <constraint firstItem="puG-lv-jZ5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nJ3-Jl-AOS"/>
                     <constraint firstItem="0lf-Vi-ifp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vXV-CH-ON5"/>
+                    <constraint firstItem="puG-lv-jZ5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xfp-a9-HC4"/>
+                    <constraint firstAttribute="bottom" secondItem="puG-lv-jZ5" secondAttribute="bottom" id="y7n-BM-Wzz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -44,7 +50,10 @@
                 <outlet property="categoryImg" destination="0lf-Vi-ifp" id="8PH-gA-EfE"/>
                 <outlet property="categoryLB" destination="LEH-SJ-BGq" id="9od-an-3sJ"/>
             </connections>
-            <point key="canvasLocation" x="10.869565217391305" y="76.339285714285708"/>
+            <point key="canvasLocation" x="-322.46376811594206" y="17.410714285714285"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="womenImgBanner" width="600" height="279"/>
+    </resources>
 </document>
