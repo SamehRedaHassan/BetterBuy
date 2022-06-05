@@ -76,26 +76,19 @@ final class LoginViewModel : LoginViewModelType{
         let email = try! self.emailSubject.value()
         let pwd = try! self.passwordSubject.value()
         //MARK: - Lma el api ttsh7an
-//        for customer in customers ?? []{
-//            if email == "mohamedadel@gmail.com" && pwd == "123456789"{
-//                // Create JSON Encoder
-//                let encoder = JSONEncoder()
-//
-//                // Encode Note
-//                let data = try! encoder.encode(customer)
-//
-//                // Write/Set Data
-//                UserDefaults.standard.set(data, forKey: "user")
-//                coordinator.goToHomeScreen()
-//            }
-//        }
-            if email == "mohamedadel@gmail.com" && pwd == "123456789"{
-                
+        for customer in customers ?? []{
+            if email == customer.email && pwd == customer.tags{
+                // Create JSON Encoder
+                let encoder = JSONEncoder()
+
+                // Encode Note
+                let data = try! encoder.encode(customer)
+
+                // Write/Set Data
+                UserDefaults.standard.set(data, forKey: "user")
                 coordinator.goToHomeScreen()
-            }else{
-                errorMsgSubject.onNext("Wronge Email or password")
             }
-            			
+        }
         
     }
     

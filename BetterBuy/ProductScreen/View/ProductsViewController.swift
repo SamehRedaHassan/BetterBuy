@@ -64,7 +64,7 @@ class ProductsViewController: UIViewController{
         productViewModel?.productsObservable.asDriver(onErrorJustReturn: [])
             .drive( productCollectionView.rx.items(cellIdentifier: String(describing: ProductCell.cellIdentifier) ,cellType: ProductCell.self ) ){( row, model, cell) in
                 
-                if(self.selectedCategory == model.productType){
+               // if(self.selectedCategory == model.productType){
                     cell.productImage = model.images?[0].src
                     cell.productTitle = model.title
                     cell.productDescription = model.description
@@ -87,7 +87,7 @@ class ProductsViewController: UIViewController{
                         self.productViewModel?.favouriteCoreData.removeFavProduct(product: model)
                         self.productViewModel?.removeProductFromFav(index: row)
                     }
-                }
+               // }
             
         }.disposed(by: disposeBag)
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in

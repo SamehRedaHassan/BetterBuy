@@ -53,6 +53,7 @@ class LoginViewController: BaseViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.getAllCustomersData()
         emailTxtView.addBottomBorder()
         passwordTxtView.addBottomBorder()
         bindingBtn()
