@@ -113,7 +113,7 @@ class RegisterViewModel : RegisterViewModelType {
     }
     
     func checkifUserExistBefore() -> Bool{
-        let email = try! self.emailSubject.value()
+        let email = try! self.emailSubject.value().lowercased()
         for customer in customers ?? []{
             if email == customer.email {
                 return true
