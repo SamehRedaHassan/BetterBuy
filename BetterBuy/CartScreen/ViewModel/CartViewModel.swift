@@ -8,7 +8,7 @@
 
 import Foundation
 class CartViewModel : CartViewModelType{
- 
+
     //MARK: Properties
     weak var coordinator: Coordinator!
     
@@ -21,4 +21,9 @@ class CartViewModel : CartViewModelType{
     func goBack() {
         coordinator.popViewController()
     }
+    
+    func proceedToCheckout() {
+        coordinator.proceedToCheckout()
+    }
+    
 }

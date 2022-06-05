@@ -125,6 +125,10 @@
 		76A65AF5284235DC00723AF7 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A65AF4284235DC00723AF7 /* NavBar.xib */; };
 		76A65AF9284279CF00723AF7 /* advertiseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A65AF7284279CF00723AF7 /* advertiseCollectionViewCell.swift */; };
 		76A65AFA284279CF00723AF7 /* advertiseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A65AF8284279CF00723AF7 /* advertiseCollectionViewCell.xib */; };
+		76B57775284C2B5E008C7692 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B57773284C2B5E008C7692 /* SearchViewController.swift */; };
+		76B57776284C2B5E008C7692 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B57774284C2B5E008C7692 /* SearchViewController.xib */; };
+		76B57778284C2B93008C7692 /* SearchViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B57777284C2B93008C7692 /* SearchViewModelType.swift */; };
+		76B5777A284C2BB8008C7692 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B57779284C2BB8008C7692 /* SearchViewModel.swift */; };
 		76BD28D1283FDDD200030700 /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD28CF283FDDD200030700 /* PageOneViewController.swift */; };
 		76BD28D2283FDDD200030700 /* PageOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76BD28D0283FDDD200030700 /* PageOneViewController.xib */; };
 		76BD28D8283FDE2500030700 /* PageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD28D6283FDE2500030700 /* PageTwoViewController.swift */; };
@@ -143,6 +147,7 @@
 		76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */; };
 		76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */; };
 		76ED8AC6283ACFCA009F9C61 /* BetterBuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */; };
+		76F11DF6284BDE4C005ADFF7 /* PaymentViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F11DF5284BDE4C005ADFF7 /* PaymentViewModelType.swift */; };
 		76FFC1122849FBC300FACAF0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFC1112849FBC300FACAF0 /* ActivityIndicator.swift */; };
 		76FFC114284A16EE00FACAF0 /* FontUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFC113284A16EE00FACAF0 /* FontUtility.swift */; };
 		76FFC11C284A1CF800FACAF0 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76FFC116284A1CF800FACAF0 /* RobotoCondensed-LightItalic.ttf */; };
@@ -286,6 +291,11 @@
 		76A65AF4284235DC00723AF7 /* NavBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
 		76A65AF7284279CF00723AF7 /* advertiseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advertiseCollectionViewCell.swift; sourceTree = "<group>"; };
 		76A65AF8284279CF00723AF7 /* advertiseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = advertiseCollectionViewCell.xib; sourceTree = "<group>"; };
+		76B5776E284C2330008C7692 /* BetterBuy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BetterBuy.entitlements; sourceTree = "<group>"; };
+		76B57773284C2B5E008C7692 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		76B57774284C2B5E008C7692 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		76B57777284C2B93008C7692 /* SearchViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelType.swift; sourceTree = "<group>"; };
+		76B57779284C2BB8008C7692 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		76BD28CF283FDDD200030700 /* PageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
 		76BD28D0283FDDD200030700 /* PageOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageOneViewController.xib; sourceTree = "<group>"; };
 		76BD28D6283FDE2500030700 /* PageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTwoViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +318,7 @@
 		76ED8AC1283ACFCA009F9C61 /* BetterBuyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterBuyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBuyTests.swift; sourceTree = "<group>"; };
 		76ED8AC7283ACFCA009F9C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76F11DF5284BDE4C005ADFF7 /* PaymentViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModelType.swift; sourceTree = "<group>"; };
 		76FFC1112849FBC300FACAF0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		76FFC113284A16EE00FACAF0 /* FontUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtility.swift; sourceTree = "<group>"; };
 		76FFC116284A1CF800FACAF0 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -414,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				045DA5072846233A006BF27D /* PaymentViewModel.swift */,
+				76F11DF5284BDE4C005ADFF7 /* PaymentViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -952,6 +964,33 @@
 			path = advertiseCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		76B5776F284C2ACB008C7692 /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				76B57771284C2B2D008C7692 /* viewModel */,
+				76B57770284C2B25008C7692 /* view */,
+			);
+			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		76B57770284C2B25008C7692 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				76B57773284C2B5E008C7692 /* SearchViewController.swift */,
+				76B57774284C2B5E008C7692 /* SearchViewController.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		76B57771284C2B2D008C7692 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76B57777284C2B93008C7692 /* SearchViewModelType.swift */,
+				76B57779284C2BB8008C7692 /* SearchViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		76BD28CC283FD8F300030700 /* OnboardingModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1069,8 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
+				76B5776F284C2ACB008C7692 /* SearchScreen */,
+				76B5776E284C2330008C7692 /* BetterBuy.entitlements */,
 				76FFC1102849FB9D00FACAF0 /* Utilities */,
 				040D613A2849066E004FA340 /* LocalDb */,
 				769FDC282846AE0500EE820C /* Model */,
@@ -1232,6 +1273,7 @@
 				76BD28EA283FF04B00030700 /* cartAnimation.json in Resources */,
 				7607DE79283EB44D00A014C7 /* HomeViewController.xib in Resources */,
 				0489FEF128417EE700EC5974 /* DetailsViewController.xib in Resources */,
+				76B57776284C2B5E008C7692 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,6 +1362,7 @@
 				04F27739284804AE000E9A1C /* SizeCollectionViewCell.swift in Sources */,
 				040D6140284910B8004FA340 /* Converter.swift in Sources */,
 				045F5F4F283E96EC006853BB /* RegisterViewController.swift in Sources */,
+				76F11DF6284BDE4C005ADFF7 /* PaymentViewModelType.swift in Sources */,
 				7682F163283EF7A9004C3DBC /* CategoryViewController.swift in Sources */,
 				044A3801284BB2CF0082604A /* PostApi.swift in Sources */,
 				7633BF0828476DA100C67D56 /* Product.swift in Sources */,
@@ -1328,6 +1371,7 @@
 				768C4C87284AC0CD0006AB5A /* CartViewModelType.swift in Sources */,
 				0489FE95284046CC00EC5974 /* WishListViewModel.swift in Sources */,
 				045F5F5A283EB2E6006853BB /* SettingsViewController.swift in Sources */,
+				76B57778284C2B93008C7692 /* SearchViewModelType.swift in Sources */,
 				046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */,
 				76BD28DF283FE0F300030700 /* SlideContainerViewController.swift in Sources */,
 				044A37FD284B90DA0082604A /* StringExtenssions.swift in Sources */,
@@ -1381,6 +1425,7 @@
 				0489FE8928400D8800EC5974 /* CustomUIView.swift in Sources */,
 				7607DE6A283E8B0500A014C7 /* TabBarController.swift in Sources */,
 				769EEDF1284B89830000A9FD /* OrderListViewModelType.swift in Sources */,
+				76B57775284C2B5E008C7692 /* SearchViewController.swift in Sources */,
 				769EEDEB284A8F4B0000A9FD /* CategoryViewModelType.swift in Sources */,
 				0489FEA828405C5400EC5974 /* OrderListViewController.swift in Sources */,
 				769FDC322846B33200EE820C /* HomeViewModel.swift in Sources */,
@@ -1415,6 +1460,7 @@
 				7682F175284026F5004C3DBC /* ProductCell.swift in Sources */,
 				76FFC114284A16EE00FACAF0 /* FontUtility.swift in Sources */,
 				760F77C92849537B009C653D /* BrandCollectionViewCell.swift in Sources */,
+				76B5777A284C2BB8008C7692 /* SearchViewModel.swift in Sources */,
 				763BA70228440B7C008DC092 /* CartViewController.swift in Sources */,
 				76ED8AAC283ACFC6009F9C61 /* AppDelegate.swift in Sources */,
 				0447020728451FE800DD62BE /* API.swift in Sources */,
@@ -1570,6 +1616,7 @@
 			baseConfigurationReference = AEC600221AA1F01F472D20EB /* Pods-BetterBuy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BetterBuy/BetterBuy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BetterBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1589,6 +1636,7 @@
 			baseConfigurationReference = F97E67E7F2E1685C2F3E2B9D /* Pods-BetterBuy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BetterBuy/BetterBuy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BetterBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

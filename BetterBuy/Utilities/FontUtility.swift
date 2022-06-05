@@ -16,7 +16,7 @@ extension Resources.Fonts {
     enum Weight: String {
         case light = "RobotoCondensed-Light"
         case regular = "RobotoCondensed-Regular"
-        case semibold = "RobotoCondensed-BoldItalic"
+        case semibold = "RobotoCondensed-Bold"
         case italic = "RobotoCondensed-Italic"
     }
 }

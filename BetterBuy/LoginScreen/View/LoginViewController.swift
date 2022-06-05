@@ -39,9 +39,6 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - IBAction
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
-    }
-    
     @IBAction func navigateToSignup(_ sender: UIButton) {
         viewModel?.navigateToSignup()
     }
