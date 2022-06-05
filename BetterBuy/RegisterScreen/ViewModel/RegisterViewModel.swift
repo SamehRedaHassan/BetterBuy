@@ -63,7 +63,7 @@ class RegisterViewModel : RegisterViewModelType {
     
     func registerUser(){
     
-            let customer = PostCustomer(email: try! emailSubject.value(), firstName: try! userNameSubject.value(), lastName: "", tags: try! passwordSubject.value())
+        let customer = PostCustomer(email: try! emailSubject.value().lowercased(), firstName: try! userNameSubject.value(), lastName: "", tags: try! passwordSubject.value())
                     let modelCustomer = PostCustomerResponseModel(customer: customer)
                     let result : Observable<PostCustomerResponseModel> = postApi(endPoint: .register(customer: modelCustomer))
             result.subscribe(onNext: { [weak self] (result) in
