@@ -15,6 +15,8 @@
                 <outlet property="profileImg" destination="kSa-kz-x8i" id="a6I-BA-bCM"/>
                 <outlet property="profileTableView" destination="Mhu-cH-g8F" id="eBF-bu-Shd"/>
                 <outlet property="settingsBtn" destination="qz8-1l-Gw1" id="Hmg-K3-BWV"/>
+                <outlet property="profileView" destination="0rb-RF-oDn" id="yUo-aq-ZM0"/>
+                <outlet property="userName" destination="2Fu-CN-EHU" id="4AW-NI-zlf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

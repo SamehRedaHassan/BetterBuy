@@ -56,6 +56,7 @@ class CartDBManager : CartDBManagerType {
     }
     
     func addToCart(product: Product) {
+        print (product)
         let productInCart = convertProductToCartObj(product: product)
         do
         {
@@ -110,27 +111,32 @@ class CartDBManager : CartDBManagerType {
         }
         return true
     }
-    func plusCountByOne(id: String) {
+    func plusCountByOne(id: String)->Int{
         let product = getProductWithId(id: "\(id)")
         let count  = (Int(product[0].count!) ?? 0) + 1
         product[0].count = String(count)
         do{
             try self.viewContext.save()
+            return count
         }
         catch{
             print("Item didn't delete successfully !!")
+            return -7
         }
     }
     
-    func minusCountByOne(id: String) {
+    func minusCountByOne(id: String)->Int {
         let product = getProductWithId(id: "\(id)")
         let count  = (Int(product[0].count!) ?? 0) - 1
         product[0].count = String(count)
         do{
             try self.viewContext.save()
+            return count
+            //if count reach 0 then delete product
         }
         catch{
             print("Item didn't delete successfully !!")
+            return -7
         }
     }
     
@@ -139,7 +145,6 @@ class CartDBManager : CartDBManagerType {
     private func convertProductToCartObj(product: Product) -> Cart {
         
         let productInCart = Cart(entity: self.entity, insertInto: viewContext)
-        let favouriteProduct = Cart(entity: self.entity, insertInto: viewContext)
         productInCart.productId = "\(product.id!)"
         productInCart.title = product.title!
         productInCart.price = product.variants![0].price
@@ -165,11 +170,13 @@ class CartDBManager : CartDBManagerType {
         imagesStr.removeLast()
         
         productInCart.images = imagesStr
-        return favouriteProduct
+        print(productInCart.title! + productInCart.price!)
+
+        return productInCart
     }
-    func getUserIDFromUserDeafault() -> Int{
-        
+    func getUserIDFromUserDeafault() -> String{
+        guard let user : Customer = UserDefaults.getUserObject() else {return ""}
+        return "\(user.id ?? 0)"
         //MARK:- USER ID
-        return 0
     }
 }

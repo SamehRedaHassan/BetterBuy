@@ -16,6 +16,7 @@ class ProfileViewController: BaseViewController {
     //MARK: IBOutlets
     //  @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
     
     @IBOutlet weak var notLoggedInView: UIView!
@@ -44,6 +45,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
+        userName.text = UserDefaults.getUserObject()?.firstName
         viewModel?.getProfileDetails()
         viewModel?.getCustomerOrders()
         viewModel?.getAllFavourites()
@@ -76,6 +78,9 @@ class ProfileViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        viewModel?.getCustomerOrders()
+        viewModel?.getAllFavourites()
+        profileTableView.reloadData()
         super.viewWillAppear(animated)
         setupLoggedInView()
     }

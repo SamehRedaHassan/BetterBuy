@@ -11,7 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController{
 
     @IBOutlet weak var categoryTableView: UITableView!
-    var categories = ["women","men","kids","sale"]
+    var categories = ["women","men","kid","sale"]
     var categoryViewModel: CategoryViewModelType!
     
     init(categoryViewModel: CategoryViewModelType)

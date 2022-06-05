@@ -65,13 +65,16 @@ class RegisterViewModel : RegisterViewModelType {
     
         let customer = PostCustomer(email: try! emailSubject.value().lowercased(), firstName: try! userNameSubject.value(), lastName: "", tags: try! passwordSubject.value())
                     let modelCustomer = PostCustomerResponseModel(customer: customer)
-                    let result : Observable<PostCustomerResponseModel> = postApi(endPoint: .register(customer: modelCustomer))
+                    let result : Observable<LoginResponseModel> = postApi(endPoint: .register(customer: modelCustomer))
             result.subscribe(onNext: { [weak self] (result) in
                 guard let self = self else {return}
                 
                 //MARK: The returned type is not of type customer (No id)
-                //UserDefaults.saveUserObject(user: result.customer)
+                //print (result.customer?.firstName!)
+                print(result.customer?.id ?? 0)
                 
+                UserDefaults.saveUserObject(user: result.customer!)
+                UserDefaults.saveLoginStatus(_Val: true)
                 
                 self.successMsgSubject.onNext("Registered Successfully.")
             }, onError: { (error) in
@@ -95,6 +98,7 @@ class RegisterViewModel : RegisterViewModelType {
                         self.customers = customers.customers ?? []
                         if(!(self.checkifUserExistBefore())){
                             self.registerUser()
+                            
                         } else {
                             self.errorMsgSubject.onNext("This email already exist please provide a new one or login instead")
                         }

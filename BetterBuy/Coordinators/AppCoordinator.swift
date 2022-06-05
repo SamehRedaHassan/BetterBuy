@@ -105,7 +105,7 @@ class AppCoordinator: Coordinator {
 
 
     func goToProductDetailsPage(product: Product){
-       let productDetailsViewModel = DetailsViewModel(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
+        let productDetailsViewModel = DetailsViewModel(product: product, db:  DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), cartDb: CartDBManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
         let productDetailsViewController = DetailsViewController(viewModel: productDetailsViewModel)
         navigationController.pushViewController(productDetailsViewController, animated: true)
     }
@@ -117,7 +117,7 @@ class AppCoordinator: Coordinator {
     }
     
     func goToCartPage(){
-        let cartViewModel = CartViewModel(coordinator: self)
+        let cartViewModel = CartViewModel(coordinator: self, cartCoreData:  CartDBManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
         let cartViewController = CartViewController(cartViewModel: cartViewModel)
         navigationController.pushViewController(cartViewController, animated: true)
     }
