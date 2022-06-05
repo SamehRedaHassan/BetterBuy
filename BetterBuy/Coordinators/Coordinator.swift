@@ -14,7 +14,7 @@ protocol Coordinator : AnyObject{
     var children: [Coordinator] { get set }
     var navigationController : UINavigationController { get set }
     func start()
-    
+
     func navigateToHomeOrIntro()
     func goToHomeScreen()
     func goToSignUpPage()
@@ -27,4 +27,6 @@ protocol Coordinator : AnyObject{
     func popViewController()
     func goToCartPage()
     func proceedToCheckout()
+    func goToLocationScreen()
+
 }

@@ -35,7 +35,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         emailTxtView.addBottomBorder()
         passwordTxtView.addBottomBorder()
-
     }
     
     //MARK: - IBAction
