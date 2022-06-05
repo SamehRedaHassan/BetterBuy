@@ -109,3 +109,8 @@ extension UIView {
 struct AnchoredConstraints {
     var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
 }
+extension UIView {
+    public func removeAllSubviews() {
+        self.subviews.forEach { $0.removeFromSuperview() }
+    }
+}

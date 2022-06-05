@@ -144,4 +144,10 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(locationViewController, animated: true)
     }
     
+    func navigateToSearchScreen(){
+        let searchViewModel = SearchViewModel(coordinator: self)
+        let searchViewController = SearchViewController(searchViewModel: searchViewModel)
+        navigationController.pushViewController(searchViewController, animated: true)
+    }
+    
 }
