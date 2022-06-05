@@ -175,12 +175,8 @@ class CartDBManager : CartDBManagerType {
         return productInCart
     }
     func getUserIDFromUserDeafault() -> String{
-        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
-            let id = user.id
-            return "\(id ?? 0)"
-        } else {
-            return ""
-        }
+        guard let user : Customer = UserDefaults.getUserObject() else {return ""}
+        return "\(user.id ?? 0)"
         //MARK:- USER ID
     }
 }
