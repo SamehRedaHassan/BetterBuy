@@ -20,6 +20,7 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
     case getAllProducts
     case getCustomerById(id : String)
     case getCustomerOrders(id : String)
+    case getAllCustomers
     
 
     
@@ -32,10 +33,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
             switch self {
             case .getAllProducts:
                 return [:]
-            
             default:
                 return [:]
-
             }
             
         }()
@@ -59,6 +58,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 case .getCustomerOrders(id: let id):
                     return "2022-04/customers/\(id)/orders.json"
 
+                case .getAllCustomers:
+                    return "2021-04/customers.json"
                 }
             }()
             //safe characters +
@@ -91,6 +92,9 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 return HTTPMethod.get
               
             case .getCustomerOrders(id: _):
+                return HTTPMethod.get
+                
+            case .getAllCustomers:
                 return HTTPMethod.get
               
             default:

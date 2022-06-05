@@ -7,8 +7,17 @@
 //
 
 import Foundation
+import RxSwift
 protocol LoginViewModelType : AnyObject {
     var coordinator:Coordinator! {get}
     func navigateToSignup()
     func goBack()
+    
+    var passwordSubject : BehaviorSubject<String> {get set}
+    var emailSubject : BehaviorSubject<String> {get set}
+    var errorMsgSubject : PublishSubject<String?> {get}
+    var isLoading: ActivityIndicator { get }
+    func validateInput() -> Bool
+    func getAllCustomersData()
+    func checkUserInput()
 }
