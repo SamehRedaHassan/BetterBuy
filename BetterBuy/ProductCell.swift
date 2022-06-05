@@ -22,6 +22,7 @@ class ProductCell: UICollectionViewCell {
     
     //MARK: - internal property
     static let cellIdentifier = "ProductCell"
+    
     var productImage : String? {
         didSet{
             guard let productImage = productImage else {return}
@@ -32,22 +33,26 @@ class ProductCell: UICollectionViewCell {
             productImg.sd_setImage(with: url, placeholderImage: UIImage(named: "placeHolder"))
         }
     }
+    
     var productTitle : String?{
         didSet{
-            self.productTitleLB.text = self.productTitle?.capitalized
+            self.productTitleLB.text = productTitle
         }
     }
+    
     var productPrice : String?{
         didSet{
             guard let price = self.productPrice else {return}
             self.productPriceLB.text = "EG" + price
         }
     }
+    
     var productDescription:String?{
         didSet{
             self.productDesLB.text = self.productDescription
         }
     }
+    
     var isFavourite:Bool = false{
         didSet
         {
@@ -59,15 +64,23 @@ class ProductCell: UICollectionViewCell {
             }
         }
     }
-    let disposeBag = DisposeBag()
+    
+    var isFavouriteButtonHidden = false {
+        didSet{
+            favouriteBtn.isHidden = isFavouriteButtonHidden
+        }
+    }
+    
+   private let disposeBag = DisposeBag()
     var addToFav : (()->Void)?
     var removeFav : (()->Void)?
     
+    //MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 20
+      //  containerView.layer.masksToBounds = true
+      //  containerView.layer.cornerRadius = 20
         
         favouriteBtn.rx.tap.bind{
             if self.isFavourite == false{
@@ -81,8 +94,4 @@ class ProductCell: UICollectionViewCell {
         }.disposed(by: disposeBag)
     }
 
-//    @IBAction func addProductToWishList(_ sender: Any)
-//    {
-////        favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
-//    }
 }

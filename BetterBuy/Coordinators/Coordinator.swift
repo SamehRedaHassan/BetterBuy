@@ -28,5 +28,6 @@ protocol Coordinator : AnyObject{
     func goToCartPage()
     func proceedToCheckout()
     func goToLocationScreen()
+    func navigateToSearchScreen()
 
 }

@@ -87,9 +87,11 @@ class ProductsViewController: UIViewController{
                         self.productViewModel?.favouriteCoreData.removeFavProduct(product: model)
                         self.productViewModel?.removeProductFromFav(index: row)
                     }
+
                // }
             
         }.disposed(by: disposeBag)
+        
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
             self.productViewModel?.navigateToProducts(index: indexPath.row)
         }).disposed(by: disposeBag)

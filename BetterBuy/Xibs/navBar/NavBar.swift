@@ -98,6 +98,6 @@ class NavBar: UIView {
     }
     
     @IBAction func navigateToSearch(_ sender: UIButton) {
-        print("SEAAAAAAARCHHHHHH")
+        coordinator?.navigateToSearchScreen()
     }
 }
