@@ -32,7 +32,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="rhN-3P-hhI"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="left-arrow"/>
+                                    <state key="normal" title=" " image="left-arrow"/>
                                     <connections>
                                         <action selector="goBack:" destination="-1" eventType="touchUpInside" id="P9J-NK-6eJ"/>
                                     </connections>
@@ -103,7 +103,7 @@
     </objects>
     <resources>
         <image name="heart" width="32" height="32"/>
-        <image name="left-arrow" width="32" height="32"/>
+        <image name="left-arrow" width="16" height="16"/>
         <image name="search" width="32" height="32"/>
         <image name="shopping-cart" width="32" height="32"/>
     </resources>

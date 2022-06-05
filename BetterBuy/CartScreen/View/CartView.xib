@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="checkoutButton" destination="qKo-bz-AmH" id="RpL-2C-GSY"/>
                 <outlet property="navBar" destination="cNP-X9-Wrw" id="jW2-hc-53b"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eRo-0Q-OhS"/>
             </connections>
@@ -147,6 +148,13 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0fp-cF-E8q">
+                                            <rect key="frame" x="20" y="32" width="374" height="330"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="330" id="kha-Lu-feR"/>
+                                            </constraints>
+                                        </tableView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKo-bz-AmH">
                                             <rect key="frame" x="50" y="630" width="314" height="50"/>
                                             <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
@@ -162,13 +170,6 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0fp-cF-E8q">
-                                            <rect key="frame" x="20" y="32" width="374" height="330"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="330" id="kha-Lu-feR"/>
-                                            </constraints>
-                                        </tableView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>

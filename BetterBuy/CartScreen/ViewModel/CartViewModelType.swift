@@ -10,4 +10,5 @@ import Foundation
 protocol CartViewModelType : AnyObject{
     var coordinator: Coordinator! {get}
     func goBack()
+    func proceedToCheckout()
 }

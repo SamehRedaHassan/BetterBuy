@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class CartViewController: UIViewController {
     //MARK: - IBOutlet
-    @IBOutlet weak var navBar: NavBar!
+    @IBOutlet private weak var navBar: NavBar!
+    @IBOutlet private weak var checkoutButton: UIButton!
     
     //MARK: - Properties
     private var viewModel : CartViewModelType!
-
+    private let disposeBag = DisposeBag()
     
     // MARK: - Life Cycle
     convenience init() {
@@ -35,10 +37,19 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        bindUI()
     }
     
     //MARK: - Functions
     private func setupNavBar(){
         navBar.injectCoordinator(coordinator: viewModel.coordinator)
+    }
+    
+    private func bindUI(){
+        checkoutButton.rx.tap.subscribe { [weak self] tap in
+            guard let self = self else {return}
+            self.viewModel.proceedToCheckout()
+        }.disposed(by: disposeBag)
+
     }
 }

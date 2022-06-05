@@ -8,17 +8,17 @@
 
 import Foundation
 
-final class PaymentViewModel{
+final class PaymentViewModel : PaymentViewModelType{
+    weak var coordinator: Coordinator!
     
-     //MARK: vars
-    var appCoordinator: AppCoordinator?
-            
         
-        //MARK: functions
-    //    func goToSignUpScreen() {
-    //        appCoordinator?.goToSignUpPage()
-    //    }
-        
+    //MARK: Properties
     
+    //MARK: Life cycle
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
     
+    //MARK: Functions
 }
+ 

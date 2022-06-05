@@ -29,7 +29,6 @@ class SplashViewController: UIViewController {
     }
 
     
-    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.navigateToHomeOrIntro()

@@ -11,8 +11,7 @@ import UIKit
 
 
 class AppCoordinator: Coordinator {
-   
-    
+  
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
@@ -133,5 +132,11 @@ class AppCoordinator: Coordinator {
     func popViewController(){
         self.navigationController.popViewController(animated: true)
     }
+    func proceedToCheckout() {
+        let paymentViewModel = PaymentViewModel(coordinator: self)
+        let paymentViewController = PaymentViewController(paymentViewModel: paymentViewModel)
+        navigationController.pushViewController(paymentViewController, animated: true)
+    }
+    
     
 }

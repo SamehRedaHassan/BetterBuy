@@ -19,6 +19,4 @@ protocol RegisterViewModelType {
     func goToLoginScreen()
     func validateInput() -> Bool
     func registerUser()
-    
-
 }
