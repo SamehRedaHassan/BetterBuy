@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="currencyBtn" destination="1uJ-8W-cZB" id="vxU-5d-oiU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,6 +50,9 @@
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" image="arrow.right" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="currencyBtnAction:" destination="-1" eventType="touchUpInside" id="akK-1z-gOx"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -98,6 +102,9 @@
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" image="arrow.right" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="locationBtn:" destination="-1" eventType="touchUpInside" id="9Bq-bc-lN9"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -141,12 +148,16 @@
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3g-GF-grL">
                                                                     <rect key="frame" x="263" y="0.0" width="30" height="153.5"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="ycu-oo-9rg"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" image="arrow.right" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="logoutBtn:" destination="-1" eventType="touchUpInside" id="Z9f-JI-BwH"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>

@@ -33,8 +33,9 @@ class AppCoordinator: Coordinator {
         //goToSettingsPage()
         //goToProfilePage()
         // goToProductsPage(category: " men")
-        goToSplashScreen()
+        //goToSplashScreen()
         //goToNotLoogedInProfilePage()
+        goToSettingsPage()
     }
     
     func goToSplashScreen(){
@@ -123,15 +124,19 @@ class AppCoordinator: Coordinator {
     }
     
     func goToSettingsPage(){
-        let settingsViewController = SettingsViewController(nibName: String(describing: SettingsViewController.self), bundle: nil)
-        let settingsViewModel = SettingViewModel.init()
-        settingsViewModel.appCoordinator = self
-        settingsViewController.viewModel = settingsViewModel
+        let settingsViewModel = SettingViewModel(coordinator: self)
+        let settingsViewController = SettingsViewController(settingsViewModel: settingsViewModel)
         navigationController.pushViewController(settingsViewController, animated: true)
     }
     
     func popViewController(){
         self.navigationController.popViewController(animated: true)
+    }
+    
+    func goToLocationScreen(){
+        let locationViewModel = AddressViewModel(coordinator: self)
+        let locationViewController = AddressViewController(addressViewModel: locationViewModel)
+        navigationController.pushViewController(locationViewController, animated: true)
     }
     
 }
