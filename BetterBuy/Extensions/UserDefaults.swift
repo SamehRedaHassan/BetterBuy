@@ -34,4 +34,16 @@ extension UserDefaults {
         }
     }
     
+    static func saveUserObject(user : Customer){
+        UserDefaults.standard.set(user, forKey: "user")
+    }
+    
+    static func getUserObject() -> Customer?{
+        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
+            return user
+        } else {
+            return nil
+        }
+    }
+    
 }

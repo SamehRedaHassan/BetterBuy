@@ -16,7 +16,7 @@ final class ProfileViewModel : ProfileViewModelType{
     
     
     //MARK: properties
-    let isLoading: ActivityIndicator =  ActivityIndicator()
+    var isLoading: ActivityIndicator =  ActivityIndicator()
     var coordinator: Coordinator
     let disposeBag = DisposeBag()
     var profileObservable: Observable<Customer?>
@@ -110,7 +110,13 @@ final class ProfileViewModel : ProfileViewModelType{
     
     //MARK: Change To user id from user defaults
     func getUserId() -> String {
-        return "6236240937195"
+        //return "6236240937195"
+        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
+            let id = user.id
+            return "\(id ?? 0)"
+        } else {
+            return ""
+        }
     }
     
     func getAllFavourites(){

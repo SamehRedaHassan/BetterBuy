@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     //MARK: IBOutlets
     @IBOutlet weak var profileView: UIView!
@@ -51,18 +51,25 @@ class ProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 self.profileTableView.reloadData()
             }
+           
         }
     
-       // configurePreviousOrdersTableView()
-       // configureWishListTableView()
-        //homeViewModel?.getCustomers()
+        viewModel?.isLoading
+        .distinctUntilChanged()
+        .drive(onNext: { [weak self] (isLoading) in
+        guard let self = self else { return }
+        self.killLoading()
+        if isLoading {
+            self.loading()
+        }
+        }).disposed(by: disposeBag)
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupLoggedInView()
     }
-    
     
     func registerTableView() {
         profileTableView.delegate = self
@@ -79,7 +86,6 @@ class ProfileViewController: UIViewController {
     
     @IBAction func navigateToRegister(_ sender: UIButton) {
         viewModel?.goToRegisterScreen()
-
     }
 }
 
@@ -102,24 +108,17 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
             tableView.register(UINib.init(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
             cell.orderImgValue = viewModel?.favourites?[indexPath.row].images?[0].src
-//            cell.orderImg.cornerRadius = 37.5
             cell.orderItemTitleValue = viewModel?.favourites?[indexPath.row].title
             cell.orderItemValue = viewModel?.favourites?[indexPath.row].variants?[0].price
             cell.didPressDeleteBtn = {
-                //print("delete product id: \(self.viewModel?.favourites?[indexPath.row].title)")
                 self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
                 self.viewModel?.favourites?.remove(at: indexPath.row)
                 DispatchQueue.main.async{
                     self.profileTableView.reloadData()
                 }
             }
-//            cell.didPressDeleteBtn = {
-//                print("delete product id: \(self.viewModel?.favourites?[indexPath.row].title)")
-//                self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
-//            }
-//            cell.deleteBtn.rx.tap.bind{
-//                self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
-//            }.disposed(by: disposeBag)
+            
+           
             return cell
         }
         
@@ -160,7 +159,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
             let myButton = UIButton(type: .custom)
 
             myButton.setTitle("View more", for: .normal)
-        if (section == 1) //else { return nil } // Can remove if want button for all sections
+        if (section == 1)
         {
             myButton.addTarget(self, action: #selector(myOrderAction(_:)), for: .touchUpInside)
         } else {

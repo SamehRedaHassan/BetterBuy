@@ -68,7 +68,6 @@ class RegisterViewController: BaseViewController {
         BindButtons()
     }
 
-    
     func BindButtons(){
         viewModel.isLoading
                     .distinctUntilChanged()
@@ -88,7 +87,7 @@ class RegisterViewController: BaseViewController {
         signUpBtn.rx.tap.bind{ [weak self] in
             guard let self = self else {return}
             if(self.viewModel.validateInput()){
-                self.viewModel.registerUser()
+                self.viewModel.getAllCustomersData()
             }
         }.disposed(by: disposeBag)
         
@@ -96,6 +95,19 @@ class RegisterViewController: BaseViewController {
         viewModel.errorMsgSubject.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
             guard str != "" else {return}
             Loaf(str ?? "Please provide valid input", state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
+        }).disposed(by: disposeBag)
+        
+        viewModel.successMsgSubject.observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
+            guard str != "" else {return}
+            self.viewModel.goToHomeScreen()
+            Loaf(str , state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
+            
+        }).disposed(by: disposeBag)
+        
+        viewModel.alreadyExistMsgSubject.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
+            guard str != "" else {return}
+            Loaf(str , state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
+            self.viewModel.goToLoginScreen()
         }).disposed(by: disposeBag)
     }
 }

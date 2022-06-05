@@ -17,14 +17,10 @@ enum PostApiRouter {
         
         //construct the url request
         let body : Data? =  {
-            //what goes through the request bodyz
+            //what goes through the request body
             switch self {
             case .register(let customer):
                 do {
-//                    let json : [String: Any]? = try?  customer.toDictionary()
-//                    let jsonData = try? JSONSerialization.data(withJSONObject: json!)
-//                    print(NSString(data: jsonData!, encoding: .zero))
-                    
                     return try? JSONEncoder().encode(customer)
                 }
             }
@@ -62,9 +58,6 @@ enum PostApiRouter {
         request.httpShouldHandleCookies = false
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //let customer = Customer(firstName: "sameh", lastName: "redaa", tags: "no tag", email: "mo7.redaaa@gmail.com")
-        //let modelCustomer = LoginResponseModel(customer: customer)
-        //request.httpBody = try! JSONEncoder().encode(modelCustomer)
         if let httpBody = body {
             request.httpBody = httpBody
             print(NSString(data: httpBody, encoding: .zero)!)
