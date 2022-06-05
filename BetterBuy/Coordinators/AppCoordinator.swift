@@ -105,7 +105,7 @@ class AppCoordinator: Coordinator {
 
 
     func goToProductDetailsPage(product: Product){
-       let productDetailsViewModel = DetailsViewModel(product: product, db: DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
+        let productDetailsViewModel = DetailsViewModel(product: product, db:  DbManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), cartDb: CartDBManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate), coordinator: self)
         let productDetailsViewController = DetailsViewController(viewModel: productDetailsViewModel)
         navigationController.pushViewController(productDetailsViewController, animated: true)
     }

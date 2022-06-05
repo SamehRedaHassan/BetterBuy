@@ -11,13 +11,17 @@ import RxSwift
 
 protocol DetailsViewModelType : AnyObject {
     var coordinator: Coordinator {get}
-    func goToSignUpScreen()
+    var isInCart : Bool {get set}
     func addProductToFav(product : Product)
     func removeProductfromFav(product : Product)
-    func getProductsFromFavourite()
     func addProductToCart(product : Product)
     var product : Product? { get set}
     var images : Observable<[ProductImage]> { get }
     var sizes : Observable<[String]> { get }
     var favourites : [Product]? { get }
+    var isInCartObservable : BehaviorSubject<Bool> {get}
+    func goToSignUpScreen()
+    func getProductsFromFavourite()
+    func removeProductfromCart(product: Product)
+    func ToggleAddAndRemoveFromCart()
 }
