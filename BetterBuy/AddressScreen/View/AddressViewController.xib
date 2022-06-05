@@ -254,7 +254,7 @@
         </view>
     </objects>
     <resources>
-        <image name="left-arrow" width="32" height="32"/>
+        <image name="left-arrow" width="16" height="16"/>
         <image name="map" width="325" height="244"/>
     </resources>
 </document>

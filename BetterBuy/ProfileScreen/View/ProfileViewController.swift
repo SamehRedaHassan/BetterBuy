@@ -106,7 +106,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
             cell.orderItemTitleValue = viewModel?.favourites?[indexPath.row].title
             cell.orderItemValue = viewModel?.favourites?[indexPath.row].variants?[0].price
             cell.didPressDeleteBtn = {
-                print("delete product id: \(self.viewModel?.favourites?[indexPath.row].title)")
+                //print("delete product id: \(self.viewModel?.favourites?[indexPath.row].title)")
                 self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
                 self.viewModel?.favourites?.remove(at: indexPath.row)
                 DispatchQueue.main.async{
@@ -176,7 +176,6 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     }
 
     @objc func myOrderAction(_ sender : AnyObject) {
-        //MARK: HEREEEEEEEEEEEEEE
         print("my order")
         viewModel?.goToOrderListScreen()
     }
