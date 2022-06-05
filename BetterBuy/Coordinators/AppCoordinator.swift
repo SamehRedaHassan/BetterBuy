@@ -32,9 +32,9 @@ class AppCoordinator: Coordinator {
         //goToSettingsPage()
         //goToProfilePage()
         // goToProductsPage(category: " men")
-        //goToSplashScreen()
+        goToSplashScreen()
         //goToNotLoogedInProfilePage()
-        goToSettingsPage()
+        //goToSettingsPage()
     }
     
     func goToSplashScreen(){

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
                 <outlet property="emailTxtView" destination="8sx-OW-0i6" id="EwZ-ft-bT9"/>
+                <outlet property="loginBtn" destination="qrO-ex-ih7" id="o5M-FS-sDL"/>
                 <outlet property="passwordTxtView" destination="d1X-Kv-bx9" id="lDi-34-scJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cEK-Ce-vTl"/>
             </connections>
@@ -30,7 +30,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vV6-zc-Uhu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="743.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="737.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETM-xz-Mch">
                                             <rect key="frame" x="16" y="8" width="50" height="50"/>
@@ -51,66 +51,66 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KC1-U6-4SQ">
-                                    <rect key="frame" x="16" y="74.5" width="382" height="669"/>
+                                    <rect key="frame" x="16" y="80.5" width="382" height="657"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cil-aU-1kg">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="98"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yu-Nu-JHj">
-                                            <rect key="frame" x="0.0" y="118" width="382" height="103"/>
+                                            <rect key="frame" x="0.0" y="118" width="382" height="91"/>
                                             <string key="text">Log into
 your Account</string>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNP-yo-YMH">
-                                            <rect key="frame" x="0.0" y="241" width="382" height="8"/>
+                                            <rect key="frame" x="0.0" y="229" width="382" height="8"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="xAm-9h-icR"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8sx-OW-0i6">
-                                            <rect key="frame" x="0.0" y="269" width="382" height="50"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8sx-OW-0i6">
+                                            <rect key="frame" x="0.0" y="257" width="382" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="PLz-jQ-IBh"/>
                                             </constraints>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d1X-Kv-bx9">
-                                            <rect key="frame" x="0.0" y="339" width="382" height="50"/>
+                                            <rect key="frame" x="0.0" y="327" width="382" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="nMl-Iy-5Dh"/>
                                             </constraints>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="dR4-1h-bk7">
-                                            <rect key="frame" x="0.0" y="409" width="382" height="20"/>
+                                            <rect key="frame" x="0.0" y="397" width="382" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="SKh-5R-bpx"/>
                                             </constraints>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrO-ex-ih7">
-                                            <rect key="frame" x="0.0" y="449" width="382" height="50"/>
-                                            <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrO-ex-ih7">
+                                            <rect key="frame" x="0.0" y="437" width="382" height="50"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="sef-W0-EOl"/>
                                             </constraints>
@@ -125,7 +125,7 @@ your Account</string>
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ela-ty-v4r">
-                                            <rect key="frame" x="0.0" y="519" width="382" height="50"/>
+                                            <rect key="frame" x="0.0" y="507" width="382" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="ERP-uF-zvX"/>
@@ -144,7 +144,7 @@ your Account</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50L-qQ-ck4">
-                                            <rect key="frame" x="0.0" y="589" width="382" height="80"/>
+                                            <rect key="frame" x="0.0" y="577" width="382" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="hOC-Xc-MMx"/>
                                             </constraints>
@@ -186,8 +186,7 @@ your Account</string>
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="vSU-sr-hM4" secondAttribute="bottom" id="6Bj-cr-ERm"/>
                 <constraint firstItem="nBF-GD-7gM" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="A5Q-ZB-7uw"/>
@@ -199,14 +198,12 @@ your Account</string>
                 <constraint firstAttribute="trailing" secondItem="vSU-sr-hM4" secondAttribute="trailing" id="ywY-MW-wf7"/>
                 <constraint firstItem="vSU-sr-hM4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zwW-c8-C57"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-2233" y="-74"/>
         </view>
     </objects>
     <resources>
         <image name="img6" width="391" height="294.5"/>
         <image name="left-arrow" width="16" height="16"/>
-        <systemColor name="viewFlipsideBackgroundColor">
-            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
