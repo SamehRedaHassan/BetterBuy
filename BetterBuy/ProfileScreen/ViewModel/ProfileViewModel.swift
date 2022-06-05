@@ -136,4 +136,8 @@ final class ProfileViewModel : ProfileViewModelType{
 
     }
     
+    func goToSettingsScreen(){
+        coordinator.goToSettingsPage()
+    }
+    
 }

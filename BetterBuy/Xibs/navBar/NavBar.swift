@@ -68,7 +68,10 @@ class NavBar: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
+    override  func awakeFromNib() {
+        super.awakeFromNib()
+      //  self.updateNavButtonsState()
+    }
     //MARK: -Functions
     func commonInit() {
         guard let view = loadViewFromNib() else { return }
@@ -83,6 +86,11 @@ class NavBar: UIView {
     
     func injectCoordinator(coordinator : Coordinator){
         self.coordinator = coordinator
+    }
+    
+     func  updateNavButtonsState(){
+      isCartBtnHidden =  !UserDefaults.getLoginStatus()
+      isFavouriteBtnHidden =  !UserDefaults.getLoginStatus()
     }
     //MARK: -IBAction
     @IBAction func goBack(_ sender: UIButton) {

@@ -23,7 +23,7 @@ class CartViewModel : CartViewModelType{
     }
     
     func proceedToCheckout() {
-        coordinator.proceedToCheckout()
+        coordinator.proceedToCheckout(withSubtotal: 875.0)
     }
     
 }
