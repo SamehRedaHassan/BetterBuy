@@ -87,7 +87,8 @@ class ProductsViewController: UIViewController{
                         self.productViewModel?.favouriteCoreData.removeFavProduct(product: model)
                         self.productViewModel?.removeProductFromFav(index: row)
                     }
-             //   }
+
+               // }
             
         }.disposed(by: disposeBag)
         

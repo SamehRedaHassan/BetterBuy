@@ -19,16 +19,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fXd-bi-NQW">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PD-0m-IVl">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="mc5-C9-Js6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="8PD-0m-IVl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="A2P-1f-mi6"/>
                 <constraint firstItem="fXd-bi-NQW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Cfb-5k-Z0d"/>
-                <constraint firstItem="fXd-bi-NQW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Lnj-mV-03Y"/>
+                <constraint firstItem="8PD-0m-IVl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="UY4-Vg-ss2"/>
+                <constraint firstItem="fXd-bi-NQW" firstAttribute="top" secondItem="8PD-0m-IVl" secondAttribute="bottom" id="pNq-We-r5K"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fXd-bi-NQW" secondAttribute="bottom" id="pa2-V6-iay"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fXd-bi-NQW" secondAttribute="trailing" id="ufG-fo-NkA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8PD-0m-IVl" secondAttribute="trailing" id="vS0-Dy-Fp4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="133" y="154"/>

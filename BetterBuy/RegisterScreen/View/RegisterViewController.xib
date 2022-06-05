@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -63,7 +61,7 @@ your Acount</string>
                                                         <constraint firstAttribute="height" constant="50" id="KEp-RZ-8yX"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -78,7 +76,7 @@ your Acount</string>
                                                         <constraint firstAttribute="height" constant="50" id="L0r-DW-s5Z"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -93,7 +91,7 @@ your Acount</string>
                                                         <constraint firstAttribute="height" constant="50" id="4ri-0w-iKe"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -108,7 +106,7 @@ your Acount</string>
                                                         <constraint firstAttribute="height" constant="50" id="Trd-aC-wlr"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -118,15 +116,15 @@ your Acount</string>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igV-oP-i9G">
                                                     <rect key="frame" x="0.0" y="431" width="350" height="20"/>
-                                                    <viewLayoutGuide key="safeArea" id="yba-ue-QQe"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="rdp-fb-hiT"/>
                                                     </constraints>
+                                                    <viewLayoutGuide key="safeArea" id="yba-ue-QQe"/>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeT-RL-9B0">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeT-RL-9B0">
                                                     <rect key="frame" x="0.0" y="471" width="350" height="60"/>
-                                                    <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Yi5-TS-EHb"/>
                                                     </constraints>
@@ -140,15 +138,15 @@ your Acount</string>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2a-zz-nIH">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2a-zz-nIH">
                                                     <rect key="frame" x="0.0" y="551" width="350" height="60"/>
-                                                    <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="t77-hX-gnN"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <state key="normal" title="Already Signed in ? Login">
-                                                        <color key="titleColor" systemColor="viewFlipsideBackgroundColor"/>
+                                                        <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -196,7 +194,6 @@ your Acount</string>
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="bkW-GJ-CWh"/>
             <color key="backgroundColor" white="0.0" alpha="0.34564643799472294" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="bkW-GJ-CWh" firstAttribute="bottom" secondItem="LW1-ZQ-KDV" secondAttribute="bottom" id="8vI-rD-kd5"/>
@@ -208,16 +205,11 @@ your Acount</string>
                 <constraint firstItem="LW1-ZQ-KDV" firstAttribute="trailing" secondItem="bkW-GJ-CWh" secondAttribute="trailing" id="mzY-U2-2jU"/>
                 <constraint firstAttribute="bottom" secondItem="OAt-Te-8P8" secondAttribute="bottom" id="o3R-C5-pzB"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="bkW-GJ-CWh"/>
             <point key="canvasLocation" x="131.8840579710145" y="104.46428571428571"/>
         </view>
     </objects>
     <resources>
         <image name="img6" width="391" height="294.5"/>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="viewFlipsideBackgroundColor">
-            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

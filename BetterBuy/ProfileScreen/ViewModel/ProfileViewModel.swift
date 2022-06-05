@@ -16,7 +16,7 @@ final class ProfileViewModel : ProfileViewModelType{
     
     
     //MARK: properties
-    //let isLoading: ActivityIndicator =  ActivityIndicator()
+    let isLoading: ActivityIndicator =  ActivityIndicator()
     var coordinator: Coordinator
     let disposeBag = DisposeBag()
     var profileObservable: Observable<Customer?>
@@ -42,7 +42,7 @@ final class ProfileViewModel : ProfileViewModelType{
     func getProfileDetails() {
         
         getApi(apiRouter: .getCustomerById(id: getUserId()))
-        //      .trackActivity(isLoading)
+              .trackActivity(isLoading)
               .observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated))
               .subscribe {[weak self] (event) in
                   guard let self = self else { return }
