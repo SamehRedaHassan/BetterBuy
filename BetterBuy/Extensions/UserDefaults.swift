@@ -35,15 +35,36 @@ extension UserDefaults {
     }
     
     static func saveUserObject(user : Customer){
+        let encoder = JSONEncoder()
+        let user = try! encoder.encode(user)
         UserDefaults.standard.set(user, forKey: "user")
+        //UserDefaults.getUserObject()
     }
     
     static func getUserObject() -> Customer?{
-        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
-            return user
-        } else {
-            return nil
-        }
+        if let data = UserDefaults.standard.object(forKey: "user") {
+                do {
+                    let decoder = JSONDecoder()
+                    let note = try decoder.decode(Customer.self, from: data as! Data)
+                    print (note.email!)
+                    return note
+                } catch {
+                    print("Unable to Decode Note (\(error))")
+                }
+            }
+        return nil
+    }
+    
+    static func saveUserId(id : String){
+        UserDefaults.standard.set(id, forKey: "id")
+    }
+    
+    static func saveUserName(name : String){
+        UserDefaults.standard.set(name , forKey: "id")
+    }
+    
+    static func saveUserEmail(name : String){
+        UserDefaults.standard.set(name , forKey: "id")
     }
     
 }

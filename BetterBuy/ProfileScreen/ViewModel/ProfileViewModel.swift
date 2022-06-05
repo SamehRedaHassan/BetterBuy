@@ -72,7 +72,7 @@ final class ProfileViewModel : ProfileViewModelType{
     func getCustomerOrders() {
         
         getApi(apiRouter: .getCustomerOrders(id: getUserId()))
-        //      .trackActivity(isLoading)
+              .trackActivity(isLoading)
               .observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated))
               .subscribe {[weak self] (event) in
                   guard let self = self else { return }
@@ -111,12 +111,8 @@ final class ProfileViewModel : ProfileViewModelType{
     //MARK: Change To user id from user defaults
     func getUserId() -> String {
         //return "6236240937195"
-        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
-            let id = user.id
-            return "\(id ?? 0)"
-        } else {
-            return ""
-        }
+        guard let user : Customer = UserDefaults.getUserObject() else {return ""}
+        return "\(user.id ?? 0)"
     }
     
     func getAllFavourites(){
