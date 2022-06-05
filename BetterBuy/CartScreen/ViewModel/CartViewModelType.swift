@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import RxSwift
 protocol CartViewModelType : AnyObject{
     var coordinator: Coordinator! {get}
     func goBack()
     func proceedToCheckout()
+    func retieveProductsInCart()
+    func incrementProductCount(productId : String)-> Int
+    func decrementProductCount(productId : String)-> Int
+    var cartObservabel : Observable<[Product]> {get}
 }

@@ -117,7 +117,7 @@ class AppCoordinator: Coordinator {
     }
     
     func goToCartPage(){
-        let cartViewModel = CartViewModel(coordinator: self)
+        let cartViewModel = CartViewModel(coordinator: self, cartCoreData:  CartDBManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
         let cartViewController = CartViewController(cartViewModel: cartViewModel)
         navigationController.pushViewController(cartViewController, animated: true)
     }

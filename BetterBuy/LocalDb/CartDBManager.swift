@@ -111,27 +111,32 @@ class CartDBManager : CartDBManagerType {
         }
         return true
     }
-    func plusCountByOne(id: String) {
+    func plusCountByOne(id: String)->Int{
         let product = getProductWithId(id: "\(id)")
         let count  = (Int(product[0].count!) ?? 0) + 1
         product[0].count = String(count)
         do{
             try self.viewContext.save()
+            return count
         }
         catch{
             print("Item didn't delete successfully !!")
+            return -7
         }
     }
     
-    func minusCountByOne(id: String) {
+    func minusCountByOne(id: String)->Int {
         let product = getProductWithId(id: "\(id)")
         let count  = (Int(product[0].count!) ?? 0) - 1
         product[0].count = String(count)
         do{
             try self.viewContext.save()
+            return count
+            //if count reach 0 then delete product
         }
         catch{
             print("Item didn't delete successfully !!")
+            return -7
         }
     }
     
