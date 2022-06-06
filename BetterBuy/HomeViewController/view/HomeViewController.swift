@@ -28,6 +28,7 @@ class HomeViewController: BaseViewController {
     // MARK: - Life Cycle
     convenience init() {
         self.init(homeViewModel: nil)
+        navBar.updateNavButtonsState()
     }
 
     init(homeViewModel: HomeViewModelType?) {

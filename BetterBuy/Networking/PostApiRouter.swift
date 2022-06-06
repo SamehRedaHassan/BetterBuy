@@ -11,7 +11,8 @@ import Foundation
 
 enum PostApiRouter {
     case register(customer : PostCustomerResponseModel)
-    
+    case addAddress(address : AddAddressPostModel)
+    case addOrder(order : PostOrder)
     //https://4a798eacca0d39cc2048369ad2025b47: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@mad-sv.myshopify.com/admin/api/2021-04/customers.json
     func getRequest()  -> URLRequest {
         
@@ -22,6 +23,14 @@ enum PostApiRouter {
             case .register(let customer):
                 do {
                     return try? JSONEncoder().encode(customer)
+                }
+            case .addAddress(address: let address):
+                do {
+                    return try? JSONEncoder().encode(address)
+                }
+            case .addOrder(order: let order):
+                do {
+                    return try? JSONEncoder().encode(order)
                 }
             }
             
@@ -38,6 +47,12 @@ enum PostApiRouter {
                     
                 case .register(_):
                     return "2022-04/customers.json"
+                    
+                case .addAddress(address: _):
+                    return "2022-04/orders.json"
+                    
+                case .addOrder(order: _):
+                    return "2022-04/orders.json"
                 }
             }()
             
@@ -48,6 +63,12 @@ enum PostApiRouter {
         let method : String = {
             switch self {
             case .register( _):
+                return "POST"
+                
+            case .addAddress(address: _):
+                return "POST"
+                
+            case .addOrder(order: let order):
                 return "POST"
             }
         }()

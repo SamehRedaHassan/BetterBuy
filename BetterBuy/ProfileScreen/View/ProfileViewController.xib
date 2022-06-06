@@ -13,6 +13,7 @@
                 <outlet property="profileImg" destination="kSa-kz-x8i" id="VdE-ru-JlS"/>
                 <outlet property="profileTableView" destination="Mhu-cH-g8F" id="eBF-bu-Shd"/>
                 <outlet property="profileView" destination="0rb-RF-oDn" id="yUo-aq-ZM0"/>
+                <outlet property="userName" destination="2Fu-CN-EHU" id="4AW-NI-zlf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,7 +25,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rb-RF-oDn">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgThree" translatesAutoresizingMaskIntoConstraints="NO" id="kSa-kz-x8i">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="kSa-kz-x8i">
                             <rect key="frame" x="26" y="97" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="eh3-Se-Kks"/>
@@ -234,6 +235,11 @@
                                                 </button>
                                             </subviews>
                                         </stackView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3U-0u-c2K">
+                                            <rect key="frame" x="0.0" y="-18" width="414" height="76"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -286,6 +292,6 @@
     </objects>
     <resources>
         <image name="i2" width="281" height="337"/>
-        <image name="imgThree" width="2334.5" height="1698.5"/>
+        <image name="user2" width="226" height="223"/>
     </resources>
 </document>

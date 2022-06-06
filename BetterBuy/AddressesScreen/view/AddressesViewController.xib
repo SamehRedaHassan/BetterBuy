@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressesViewController" customModule="BetterBuy" customModuleProvider="target">
+            <connections>
+                <outlet property="addAddressButton" destination="M15-Aj-rfh" id="KUY-ef-VP4"/>
+                <outlet property="addressTableView" destination="igm-QZ-8h2" id="D7N-Jr-714"/>
+                <outlet property="navBar" destination="fgf-Pk-CEl" id="QnT-Ci-5DL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgf-Pk-CEl" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPe-NY-7no">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="FX0-y3-cTS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="xPe-NY-7no" firstAttribute="leading" secondItem="fgf-Pk-CEl" secondAttribute="leading" id="3m0-It-mBf"/>
+                        <constraint firstAttribute="bottom" secondItem="xPe-NY-7no" secondAttribute="bottom" id="7iJ-ud-CdZ"/>
+                        <constraint firstItem="xPe-NY-7no" firstAttribute="top" secondItem="fgf-Pk-CEl" secondAttribute="top" id="bkf-Uy-vQx"/>
+                        <constraint firstAttribute="trailing" secondItem="xPe-NY-7no" secondAttribute="trailing" id="cbz-LC-syi"/>
+                        <constraint firstAttribute="height" constant="50" id="k9O-Nb-819"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchBtnHidden" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFavouriteBtnHidden" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCartBtnHidden" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-VX-xUA">
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Delivery Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esN-QL-jd0">
+                            <rect key="frame" x="8" y="0.0" width="398" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="RsT-To-jfI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="igm-QZ-8h2">
+                            <rect key="frame" x="16" y="58" width="382" height="702"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="esN-QL-jd0" firstAttribute="leading" secondItem="XYl-VX-xUA" secondAttribute="leading" constant="8" id="QFW-5W-AAZ"/>
+                        <constraint firstItem="igm-QZ-8h2" firstAttribute="leading" secondItem="XYl-VX-xUA" secondAttribute="leading" constant="16" id="QuD-sS-Cg3"/>
+                        <constraint firstAttribute="bottom" secondItem="igm-QZ-8h2" secondAttribute="bottom" constant="8" id="Yfy-VD-r34"/>
+                        <constraint firstAttribute="trailing" secondItem="esN-QL-jd0" secondAttribute="trailing" constant="8" id="YlW-Pk-KqQ"/>
+                        <constraint firstAttribute="trailing" secondItem="igm-QZ-8h2" secondAttribute="trailing" constant="16" id="q2w-VW-A2W"/>
+                        <constraint firstItem="igm-QZ-8h2" firstAttribute="top" secondItem="esN-QL-jd0" secondAttribute="bottom" constant="8" id="soi-dp-0DQ"/>
+                        <constraint firstItem="esN-QL-jd0" firstAttribute="top" secondItem="XYl-VX-xUA" secondAttribute="top" id="x3K-Ic-J6x"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M15-Aj-rfh">
+                    <rect key="frame" x="356" y="44" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="G8r-zW-efl"/>
+                        <constraint firstAttribute="width" constant="50" id="z2i-AU-DKx"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title=" "/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fgf-Pk-CEl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Dj5-Jb-q5M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fgf-Pk-CEl" secondAttribute="trailing" id="PVy-1F-XkW"/>
+                <constraint firstItem="XYl-VX-xUA" firstAttribute="top" secondItem="fgf-Pk-CEl" secondAttribute="bottom" id="Pa1-Ik-K7q"/>
+                <constraint firstItem="M15-Aj-rfh" firstAttribute="top" secondItem="fgf-Pk-CEl" secondAttribute="top" id="Qju-hh-ktn"/>
+                <constraint firstItem="fgf-Pk-CEl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SuC-uD-Ryg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XYl-VX-xUA" secondAttribute="bottom" id="Tr1-yk-AdX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M15-Aj-rfh" secondAttribute="trailing" constant="8" id="i6U-D8-4zl"/>
+                <constraint firstItem="XYl-VX-xUA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="npd-rx-8Fi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XYl-VX-xUA" secondAttribute="trailing" id="sDs-Jd-YDE"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

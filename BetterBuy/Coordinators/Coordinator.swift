@@ -26,8 +26,10 @@ protocol Coordinator : AnyObject{
     func goToProductsPage(category:String,brand:String)
     func popViewController()
     func goToCartPage()
-    func proceedToCheckout()
+    func proceedToCheckout(withSubtotal : Float , address : Address, order : PostOrder)
     func goToLocationScreen()
     func navigateToSearchScreen()
+    func goToSettingsPage()
+    func navigateToAddressesScreen(withSubtotal : Float)
 
 }

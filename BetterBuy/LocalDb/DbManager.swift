@@ -47,8 +47,8 @@ class DbManager : LocalDbType {
             print("*** product added *** ")
             //print(favProduct)
             
-            print("productc added = \(favProduct.title) **** \(favProduct.sizes)")
-            print("fav product price = \(favProduct.price)")
+            //print("productc added = \(favProduct.title) **** \(favProduct.sizes)")
+            //print("fav product price = \(favProduct.price)")
             
 
         }
@@ -144,8 +144,8 @@ class DbManager : LocalDbType {
     
     // MARK: - Remove Product From DB
     func removeFavProduct(product : Product){
-        print(product.id)
-        print(product.title)
+//        print(product.id)
+//        print(product.title)
         var productToDelete = getFavItemFromDbWithId(id: "\(product.id!)")
         //print(productToDelete[0].title)
         //print(productToDelete[0].productId)
@@ -159,10 +159,10 @@ class DbManager : LocalDbType {
             print("Item didn't delete successfully !!")
         }
     }
-    func getUserIDFromUserDeafault() -> Int{
-        
+    func getUserIDFromUserDeafault() -> String{
+        guard let user : Customer = UserDefaults.getUserObject() else {return ""}
+        return "\(user.id ?? 0)"
         //MARK:- USER ID
-        return 0
     }
     
     

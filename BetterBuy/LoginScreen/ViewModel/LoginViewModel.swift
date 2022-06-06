@@ -85,6 +85,7 @@ final class LoginViewModel : LoginViewModelType{
                 let data = try! encoder.encode(customer)
 
                 // Write/Set Data
+               
                 UserDefaults.standard.set(data, forKey: "user")
                 coordinator.goToHomeScreen()
             }

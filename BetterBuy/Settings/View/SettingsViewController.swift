@@ -11,15 +11,18 @@ import PopupDialog
 
 class SettingsViewController: UIViewController {
 
+    //MARK: IBOutlet
+    @IBOutlet weak var currencyBtn: UIButton!
+    @IBOutlet weak var navBar: NavBar!
+    
+    
     //MARK: variables
     var viewModel : SettingsViewModelType?
-    
-    @IBOutlet weak var currencyBtn: UIButton!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavbar()
     }
     
     convenience init() {
@@ -35,21 +38,9 @@ class SettingsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    @IBAction func currencyBtnAction(_ sender: Any) {
-        print("clicked")
-        let popupDialog = setUpDialog(title: "Currency", msg: "Pick your prefarable currency", imageName: "whitemoney")
-        self.present(popupDialog, animated: true, completion: nil)
-    }
-    
-    @IBAction func locationBtn(_ sender: Any) {
-        viewModel?.goToLocationScreen()
-    }
-    
-    @IBAction func logoutBtn(_ sender: Any) {
-        print("clicked")
-        let popUp = setUpConfirmationDialog(title: "Alert", msg: "Are you sure you want to logOut?", imageName: "logout")
-        self.present(popUp, animated: true, completion: nil)
+    // MARK: - Functions
+    private func setupNavbar(){
+        self.navBar.coordinator = viewModel?.coordinator
     }
     
     func setUpDialog(title : String , msg : String , imageName : String ) -> PopupDialog{
@@ -156,5 +147,25 @@ class SettingsViewController: UIViewController {
     }
        
 
+    
+    
+    // MARK: - IBAction
+    @IBAction func currencyBtnAction(_ sender: Any) {
+        print("clicked")
+        let popupDialog = setUpDialog(title: "Currency", msg: "Pick your prefarable currency", imageName: "whitemoney")
+        self.present(popupDialog, animated: true, completion: nil)
+    }
+    
+    @IBAction func locationBtn(_ sender: Any) {
+        viewModel?.goToLocationScreen()
+    }
+    
+    @IBAction func logoutBtn(_ sender: Any) {
+        print("clicked")
+        let popUp = setUpConfirmationDialog(title: "Alert", msg: "Are you sure you want to logOut?", imageName: "logout")
+        self.present(popUp, animated: true, completion: nil)
+    }
+    
+   
 }
 
