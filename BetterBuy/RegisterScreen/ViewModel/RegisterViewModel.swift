@@ -12,7 +12,7 @@ import RxSwift
 class RegisterViewModel : RegisterViewModelType {
     
     //MARK: vars
-    var coordinator: Coordinator
+    weak var coordinator: Coordinator!
     var disposeBag = DisposeBag()
     let isLoading: ActivityIndicator =  ActivityIndicator()
     var passwordSubject : BehaviorSubject<String> = BehaviorSubject<String>(value: "")

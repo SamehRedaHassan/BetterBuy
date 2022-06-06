@@ -49,9 +49,14 @@ class DetailsViewController: UIViewController {
         setCollectionDelegates()
         configureIsFavProduct()
         setData()
-        
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addToFavFavouriteBtn.isHidden = !UserDefaults.getLoginStatus()
+        addToCartBtn.isHidden = !UserDefaults.getLoginStatus()
+    }
+    
     func setupNavBar(){
         navBar.coordinator = viewModel.coordinator
         

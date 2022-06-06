@@ -18,17 +18,23 @@ class AddressesViewModel : AddressesViewModelType {
     var errorMsgSubject: PublishSubject<String?> = PublishSubject()
     lazy var msg : PublishSubject<String> = PublishSubject()
     lazy var Internetmsg : PublishSubject<String> = PublishSubject()
+    var isEmptyCollection : PublishSubject<Bool> = PublishSubject()
     weak var coordinator: Coordinator!
+    private let subTotal : Double
+    private var order : PostOrder
 
     //MARK: Life cycle
-    init(coordinator: Coordinator){
+    init(coordinator: Coordinator , subTotal : Double , order : PostOrder){
         self.coordinator = coordinator
         addressesResponse = addressesSubject.asObservable()
+        self.subTotal = subTotal
+        self.order = order
     }
     
     //MARK: Functions
     func getAddresses() {
-        getApi(apiRouter: .getAllAddresses(id: "6036098154668"))
+        let userID = "\(UserDefaults.getUserObject()?.id ?? 0)"
+        getApi(apiRouter: .getAllAddresses(id: userID))
             .trackActivity(isLoading)
             .observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated))
             .subscribe {[weak self] (event) in
@@ -38,7 +44,14 @@ class AddressesViewModel : AddressesViewModelType {
                     switch result {
                     case .success(value: let response):
                         let apiResponse = GetAddressesResponseModel(response: response)
+                        if((apiResponse.addresses!.isEmpty)){
+                            self.isEmptyCollection.onNext(true)
+                        } else {
+                            self.isEmptyCollection.onNext(false)
+                            
+                        }
                         self.addressesSubject.onNext(apiResponse.addresses ?? [])
+
                      //   print(apiResponse.brands?.count)
                    
                     case .internetFailure(let error):
@@ -57,6 +70,6 @@ class AddressesViewModel : AddressesViewModelType {
     }
     func navigateCheckout() {
         let addresses = try! addressesSubject.value()
-        coordinator.proceedToCheckout(withSubtotal: 877.5, address: addresses[0], order: PostOrder())
+        coordinator.proceedToCheckout(withSubtotal: subTotal, address: addresses[0], order: PostOrder())
     }
 }

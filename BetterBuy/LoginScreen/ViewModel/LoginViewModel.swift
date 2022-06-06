@@ -75,18 +75,11 @@ final class LoginViewModel : LoginViewModelType{
     func checkUserInput(){
         let email = try! self.emailSubject.value()
         let pwd = try! self.passwordSubject.value()
-        //MARK: - Lma el api ttsh7an
         for customer in customers ?? []{
             if email == customer.email && pwd == customer.tags{
                 // Create JSON Encoder
-                let encoder = JSONEncoder()
-
-                // Encode Note
-                let data = try! encoder.encode(customer)
-
-                // Write/Set Data
-               
-                UserDefaults.standard.set(data, forKey: "user")
+                UserDefaults.saveUserObject(user: customer)
+                UserDefaults.saveLoginStatus(_Val: true)
                 coordinator.goToHomeScreen()
             }
         }

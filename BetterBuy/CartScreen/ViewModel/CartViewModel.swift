@@ -14,12 +14,14 @@ class CartViewModel : CartViewModelType{
     weak var coordinator: Coordinator!
     var cartCoreData : CartDBManagerType!
     var productsInCart : [Product]?
+    lazy var isEmptyCollection : PublishSubject<Bool> = PublishSubject()
+    var products: [Product] = []
     
     var cartObservabel : Observable<[Product]>
-    private var cartSubject : PublishSubject<[Product]> = PublishSubject<[Product]>()
+    private var cartSubject : BehaviorSubject<[Product]> = BehaviorSubject<[Product]>(value: [])
     
     var totalPriceObservabel : Observable<String>
-    private var totalPriceSubject : PublishSubject<String> = PublishSubject<String>()
+    private var totalPriceSubject : BehaviorSubject<String> = BehaviorSubject<String>(value: "")
     //MARK: Life cycle
     init(coordinator: Coordinator,cartCoreData:CartDBManagerType) {
         self.coordinator = coordinator
@@ -34,13 +36,28 @@ class CartViewModel : CartViewModelType{
     }
     
     func proceedToCheckout() {
-      // coordinator.proceedToCheckout(withSubtotal: 875.0)
-        coordinator.navigateToAddressesScreen(withSubtotal: 875.0)
-        
+        let value = try! totalPriceSubject.value()
+        guard let orders = createPostOrder() else {return}
+        coordinator.navigateToAddressesScreen(withSubtotal: Double(value) ?? 0.0, order: orders)
     }
+    
+    func createPostOrder() -> PostOrder? {
+        guard let items = try? cartSubject.value() else {return nil}
+        var itemsList : [OrderItem] = []
+        items.forEach { (product) in
+            let order = OrderItem(id: 0, giftCard: nil, productExists: nil, productID: product.id, quantity: product.count, title: product.title, totalDiscount: nil, variantID: nil)
+            itemsList.append(order)
+        }
+        let order = Order(customer: UserDefaults.getUserObject()!, orderItems: itemsList)
+        print(PostOrder(order: order))
+        return PostOrder(order: order)
+    }
+    
     //MARK:- Dealing with coredate
     func retieveProductsInCart(){
-        cartSubject.onNext(cartCoreData.getAllProductsInCart())
+        products = cartCoreData.getAllProductsInCart()
+        cartSubject.onNext(products)
+        isEmptyCollection.onNext(products.isEmpty)
         updateTotalPrice()
         
     }
@@ -48,7 +65,16 @@ class CartViewModel : CartViewModelType{
         return cartCoreData.plusCountByOne(id: productId)
     }
     func decrementProductCount(productId : String)-> Int {
-        return cartCoreData.minusCountByOne(id: productId)
+        let count = cartCoreData.minusCountByOne(id: productId)
+        print(count)
+        if(count == 0){
+            products = cartCoreData.getAllProductsInCart()
+            if(products.count - 1 == 0){
+                isEmptyCollection.onNext(true)
+            }
+            print(products.count)
+        }
+        return count
     }
     func removeProductCount(product : Product){
         cartCoreData.removeProduct(product:product)
@@ -57,6 +83,12 @@ class CartViewModel : CartViewModelType{
     }
     func updateTotalPrice(){
         totalPriceSubject.onNext(cartCoreData.calcuTotalPrice())
+        //isEmptyCollection.onNext(products.isEmpty)
+        //print(products.isEmpty)
+    }
+    
+    func noOrdersAvailable() -> Bool{
+        return try! cartSubject.value().isEmpty
     }
     
     

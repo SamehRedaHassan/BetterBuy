@@ -133,7 +133,7 @@ class AppCoordinator: Coordinator {
     func popViewController(){
         self.navigationController.popViewController(animated: true)
     }
-    func proceedToCheckout(withSubtotal : Float , address : Address, order : PostOrder) {
+    func proceedToCheckout(withSubtotal : Double , address : Address, order : PostOrder) {
         let paymentViewModel = PaymentViewModel(coordinator: self, address: address, bagSubtotal: withSubtotal, order: order)
         let paymentViewController = PaymentViewController(paymentViewModel: paymentViewModel)
         navigationController.pushViewController(paymentViewController, animated: true)
@@ -152,8 +152,8 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(searchViewController, animated: true)
     }
     
-    func navigateToAddressesScreen(withSubtotal: Float) {
-        let addressesViewModel = AddressesViewModel(coordinator: self)
+    func navigateToAddressesScreen(withSubtotal: Double, order : PostOrder) {
+        let addressesViewModel = AddressesViewModel(coordinator: self , subTotal : withSubtotal , order : order)
         let addressesViewController = AddressesViewController(addressesViewModel: addressesViewModel)
         navigationController.pushViewController(addressesViewController, animated: true)
     }

@@ -9,6 +9,17 @@
 import Foundation
 
 struct OrderItem: Codable {
+    internal init(id: Int? = nil, giftCard: Bool? = nil, productExists: Bool? = nil, productID: Int? = nil, quantity: Int? = nil, title: String? = nil, totalDiscount: String? = nil, variantID: Int? = nil) {
+        self.id = id
+        self.giftCard = giftCard
+        self.productExists = productExists
+        self.productID = productID
+        self.quantity = quantity
+        self.title = title
+        self.totalDiscount = totalDiscount
+        self.variantID = variantID
+    }
+    
     var id: Int?
     var giftCard: Bool?
     var productExists: Bool?
@@ -27,6 +38,8 @@ struct OrderItem: Codable {
         case totalDiscount = "total_discount"
         case variantID = "variant_id"
     }
+    
+    
     
     init(response : [String : Any]?){
         guard let response = response else {

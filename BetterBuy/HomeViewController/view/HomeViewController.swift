@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController {
     // MARK: - Life Cycle
     convenience init() {
         self.init(homeViewModel: nil)
-        navBar.updateNavButtonsState()
+        
     }
 
     init(homeViewModel: HomeViewModelType?) {
@@ -42,8 +42,14 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureCollectionViews()
         homeViewModel?.getCustomers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navBar.updateNavButtonsState()
     }
  
     // MARK: - Functions

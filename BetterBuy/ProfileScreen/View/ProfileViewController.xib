@@ -12,7 +12,7 @@
                 <outlet property="notLoggedInView" destination="Gt1-SB-f5x" id="Y11-aS-iy4"/>
                 <outlet property="profileImg" destination="kSa-kz-x8i" id="VdE-ru-JlS"/>
                 <outlet property="profileTableView" destination="Mhu-cH-g8F" id="eBF-bu-Shd"/>
-                <outlet property="profileView" destination="0rb-RF-oDn" id="yUo-aq-ZM0"/>
+                <outlet property="settingsBtn" destination="z3e-jv-gVd" id="lYG-Ug-PgV"/>
                 <outlet property="userName" destination="2Fu-CN-EHU" id="4AW-NI-zlf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -76,6 +76,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3e-jv-gVd">
+                            <rect key="frame" x="356" y="69" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="07I-EF-EdW"/>
+                                <constraint firstAttribute="width" constant="50" id="1GY-F5-I2E"/>
+                            </constraints>
+                            <state key="normal" image="settings"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
@@ -83,6 +91,8 @@
                         <constraint firstItem="2Fu-CN-EHU" firstAttribute="top" secondItem="M9Y-zR-so7" secondAttribute="bottom" constant="8" symbolic="YES" id="2x5-Ns-tbu"/>
                         <constraint firstItem="2Fu-CN-EHU" firstAttribute="leading" secondItem="kSa-kz-x8i" secondAttribute="trailing" constant="22" id="E8a-AF-vG0"/>
                         <constraint firstItem="M9Y-zR-so7" firstAttribute="leading" secondItem="2Fu-CN-EHU" secondAttribute="leading" id="HVA-df-mAe"/>
+                        <constraint firstItem="z3e-jv-gVd" firstAttribute="centerY" secondItem="M9Y-zR-so7" secondAttribute="centerY" constant="-40" id="WsR-Xg-97w"/>
+                        <constraint firstAttribute="trailing" secondItem="z3e-jv-gVd" secondAttribute="trailing" constant="8" id="ams-GX-VBk"/>
                         <constraint firstAttribute="height" constant="230" id="bra-Yx-Bdf"/>
                         <constraint firstItem="kSa-kz-x8i" firstAttribute="leading" secondItem="0rb-RF-oDn" secondAttribute="leading" constant="26" id="kSN-PM-tZD"/>
                         <constraint firstItem="kSa-kz-x8i" firstAttribute="top" secondItem="0rb-RF-oDn" secondAttribute="top" constant="97" id="m3F-CU-DHJ"/>
@@ -146,7 +156,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-SB-f5x">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-SB-f5x">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-9m-NMA">
@@ -292,6 +302,7 @@
     </objects>
     <resources>
         <image name="i2" width="281" height="337"/>
+        <image name="settings" width="32" height="32"/>
         <image name="user2" width="226" height="223"/>
     </resources>
 </document>
