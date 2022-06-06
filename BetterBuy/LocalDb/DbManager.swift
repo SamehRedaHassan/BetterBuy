@@ -47,8 +47,8 @@ class DbManager : LocalDbType {
             print("*** product added *** ")
             //print(favProduct)
             
-            print("productc added = \(favProduct.title) **** \(favProduct.sizes)")
-            print("fav product price = \(favProduct.price)")
+            //print("productc added = \(favProduct.title) **** \(favProduct.sizes)")
+            //print("fav product price = \(favProduct.price)")
             
 
         }

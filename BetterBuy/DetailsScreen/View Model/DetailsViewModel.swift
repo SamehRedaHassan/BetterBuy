@@ -66,8 +66,10 @@ final class DetailsViewModel : DetailsViewModelType{
     func ToggleAddAndRemoveFromCart(){
         if(isInCart){
             removeProductfromCart(product: product!)
+            isInCart = false
         } else {
             addProductToCart(product: product!)
+            isInCart = true
         }
     }
     
