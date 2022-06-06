@@ -30,7 +30,9 @@ class CartViewModel : CartViewModelType{
     }
     
     func proceedToCheckout() {
-        coordinator.proceedToCheckout(withSubtotal: 875.0)
+      // coordinator.proceedToCheckout(withSubtotal: 875.0)
+        coordinator.navigateToAddressesScreen(withSubtotal: 875.0)
+        
     }
     //MARK:- Dealing with coredate
     func retieveProductsInCart(){

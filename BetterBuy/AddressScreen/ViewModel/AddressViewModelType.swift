@@ -12,10 +12,8 @@ import RxSwift
 protocol AddressViewModelType {
     var coordinator: Coordinator! {get}
     var isLoading: ActivityIndicator {get}
-    var countrySubject : BehaviorSubject<String>{get}
-    var citySubject : BehaviorSubject<String>{get}
-    var addressSubject : BehaviorSubject<String> {get}
     var errorMsgSubject : PublishSubject<String?>{get}
     func goBack()
     func validateInput() -> Bool
+    func addAddress(country : String , city : String , address : String)
 }

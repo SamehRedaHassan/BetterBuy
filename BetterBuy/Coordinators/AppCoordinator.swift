@@ -11,6 +11,8 @@ import UIKit
 
 
 class AppCoordinator: Coordinator {
+
+    
   
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
@@ -131,8 +133,8 @@ class AppCoordinator: Coordinator {
     func popViewController(){
         self.navigationController.popViewController(animated: true)
     }
-    func proceedToCheckout(withSubtotal : Float) {
-        let paymentViewModel = PaymentViewModel(coordinator: self)
+    func proceedToCheckout(withSubtotal : Float , address : Address, order : PostOrder) {
+        let paymentViewModel = PaymentViewModel(coordinator: self, address: address, bagSubtotal: withSubtotal, order: order)
         let paymentViewController = PaymentViewController(paymentViewModel: paymentViewModel)
         navigationController.pushViewController(paymentViewController, animated: true)
     }
@@ -148,6 +150,12 @@ class AppCoordinator: Coordinator {
         let searchViewModel = SearchViewModel(coordinator: self)
         let searchViewController = SearchViewController(searchViewModel: searchViewModel)
         navigationController.pushViewController(searchViewController, animated: true)
+    }
+    
+    func navigateToAddressesScreen(withSubtotal: Float) {
+        let addressesViewModel = AddressesViewModel(coordinator: self)
+        let addressesViewController = AddressesViewController(addressesViewModel: addressesViewModel)
+        navigationController.pushViewController(addressesViewController, animated: true)
     }
     
 }

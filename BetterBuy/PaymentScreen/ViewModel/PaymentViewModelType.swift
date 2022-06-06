@@ -7,8 +7,19 @@
 //
 
 import Foundation
+import RxSwift
 protocol PaymentViewModelType : AnyObject{
-     var coordinator: Coordinator! {get}
+    var coordinator: Coordinator! {get}
+    var isLoading: ActivityIndicator {get}
+    var msg : BehaviorSubject<String>{get set}
+    var Internetmsg : BehaviorSubject<String>{get set}
+    var promoCodeSubject : BehaviorSubject<String> {get set}
+    var isValidPromoCode : BehaviorSubject<Bool> {get set}
+    var bagTotal : BehaviorSubject<Float> {get set}
+    var bagSubTotal : BehaviorSubject<Float> {get set}
 
+    func getAllCoupons()
+    func placeOrder()
+    func checkPromoCode()
     
 }
