@@ -9,8 +9,8 @@
 import Foundation
 import RxSwift
 final class PaymentViewModel : PaymentViewModelType{
-    var bagTotal: BehaviorSubject<Float> = BehaviorSubject<Float>(value: 0.0)
-    var bagSubTotal: BehaviorSubject<Float> = BehaviorSubject<Float>(value: 0.0)
+    var bagTotal: BehaviorSubject<Double> = BehaviorSubject<Double>(value: 0.0)
+    var bagSubTotal: BehaviorSubject<Double> = BehaviorSubject<Double>(value: 0.0)
 
     var isValidPromoCode: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     var promoCodeSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
@@ -20,14 +20,14 @@ final class PaymentViewModel : PaymentViewModelType{
     lazy  var Internetmsg = BehaviorSubject<String>(value: "")
     private var coupons : [DiscountCode] = []
     private let disposeBag = DisposeBag()
-    private let shipping : Float = 10.0
-    private let subToatal : Float
-    private let discount: Float = 10
+    private let shipping : Double = 10.0
+    private let subToatal : Double
+    private let discount: Double = 10
     private var postOrder : PostOrder
     //MARK: Properties
     
     //MARK: Life cycle
-    init(coordinator: Coordinator , address : Address , bagSubtotal : Float, order : PostOrder) {
+    init(coordinator: Coordinator , address : Address , bagSubtotal : Double, order : PostOrder) {
         self.coordinator = coordinator
         self.subToatal = bagSubtotal
         bagSubTotal.onNext(bagSubtotal)

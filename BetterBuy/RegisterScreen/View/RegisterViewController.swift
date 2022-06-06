@@ -59,6 +59,10 @@ class RegisterViewController: BaseViewController {
            fatalError("init(coder:) has not been implemented")
        }
     
+    deinit {
+        print("deinitializing signup screen")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signInuserNameTxtView.addBottomBorder()

@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol RegisterViewModelType {
+protocol RegisterViewModelType : AnyObject{
     var passwordSubject : BehaviorSubject<String> {get set}
     var userNameSubject : BehaviorSubject<String> {get set}
     var emailSubject : BehaviorSubject<String> {get set}

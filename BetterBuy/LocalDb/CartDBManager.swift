@@ -131,7 +131,6 @@ class CartDBManager : CartDBManagerType {
         product[0].count = String(count)
         do{
             try self.viewContext.save()
-            
             return count
             //if count reach 0 then delete product
         }

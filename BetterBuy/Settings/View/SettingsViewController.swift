@@ -38,6 +38,10 @@ class SettingsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("deinitializing settings screen")
+    }
+    
     // MARK: - Functions
     private func setupNavbar(){
         self.navBar.coordinator = viewModel?.coordinator
@@ -135,7 +139,7 @@ class SettingsViewController: UIViewController {
         let image = UIImage(named: imageName )
         let popup = PopupDialog(title: title, message: message, image: image)
         let buttonOne = DefaultButton(title: "Yes") {
-        UserDefaults.standard.set(nil, forKey: "user")
+        self.viewModel?.logOutUser()
         self.dismiss(animated: true, completion: nil)
         }
 

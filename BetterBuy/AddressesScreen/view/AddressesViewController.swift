@@ -8,7 +8,7 @@
 
 import UIKit
 import RxSwift
-class AddressesViewController: UIViewController {
+class AddressesViewController: BaseViewController {
     //MARK: IBOutlets
   
     @IBOutlet weak var navBar: NavBar!
@@ -50,22 +50,30 @@ class AddressesViewController: UIViewController {
         addAddressButton.rx.tap.bind {[weak self] event in
             self?.viewModel.navigateToAddAddress()
         }.disposed(by: disposeBag)
+        
+        viewModel.isEmptyCollection.distinctUntilChanged().observeOn(ConcurrentMainScheduler.instance) .subscribe { [weak self] isEmpty in
+            guard let self = self else{return}
+            if(isEmpty.element ?? false){  self.addressTableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No addresses available :("))
+            }else {
+                self.addressTableView.removeAllSubviews()
+            }
+        } .disposed(by: disposeBag)
     }
     private func configureNavBar() {
         navBar.coordinator = viewModel.coordinator
     }
     
     private func configureTableView(){
-        addressTableView.register(UINib(nibName: String(describing: AddressTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: AddressTableViewCell.self))
-        
-        viewModel.addressesResponse.bind(to: addressTableView.rx.items(cellIdentifier: String(describing: AddressTableViewCell.self), cellType: AddressTableViewCell.self)) {( row, model, cell) in
-            cell.selectionStyle = .none
-            cell.address = "\(model.address1 ?? "")  \(model.city ?? "") \(model.country ?? "")"
-        }.disposed(by: disposeBag)
-        
-        addressTableView.rx.itemSelected.bind { [weak self] index in
-            self?.viewModel.navigateCheckout()
-        }.disposed(by: disposeBag)
+    addressTableView.register(UINib(nibName: String(describing: AddressTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: AddressTableViewCell.self))
+    
+    viewModel.addressesResponse.bind(to: addressTableView.rx.items(cellIdentifier: String(describing: AddressTableViewCell.self), cellType: AddressTableViewCell.self)) {( row, model, cell) in
+        cell.selectionStyle = .none
+        cell.address = "\(model.address1 ?? "")  \(model.city ?? "") \(model.country ?? "")"
+    }.disposed(by: disposeBag)
+    
+    addressTableView.rx.itemSelected.bind { [weak self] index in
+        self?.viewModel.navigateCheckout()
+    }.disposed(by: disposeBag)
         
     }
 

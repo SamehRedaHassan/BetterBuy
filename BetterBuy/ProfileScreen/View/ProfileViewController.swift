@@ -155,7 +155,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         case 1:
             sectionName = "Wish List"
         case 0:
-            sectionName = "Order"
+            sectionName = "Orders"
         default:
             sectionName = ""
         }
@@ -172,13 +172,33 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
         let myButton = UIButton(type: .custom)
         
-        myButton.setTitle("View more", for: .normal)
+        if(section == 1 ){
+            if(viewModel?.favourites?.count == 0 ){
+                myButton.setTitle("No favourites yet", for: .normal)
+                myButton.isEnabled = false
+            } else {
+                myButton.setTitle("View more", for: .normal)
+                myButton.isEnabled = true
+            }
+        } else {
+            if(viewModel?.orders?.count == 0 ){
+                myButton.setTitle("No orders yet", for: .normal)
+                myButton.isEnabled = false
+            } else {
+                myButton.setTitle("View more", for: .normal)
+                myButton.isEnabled = true
+            }
+        }
+        
+        
         if (section == 1)
         {
             myButton.addTarget(self, action: #selector(myOrderAction(_:)), for: .touchUpInside)
         } else {
             myButton.addTarget(self, action: #selector(myWishListAction(_:)), for: .touchUpInside)
         }
+        
+        
         myButton.setTitleColor(UIColor.black, for: .normal)
         myButton.frame.size = CGSize(width: UIScreen.main.bounds.width, height: 7)
         myButton.titleLabel?.font =  .systemFont(ofSize: 12)

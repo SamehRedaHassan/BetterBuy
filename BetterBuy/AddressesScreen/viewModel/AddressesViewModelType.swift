@@ -15,6 +15,7 @@ protocol AddressesViewModelType : AnyObject {
     var errorMsgSubject: PublishSubject<String?> {get}
     var msg : PublishSubject<String> {get}
     var Internetmsg : PublishSubject<String> {get}
+    var isEmptyCollection : PublishSubject<Bool> {get}
     func getAddresses()
     func navigateToAddAddress()
     func navigateCheckout()
