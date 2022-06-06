@@ -48,7 +48,7 @@ class CartDBManager : CartDBManagerType {
             print(error.localizedDescription)
         }
         var products : [Product]
-        print(productsInCart!.description)
+        //print(productsInCart!.description)
         products = Converter.convertCartProductToProduct(cartProducts: productsInCart!)
         //print(products[0])
         
@@ -131,6 +131,7 @@ class CartDBManager : CartDBManagerType {
         product[0].count = String(count)
         do{
             try self.viewContext.save()
+            
             return count
             //if count reach 0 then delete product
         }
@@ -138,6 +139,15 @@ class CartDBManager : CartDBManagerType {
             print("Item didn't delete successfully !!")
             return -7
         }
+    }
+    func calcuTotalPrice()->String{
+        let productsInCart = getAllProductsInCart()
+        var total = 0.0
+        for product in productsInCart{
+            total += (Double(product.variants![0].price ?? "0.0") ?? 0.0) * Double(product.count)
+        }
+        return String(describing: total)
+        
     }
     
     

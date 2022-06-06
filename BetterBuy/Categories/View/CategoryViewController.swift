@@ -44,6 +44,7 @@ extension CategoryViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CatoegorieTableViewCell.cellIdentifier, for: indexPath) as! CatoegorieTableViewCell
+        cell.selectionStyle = .none
         cell.configureCell(categories[indexPath.section].capitalized)
         return cell
     }

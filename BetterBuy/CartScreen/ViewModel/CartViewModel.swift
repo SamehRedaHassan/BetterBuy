@@ -17,11 +17,15 @@ class CartViewModel : CartViewModelType{
     
     var cartObservabel : Observable<[Product]>
     private var cartSubject : PublishSubject<[Product]> = PublishSubject<[Product]>()
+    
+    var totalPriceObservabel : Observable<String>
+    private var totalPriceSubject : PublishSubject<String> = PublishSubject<String>()
     //MARK: Life cycle
     init(coordinator: Coordinator,cartCoreData:CartDBManagerType) {
         self.coordinator = coordinator
         self.cartCoreData = cartCoreData
         cartObservabel = cartSubject.asObservable()
+        totalPriceObservabel = totalPriceSubject.asObserver()
     }
     
     //MARK: Functions
@@ -37,6 +41,7 @@ class CartViewModel : CartViewModelType{
     //MARK:- Dealing with coredate
     func retieveProductsInCart(){
         cartSubject.onNext(cartCoreData.getAllProductsInCart())
+        updateTotalPrice()
         
     }
     func incrementProductCount(productId : String)-> Int {
@@ -44,6 +49,14 @@ class CartViewModel : CartViewModelType{
     }
     func decrementProductCount(productId : String)-> Int {
         return cartCoreData.minusCountByOne(id: productId)
+    }
+    func removeProductCount(product : Product){
+        cartCoreData.removeProduct(product:product)
+        cartSubject.onNext(cartCoreData.getAllProductsInCart())
+        updateTotalPrice()
+    }
+    func updateTotalPrice(){
+        totalPriceSubject.onNext(cartCoreData.calcuTotalPrice())
     }
     
     

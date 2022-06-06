@@ -16,4 +16,7 @@ protocol CartViewModelType : AnyObject{
     func incrementProductCount(productId : String)-> Int
     func decrementProductCount(productId : String)-> Int
     var cartObservabel : Observable<[Product]> {get}
+    var totalPriceObservabel : Observable<String>{get}
+    func updateTotalPrice()
+    func removeProductCount(product : Product)
 }

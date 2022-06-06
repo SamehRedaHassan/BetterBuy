@@ -15,4 +15,5 @@ protocol CartDBManagerType {
     func getProductWithId(id: String) -> [Cart]
     func plusCountByOne(id: String)->Int
     func minusCountByOne(id: String)->Int
+    func calcuTotalPrice()->String
 }
