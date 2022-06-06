@@ -45,6 +45,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
+        settingsBtn.isHidden = !UserDefaults.getLoginStatus()
         userName.text = UserDefaults.getUserObject()?.firstName
         viewModel?.getProfileDetails()
         viewModel?.getCustomerOrders()
@@ -54,7 +55,6 @@ class ProfileViewController: BaseViewController {
             DispatchQueue.main.async {
                 self.profileTableView.reloadData()
             }
-            
         }
         
         viewModel?.isLoading

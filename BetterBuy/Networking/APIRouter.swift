@@ -24,7 +24,10 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
     case getCustomerById(id : String)
     case getCustomerOrders(id : String)
     case getAllCustomers
+    case getAllAddresses(id : String)
+    case getAllCoupons
     
+
 
     
     //https://4a798eacca0d39cc2048369ad2025b47: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@mad-sv.myshopify.com/admin/api/2021-04/customers.json
@@ -63,6 +66,12 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
 
                 case .getAllCustomers:
                     return "2021-04/customers.json"
+                    
+                case .getAllAddresses(id: let id):
+                    return "2022-04/customers/\(id)/addresses.json"
+                
+                case .getAllCoupons:
+                    return "2022-04/price_rules/1027348594860/discount_codes.json"
                 }
             }()
             //safe characters +

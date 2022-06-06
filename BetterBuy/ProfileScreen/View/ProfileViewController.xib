@@ -15,7 +15,6 @@
                 <outlet property="profileImg" destination="kSa-kz-x8i" id="a6I-BA-bCM"/>
                 <outlet property="profileTableView" destination="Mhu-cH-g8F" id="eBF-bu-Shd"/>
                 <outlet property="settingsBtn" destination="qz8-1l-Gw1" id="Hmg-K3-BWV"/>
-                <outlet property="profileView" destination="0rb-RF-oDn" id="yUo-aq-ZM0"/>
                 <outlet property="userName" destination="2Fu-CN-EHU" id="4AW-NI-zlf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -149,7 +148,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </tableView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-SB-f5x">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-SB-f5x">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-9m-NMA">
