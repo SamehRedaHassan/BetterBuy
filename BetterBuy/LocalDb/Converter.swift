@@ -82,16 +82,17 @@ class Converter {
             product.description = cartProduct.desc
             product.vendor = cartProduct.vendor
             product.tags = cartProduct.userId
+            product.variants = []
+            product.variants?.append(Variant(price: cartProduct.price ?? "No Price"))
+            let sizes : [String] = formatStringToArray(str: cartProduct.sizes!)
+            product.options?.append(ProductOption(sizes: sizes))
             
-            //let sizes : [String] = formatStringToArray(str: cartProduct.sizes!)
-            //product.options?.append(ProductOption(sizes: sizes))
-            
-//            let images : [String] = formatStringToArray(str: (cartProduct.images)!)
-//            product.images = []
-//            for image in images {
-//                product.images?.append(ProductImage(src: image))
-//            }
-             //product.count = Int(cartProduct.count!) ?? 0
+            let images : [String] = formatStringToArray(str: (cartProduct.images)!)
+            product.images = []
+            for image in images {
+                product.images?.append(ProductImage(src: image))
+            }
+             product.count = Int(cartProduct.count!) ?? 0
             
             return product
         }

@@ -27,7 +27,7 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet private weak var productTitle: UILabel!
     var prodTitle : String?{
         didSet{
-            self.productTitle.text = self.prodTitle
+            self.productTitle.text = self.prodTitle?.capitalized
         }
     }
     @IBOutlet private weak var productDescLB: UILabel!
@@ -61,14 +61,17 @@ class ProductTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        plusBtn.rx.tap.bind{
+            (self.add ?? {})()
+        }.disposed(by: disposeBag)
+        minusBtn.rx.tap.bind{
+            (self.minus ?? {})()
+        }.disposed(by: disposeBag)
     }
-    
+    var add : (()->Void)?
+    var minus : (()->Void)?
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-//        plusBtn.rx.tap.bind{
-//            self.add()
-//        }.disposed(by: disposeBag)
     }
     
 }

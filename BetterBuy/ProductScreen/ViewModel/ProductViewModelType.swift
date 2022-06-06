@@ -17,4 +17,5 @@ protocol ProductViewModelType {
     func getProducts()
     func addProductToFav(index:Int)
     func removeProductFromFav(index:Int)
+    func filterProductBySubCategory(subCategory:String)
 }

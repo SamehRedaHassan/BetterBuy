@@ -77,6 +77,10 @@ class ProductsCollectionViewLayout: UICollectionViewLayout {
         column = column < (numberOfColumns - 1) ? (column + 1) : 0
       }
     }
+    override func invalidateLayout() {
+        super.invalidateLayout()
+        cache.removeAll()
+    }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
       var visibleLayoutAttributes: [UICollectionViewLayoutAttributes] = []
