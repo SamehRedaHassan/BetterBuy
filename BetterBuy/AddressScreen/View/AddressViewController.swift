@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import RxSwift
 
 class AddressViewController: UIViewController {
 
-    //MARK: properties
-    var addressViewModel: AddressViewModelType?
-    
-    
     //MARK: Outlets
     @IBOutlet private weak var countryTxtField: UITextField!
-    @IBOutlet private weak var addressTxtFeild: UITextField!
     @IBOutlet private weak var cityTxtFeild: UITextField!
+    @IBOutlet private weak var addressTxtFeild: UITextField!
     
+    
+    //MARK: properties
+    var addressViewModel: AddressViewModelType?
+    let disposeBag = DisposeBag()
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class AddressViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Functions
     func getCustomerAddress(){
         
     }
@@ -58,8 +60,13 @@ class AddressViewController: UIViewController {
         addressViewModel?.goBack()
     }
     @IBAction func addAddress(_ sender: Any) {
-        if(addressViewModel?.validateInput() == true){
-            
+        print("aaa")
+        let validate = !( addressTxtFeild.text!.trimmingCharacters(in:.whitespaces).isEmpty && countryTxtField.text!.trimmingCharacters(in:.whitespaces).isEmpty && cityTxtFeild.text!.trimmingCharacters(in:.whitespaces).isEmpty)
+        print(validate)
+        if(validate){
+            addressViewModel?.addAddress(country: countryTxtField.text!.trimmingCharacters(in: .whitespaces), city: cityTxtFeild.text!.trimmingCharacters(in: .whitespaces), address: addressTxtFeild.text!.trimmingCharacters(in: .whitespaces))
+        }else {
+            addressViewModel?.errorMsgSubject.onNext("Please Provide missing Data")
         }
     }
 }

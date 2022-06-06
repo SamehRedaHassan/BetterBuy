@@ -66,14 +66,50 @@ final class ProductsViewModel : ProductViewModelType{
         coordinator?.goToProductDetailsPage(product: products![index])
     }
     
+    //MARK:- filter data
     private func filterProductByCategory(products : [Product]) -> [Product]{
+        if category == ""{
+            return filterProductByBrands(products: products)
+        }
         return products.filter { (product) -> Bool in
             if(category == "men"){
                 category = " " + (category ?? "")
             }
+            
             return (product.tags?.contains("\(category!)"))!
         }
     }
+    func filterProductBySubCategory(subCategory:String) {
+        if subCategory == "ACCESSORIES"{
+            self.productResponse.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+            }
+            )
+        }
+        else if subCategory == "SHOES"
+        {
+            self.productResponse.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+            }
+            )
+        }
+        else if subCategory == "T-SHIRTS"{
+            self.productResponse.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+            }
+            )
+        }
+        else{
+            self.productResponse.onNext(products!)
+        }
+    }
+    private func filterProductByBrands(products:[Product])->[Product] {
+        return products.filter { (product) -> Bool in
+           
+            return (product.vendor == brand)
+        }
+    }
+    
     func addProductToFav(index:Int){
         products?[index].favProduct = true
     }

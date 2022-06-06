@@ -23,4 +23,5 @@ protocol ProfileViewModelType{
     func deleteProductFromFav(product : Product)
     func goToRegisterScreen()
     func goToLoginScreen()
+    func goToSettingsScreen()
 }

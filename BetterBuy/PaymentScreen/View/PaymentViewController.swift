@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import PassKit
+import Loaf
 enum PaymentMethod {
     case cash
     case applePay
@@ -26,10 +27,16 @@ class PaymentViewController: BaseViewController {
     @IBOutlet private weak var shippingLabel: UILabel!
     @IBOutlet private weak var placeOrderButton: UIButton!
     @IBOutlet private weak var discountLabel: UILabel!
-    @IBOutlet private weak var changeAddressButton: UIButton!
+    @IBOutlet private weak var discountView: UIStackView!
     @IBOutlet private weak var applyPromoButton: UIButton!
     @IBOutlet private weak var totalLabel: UILabel!
-    @IBOutlet private weak var promoCodeTextField: UITextField!
+    @IBOutlet private weak var promoCodeTextField: UITextField! {
+        didSet{
+            promoCodeTextField.rx.text.orEmpty
+                .bind(to: viewModel.promoCodeSubject)
+                    .disposed(by: disposeBag)
+        }
+    }
     @IBOutlet private weak var subtotalLabel: UILabel!
     
     //MARK: Properties
@@ -45,7 +52,7 @@ class PaymentViewController: BaseViewController {
             }
         }
     }
-    private var disposeBag   = DisposeBag()
+    private let disposeBag   = DisposeBag()
     // MARK: - Life Cycle
     convenience init() {
         self.init(paymentViewModel: nil)
@@ -64,6 +71,7 @@ class PaymentViewController: BaseViewController {
         super.viewDidLoad()
         configureNavBar()
         bindUI()
+        viewModel.getAllCoupons()
     }
     
     // MARK: - Functions
@@ -87,8 +95,46 @@ class PaymentViewController: BaseViewController {
             
             if(self.paymentMethod == .applePay){
                 self.payWithApple()
+            }else{
+                self.viewModel.placeOrder()
             }
         }.disposed(by: disposeBag)
+        
+        applyPromoButton.rx.tap.subscribe { [weak self] tap in
+            self?.viewModel.checkPromoCode()
+        }.disposed(by: disposeBag)
+
+        
+        viewModel.msg.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
+            guard str != "" else {return}
+            Loaf(str , state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
+        }).disposed(by: disposeBag)
+      
+        
+        viewModel.isValidPromoCode.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: false).drive(onNext: {[weak self] (isValid) in
+            self?.discountView.isHidden = !isValid
+
+            if isValid {
+                self?.applyPromoButton.backgroundColor = .red
+                self?.applyPromoButton.setTitle("Revoke", for: .normal)
+                
+            }else{
+                self?.applyPromoButton.backgroundColor = .black
+                self?.applyPromoButton.setTitle("Apply", for: .normal)
+                self?.promoCodeTextField.text = ""
+
+            }
+       
+        }).disposed(by: disposeBag)
+        
+        viewModel.bagSubTotal.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: 0.0).drive(onNext: {[weak self] (subtotal) in
+            self?.subtotalLabel.text = "\(subtotal)"
+        }).disposed(by: disposeBag)
+        
+        viewModel.bagTotal.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: 0.0).drive(onNext: {[weak self] (total) in
+            self?.totalLabel.text = "\(total)"
+        }).disposed(by: disposeBag)
+        
         
     }
 }

@@ -19,11 +19,6 @@ class ProductsViewController: UIViewController{
     //MARK: -Properties
     private let disposeBag = DisposeBag()
     var productViewModel:ProductViewModelType?
-    /*
-        case accessories = "ACCESSORIES"
-        case shoes = "SHOES"
-        case tShirts = "T-SHIRTS"
-     */
     private var selectedCategory : String?
     //MARK: - Life Cycle
     convenience init() {
@@ -44,6 +39,7 @@ class ProductsViewController: UIViewController{
         setupNavBar()
         setUpCollectionView()
         productViewModel?.getProducts()
+        productCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     override func viewWillAppear(_ animated: Bool) {
         productCollectionView.reloadData()
@@ -58,14 +54,15 @@ class ProductsViewController: UIViewController{
         productCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: ProductCell.cellIdentifier)
         productCollectionView?.backgroundColor = .clear
         productCollectionView?.contentInset = UIEdgeInsets(top: 5, left:0, bottom: 5, right:0)
-        if let layout = productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout {
-            layout.delegate = self
-        }
+//        if let layout = productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout {
+//            layout.delegate = self
+//        }
+        productViewModel?.productsObservable.observeOn(MainScheduler.asyncInstance).subscribe(onNext: { (_) in
+            self.productCollectionView.reloadData()
+            }).disposed(by: disposeBag)
         productViewModel?.productsObservable.asDriver(onErrorJustReturn: [])
             .drive( productCollectionView.rx.items(cellIdentifier: String(describing: ProductCell.cellIdentifier)
                 ,cellType: ProductCell.self ) ){( row, model, cell) in
-                
-               // if(self.selectedCategory == model.productType){
                     cell.productImage = model.images?[0].src
                     cell.productTitle = model.title
                     cell.productDescription = model.description
@@ -88,9 +85,8 @@ class ProductsViewController: UIViewController{
                         self.productViewModel?.favouriteCoreData.removeFavProduct(product: model)
                         self.productViewModel?.removeProductFromFav(index: row)
                     }
-
-               // }
-            
+                    
+                    
         }.disposed(by: disposeBag)
         
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
@@ -102,35 +98,35 @@ class ProductsViewController: UIViewController{
     @IBAction func didChangeCategory(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0{
             selectedCategory = "all"
+            self.productViewModel?.filterProductBySubCategory(subCategory: selectedCategory ?? "all")
         }
         else if sender.selectedSegmentIndex == 1{
             selectedCategory = "T-SHIRTS"
+            self.productViewModel?.filterProductBySubCategory(subCategory: selectedCategory ?? "all")
         }
         else if sender.selectedSegmentIndex == 2{
             selectedCategory = "ACCESSORIES"
+            self.productViewModel?.filterProductBySubCategory(subCategory: selectedCategory ?? "all")
         }
         else if sender.selectedSegmentIndex == 3{
             selectedCategory = "SHOES"
+            self.productViewModel?.filterProductBySubCategory(subCategory: selectedCategory ?? "all")
         }
     }
-    
-//    private func filterDataByCategory(products:[Product]){
-//        products.filter { (product) -> Bool in
-//            if(category == "men"){
-//                category = " " + (category ?? "")
-//            }
-//            return (product.tags?.contains("\(category!)"))!
-//        }
-//
-//    }
-    
+
     
 }
-extension ProductsViewController: ProductsLayoutDelegate {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return 270
+//extension ProductsViewController: ProductsLayoutDelegate {
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+//        return 270
+//    }
+//}
+extension ProductsViewController : UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: (productCollectionView.frame.size.width - 10 ) / 2, height:  300.0)
     }
 }
 

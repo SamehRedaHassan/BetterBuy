@@ -12,8 +12,9 @@ import RxCocoa
 
 class ProfileViewController: BaseViewController {
     
+    @IBOutlet weak var settingsBtn: UIButton!
     //MARK: IBOutlets
-    @IBOutlet weak var profileView: UIView!
+    //  @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
@@ -24,13 +25,13 @@ class ProfileViewController: BaseViewController {
     private var viewModel : ProfileViewModelType?
     private let disposeBag = DisposeBag()
     
-
+    
     // MARK: - Life Cycle
     
     convenience init() {
         self.init(profileViewModel: nil)
     }
-
+    
     init(profileViewModel: ProfileViewModelType?) {
         self.viewModel = profileViewModel
         super.init(nibName: String(describing: ProfileViewController.self), bundle: nil)
@@ -44,6 +45,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
+        settingsBtn.isHidden = !UserDefaults.getLoginStatus()
         userName.text = UserDefaults.getUserObject()?.firstName
         viewModel?.getProfileDetails()
         viewModel?.getCustomerOrders()
@@ -53,19 +55,26 @@ class ProfileViewController: BaseViewController {
             DispatchQueue.main.async {
                 self.profileTableView.reloadData()
             }
-           
         }
-    
+        
         viewModel?.isLoading
-        .distinctUntilChanged()
-        .drive(onNext: { [weak self] (isLoading) in
-        guard let self = self else { return }
-        self.killLoading()
-        if isLoading {
-            self.loading()
-        }
-        }).disposed(by: disposeBag)
-      
+            .distinctUntilChanged()
+            .drive(onNext: { [weak self] (isLoading) in
+                guard let self = self else { return }
+                self.killLoading()
+                if isLoading {
+                    self.loading()
+                }
+            }).disposed(by: disposeBag)
+        
+        settingsBtn.rx.tap.subscribe {  [weak self] event in
+            guard let self = self else {return}
+            self.viewModel?.goToSettingsScreen()
+            
+        }.disposed(by: disposeBag)
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +132,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
                 }
             }
             
-           
+            
             return cell
         }
         
@@ -140,15 +149,15 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
+        
         let sectionName: String
         switch section {
-            case 1:
-                sectionName = "Wish List"
-            case 0:
-                sectionName = "Order"
-            default:
-                sectionName = ""
+        case 1:
+            sectionName = "Wish List"
+        case 0:
+            sectionName = "Order"
+        default:
+            sectionName = ""
         }
         return sectionName
     }
@@ -156,14 +165,14 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         return 100
     }
-   
-
+    
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
-            let myButton = UIButton(type: .custom)
-
-            myButton.setTitle("View more", for: .normal)
+        let myButton = UIButton(type: .custom)
+        
+        myButton.setTitle("View more", for: .normal)
         if (section == 1)
         {
             myButton.addTarget(self, action: #selector(myOrderAction(_:)), for: .touchUpInside)
@@ -178,7 +187,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         return footerView;
         
     }
-
+    
     @objc func myOrderAction(_ sender : AnyObject) {
         print("my order")
         viewModel?.goToOrderListScreen()
@@ -188,5 +197,5 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         print("my wish")
         viewModel?.goToWishListScreen()
     }
-
+    
 }
