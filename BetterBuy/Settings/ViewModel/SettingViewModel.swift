@@ -31,6 +31,7 @@ class SettingViewModel : SettingsViewModelType{
     func logOutUser(){
         UserDefaults.standard.set(nil, forKey: "user")
         UserDefaults.saveLoginStatus(_Val: false)
+        coordinator.goToHomeScreen()
     }
     
     

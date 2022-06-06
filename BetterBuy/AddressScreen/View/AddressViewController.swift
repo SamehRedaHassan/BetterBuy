@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Loaf
 
 class AddressViewController: UIViewController {
 
@@ -25,6 +26,7 @@ class AddressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addOneBorderToTxtFeilds()
+        bindUI()
     }
     
     convenience init() {
@@ -56,11 +58,26 @@ class AddressViewController: UIViewController {
         addressTxtFeild.addGrayBottomBorder()
     }
     
+    private func bindUI(){
+        addressViewModel?.errorMsgSubject.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { [weak self]  (str) in
+            guard let self = self else {return}
+            guard str != "" else {return}
+            Loaf(str ?? "Please provide valid input", state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
+        }).disposed(by: disposeBag)
+        
+        addressViewModel?.successMsgSubject.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { [weak self] (str) in
+            guard let self = self else {return}
+            self.addressViewModel?.goBack()
+            Loaf(str ?? "", state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
+            
+        }).disposed(by: disposeBag)
+        
+    }
+    
     @IBAction func goBack(_ sender: Any) {
         addressViewModel?.goBack()
     }
     @IBAction func addAddress(_ sender: Any) {
-        print("aaa")
         let validate = !( addressTxtFeild.text!.trimmingCharacters(in:.whitespaces).isEmpty && countryTxtField.text!.trimmingCharacters(in:.whitespaces).isEmpty && cityTxtFeild.text!.trimmingCharacters(in:.whitespaces).isEmpty)
         print(validate)
         if(validate){

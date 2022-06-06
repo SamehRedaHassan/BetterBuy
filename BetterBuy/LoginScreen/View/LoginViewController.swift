@@ -59,6 +59,10 @@ class LoginViewController: BaseViewController  {
         bindingBtn()
     }
     
+    deinit {
+        print("deinitializing login screen")
+    }
+    
     //MARK: - IBAction
     @IBAction func navigateToSignup(_ sender: UIButton) {
         viewModel?.navigateToSignup()

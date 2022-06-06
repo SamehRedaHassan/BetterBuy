@@ -78,7 +78,7 @@ class ProductCell: UICollectionViewCell {
     //MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        self.favouriteBtn.isHidden = !UserDefaults.getLoginStatus()
       //  containerView.layer.masksToBounds = true
       //  containerView.layer.cornerRadius = 20
         

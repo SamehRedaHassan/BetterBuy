@@ -48,6 +48,7 @@
 		045F5F62283EB337006853BB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F61283EB337006853BB /* ProfileViewModel.swift */; };
 		045F5F65283EB350006853BB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F5F63283EB350006853BB /* ProfileViewController.swift */; };
 		045F5F66283EB350006853BB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F5F64283EB350006853BB /* ProfileViewController.xib */; };
+		04637C37284E87A000433EF2 /* AddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637C36284E87A000433EF2 /* AddressResponse.swift */; };
 		046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07A283D8AD0000E46E8 /* Coordinator.swift */; };
 		046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */; };
 		046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FC07E283D8BC8000E46E8 /* SplashScreen.xib */; };
@@ -230,6 +231,7 @@
 		045F5F61283EB337006853BB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		045F5F63283EB350006853BB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		045F5F64283EB350006853BB /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		04637C36284E87A000433EF2 /* AddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResponse.swift; sourceTree = "<group>"; };
 		046FC07A283D8AD0000E46E8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		046FC07E283D8BC8000E46E8 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
@@ -1019,6 +1021,7 @@
 				768F8DA7284D5AE9007FA983 /* GetAddressesResponseModel.swift */,
 				768F8DA9284D5B22007FA983 /* FullAddressModel.swift */,
 				76C13774284D82B800E6B1DB /* AddAddressPostModel.swift */,
+				04637C36284E87A000433EF2 /* AddressResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1175,7 +1178,6 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
-
 				768F8D97284D45A1007FA983 /* AddressesScreen */,
 				76B5776F284C2ACB008C7692 /* SearchScreen */,
 				76B5776E284C2330008C7692 /* BetterBuy.entitlements */,
@@ -1492,6 +1494,7 @@
 				76BD28DF283FE0F300030700 /* SlideContainerViewController.swift in Sources */,
 				044A37FD284B90DA0082604A /* StringExtenssions.swift in Sources */,
 				045F5F54283EA590006853BB /* RegisterViewModel.swift in Sources */,
+				04637C37284E87A000433EF2 /* AddressResponse.swift in Sources */,
 				7633BF0628476D2B00C67D56 /* ProductImage.swift in Sources */,
 				76C13775284D82B800E6B1DB /* AddAddressPostModel.swift in Sources */,
 				044A3809284BBD970082604A /* PostCustomerResponseModel.swift in Sources */,

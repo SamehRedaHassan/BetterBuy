@@ -25,6 +25,7 @@ class ProductsViewController: UIViewController{
         self.init(productViewModel: nil)
     }
     
+    
     init(productViewModel: ProductViewModelType?) {
         self.productViewModel = productViewModel
         super.init(nibName: "ProductView", bundle: nil)
@@ -42,7 +43,9 @@ class ProductsViewController: UIViewController{
         productCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         productCollectionView.reloadData()
+        navBar.updateNavButtonsState()
     }
     
     //MARK: - Functions

@@ -15,8 +15,8 @@ protocol PaymentViewModelType : AnyObject{
     var Internetmsg : BehaviorSubject<String>{get set}
     var promoCodeSubject : BehaviorSubject<String> {get set}
     var isValidPromoCode : BehaviorSubject<Bool> {get set}
-    var bagTotal : BehaviorSubject<Float> {get set}
-    var bagSubTotal : BehaviorSubject<Float> {get set}
+    var bagTotal : BehaviorSubject<Double> {get set}
+    var bagSubTotal : BehaviorSubject<Double> {get set}
 
     func getAllCoupons()
     func placeOrder()

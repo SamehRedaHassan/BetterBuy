@@ -49,7 +49,7 @@ enum PostApiRouter {
                     return "2022-04/customers.json"
                     
                 case .addAddress(address: _):
-                    return "2022-04/orders.json"
+                    return "2022-04/customers/\(UserDefaults.getUserObject()!.id!)/addresses.json"
                     
                 case .addOrder(order: _):
                     return "2022-04/orders.json"
@@ -83,6 +83,7 @@ enum PostApiRouter {
             request.httpBody = httpBody
             print(NSString(data: httpBody, encoding: .zero)!)
         }
+        print(request.url)
         return request
         
     }

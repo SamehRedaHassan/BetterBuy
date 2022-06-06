@@ -13,6 +13,7 @@ protocol AddressViewModelType {
     var coordinator: Coordinator! {get}
     var isLoading: ActivityIndicator {get}
     var errorMsgSubject : PublishSubject<String?>{get}
+    var successMsgSubject : PublishSubject<String?> {get}
     func goBack()
     func validateInput() -> Bool
     func addAddress(country : String , city : String , address : String)

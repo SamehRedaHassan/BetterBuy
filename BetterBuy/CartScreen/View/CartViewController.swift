@@ -9,11 +9,12 @@
 import UIKit
 import RxSwift
 
-class CartViewController: UIViewController {
+class CartViewController: BaseViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var navBar: NavBar!
     @IBOutlet private weak var checkoutButton: UIButton!
     
+    @IBOutlet weak var priceStack: UIStackView!
     @IBOutlet private weak var cartTableView: UITableView!
     @IBOutlet weak var subTotalLb: UILabel!
     //MARK: - Properties
@@ -46,6 +47,11 @@ class CartViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkoutButton.isHidden = viewModel.noOrdersAvailable()
+    }
+    
     //MARK: - Functions
     private func setupNavBar(){
         navBar.injectCoordinator(coordinator: viewModel.coordinator)
@@ -57,6 +63,19 @@ class CartViewController: UIViewController {
             guard let self = self else {return}
             self.viewModel.proceedToCheckout()
         }.disposed(by: disposeBag)
+        
+        
+        viewModel.isEmptyCollection.distinctUntilChanged().subscribe { [weak self] isEmpty in
+            guard let self = self else{return}
+            if(isEmpty.element ?? false){  self.cartTableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No items Yet :("))
+                self.checkoutButton.isHidden = true
+                self.priceStack.isHidden = true
+            }else {
+                self.cartTableView.removeAllSubviews()
+                self.checkoutButton.isHidden = false
+                self.priceStack.isHidden = false
+            }
+        } .disposed(by: disposeBag)
         
         viewModel?.cartObservabel.bind(to: cartTableView.rx.items(cellIdentifier: String(describing: ProductTableViewCell.cellIdentifier), cellType: ProductTableViewCell.self)) {  row, element, cell in
             cell.selectionStyle = .none
@@ -78,7 +97,7 @@ class CartViewController: UIViewController {
                 self?.viewModel?.updateTotalPrice()
                 if(cell.count == "0"){
                     self?.viewModel?.removeProductCount(product: element)
-                    
+                    //self?.viewModel?.isEmptyCollection.onNext()
                 }
                 print("minus: \(String(describing: count!))")
             }
