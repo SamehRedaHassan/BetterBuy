@@ -118,6 +118,7 @@
 		768C4C89284AC82D0006AB5A /* WishListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768C4C88284AC82D0006AB5A /* WishListViewModelType.swift */; };
 		769321112840026A0007D369 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769321102840026A0007D369 /* UIViewController.swift */; };
 		76932113284012190007D369 /* order-delivery.json in Resources */ = {isa = PBXBuildFile; fileRef = 76932112284012190007D369 /* order-delivery.json */; };
+		7699E0CD284D733100FFA62B /* SelfSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7699E0CC284D733100FFA62B /* SelfSizeTableView.swift */; };
 		769EEDEB284A8F4B0000A9FD /* CategoryViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEDEA284A8F4B0000A9FD /* CategoryViewModelType.swift */; };
 		769EEDF1284B89830000A9FD /* OrderListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEDF0284B89830000A9FD /* OrderListViewModelType.swift */; };
 		769EEDF3284BA9780000A9FD /* CartDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEDF2284BA9780000A9FD /* CartDBManager.swift */; };
@@ -291,6 +292,7 @@
 		768C4C88284AC82D0006AB5A /* WishListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModelType.swift; sourceTree = "<group>"; };
 		769321102840026A0007D369 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		76932112284012190007D369 /* order-delivery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "order-delivery.json"; sourceTree = "<group>"; };
+		7699E0CC284D733100FFA62B /* SelfSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizeTableView.swift; sourceTree = "<group>"; };
 		769EEDEA284A8F4B0000A9FD /* CategoryViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelType.swift; sourceTree = "<group>"; };
 		769EEDF0284B89830000A9FD /* OrderListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModelType.swift; sourceTree = "<group>"; };
 		769EEDF2284BA9780000A9FD /* CartDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDBManager.swift; sourceTree = "<group>"; };
@@ -1112,12 +1114,9 @@
 		76ED8AAA283ACFC6009F9C61 /* BetterBuy */ = {
 			isa = PBXGroup;
 			children = (
-
 				76B5776F284C2ACB008C7692 /* SearchScreen */,
 				76B5776E284C2330008C7692 /* BetterBuy.entitlements */,
-
 				044A380A284BD4CC0082604A /* AddressScreen */,
-
 				76FFC1102849FB9D00FACAF0 /* Utilities */,
 				040D613A2849066E004FA340 /* LocalDb */,
 				769FDC282846AE0500EE820C /* Model */,
@@ -1171,6 +1170,7 @@
 				76FFC1112849FBC300FACAF0 /* ActivityIndicator.swift */,
 				76FFC113284A16EE00FACAF0 /* FontUtility.swift */,
 				0495A73D284C1CCB0092F315 /* CurrencyConverter.swift */,
+				7699E0CC284D733100FFA62B /* SelfSizeTableView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1462,6 +1462,7 @@
 				769FDC342846B7E000EE820C /* HomeViewModelType.swift in Sources */,
 				7680429F284A789B0011EF6F /* UserDefaults.swift in Sources */,
 				7680429D284A73D80011EF6F /* SplashViewModelType.swift in Sources */,
+				7699E0CD284D733100FFA62B /* SelfSizeTableView.swift in Sources */,
 				769EEDF7284C18C70000A9FD /* CustomersResponse.swift in Sources */,
 				7682F165283EF7BF004C3DBC /* CategoryViewModel.swift in Sources */,
 				04F2773528480292000E9A1C /* ImgsCollectionViewCell.swift in Sources */,
