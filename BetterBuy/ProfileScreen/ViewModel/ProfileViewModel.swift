@@ -16,8 +16,8 @@ final class ProfileViewModel : ProfileViewModelType{
     
     
     //MARK: properties
-    //let isLoading: ActivityIndicator =  ActivityIndicator()
-    var appCoordinator: AppCoordinator?
+    var isLoading: ActivityIndicator =  ActivityIndicator()
+    var coordinator: Coordinator
     let disposeBag = DisposeBag()
     var profileObservable: Observable<Customer?>
     lazy private var msg = BehaviorSubject<String>(value: "")
@@ -30,7 +30,8 @@ final class ProfileViewModel : ProfileViewModelType{
 
     
     //MARK: init
-    init(db : LocalDbType){
+    init(db : LocalDbType , coordinator: Coordinator){
+        self.coordinator = coordinator
         profileObservable = profileResponse.asObservable()
         orderObservable = orderResponse.asObservable()
         self.db = db
@@ -41,7 +42,7 @@ final class ProfileViewModel : ProfileViewModelType{
     func getProfileDetails() {
         
         getApi(apiRouter: .getCustomerById(id: getUserId()))
-        //      .trackActivity(isLoading)
+              .trackActivity(isLoading)
               .observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated))
               .subscribe {[weak self] (event) in
                   guard let self = self else { return }
@@ -100,16 +101,22 @@ final class ProfileViewModel : ProfileViewModelType{
     
     
     func goToWishListScreen() {
-        appCoordinator?.goToWishListPage(orders: orders ?? [])
+        coordinator.goToWishListPage(orders: orders ?? [])
     }
     
     func goToOrderListScreen() {
-        appCoordinator?.goToProfileOrderListPage()
+        coordinator.goToProfileOrderListPage()
     }
     
     //MARK: Change To user id from user defaults
     func getUserId() -> String {
-        return "6236240937195"
+        //return "6236240937195"
+        if let user : Customer = UserDefaults.standard.object(forKey: "user") as? Customer{
+            let id = user.id
+            return "\(id ?? 0)"
+        } else {
+            return ""
+        }
     }
     
     func getAllFavourites(){
@@ -118,6 +125,15 @@ final class ProfileViewModel : ProfileViewModelType{
     
     func deleteProductFromFav(product : Product){
         db.removeFavProduct(product: product)
+    }
+    
+    func goToRegisterScreen(){
+        coordinator.goToSignUpPage()
+    }
+    
+    func goToLoginScreen(){
+        coordinator.goToLoginPage()
+
     }
     
 }

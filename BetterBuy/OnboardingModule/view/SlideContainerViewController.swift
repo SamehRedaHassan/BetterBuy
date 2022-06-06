@@ -12,28 +12,34 @@ import liquid_swipe
 
 class SlideContainerViewController: LiquidSwipeContainerController, LiquidSwipeContainerDataSource {
     
-    //MARK: - Variables
-    var coordinator : AppCoordinator?
-    
-    var viewControllers: [UIViewController] = {
-        let firstPageVC = PageOneViewController(nibName: String(describing: PageOneViewController.self), bundle: nil)
+    //MARK: - Properties
+  //  weak var coordinator : Coordinator!
+   private var viewControllers: [UIViewController] = []
+    private  var viewModel : SlideContainerViewModelType!
 
-        let secondPageVC = PageTwoViewController(nibName:  String(describing: PageTwoViewController.self), bundle: nil)
-        let thirdPageVC = PageThreeViewController(nibName: String(describing: PageThreeViewController.self), bundle: nil)
-        var controllers: [UIViewController] = [thirdPageVC, secondPageVC ,firstPageVC]
-
-        return controllers
-    }()
+    // MARK: - Life Cycle
+  
     
-    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let lastCoordinator = viewControllers[2] as! PageOneViewController
-        lastCoordinator.coordinator = coordinator
+        let firstPageViewModel = PageOneViewModel(coordinator:viewModel.coordinator)
+         let firstPageVC = PageOneViewController(viewModel: firstPageViewModel)
+
+         let secondPageVC = PageTwoViewController(nibName:  String(describing: PageTwoViewController.self), bundle: nil)
+        
+         let thirdPageVC = PageThreeViewController(nibName: String(describing: PageThreeViewController.self), bundle: nil)
+        let controllers: [UIViewController] = [thirdPageVC, secondPageVC ,firstPageVC]
+        self.viewControllers = controllers
         datasource = self
     }
     
     //MARK: - Functions
+    func injectViewModel(viewModel : SlideContainerViewModelType){
+        self.viewModel = viewModel
+    }
+    
+    
     func numberOfControllersInLiquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController) -> Int {
         return viewControllers.count
     }

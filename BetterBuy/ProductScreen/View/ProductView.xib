@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="navBar" destination="zhC-g4-QY5" id="qSV-re-4WU"/>
                 <outlet property="productCollectionView" destination="Ef5-vO-dlE" id="epS-gJ-Svh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eXX-AJ-yOl"/>
             </connections>
@@ -18,10 +19,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-vO-dlE">
-                    <rect key="frame" x="20" y="94" width="374" height="802"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-vO-dlE">
+                    <rect key="frame" x="20" y="149" width="374" height="747"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewLayout key="collectionViewLayout" id="Ebv-AR-B7W" customClass="ProductsCollectionViewLayout" customModule="BetterBuy" customModuleProvider="target"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Asg-Gh-d5F">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhC-g4-QY5" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="50"/>
@@ -36,14 +42,29 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isBackBtnHidden" value="NO"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="s39-rB-vbP">
+                    <rect key="frame" x="16" y="110" width="382" height="32"/>
+                    <segments>
+                        <segment title="All"/>
+                        <segment title="T-Shirt"/>
+                        <segment title="Accessories"/>
+                        <segment title="Shoes"/>
+                    </segments>
+                    <connections>
+                        <action selector="didChangeCategory:" destination="-1" eventType="valueChanged" id="tKZ-6B-mdi"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zhC-g4-QY5" secondAttribute="trailing" id="8je-YC-QXm"/>
-                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="zhC-g4-QY5" secondAttribute="bottom" id="DOn-Dg-Jd1"/>
+                <constraint firstItem="Ef5-vO-dlE" firstAttribute="top" secondItem="s39-rB-vbP" secondAttribute="bottom" constant="8" id="HlU-wt-5WG"/>
+                <constraint firstItem="s39-rB-vbP" firstAttribute="top" secondItem="zhC-g4-QY5" secondAttribute="bottom" constant="16" id="N22-9E-Blk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ef5-vO-dlE" secondAttribute="trailing" constant="20" id="PIL-iC-Foa"/>
                 <constraint firstItem="zhC-g4-QY5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VLi-ve-GvE"/>
                 <constraint firstItem="zhC-g4-QY5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vuz-O7-Y7s"/>
+                <constraint firstItem="s39-rB-vbP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ail-3w-mxu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s39-rB-vbP" secondAttribute="trailing" constant="16" id="b6k-4b-ItB"/>
                 <constraint firstAttribute="bottom" secondItem="Ef5-vO-dlE" secondAttribute="bottom" id="bbC-LS-VDN"/>
                 <constraint firstItem="Ef5-vO-dlE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="urN-6t-8FG"/>
             </constraints>

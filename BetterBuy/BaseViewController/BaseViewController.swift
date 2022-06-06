@@ -47,8 +47,8 @@ class BaseViewController: UIViewController ,NVActivityIndicatorViewable{
         
         let noDataImageView = UIImageView()
         noDataImageView.backgroundColor = .clear
-        noDataImageView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        noDataImageView.widthAnchor.constraint(equalToConstant: 220.0).isActive = true
+        noDataImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        noDataImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
         noDataImageView.contentMode = .scaleAspectFit
         noDataImageView.image = image
         
@@ -57,7 +57,7 @@ class BaseViewController: UIViewController ,NVActivityIndicatorViewable{
         headerLabel.widthAnchor.constraint(equalToConstant: 220.0).isActive = true
         headerLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
         headerLabel.textAlignment = .center
-       // headerLabel.font =  UserDefaults.isArabic() ?  Fonts.CairoRegular.regular(of: 18) : Fonts.Segoe_UI.regular(of: 18)
+        headerLabel.font = UIFont(name: Resources.Fonts.Weight.semibold.rawValue, size: 18)!
         headerLabel.textColor = .black
         headerLabel.text = head
 
@@ -89,6 +89,5 @@ class BaseViewController: UIViewController ,NVActivityIndicatorViewable{
 //        // Optionally you can make these preferences global for all future EasyTipViews
 //        EasyTipView.globalPreferences = preferences
 //    }
-    
 }
 

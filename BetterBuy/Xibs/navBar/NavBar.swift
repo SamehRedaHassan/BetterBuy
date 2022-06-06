@@ -9,8 +9,7 @@
 import UIKit
 @IBDesignable
 class NavBar: UIView {
-    //MARK: -Properties
-
+    //MARK: - Properties
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var cartButton: UIButton!
@@ -18,6 +17,7 @@ class NavBar: UIView {
     
     //MARK: -Properties
     let nibName = "NavBar"
+    var coordinator : Coordinator?
     
     @IBInspectable
     var isBackBtnHidden: Bool {
@@ -29,7 +29,6 @@ class NavBar: UIView {
         }
     }
     
-    
     @IBInspectable
     var isSearchBtnHidden: Bool {
         get {
@@ -39,7 +38,6 @@ class NavBar: UIView {
             self.searchButton.isHidden = newValue
         }
     }
-    
     
     @IBInspectable
     var isFavouriteBtnHidden: Bool {
@@ -70,6 +68,7 @@ class NavBar: UIView {
         super.init(frame: frame)
         commonInit()
     }
+    
     //MARK: -Functions
     func commonInit() {
         guard let view = loadViewFromNib() else { return }
@@ -80,5 +79,25 @@ class NavBar: UIView {
     func loadViewFromNib() -> UIView? {
         let nib = UINib(nibName: nibName, bundle: nil)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
+    }
+    
+    func injectCoordinator(coordinator : Coordinator){
+        self.coordinator = coordinator
+    }
+    //MARK: -IBAction
+    @IBAction func goBack(_ sender: UIButton) {
+        coordinator?.popViewController()
+    }
+    
+    @IBAction func navigateToCart(_ sender: UIButton) {
+        coordinator?.goToCartPage()
+    }
+    
+    @IBAction func navigateToFavourite(_ sender: UIButton) {
+        coordinator?.goToProfileOrderListPage()
+    }
+    
+    @IBAction func navigateToSearch(_ sender: UIButton) {
+        coordinator?.navigateToSearchScreen()
     }
 }

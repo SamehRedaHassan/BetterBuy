@@ -12,7 +12,18 @@ class CategoryViewController: UIViewController{
 
     @IBOutlet weak var categoryTableView: UITableView!
     var categories = ["women","men","kid","sale"]
-    var viewModel: CategoryViewModel?
+    var categoryViewModel: CategoryViewModelType!
+    
+    init(categoryViewModel: CategoryViewModelType)
+    {
+        self.categoryViewModel = categoryViewModel
+        super.init(nibName: "CategoryView", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+   }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,11 +44,12 @@ extension CategoryViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CatoegorieTableViewCell.cellIdentifier, for: indexPath) as! CatoegorieTableViewCell
+        cell.selectionStyle = .none
         cell.configureCell(categories[indexPath.section].capitalized)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.goToProductsScreen(category: categories[indexPath.section])
+        categoryViewModel.navigateToProducts(category: categories[indexPath.section], brand: "all")
     }
     
     

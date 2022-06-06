@@ -10,16 +10,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     //MARK: IBOutlets
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var profileTableView: UITableView!
     
+    @IBOutlet weak var notLoggedInView: UIView!
     
     //MARK: variables
-    var viewModel : ProfileViewModelType?
+    private var viewModel : ProfileViewModelType?
     private let disposeBag = DisposeBag()
     
 
@@ -50,18 +51,42 @@ class ProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 self.profileTableView.reloadData()
             }
+           
         }
-       // configurePreviousOrdersTableView()
-       // configureWishListTableView()
-        //homeViewModel?.getCustomers()
+    
+        viewModel?.isLoading
+        .distinctUntilChanged()
+        .drive(onNext: { [weak self] (isLoading) in
+        guard let self = self else { return }
+        self.killLoading()
+        if isLoading {
+            self.loading()
+        }
+        }).disposed(by: disposeBag)
+      
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupLoggedInView()
+    }
     
     func registerTableView() {
         profileTableView.delegate = self
         profileTableView.dataSource = self
     }
-
+    private func setupLoggedInView(){
+        notLoggedInView.isHidden = UserDefaults.getLoginStatus()
+    }
+    //MARK: - IBActions
+    
+    @IBAction func navigateToLogin(_ sender: UIButton) {
+        viewModel?.goToLoginScreen()
+    }
+    
+    @IBAction func navigateToRegister(_ sender: UIButton) {
+        viewModel?.goToRegisterScreen()
+    }
 }
 
 
@@ -83,12 +108,17 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
             tableView.register(UINib.init(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
             cell.orderImgValue = viewModel?.favourites?[indexPath.row].images?[0].src
-            cell.orderImg.cornerRadius = 37.5
-            cell.orderItemTitleLabel.text = viewModel?.favourites?[indexPath.row].title
-            cell.orderItemDesc.text = viewModel?.favourites?[indexPath.row].variants?[0].price
-            cell.deleteBtn.rx.tap.bind{
+            cell.orderItemTitleValue = viewModel?.favourites?[indexPath.row].title
+            cell.orderItemValue = viewModel?.favourites?[indexPath.row].variants?[0].price
+            cell.didPressDeleteBtn = {
                 self.viewModel?.deleteProductFromFav(product: (self.viewModel?.favourites?[indexPath.row])!)
-            }.disposed(by: disposeBag)
+                self.viewModel?.favourites?.remove(at: indexPath.row)
+                DispatchQueue.main.async{
+                    self.profileTableView.reloadData()
+                }
+            }
+            
+           
             return cell
         }
         
@@ -96,8 +126,8 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         if (indexPath.section == 0) {
             tableView.register(UINib.init(nibName: "WishListTableViewCell", bundle: nil), forCellReuseIdentifier: "WishListTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-            cell.wishListItemNameLabel.text = viewModel?.orders?[indexPath.row].totalPrice
-            cell.wishListItemNameDescLabel.text = "\(viewModel?.orders?[indexPath.row].id ?? 0)"
+            cell.orderPrice = viewModel?.orders?[indexPath.row].totalPrice
+            cell.orderID = "\(viewModel?.orders?[indexPath.row].id ?? 0)"
             return cell
         }
         return UITableViewCell()
@@ -125,11 +155,11 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
             let myButton = UIButton(type: .custom)
 
             myButton.setTitle("View more", for: .normal)
-        if (section == 1) //else { return nil } // Can remove if want button for all sections
+        if (section == 1)
         {
             myButton.addTarget(self, action: #selector(myOrderAction(_:)), for: .touchUpInside)
         } else {
@@ -145,7 +175,6 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
     }
 
     @objc func myOrderAction(_ sender : AnyObject) {
-        //MARK: HEREEEEEEEEEEEEEE
         print("my order")
         viewModel?.goToOrderListScreen()
     }

@@ -8,18 +8,18 @@
 
 import Foundation
 
-final class SplashViewModel{
+final class SplashViewModel : SplashViewModelType{
     
-    //MARK: vars
-    var appCoordinator: AppCoordinator?
+    //MARK: Properties
+    weak var coordinator: Coordinator!
     
+    //MARK: Life cycle
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
     
-//    init(appCoordinator: AppCoordinator) {
-//        self.appCoordinator = appCoordinator
-//    }
-    
-    //MARK: functions
-    func goToSplashScreen() {
-        appCoordinator?.goToFirstPage()
+    //MARK: Functions
+    func navigateToHomeOrIntro() {
+        coordinator.navigateToHomeOrIntro()
     }
 }

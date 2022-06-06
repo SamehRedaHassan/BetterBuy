@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="BetterBuy" customModuleProvider="target">
+            <connections>
+                <outlet property="navBar" destination="XAW-3K-oif" id="PRV-8F-4qE"/>
+                <outlet property="productsCollectionView" destination="ocP-7I-i49" id="sdG-rA-bug"/>
+                <outlet property="searchBar" destination="y6Z-oJ-Xzs" id="52y-ky-Hrs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caK-55-6sK">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAW-3K-oif" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sga-YT-QaV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="06M-RS-zsv"/>
+                                <constraint firstAttribute="bottom" secondItem="sga-YT-QaV" secondAttribute="bottom" id="LYH-SP-dUR"/>
+                                <constraint firstItem="sga-YT-QaV" firstAttribute="top" secondItem="XAW-3K-oif" secondAttribute="top" id="OcO-DO-Tfk"/>
+                                <constraint firstItem="sga-YT-QaV" firstAttribute="leading" secondItem="XAW-3K-oif" secondAttribute="leading" id="dW7-i8-nyQ"/>
+                                <constraint firstAttribute="trailing" secondItem="sga-YT-QaV" secondAttribute="trailing" id="xyd-5q-3YV"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchBtnHidden" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isFavouriteBtnHidden" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isCartBtnHidden" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="y6Z-oJ-Xzs">
+                            <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Wtj-J2-y3x"/>
+                            </constraints>
+                            <color key="barTintColor" name="pagerColorTwo"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ocP-7I-i49">
+                            <rect key="frame" x="12" y="108" width="390" height="710"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1qi-DY-IAl">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="y6Z-oJ-Xzs" secondAttribute="trailing" id="HiO-FM-fyX"/>
+                        <constraint firstItem="y6Z-oJ-Xzs" firstAttribute="leading" secondItem="caK-55-6sK" secondAttribute="leading" id="Ocs-wZ-rb8"/>
+                        <constraint firstItem="ocP-7I-i49" firstAttribute="leading" secondItem="caK-55-6sK" secondAttribute="leading" constant="12" id="R7g-Qg-XNh"/>
+                        <constraint firstItem="XAW-3K-oif" firstAttribute="top" secondItem="caK-55-6sK" secondAttribute="top" id="Rdx-J2-6pE"/>
+                        <constraint firstAttribute="trailing" secondItem="ocP-7I-i49" secondAttribute="trailing" constant="12" id="RtQ-sI-tDX"/>
+                        <constraint firstAttribute="bottom" secondItem="ocP-7I-i49" secondAttribute="bottom" id="fJA-5L-fCZ"/>
+                        <constraint firstItem="XAW-3K-oif" firstAttribute="leading" secondItem="caK-55-6sK" secondAttribute="leading" id="kar-0p-rN2"/>
+                        <constraint firstAttribute="trailing" secondItem="XAW-3K-oif" secondAttribute="trailing" id="obd-lS-ety"/>
+                        <constraint firstItem="ocP-7I-i49" firstAttribute="top" secondItem="y6Z-oJ-Xzs" secondAttribute="bottom" constant="8" id="vxj-Hh-JsK"/>
+                        <constraint firstItem="y6Z-oJ-Xzs" firstAttribute="top" secondItem="XAW-3K-oif" secondAttribute="bottom" id="wdU-BU-Vfn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="pagerColorTwo"/>
+            <constraints>
+                <constraint firstItem="caK-55-6sK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1xL-F7-6jZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="caK-55-6sK" secondAttribute="trailing" id="NyQ-3N-SAe"/>
+                <constraint firstItem="caK-55-6sK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VVh-B3-FgC"/>
+                <constraint firstItem="caK-55-6sK" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mnq-1M-Xar"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="pagerColorTwo">
+            <color red="0.96100002527236938" green="0.94900000095367432" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WishListViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="navBar" destination="WKO-CV-TDb" id="1go-px-vVy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wishListtableView" destination="UZE-iI-PaX" id="sXe-eQ-iWg"/>
             </connections>
@@ -18,20 +21,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKO-CV-TDb" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="knb-8p-H9P"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFavouriteBtnHidden" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCartBtnHidden" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchBtnHidden" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="150" estimatedRowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UZE-iI-PaX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UZE-iI-PaX" secondAttribute="bottom" id="7YP-NE-LSd"/>
+                <constraint firstItem="WKO-CV-TDb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Til-ik-v3w"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UZE-iI-PaX" secondAttribute="trailing" id="bjG-Gl-yVE"/>
-                <constraint firstItem="UZE-iI-PaX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ha8-DT-B11"/>
+                <constraint firstItem="WKO-CV-TDb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d2g-eL-raY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WKO-CV-TDb" secondAttribute="trailing" id="o3b-0j-sDX"/>
                 <constraint firstItem="UZE-iI-PaX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oFb-vJ-Dno"/>
+                <constraint firstItem="UZE-iI-PaX" firstAttribute="top" secondItem="WKO-CV-TDb" secondAttribute="bottom" id="p4N-Bm-MSI"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="100" y="25"/>
+            <point key="canvasLocation" x="100.00000000000001" y="24.776785714285712"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

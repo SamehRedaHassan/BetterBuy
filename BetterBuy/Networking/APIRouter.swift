@@ -10,7 +10,10 @@
 import Foundation
 import Alamofire
 
-let BASE_URL = "https://4a798eacca0d39cc2048369ad2025b47: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@mad-sv.myshopify.com/admin/api/"
+
+let BASE_URL =
+"https://5d028b96729c6d9493e99c6962b8193b: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@MAD-SV20221.myshopify.com/admin/api/"
+
 
 
 enum APIRouter : URLRequestConvertible{ //used to construct url Request
@@ -20,6 +23,7 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
     case getAllProducts
     case getCustomerById(id : String)
     case getCustomerOrders(id : String)
+    case getAllCustomers
     
 
     
@@ -32,10 +36,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
             switch self {
             case .getAllProducts:
                 return [:]
-            
             default:
                 return [:]
-
             }
             
         }()
@@ -59,6 +61,8 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 case .getCustomerOrders(id: let id):
                     return "2022-04/customers/\(id)/orders.json"
 
+                case .getAllCustomers:
+                    return "2021-04/customers.json"
                 }
             }()
             //safe characters +
@@ -91,6 +95,9 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                 return HTTPMethod.get
               
             case .getCustomerOrders(id: _):
+                return HTTPMethod.get
+                
+            case .getAllCustomers:
                 return HTTPMethod.get
               
             default:

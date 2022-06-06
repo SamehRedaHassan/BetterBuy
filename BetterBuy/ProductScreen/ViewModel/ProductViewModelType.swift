@@ -10,8 +10,12 @@ import Foundation
 import RxSwift
 
 protocol ProductViewModelType {
+    var coordinator:Coordinator! {get}
     var productsObservable : Observable<[Product]> {get}
     var favouriteCoreData : LocalDbType {get}
-    func goToProductDetailsScreen(product : Int) 
+    func navigateToProducts(index:Int)
     func getProducts()
+    func addProductToFav(index:Int)
+    func removeProductFromFav(index:Int)
+    func filterProductBySubCategory(subCategory:String)
 }

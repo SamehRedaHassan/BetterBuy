@@ -49,6 +49,7 @@ class DbManager : LocalDbType {
             
             print("productc added = \(favProduct.title) **** \(favProduct.sizes)")
             print("fav product price = \(favProduct.price)")
+            
 
         }
         catch
@@ -65,7 +66,7 @@ class DbManager : LocalDbType {
         favouriteProduct.title = product.title!
         favouriteProduct.price = product.variants![0].price
         favouriteProduct.desc = product.description ?? "No desc"
-                
+        favouriteProduct.useId = String(getUserIDFromUserDeafault())
         // size
         var sizesStr = ""
         for size in product.options![0].values! {
@@ -122,7 +123,8 @@ class DbManager : LocalDbType {
     
     func getFavItemFromDbWithId(id: String) -> [Favourite] {
         let fetchRequest = NSFetchRequest<Favourite>(entityName: "Favourite")
-        fetchRequest.predicate = NSPredicate(format: "productId == %@", id)
+        print(id)
+        fetchRequest.predicate = NSPredicate(format: "productId == '\(id)'")
         var products: [Favourite] = []
         do{
             products = try viewContext.fetch(fetchRequest)
@@ -141,10 +143,9 @@ class DbManager : LocalDbType {
     }
     
     // MARK: - Remove Product From DB
-    
     func removeFavProduct(product : Product){
         print(product.id)
-        //var productToDelete = productToStoredProduct(product: product)
+        print(product.title)
         var productToDelete = getFavItemFromDbWithId(id: "\(product.id!)")
         //print(productToDelete[0].title)
         //print(productToDelete[0].productId)
@@ -157,6 +158,11 @@ class DbManager : LocalDbType {
         catch{
             print("Item didn't delete successfully !!")
         }
+    }
+    func getUserIDFromUserDeafault() -> Int{
+        
+        //MARK:- USER ID
+        return 0
     }
     
     

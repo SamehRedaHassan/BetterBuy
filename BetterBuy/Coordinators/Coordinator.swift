@@ -9,10 +9,25 @@
 import Foundation
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator : AnyObject{
     var parentCoordinator: Coordinator? { get set }
     var children: [Coordinator] { get set }
     var navigationController : UINavigationController { get set }
-    
     func start()
+
+    func navigateToHomeOrIntro()
+    func goToHomeScreen()
+    func goToSignUpPage()
+    func goToProfilePage()
+    func goToWishListPage(orders : [Order])
+    func goToProfileOrderListPage()
+    func goToProductDetailsPage(product: Product)
+    func goToLoginPage()
+    func goToProductsPage(category:String,brand:String)
+    func popViewController()
+    func goToCartPage()
+    func proceedToCheckout()
+    func goToLocationScreen()
+    func navigateToSearchScreen()
+
 }

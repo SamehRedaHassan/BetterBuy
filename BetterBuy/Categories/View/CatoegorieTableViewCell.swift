@@ -32,7 +32,19 @@ class CatoegorieTableViewCell: UITableViewCell {
     func configureCell(_ categoryName:String)
     {
         categoryLB.text = categoryName
-        categoryImg.image = UIImage(named: "WomenCategoryImg")
+        if categoryName == "Kid"{
+            categoryImg.image = UIImage(named: "kidBanner")
+        }
+        else if categoryName == "Men"{
+            categoryImg.image = UIImage(named: "menImg")
+        }
+        else if categoryName == "Women"{
+            categoryImg.image = UIImage(named: "womenImgBanner")
+        }
+        else if categoryName == "Sale"{
+            categoryImg.image = UIImage(named: "women2")
+        }
+        
     }
     
     

@@ -7,17 +7,32 @@
 //
 
 import Foundation
+import PopupDialog
+import RxSwift
 
-class SettingViewModel{
-    
+class SettingViewModel : SettingsViewModelType{
+
     
     //MARK: vars
-    var appCoordinator: AppCoordinator?
-        
+    var coordinator: Coordinator
+    var popup : PopupDialog?
+    
+    
+    init(coordinator: Coordinator){
+        self.coordinator = coordinator
+    }
     
     //MARK: functions
-//    func goToSignUpScreen() {
-//        appCoordinator?.goToSignUpPage()
-//    }
+    func goToLocationScreen() {
+        coordinator.goToLocationScreen()
+    }
+
     
+    func logOutUser(){
+        UserDefaults.standard.set(nil, forKey: "user")
+    }
+    
+    
+    
+   
 }

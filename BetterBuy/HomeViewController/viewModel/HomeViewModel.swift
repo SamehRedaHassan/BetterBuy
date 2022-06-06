@@ -9,20 +9,31 @@ import RxSwift
 import Foundation
 //import NVActivityIndicatorView
 class HomeViewModel : HomeViewModelType{
+
+    //MARK: Properties
     let isLoading: ActivityIndicator =  ActivityIndicator()
     let disposeBag = DisposeBag()
     var brandsObservable : Observable<[BrandModel]>
     var ads : Observable<[String]>
+    private var brands : [BrandModel] = []
     lazy private var msg = BehaviorSubject<String>(value: "")
     lazy private var Internetmsg = BehaviorSubject<String>(value: "")
     private var brandsResponse   = BehaviorSubject<[BrandModel]>(value:[])
     private var adsResponse      = BehaviorSubject<[String]>(value:[  "banner1", "banner2", "banner3"])
-
-    init(){
+    weak var coordinator: Coordinator!
+    
+    //MARK: Life cycle 
+    init(coordinator: Coordinator){
+        self.coordinator = coordinator
         brandsObservable = brandsResponse.asObservable()
         ads              = adsResponse.asObservable()
     }
-  
+ 
+    
+    func navigateToProducts(withBrandAtIndex: IndexPath) {
+        coordinator.goToProductsPage(category: "", brand: brands[withBrandAtIndex.item].title ?? "")
+    }
+    
     func getCustomers() {
         getApi(apiRouter: .getAllBrands)
             .trackActivity(isLoading)
@@ -35,6 +46,7 @@ class HomeViewModel : HomeViewModelType{
                     case .success(value: let response):
                         let apiResponse = GetBrandsResponseModel(response: response)
                         self.brandsResponse.onNext(apiResponse.brands ?? [])
+                        self.brands = apiResponse.brands ?? []
                      //   print(apiResponse.brands?.count)
                    
                     case .internetFailure(let error):

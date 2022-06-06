@@ -10,30 +10,32 @@ import Foundation
 import RxSwift
 
 final class ProductsViewModel : ProductViewModelType{
-    func goToProductDetailsScreen(product: Int) {
-         do {products = try productResponse.value()
-           appCoordinator?.goToProductDetailsPage(product: products![product])
-           }
-           catch {
-               print ("error")
-           }
-                   
-    }
     
-    var appCoordinator:AppCoordinator?
-    var products : [Product]?
-    var category : String?
+    
+    
+    var coordinator:Coordinator!
+    var category : String!
+    var brand : String!
+    
+    //MARK: - data properties
     var productsObservable: Observable<[Product]>
-    var imagesHeight : Observable<[Int]>?
+    var products : [Product]?
     let disposeBag = DisposeBag()
     let favouriteCoreData : LocalDbType
     private var productResponse = BehaviorSubject<[Product]>(value:[])
     
-    init(category : String,favouriteCoreData : LocalDbType) {
+    //MARK: - Initalizer
+    init(category : String,brand : String,favouriteCoreData : LocalDbType,coordinator : Coordinator) {
         productsObservable = productResponse.asObservable()
+
+       
         self.category = category
+        self.brand = brand
         self.favouriteCoreData = favouriteCoreData
+        self.coordinator = coordinator
     }
+    
+    //MARK: - functions
     func getProducts() {
         getApi(apiRouter: .getAllProducts)
         //      .trackActivity(isLoading)
@@ -43,30 +45,76 @@ final class ProductsViewModel : ProductViewModelType{
                 switch event {
                     case .next(let result):
                         switch result {
-                        case .success(let response):
-                            let productResponseData = ProductResponse(response: response)                            
-                            self.productResponse.onNext(self.filterProductByCategory(products: productResponseData.products ?? []))
-                            print(productResponseData.products?.count ?? 0)
-                        case .failure(let error):
-                            print(error.message)
-                        case .internetFailure(let error):
-                            print(error.message)
+                            case .success(let response):
+                                let productResponseData = ProductResponse(response: response)
+                                let filtetedProduct = self.filterProductByCategory(products: productResponseData.products ?? [])
+                                self.products = filtetedProduct
+                                self.productResponse.onNext(filtetedProduct)
+                            case .failure(let error):
+                                print(error.message)
+                            case .internetFailure(let error):
+                                print(error.message)
                     }
                     default:
                         break
                     }
                 
          }.disposed(by: disposeBag)
-        
+                
     }
+    func navigateToProducts(index: Int) {
+        coordinator?.goToProductDetailsPage(product: products![index])
+    }
+    
+    //MARK:- filter data
     private func filterProductByCategory(products : [Product]) -> [Product]{
-        print(category!)
+        if category == ""{
+            return filterProductByBrands(products: products)
+        }
         return products.filter { (product) -> Bool in
             if(category == "men"){
                 category = " " + (category ?? "")
             }
+            
             return (product.tags?.contains("\(category!)"))!
         }
+    }
+    func filterProductBySubCategory(subCategory:String) {
+        if subCategory == "ACCESSORIES"{
+            self.productResponse.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+            }
+            )
+        }
+        else if subCategory == "SHOES"
+        {
+            self.productResponse.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+            }
+            )
+        }
+        else if subCategory == "T-SHIRTS"{
+            self.productResponse.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+            }
+            )
+        }
+        else{
+            self.productResponse.onNext(products!)
+        }
+    }
+    private func filterProductByBrands(products:[Product])->[Product] {
+        return products.filter { (product) -> Bool in
+           
+            return (product.vendor == brand)
+        }
+    }
+    
+    func addProductToFav(index:Int){
+        products?[index].favProduct = true
+    }
+    func removeProductFromFav(index:Int){
+        products?[index].favProduct = false
     }
     
    

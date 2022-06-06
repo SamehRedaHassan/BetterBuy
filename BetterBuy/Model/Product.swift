@@ -23,7 +23,8 @@ struct Product: Codable {
     var variants: [Variant]?
     var options: [ProductOption]?
     var images: [ProductImage]?
-    
+    var favProduct : Bool = false
+    var count = 1
     init(){
         
     }

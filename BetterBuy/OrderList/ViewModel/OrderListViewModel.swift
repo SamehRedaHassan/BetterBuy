@@ -8,14 +8,15 @@
 
 import Foundation
 
-final class OrderListViewModel{
+final class OrderListViewModel : OrderlistViewModelType{
     
     //MARK: vars
-    var appCoordinator: AppCoordinator?
+    weak var coordinator: Coordinator?
     var orders : [Product]?
     var db : LocalDbType
         
-    init(db : LocalDbType){
+    init(db : LocalDbType , coordinator: Coordinator){
+        self.coordinator = coordinator
         self.db = db
     }
     

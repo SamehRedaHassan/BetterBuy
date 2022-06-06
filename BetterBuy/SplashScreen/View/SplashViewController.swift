@@ -11,13 +11,27 @@ import UIKit
 class SplashViewController: UIViewController {
 
     //MARK: variables
-    var viewModel : SplashViewModel?
+    private var viewModel : SplashViewModelType!
+
     
-    //MARK: LifeCycle
+    // MARK: - Life Cycle
+    convenience init() {
+        self.init(splashViewModel: nil)
+    }
+
+    init(splashViewModel: SplashViewModelType?) {
+        self.viewModel = splashViewModel
+        super.init(nibName: "SplashScreen", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.goToSplashScreen()
-        
+        viewModel.navigateToHomeOrIntro()
     }
     
     //MARK: Functions

@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     private let dp = DisposeBag()
-    private var homeViewModel : HomeViewModelType!
+    private  var homeViewModel : HomeViewModelType!
 
     
     // MARK: - Life Cycle
@@ -47,19 +47,11 @@ class HomeViewController: BaseViewController {
  
     // MARK: - Functions
     private func configureCollectionViews(){
-        
+        navBar.injectCoordinator(coordinator: homeViewModel.coordinator)
         brandsCollectionView.register(UINib(nibName: String(describing: BrandCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BrandCollectionViewCell.self))
         adsCollectionView.register(UINib(nibName: String(describing: advertiseCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: advertiseCollectionViewCell.self))
         adsCollectionView.rx.setDelegate(self).disposed(by: dp)
         brandsCollectionView.rx.setDelegate(self).disposed(by: dp)
-
-//        let brandsLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        brandsLayout.itemSize = CGSize(width: (brandsCollectionView.frame.width - 40) / 2, height: (brandsCollectionView.frame.width - 40) / 2)
-//        brandsLayout.minimumInteritemSpacing = 8
-//        brandsLayout.minimumLineSpacing = 8
-//        brandsLayout.scrollDirection = .vertical
-//        brandsLayout.footerReferenceSize = CGSize(width: brandsCollectionView.frame.width, height: 100)
-//        brandsCollectionView.collectionViewLayout = brandsLayout
 
         adsCollectionView.rx.didEndDecelerating
                 .subscribe(onNext: { [weak self] in
@@ -87,8 +79,15 @@ class HomeViewController: BaseViewController {
                     self.rootView.isHidden = true
                     self.loading()
                 }
-            })
-            .disposed(by: dp)
+            }).disposed(by: dp)
+        
+        brandsCollectionView.rx.itemSelected
+                .subscribe(onNext:{ [weak self] indexPath in
+                    guard let self = self else {return}
+                    self.homeViewModel?.navigateToProducts(withBrandAtIndex: indexPath)
+        }).disposed(by: dp)
+        
+        
     }
 }
 // MARK: - Extensions

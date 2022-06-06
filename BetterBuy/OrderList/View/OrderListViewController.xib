@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderListViewController" customModule="BetterBuy" customModuleProvider="target">
             <connections>
+                <outlet property="navBar" destination="UMg-tA-5l8" id="6By-sJ-Zsc"/>
                 <outlet property="orderTableView" destination="bkP-gP-vNp" id="rrg-Tg-uAA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,19 +20,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkP-gP-vNp">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMg-tA-5l8" customClass="NavBar" customModule="BetterBuy" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="nb8-kw-b5W"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="bkP-gP-vNp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3sn-NV-ty0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bkP-gP-vNp" secondAttribute="bottom" id="7C5-TZ-CHp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bkP-gP-vNp" secondAttribute="trailing" id="AB0-7Z-iUC"/>
-                <constraint firstItem="bkP-gP-vNp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Gc7-Wr-mJJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UMg-tA-5l8" secondAttribute="trailing" id="Fyf-nl-ySA"/>
+                <constraint firstItem="UMg-tA-5l8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IhD-sz-Y2E"/>
+                <constraint firstItem="bkP-gP-vNp" firstAttribute="top" secondItem="UMg-tA-5l8" secondAttribute="bottom" id="N90-fU-R7B"/>
+                <constraint firstItem="UMg-tA-5l8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="low-RC-GTa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-12" y="13"/>
+            <point key="canvasLocation" x="-443" y="-104"/>
         </view>
     </objects>
 </document>
