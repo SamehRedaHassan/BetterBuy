@@ -14,25 +14,29 @@ struct Order: Codable {
     var orderItems: [OrderItem]?
     var cancelReason: String?
     var currentTotalPrice: String?
-
-    var discountCodes: [DiscountCode]?
+    
     var financialStatus: OrderFinancialStatus?
     var fulfillmentStatus: String?
     var totalDiscounts: String?
     var totalPrice: String?
     
-
+    var discountCode: [DiscountCode]?
+    var default_address : Address?
+    var total_line_items_price : String? //
+    
     enum CodingKeys: String, CodingKey {
         case id
         case customer
         case orderItems = "line_items"
         case cancelReason = "cancel_reason"
         case currentTotalPrice = "current_total_price"
-        case discountCodes = "discount_codes"
         case financialStatus = "financial_status"
         case fulfillmentStatus = "fulfillment_status"
         case totalDiscounts = "total_discounts"
         case totalPrice = "total_price"
+        case discountCode
+        case default_address
+        case total_line_items_price
     }
     
     init(customer: Customer, orderItems: [OrderItem]) {
@@ -52,12 +56,13 @@ struct Order: Codable {
                 self.orderItems         = responseData.orderItems
                 self.cancelReason        = responseData.cancelReason
                 self.currentTotalPrice         = responseData.currentTotalPrice
-                self.discountCodes            = responseData.discountCodes
                 self.financialStatus    = responseData.financialStatus
                 self.fulfillmentStatus       = responseData.fulfillmentStatus
                 self.totalDiscounts        = responseData.totalDiscounts
                 self.totalPrice        = responseData.totalPrice
-                
+                self.discountCode       = responseData.discountCode
+                self.default_address        = responseData.default_address
+                self.total_line_items_price        = responseData.total_line_items_price
             }
         }
     }
