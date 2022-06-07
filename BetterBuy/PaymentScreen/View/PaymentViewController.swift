@@ -34,7 +34,7 @@ class PaymentViewController: BaseViewController {
         didSet{
             promoCodeTextField.rx.text.orEmpty
                 .bind(to: viewModel.promoCodeSubject)
-                    .disposed(by: disposeBag)
+                .disposed(by: disposeBag)
         }
     }
     @IBOutlet private weak var subtotalLabel: UILabel!
@@ -103,17 +103,22 @@ class PaymentViewController: BaseViewController {
         applyPromoButton.rx.tap.subscribe { [weak self] tap in
             self?.viewModel.checkPromoCode()
         }.disposed(by: disposeBag)
-
+        
+        
+        viewModel.Internetmsg.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
+            guard str != "" else {return}
+            Loaf(str , state: .error, sender: self).show()
+        }).disposed(by: disposeBag)
         
         viewModel.msg.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
             guard str != "" else {return}
             Loaf(str , state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
         }).disposed(by: disposeBag)
-      
+        
         
         viewModel.isValidPromoCode.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: false).drive(onNext: {[weak self] (isValid) in
             self?.discountView.isHidden = !isValid
-
+            
             if isValid {
                 self?.applyPromoButton.backgroundColor = .red
                 self?.applyPromoButton.setTitle("Revoke", for: .normal)
@@ -122,9 +127,9 @@ class PaymentViewController: BaseViewController {
                 self?.applyPromoButton.backgroundColor = .black
                 self?.applyPromoButton.setTitle("Apply", for: .normal)
                 self?.promoCodeTextField.text = ""
-
+                
             }
-       
+            
         }).disposed(by: disposeBag)
         
         viewModel.bagSubTotal.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: 0.0).drive(onNext: {[weak self] (subtotal) in

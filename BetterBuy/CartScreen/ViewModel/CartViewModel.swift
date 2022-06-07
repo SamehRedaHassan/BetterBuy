@@ -45,8 +45,9 @@ class CartViewModel : CartViewModelType{
         guard let items = try? cartSubject.value() else {return nil}
         var itemsList : [OrderItem] = []
         items.forEach { (product) in
-            let order = OrderItem(id: 0, giftCard: nil, productExists: nil, productID: product.id, quantity: product.count, title: product.title, totalDiscount: nil, variantID: nil)
+            let order = OrderItem(id: 0, giftCard: nil, productExists: nil, productID: product.id, quantity: product.count, title: product.title, totalDiscount: nil, variantID: nil , price: Double( product.variants?[0].price ?? "70.0"))
             itemsList.append(order)
+            
         }
         let order = Order(customer: UserDefaults.getUserObject()!, orderItems: itemsList)
         print(PostOrder(order: order))

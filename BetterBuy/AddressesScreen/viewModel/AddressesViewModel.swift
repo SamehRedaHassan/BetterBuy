@@ -29,6 +29,9 @@ class AddressesViewModel : AddressesViewModelType {
         addressesResponse = addressesSubject.asObservable()
         self.subTotal = subTotal
         self.order = order
+        
+        print(order)
+        print(subTotal)
     }
     
     //MARK: Functions
@@ -70,6 +73,6 @@ class AddressesViewModel : AddressesViewModelType {
     }
     func navigateCheckout() {
         let addresses = try! addressesSubject.value()
-        coordinator.proceedToCheckout(withSubtotal: subTotal, address: addresses[0], order: PostOrder())
+        coordinator.proceedToCheckout(withSubtotal: subTotal, address: addresses[0], order: order)
     }
 }
