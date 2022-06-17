@@ -16,10 +16,11 @@ class SettingViewModel : SettingsViewModelType{
     //MARK: vars
     var coordinator: Coordinator
     var popup : PopupDialog?
+    var cartDB : CartDBManagerType
     
-    
-    init(coordinator: Coordinator){
+    init(coordinator: Coordinator,cartDB : CartDBManagerType){
         self.coordinator = coordinator
+        self.cartDB = cartDB
     }
     
     //MARK: functions
@@ -31,7 +32,9 @@ class SettingViewModel : SettingsViewModelType{
     func logOutUser(){
         UserDefaults.standard.set(nil, forKey: "user")
         UserDefaults.saveLoginStatus(_Val: false)
+         cartDB.removeAllProductFromCart()
         coordinator.goToHomeScreen()
+       
     }
     
     

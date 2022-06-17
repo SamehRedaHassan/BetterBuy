@@ -36,14 +36,14 @@ class ProductCell: UICollectionViewCell {
     
     var productTitle : String?{
         didSet{
-            self.productTitleLB.text = productTitle
+            self.productTitleLB.text = productTitle?.capitalized
         }
     }
     
     var productPrice : String?{
         didSet{
-            guard let price = self.productPrice else {return}
-            self.productPriceLB.text = "EG" + price
+           let price = returnPrice(price: Double(self.productPrice ?? "0.0")!)
+            self.productPriceLB.text = price
         }
     }
     
@@ -79,17 +79,16 @@ class ProductCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.favouriteBtn.isHidden = !UserDefaults.getLoginStatus()
-      //  containerView.layer.masksToBounds = true
-      //  containerView.layer.cornerRadius = 20
-        
         favouriteBtn.rx.tap.bind{
             if self.isFavourite == false{
                 self.favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
                 self.addToFav?()
+                self.isFavourite = true
             }
             else{
                 self.favouriteBtn.setBackgroundImage(UIImage(systemName: "heart.circle"), for: .normal)
                 self.removeFav?()
+                self.isFavourite = false
             }
         }.disposed(by: disposeBag)
     }

@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 protocol CartViewModelType : AnyObject{
     var coordinator: Coordinator! {get}
+    var isEmptyCollection : PublishSubject<Bool> {get set}
     func goBack()
     func proceedToCheckout()
     func retieveProductsInCart()
@@ -17,7 +18,6 @@ protocol CartViewModelType : AnyObject{
     func decrementProductCount(productId : String)-> Int
     var cartObservabel : Observable<[Product]> {get}
     var totalPriceObservabel : Observable<String>{get}
-     var isEmptyCollection : PublishSubject<Bool> {get}
     func updateTotalPrice()
     func removeProductCount(product : Product)
     func noOrdersAvailable() -> Bool

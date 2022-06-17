@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class OrderListViewController: UIViewController {
+class OrderListViewController: BaseViewController {
 
     //The Array here should come from the CoreData
     
@@ -36,13 +36,24 @@ class OrderListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    override func viewWillAppear(_ animated: Bool) {
+//        if viewModel?.isFavouriteEmpty() ?? false {
+//            self.orderTableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No Items Found :("))
+//        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.getAllFavourites()
         configTableView()
         configureTabBar()
-        
+        viewModel?.isEmptyCollection.distinctUntilChanged().subscribe { [weak self] isEmpty in
+            guard let self = self else{return}
+            if(isEmpty.element ?? false){  self.orderTableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No Items Found :("))
+            }else {
+                self.orderTableView.removeAllSubviews()
+            }
+        } .disposed(by: disposeBag)
         
     }
 
@@ -72,6 +83,7 @@ extension OrderListViewController : UITableViewDelegate , UITableViewDataSource 
         cell.didPressDeleteBtn = {
             self.viewModel?.deleteProductFromFavourite(product: (self.viewModel?.orders?[indexPath.row])!)
             self.viewModel?.orders!.remove(at: indexPath.row)
+            self.viewModel?.isEmptyCollection.onNext(self.viewModel?.orders!.isEmpty ?? true)
             DispatchQueue.main.async {
                 self.orderTableView.reloadData()
             }

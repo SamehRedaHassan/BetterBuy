@@ -128,9 +128,8 @@ class DbManager : LocalDbType {
         var products: [Favourite] = []
         do{
             products = try viewContext.fetch(fetchRequest)
-            if products.count > 0 {
-                print("****** get product from db \(products[0].productId ?? "error ")")
-                print("****** id param \(id)")
+            if products.count > 0 &&  UserDefaults.getLoginStatus() && products[0].useId! == getUserIDFromUserDeafault(){
+                
                 return products
             }
             return []
