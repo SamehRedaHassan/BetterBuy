@@ -24,7 +24,7 @@ final class PaymentViewModel : PaymentViewModelType{
     private let subToatal : Double
     private let discount: Double = 10
     private var postOrder : PostOrder
-    private var deliveryAdddress : Address
+    var deliveryAdddress : Address
     private var validCoupon : DiscountCode?
     //MARK: Properties
     
@@ -97,6 +97,8 @@ final class PaymentViewModel : PaymentViewModelType{
             guard let self = self else {return}
             if result.order != nil {
                 self.msg.onNext("Order Placed Successfully")
+                //
+                NotificationCenter.default.post(name: Notification.Name("Order Placed Successfully"), object: nil)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
                     guard let self = self else {return}
                     self.coordinator.goToHomeScreen()

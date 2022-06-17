@@ -31,7 +31,10 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.navigateToHomeOrIntro()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
+            self?.viewModel.navigateToHomeOrIntro()
+        }
+        
     }
     
     //MARK: Functions
