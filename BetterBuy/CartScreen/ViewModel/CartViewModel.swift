@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 class CartViewModel : CartViewModelType{
 
+
     //MARK: Properties
     weak var coordinator: Coordinator!
     var cartCoreData : CartDBManagerType!
@@ -22,6 +23,8 @@ class CartViewModel : CartViewModelType{
     
     var totalPriceObservabel : Observable<String>
     private var totalPriceSubject : BehaviorSubject<String> = BehaviorSubject<String>(value: "")
+    
+    
     //MARK: Life cycle
     init(coordinator: Coordinator,cartCoreData:CartDBManagerType) {
         self.coordinator = coordinator
@@ -31,14 +34,25 @@ class CartViewModel : CartViewModelType{
     }
     
     //MARK: Functions
+    
+    func removeAllProductsFromCart() {
+        cartCoreData.removeAllProductFromCart()
+    }
+    
+    
+    
     func goBack() {
         coordinator.popViewController()
     }
     
     func proceedToCheckout() {
         let value = try! totalPriceSubject.value()
+        let doubleValue = value.replacingOccurrences(of: "EGP ", with: "")
+        let doubleValuee = doubleValue.replacingOccurrences(of: "$", with: "")
+
+        print(value)
         guard let orders = createPostOrder() else {return}
-        coordinator.navigateToAddressesScreen(withSubtotal: Double(value) ?? 0.0, order: orders)
+        coordinator.navigateToAddressesScreen(withSubtotal: Double(doubleValuee) ?? 0.0, order: orders)
     }
     
     func createPostOrder() -> PostOrder? {

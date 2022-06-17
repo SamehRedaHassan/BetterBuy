@@ -80,6 +80,8 @@ class PaymentViewController: BaseViewController {
     }
     
     private func bindUI(){
+        shippingLabel.text = returnPrice(price: 10)
+        
         cashOnDeliveryButton.rx.tap.bind { [weak self] _ in
             guard let self = self else {return}
             self.paymentMethod = .cash
@@ -133,26 +135,27 @@ class PaymentViewController: BaseViewController {
         }).disposed(by: disposeBag)
         
         viewModel.bagSubTotal.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: 0.0).drive(onNext: {[weak self] (subtotal) in
-            self?.subtotalLabel.text = "\(subtotal)"
+            self?.subtotalLabel.text = "\(  returnPrice(price: subtotal) )"
+        
         }).disposed(by: disposeBag)
         
         viewModel.bagTotal.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: 0.0).drive(onNext: {[weak self] (total) in
-            self?.totalLabel.text = "\(total)"
+            self?.totalLabel.text = "\(returnPrice(price: total) )"
         }).disposed(by: disposeBag)
-        
-        
+        currentAddressLabel.text = "\(viewModel.deliveryAdddress.address1 ?? "") \(viewModel.deliveryAdddress.city ?? "") \(viewModel.deliveryAdddress.country ?? "")"
     }
 }
 //MARK: - Extension Apple Pay
 extension PaymentViewController :PKPaymentAuthorizationViewControllerDelegate{
     private func payWithApple(){
         
-        let paymentItem = PKPaymentSummaryItem.init(label: "Total payment", amount: NSDecimalNumber(value: 1000.0))
+        let paymentItem = PKPaymentSummaryItem.init(label: "Total payment", amount: NSDecimalNumber(value: try! viewModel.bagTotal.value()))
         let paymentNetworks = [PKPaymentNetwork.amex, .discover, .masterCard, .visa]
         if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: paymentNetworks) {
             let request = PKPaymentRequest()
-            request.currencyCode = "USD" // 1
-            request.countryCode = "US" // 2
+          let currency = UserDefaults.standard.string(forKey:  "currency")
+            request.currencyCode = currency == "EG" ? "EGP" : "USD"// 1
+            request.countryCode = currency == "EG" ? "EG" : "US" // 2
             request.merchantIdentifier = "merchant.com.pranavwadhwa.Shoe-Store" // 3
             request.merchantCapabilities = PKMerchantCapability.capability3DS // 4
             request.supportedNetworks = paymentNetworks // 5

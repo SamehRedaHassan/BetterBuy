@@ -47,6 +47,11 @@ class CartViewController: BaseViewController {
         
     }
     
+    deinit{
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkoutButton.isHidden = viewModel.noOrdersAvailable()
@@ -57,7 +62,15 @@ class CartViewController: BaseViewController {
         navBar.injectCoordinator(coordinator: viewModel.coordinator)
     }
     
+    @objc func emptyCart(notification: Notification) {
+        viewModel.removeAllProductsFromCart()
+        
+    }
+
     private func bindUI(){
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(self.emptyCart(notification:)), name: Notification.Name( "Order Placed Successfully"), object: nil)
+
         cartTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: ProductTableViewCell.cellIdentifier)
         checkoutButton.rx.tap.subscribe { [weak self] tap in
             guard let self = self else {return}

@@ -14,6 +14,7 @@ protocol CartViewModelType : AnyObject{
     func goBack()
     func proceedToCheckout()
     func retieveProductsInCart()
+    func removeAllProductsFromCart()
     func incrementProductCount(productId : String)-> Int
     func decrementProductCount(productId : String)-> Int
     var cartObservabel : Observable<[Product]> {get}

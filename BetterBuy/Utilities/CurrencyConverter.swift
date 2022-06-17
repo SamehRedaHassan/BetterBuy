@@ -12,14 +12,14 @@ import Foundation
 func returnPrice(price : Double) -> String {
     if let currency = UserDefaults.standard.string(forKey:  "currency"){
         if(currency == "EG"){
-            return currency+"\(price)"
+            return "EGP "+"\(price)"
         } else if (currency == "USD") {
             return "$"+"\(String(format: "%.2f", price/18.5))"
             
         }
     } else {
         UserDefaults.standard.set("EG", forKey: "currency")
-        return "EG"+"\(price)"
+        return "EGP"+"\(price)"
     }
     return ""
 }
