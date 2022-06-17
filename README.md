@@ -1,35 +1,36 @@
 # BetterBuy
 
-* BetterBuy is a mCommerce Software iOS application that provides people with a modern and safe way to purchase items with the ability to gather items from different places and let the clients preview and see them on their small little phone screens without having to leave their homes or work. And without risking their safety and health.The application consists mainly of those features : </br>
-  1- Using Shopify API as the backend of our app. </br>
-  2- Provide a preview of more than 7 different brands including Adidas and Nike. </br>
-  3- Giving the client the ability to choose between 4 main categories:</br>
-    •	Men </br>
-    •	Women</br>
-    •	Kids </br>
-    •	Sale </br>
-  4-	 The client can add different locations and choose a default location to send the order to. </br>
-  5-	 Adding and deleting locations.</br>
-  6-	 Viewing items depending on filtration techniques such as: sub Categories:</br>
+BetterBuy is a mCommerce Software iOS application that provides people with a modern and safe way to purchase items with the ability to gather items from different places and let the clients preview and see them on their small little phone screens without having to leave their homes or work. And without risking their safety and health.The application consists mainly of those features : </br> </br>
+1- Using Shopify API as the backend of our app. </br> 
+2- Provide a preview of more than 7 different brands including Adidas and Nike. </br>
+3- Giving the client the ability to choose between 4 main categories:</br>
+    -	Men </br>
+    -	Women</br>
+    -	Kids </br>
+    -	Sale </br>
+
+ 4-	 The client can add different locations and choose a default location to send the order to. </br>
+ 5-	 Adding and deleting locations.</br>
+ 6-	 Viewing items depending on filtration techniques such as: sub Categories:</br>
     -	T-shirts</br>
     -	 Shoes </br>
     -	Accessories</br>
-  7-	 Adding items to the shopping cart </br>
-  8-	 Increasing and decreasing the amount of an item </br>
-  9-	 Live change in the total price. </br>
-  10-The ability to search with the product name </br>
-  11-View and preview the cart </br>
-  12- view the order details and apply a promo code if available </br>
-  13- choose a payment method: </br>
+7-	 Adding items to the shopping cart </br> 
+8-	 Increasing and decreasing the amount of an item </br>
+9-	 Live change in the total price. </br>
+10-The ability to search with the product name </br>
+11-View and preview the cart </br>
+12- view the order details and apply a promo code if available </br>
+13- choose a payment method: </br>
     -	By cash </br>
     -	By apple pay </br>
-  14- create a profile </br>
-  15- choose between different currencies: </br>
+14- create a profile </br>
+15- choose between different currencies: </br>
     -	EGP </br>
     -	Dollar $ </br>
-  16- Add items to the wish list </br>
-  17- View the wish list and remove items from it </br>
-  18- view the orders history </br>
+16- Add items to the wish list </br>
+17- View the wish list and remove items from it </br>
+18- view the orders history </br>
 
 * The Application is done mainly using Swif, UiKit, MVVM-C, Xibs, Cocoa pods, Shopify Api. </br>
 
