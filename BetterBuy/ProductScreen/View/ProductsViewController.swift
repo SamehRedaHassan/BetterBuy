@@ -57,9 +57,6 @@ class ProductsViewController: UIViewController{
         productCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: ProductCell.cellIdentifier)
         productCollectionView?.backgroundColor = .clear
         productCollectionView?.contentInset = UIEdgeInsets(top: 5, left:0, bottom: 5, right:0)
-//        if let layout = productCollectionView?.collectionViewLayout as? ProductsCollectionViewLayout {
-//            layout.delegate = self
-//        }
         productViewModel?.productsObservable.observeOn(MainScheduler.asyncInstance).subscribe(onNext: { (_) in
             self.productCollectionView.reloadData()
             }).disposed(by: disposeBag)
@@ -119,13 +116,6 @@ class ProductsViewController: UIViewController{
 
     
 }
-//extension ProductsViewController: ProductsLayoutDelegate {
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-//        return 270
-//    }
-//}
 extension ProductsViewController : UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 

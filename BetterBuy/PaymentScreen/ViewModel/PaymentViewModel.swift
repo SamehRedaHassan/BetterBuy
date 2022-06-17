@@ -11,7 +11,7 @@ import RxSwift
 final class PaymentViewModel : PaymentViewModelType{
     var bagTotal: BehaviorSubject<Double> = BehaviorSubject<Double>(value: 0.0)
     var bagSubTotal: BehaviorSubject<Double> = BehaviorSubject<Double>(value: 0.0)
-
+    
     var isValidPromoCode: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     var promoCodeSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
     var isLoading: ActivityIndicator = ActivityIndicator()
@@ -24,6 +24,8 @@ final class PaymentViewModel : PaymentViewModelType{
     private let subToatal : Double
     private let discount: Double = 10
     private var postOrder : PostOrder
+    private var deliveryAdddress : Address
+    private var validCoupon : DiscountCode?
     //MARK: Properties
     
     //MARK: Life cycle
@@ -32,6 +34,7 @@ final class PaymentViewModel : PaymentViewModelType{
         self.subToatal = bagSubtotal
         bagSubTotal.onNext(bagSubtotal)
         bagTotal.onNext(bagSubtotal + shipping)
+        self.deliveryAdddress = address
         self.postOrder = order
     }
     
@@ -58,7 +61,7 @@ final class PaymentViewModel : PaymentViewModelType{
                 default:
                     break
                 }
-            }.disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
     
     func checkPromoCode() {
@@ -66,12 +69,13 @@ final class PaymentViewModel : PaymentViewModelType{
         if(try! isValidPromoCode.value()){
             isValidPromoCode.onNext(false)
             bagTotal.onNext(subToatal + shipping)
-
+            
         }else {
             var isValid = false
             let code = try! promoCodeSubject.value()
             for coupon in coupons {
                 isValid = coupon.code == code
+                validCoupon = coupon
                 break
             }
             isValidPromoCode.onNext(isValid)
@@ -80,24 +84,34 @@ final class PaymentViewModel : PaymentViewModelType{
     }
     
     func placeOrder() {
-     //   let order = PostOrder(
-      // let addressObject  = AddAddressPostModel(address: address)
-        let result : Observable<GetAddressesResponseModel> = postApi(endPoint: .addOrder(order: postOrder))
-            result.subscribe(onNext: { [weak self] (result) in
-                guard let self = self else {return}
-                
-                //MARK: The returned type is not of type customer (No id)
-                //print (result.customer?.firstName!)
-                print(result.addresses)
-                
-
-                
-           //     self.successMsgSubject.onNext("Registered Successfully.")
+        //   let order = PostOrder(
+        // let addressObject  = AddAddressPostModel(address: address)
+        postOrder.order?.default_address = deliveryAdddress
+        let bagTotalPrice = try! bagTotal.value()
+        postOrder.order?.total_line_items_price = "\(bagTotalPrice)"
+        if let validCoupon = validCoupon{
+            postOrder.order?.discountCode = [validCoupon]
+        }
+        let result : Observable<AddOrderResponse> = postApi(endPoint: .addOrder(order: postOrder))
+        result.subscribe(onNext: { [weak self] (result) in
+            guard let self = self else {return}
+            if result.order != nil {
+                self.msg.onNext("Order Placed Successfully")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
+                    guard let self = self else {return}
+                    self.coordinator.goToHomeScreen()
+                }
+                //clear cart
+            }else {
+                self.Internetmsg.onNext("Some thing went wrong")
+            }
+            
             }, onError: { (error) in
-              //  self.errorMsgSubject.onNext("An error occured please try again.")
-            }, onCompleted: {
-                print("completed")
-                }).disposed(by: disposeBag)
+                print(error)
+                self.Internetmsg.onNext("Some thing went wrong")
+        }, onCompleted: {
+            print("completed")
+        }).disposed(by: disposeBag)
     }
     
     

@@ -18,7 +18,7 @@ class Converter {
         
         let images = str.split(separator: "|")
         var imagesStr : [String] = []
-//        imagesStr = String(images)
+        //        imagesStr = String(images)
         for image in images {
             imagesStr.append(String(image))
         }
@@ -26,7 +26,7 @@ class Converter {
     }
     
     
-        
+    
     static func separateStringArray(stringArray : [String]) -> String {
         var str = ""
         for element in stringArray {
@@ -39,44 +39,88 @@ class Converter {
     
     static func convertFavouriteProductsToProducts(favouriteProducts: [Favourite]) -> [Product] {
         
-        return favouriteProducts.map { favouriteProduct -> Product in
-            var product = Product()
-            var colors : [String] = []
-            var sizes : [String] = []
-           // print("**** fav product sizes converted **** \(favouriteProduct.sizes)")
-            sizes = formatStringToArray(str: favouriteProduct.sizes!)
-            //sizes.append(favouriteProduct.sizes!)
+        if UserDefaults.getLoginStatus(){
+            let userID = UserDefaults.getUserObject()
+            let favourProducts = favouriteProducts.filter { (product) -> Bool in
+                return (product.useId! == String(userID!.id!) ?? "0" )
+            }
             
-            product.id = Int(favouriteProduct.productId ?? "No Id Provided")
-            if !favouriteProduct.price!.isEmpty {
-           //     print(favouriteProduct.price)
+            return favourProducts.map { favouriteProduct -> Product in
+                var product = Product()
+                var colors : [String] = []
+                var sizes : [String] = []
+                // print("**** fav product sizes converted **** \(favouriteProduct.sizes)")
+                sizes = formatStringToArray(str: favouriteProduct.sizes!)
+                //sizes.append(favouriteProduct.sizes!)
+                
+                product.id = Int(favouriteProduct.productId ?? "No Id Provided")
+                if !favouriteProduct.price!.isEmpty {
+                    //     print(favouriteProduct.price)
+                }
+                else{
+                    //  print("noooooooo priceeeeee")
+                }
+                //print(favouriteProduct.price)
+                product.variants = []
+                product.variants?.append(Variant(price: favouriteProduct.price ?? "No Price"))
+                product.title = favouriteProduct.title
+                product.options?.append(ProductOption(sizes : sizes))
+                
+                product.description = favouriteProduct.desc!
+                //print(product.description)
+                let images : [String] = formatStringToArray(str: (favouriteProduct.images)!)
+                product.images = []
+                for image in images {
+                    product.images?.append(ProductImage(src: image))
+                }
+                return product
             }
-            else{
-              //  print("noooooooo priceeeeee")
-            }
-            //print(favouriteProduct.price)
-            product.variants = []
-            product.variants?.append(Variant(price: favouriteProduct.price ?? "No Price"))
-            product.title = favouriteProduct.title
-            product.options?.append(ProductOption(sizes : sizes))
+        }
+        else{
             
-            product.description = favouriteProduct.desc!
-            //print(product.description)
-            let images : [String] = formatStringToArray(str: (favouriteProduct.images)!)
-            product.images = []
-            for image in images {
-                product.images?.append(ProductImage(src: image))
+            return favouriteProducts.map { favouriteProduct -> Product in
+                var product = Product()
+                var colors : [String] = []
+                var sizes : [String] = []
+                // print("**** fav product sizes converted **** \(favouriteProduct.sizes)")
+                sizes = formatStringToArray(str: favouriteProduct.sizes!)
+                //sizes.append(favouriteProduct.sizes!)
+                
+                product.id = Int(favouriteProduct.productId ?? "No Id Provided")
+                if !favouriteProduct.price!.isEmpty {
+                    //     print(favouriteProduct.price)
+                }
+                else{
+                    //  print("noooooooo priceeeeee")
+                }
+                //print(favouriteProduct.price)
+                product.variants = []
+                product.variants?.append(Variant(price: favouriteProduct.price ?? "No Price"))
+                product.title = favouriteProduct.title
+                product.options?.append(ProductOption(sizes : sizes))
+                
+                product.description = favouriteProduct.desc!
+                //print(product.description)
+                let images : [String] = formatStringToArray(str: (favouriteProduct.images)!)
+                product.images = []
+                for image in images {
+                    product.images?.append(ProductImage(src: image))
+                }
+                return product
             }
-            return product
         }
     }
     
     static func convertCartProductToProduct(cartProducts: [Cart]) -> [Product] {
         
-        return cartProducts.map { cartProduct -> Product in
-        
+        let userID = UserDefaults.getUserObject()!
+        let userCart = cartProducts.filter { (product) -> Bool in
+            return (product.userId! == String(userID.id!) )
+        }
+        return userCart.map { cartProduct -> Product in
+            
             var product = Product()
-
+            
             product.id = Int(cartProduct.productId ?? "0")
             product.title = cartProduct.title
             product.description = cartProduct.desc
@@ -92,10 +136,9 @@ class Converter {
             for image in images {
                 product.images?.append(ProductImage(src: image))
             }
-             product.count = Int(cartProduct.count!) ?? 0
+            product.count = Int(cartProduct.count!) ?? 0
             
             return product
         }
-    
     }
 }

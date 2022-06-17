@@ -38,7 +38,8 @@ class OrderTableViewCell: UITableViewCell {
     
     var orderItemValue : String?{
         didSet{
-            orderItemDesc.text = "EG" + (orderItemValue ?? "0.0")
+            orderItemDesc.text = returnPrice(price: Double(orderItemValue ?? "0.0") ?? 0.0)
+            
         }
     }
     

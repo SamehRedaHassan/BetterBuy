@@ -42,6 +42,7 @@ extension UserDefaults {
     }
     
     static func getUserObject() -> Customer?{
+        
         if let data = UserDefaults.standard.object(forKey: "user") {
                 do {
                     let decoder = JSONDecoder()

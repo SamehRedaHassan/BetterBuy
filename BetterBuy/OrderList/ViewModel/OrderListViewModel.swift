@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class OrderListViewModel : OrderlistViewModelType{
     
@@ -14,6 +15,8 @@ final class OrderListViewModel : OrderlistViewModelType{
     weak var coordinator: Coordinator?
     var orders : [Product]?
     var db : LocalDbType
+   // var isEmptyCollection : PublishSubject<Bool> = PublishSubject()
+     var isEmptyCollection = BehaviorSubject<Bool>(value: true)
         
     init(db : LocalDbType , coordinator: Coordinator){
         self.coordinator = coordinator
@@ -23,10 +26,15 @@ final class OrderListViewModel : OrderlistViewModelType{
     //MARK: functions
         func getAllFavourites() {
             orders = db.getAllFavourites()
-        }
+            print(orders?.count)
+            self.isEmptyCollection.onNext(orders?.isEmpty ?? true)
+    }
     
     func deleteProductFromFavourite(product : Product){
         db.removeFavProduct(product: product)
+    }
+    func isFavouriteEmpty() -> Bool {
+        return try! isEmptyCollection.value()
     }
         
     

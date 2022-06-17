@@ -9,7 +9,7 @@
 import Foundation
 
 struct OrderItem: Codable {
-    internal init(id: Int? = nil, giftCard: Bool? = nil, productExists: Bool? = nil, productID: Int? = nil, quantity: Int? = nil, title: String? = nil, totalDiscount: String? = nil, variantID: Int? = nil) {
+    internal init(id: Int? = nil, giftCard: Bool? = nil, productExists: Bool? = nil, productID: Int? = nil, quantity: Int? = nil, title: String? = nil, totalDiscount: String? = nil, variantID: Int? = nil , price : Double? = nil) {
         self.id = id
         self.giftCard = giftCard
         self.productExists = productExists
@@ -18,6 +18,7 @@ struct OrderItem: Codable {
         self.title = title
         self.totalDiscount = totalDiscount
         self.variantID = variantID
+        self.price     = price
     }
     
     var id: Int?
@@ -27,9 +28,11 @@ struct OrderItem: Codable {
     var quantity: Int?
     var title, totalDiscount: String?
     var variantID: Int?
+    var price : Double?
 
     enum CodingKeys: String, CodingKey {
         case id
+        case price
         case giftCard = "gift_card"
         case productExists = "product_exists"
         case productID = "product_id"
@@ -55,6 +58,7 @@ struct OrderItem: Codable {
                 self.title            = responseData.title
                 self.totalDiscount    = responseData.totalDiscount
                 self.variantID        = responseData.variantID
+                self.price            = responseData.price
             }
         }
     }

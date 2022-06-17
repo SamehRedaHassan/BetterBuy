@@ -7,19 +7,23 @@
 //
 
 import Foundation
+import RxSwift
 
 final class WishListViewModel : WishListViewModelType{
+    
     
     //MARK: vars
     weak  var coordinator: Coordinator!
     var orders : [Order]
     var  db : LocalDbType
+   
     
     init(orders:[Order] , db : LocalDbType , coordinator: Coordinator) {
         self.coordinator = coordinator
         self.orders = orders
         self.db = db
     }
+    
     
     //MARK: functions
 //    func viewAllFavourites() {

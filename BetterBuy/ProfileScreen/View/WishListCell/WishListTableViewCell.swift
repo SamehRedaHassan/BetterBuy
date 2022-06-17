@@ -27,7 +27,7 @@ class WishListTableViewCell: UITableViewCell {
     
     var orderPrice : String? {
         didSet{
-            wishListItemNameDescLabel.text = "Order price: " + (orderPrice ?? "0.0")
+            wishListItemNameDescLabel.text = "Order price: " + returnPrice(price: Double(orderPrice ?? "0.0") ?? 0.0)
         }
     }
     

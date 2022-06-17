@@ -9,17 +9,19 @@
 import Foundation
 
 
-func returnPrice(price : Double) -> Double {
+func returnPrice(price : Double) -> String {
     if let currency = UserDefaults.standard.string(forKey:  "currency"){
         if(currency == "EG"){
-            return (price / 18.5)
+            return currency+"\(price)"
         } else if (currency == "USD") {
-            return (price * 18.5)
+            return "$"+"\(String(format: "%.2f", price/18.5))"
+            
         }
     } else {
-        return 0.0
+        UserDefaults.standard.set("EG", forKey: "currency")
+        return "EG"+"\(price)"
     }
-    return 0.0
+    return ""
 }
     
 

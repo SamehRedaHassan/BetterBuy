@@ -125,7 +125,7 @@ class AppCoordinator: Coordinator {
     }
     
     func goToSettingsPage(){
-        let settingsViewModel = SettingViewModel(coordinator: self)
+        let settingsViewModel = SettingViewModel(coordinator: self, cartDB: CartDBManager.getInstance(appDelegate: UIApplication.shared.delegate as! AppDelegate))
         let settingsViewController = SettingsViewController(settingsViewModel: settingsViewModel)
         navigationController.pushViewController(settingsViewController, animated: true)
     }

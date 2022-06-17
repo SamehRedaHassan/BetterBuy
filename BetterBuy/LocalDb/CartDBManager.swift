@@ -47,11 +47,10 @@ class CartDBManager : CartDBManagerType {
         }catch let error {
             print(error.localizedDescription)
         }
-        var products : [Product]
-        //print(productsInCart!.description)
-        products = Converter.convertCartProductToProduct(cartProducts: productsInCart!)
-        //print(products[0])
-        
+        var products : [Product] = []
+        if UserDefaults.getLoginStatus(){
+            products = Converter.convertCartProductToProduct(cartProducts: productsInCart!)
+        }
         return products
     }
     
@@ -61,12 +60,11 @@ class CartDBManager : CartDBManagerType {
         do
         {
             try self.viewContext.save()
-            print("*** product added *** ")
             print(productInCart.title ?? "Failed To add In Cart")
-            
+
             print("productc added  In Cart= \(String(describing: productInCart.title)) **** \(String(describing: productInCart.sizes))")
             print("fav product price = \(String(describing: productInCart.price))")
-            
+
         }
         catch
         {
@@ -84,7 +82,12 @@ class CartDBManager : CartDBManagerType {
             print("Item didn't delete successfully !!")
         }
     }
-    
+    func removeAllProductFromCart(){
+        let products = getAllProductsInCart()
+        for product in products{
+            removeProduct(product: product)
+        }
+    }
     func getProductWithId(id: String) -> [Cart] {
         let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
         print(id)
@@ -184,8 +187,8 @@ class CartDBManager : CartDBManagerType {
         return productInCart
     }
     func getUserIDFromUserDeafault() -> String{
+        //MARK:- USER ID
         guard let user : Customer = UserDefaults.getUserObject() else {return ""}
         return "\(user.id ?? 0)"
-        //MARK:- USER ID
     }
 }

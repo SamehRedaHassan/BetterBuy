@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import RxSwift
+
 protocol OrderlistViewModelType :AnyObject{
 
     var coordinator: Coordinator?{get}
     var orders : [Product]?{get set}
+    //var isEmptyCollection : PublishSubject<Bool> { get set }
     func getAllFavourites()
     func deleteProductFromFavourite(product : Product)
+    var isEmptyCollection : BehaviorSubject<Bool> {get}
+    func isFavouriteEmpty() -> Bool
 }
