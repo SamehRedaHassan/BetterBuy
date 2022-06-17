@@ -82,9 +82,8 @@ class CartViewModel : CartViewModelType{
         updateTotalPrice()
     }
     func updateTotalPrice(){
-        totalPriceSubject.onNext(cartCoreData.calcuTotalPrice())
-        //isEmptyCollection.onNext(products.isEmpty)
-        //print(products.isEmpty)
+        totalPriceSubject.onNext(returnPrice(price: Double(cartCoreData.calcuTotalPrice() ?? "0.0") ?? 0.0))
+        
     }
     
     func noOrdersAvailable() -> Bool{

@@ -39,13 +39,13 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet private weak var productPrice: UILabel!
     var prodPrice : String?{
         didSet{
-            self.productPrice.text = self.prodPrice
+            self.productPrice.text = returnPrice(price: Double(self.prodPrice ?? "0.0") ?? 0.0)
         }
     }
     @IBOutlet private weak var currencyLB: UILabel!
     var currency : String?{
         didSet{
-            self.currencyLB.text = self.currency
+            self.currencyLB.text = ""
         }
     }
     @IBOutlet private weak var plusBtn: UIButton!

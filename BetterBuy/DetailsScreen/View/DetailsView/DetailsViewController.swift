@@ -122,7 +122,7 @@ class DetailsViewController: UIViewController {
         productImg.sd_setImage(with: URL(string : (viewModel.product?.images?[0].src!)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"))
         productName.text = viewModel.product?.title
         productDesc.text = viewModel.product?.description
-        productPrice.text =  viewModel.product?.variants?[0].price
+        productPrice.text =  returnPrice(price: Double(viewModel.product?.variants?[0].price ?? "0.0") ?? 0.0)
     }
     
     func setSize(){

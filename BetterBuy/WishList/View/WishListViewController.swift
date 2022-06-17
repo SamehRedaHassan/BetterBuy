@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
-class WishListViewController: UIViewController {
+class WishListViewController: BaseViewController {
     //MARK: IBOutlet
     @IBOutlet weak var wishListtableView: UITableView!
     @IBOutlet weak var navBar: NavBar!
     
     //MARK: Properties
     var viewModel : WishListViewModelType!
-    
+    var disposeBag = DisposeBag()
     
     // MARK: - Life Cycle
     convenience init() {
@@ -30,12 +31,22 @@ class WishListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+   
 
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavBar()
         configureTableView()
+        
+//        viewModel.isEmptyCollection.distinctUntilChanged().subscribe { [weak self] isEmpty in
+//                   guard let self = self else{return}
+//                   if(isEmpty.element ?? false){  self.wishListtableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No Items Found :("))
+//                   }else {
+//                       self.wishListtableView.removeAllSubviews()
+//                   }
+//               } .disposed(by: disposeBag)
+
     }
     
    //MARK: Functions

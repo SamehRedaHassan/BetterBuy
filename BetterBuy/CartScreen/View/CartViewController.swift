@@ -67,7 +67,8 @@ class CartViewController: BaseViewController {
         
         viewModel.isEmptyCollection.distinctUntilChanged().subscribe { [weak self] isEmpty in
             guard let self = self else{return}
-            if(isEmpty.element ?? false){  self.cartTableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No items Yet :("))
+            if(isEmpty.element ?? false){
+                self.cartTableView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No items Yet :("))
                 self.checkoutButton.isHidden = true
                 self.priceStack.isHidden = true
             }else {

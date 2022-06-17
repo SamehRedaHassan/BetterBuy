@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+
 protocol WishListViewModelType : AnyObject {
     var coordinator: Coordinator! {get}
     var orders : [Order] {get}
