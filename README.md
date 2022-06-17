@@ -32,11 +32,11 @@
   18- view the orders history
 
 * The Application is done mainly using Swif, UiKit, MVVM-C, Xibs, Cocoa pods, Shopify Api.
-<table>
-  <tr>![Uploading addresses.png…]()
 
+<table>
+  <tr>
     <td>
-       <img src="https://user-images.githubusercontent.com/97159439/174388662-918f38d8-c307-4498-9a4a-82307be0fbbc.png"> </img>
+       <img src="https://user-images.githubusercontent.com/97159439/174390028-e823a034-7424-4535-81d0-ba403aa56816.png"></img>
     </td>
    <td>
       <img src="https://user-images.githubusercontent.com/97159439/174388621-a8cd7431-8c93-4578-a59f-ffa18bda5ac8.png"></img>
@@ -84,6 +84,9 @@
     </td>
      <td> 
        <img src="https://user-images.githubusercontent.com/97159439/174388657-b390cc58-8a53-4349-af60-82691ea91b6d.png"></img>
+    </td>
+     <td> 
+       <img src="https://user-images.githubusercontent.com/97159439/174390042-7583f676-9124-4f71-80a6-be5414eac529.png"></img>
     </td>
   </tr>
 </table>
