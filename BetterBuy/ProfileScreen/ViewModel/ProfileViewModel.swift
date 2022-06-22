@@ -83,6 +83,7 @@ final class ProfileViewModel : ProfileViewModelType{
                         print(response)
                           let apiResponse = Orders(response: response)
                         self.orders = apiResponse.orders
+                        print(self.orders ?? "no order")
                         self.didFetchData?()
                       //  self.profileResponse.onNext(apiResponse.customer)
                           print(apiResponse)

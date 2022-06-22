@@ -140,7 +140,8 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource{
         if (indexPath.section == 0) {
             tableView.register(UINib.init(nibName: "WishListTableViewCell", bundle: nil), forCellReuseIdentifier: "WishListTableViewCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-            cell.orderPrice = viewModel?.orders?[indexPath.row].totalPrice
+            print(viewModel?.orders?[indexPath.row])
+            cell.orderPrice = viewModel?.orders?[indexPath.row].total_line_items_price
             cell.orderID = "\(viewModel?.orders?[indexPath.row].id ?? 0)"
             return cell
         }

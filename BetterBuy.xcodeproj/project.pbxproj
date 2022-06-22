@@ -880,6 +880,27 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		765C129A28633FB000F747BA /* Nada */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nada;
+			sourceTree = "<group>";
+		};
+		765C129B28633FBE00F747BA /* Sameh */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sameh;
+			sourceTree = "<group>";
+		};
+		765C129C28633FCA00F747BA /* Adel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Adel;
+			sourceTree = "<group>";
+		};
 		768042A0284A7D040011EF6F /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1231,6 +1252,9 @@
 		76ED8AC4283ACFCA009F9C61 /* BetterBuyTests */ = {
 			isa = PBXGroup;
 			children = (
+				765C129C28633FCA00F747BA /* Adel */,
+				765C129B28633FBE00F747BA /* Sameh */,
+				765C129A28633FB000F747BA /* Nada */,
 				76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */,
 				76ED8AC7283ACFCA009F9C61 /* Info.plist */,
 			);

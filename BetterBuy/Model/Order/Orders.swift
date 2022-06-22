@@ -17,10 +17,13 @@ struct Orders: Codable {
             print("failed To initialize \(String(describing: self))")
             return
         }
-        if let date  = try? JSONSerialization.data(withJSONObject: response, options: []){
-            if let responseData = try? JSONDecoder().decode(Orders.self, from: date){
+        print(response)
+        if let data  = try? JSONSerialization.data(withJSONObject: response, options: []){
+            
+            if let responseData = try? JSONDecoder().decode(Orders.self, from: data){
                 self.orders = responseData.orders
             }
+            
         }
     }
     
