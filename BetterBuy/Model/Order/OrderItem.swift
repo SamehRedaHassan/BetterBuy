@@ -9,7 +9,7 @@
 import Foundation
 
 struct OrderItem: Codable {
-    internal init(id: Int? = nil, giftCard: Bool? = nil, productExists: Bool? = nil, productID: Int? = nil, quantity: Int? = nil, title: String? = nil, totalDiscount: String? = nil, variantID: Int? = nil , price : Double? = nil) {
+    internal init(id: Int? = nil, giftCard: Bool? = nil, productExists: Bool? = nil, productID: Int? = nil, quantity: Int? = nil, title: String? = nil, totalDiscount: String? = nil, variantID: Int? = nil , price : String? = nil) {
         self.id = id
         self.giftCard = giftCard
         self.productExists = productExists
@@ -28,7 +28,7 @@ struct OrderItem: Codable {
     var quantity: Int?
     var title, totalDiscount: String?
     var variantID: Int?
-    var price : Double?
+    var price : String?
 
     enum CodingKeys: String, CodingKey {
         case id
