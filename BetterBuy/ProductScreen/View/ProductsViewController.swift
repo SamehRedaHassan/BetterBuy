@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ProductsViewController: UIViewController{
+class ProductsViewController: BaseViewController{
     
     //MARK: -IBOutlet
     @IBOutlet private weak var productCollectionView: UICollectionView!
@@ -92,6 +92,17 @@ class ProductsViewController: UIViewController{
         productCollectionView.rx.itemSelected.subscribe(onNext: { (indexPath) in
             self.productViewModel?.navigateToProducts(index: indexPath.row)
         }).disposed(by: disposeBag)
+        
+        productViewModel?.isEmptyCollection.distinctUntilChanged().subscribe{ [weak self] isEmpty in
+            guard let self = self else{return}
+            DispatchQueue.main.async {
+                if(isEmpty.element ?? false){
+                    self.productCollectionView.addSubview(self.getNoDataViewWith(image: UIImage(named: "noData")!, head: "No items Yet :("))
+                }else {
+                    self.productCollectionView.removeAllSubviews()
+                }
+            }
+        } .disposed(by: disposeBag)
         
     }
     

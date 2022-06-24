@@ -18,4 +18,5 @@ protocol ProductViewModelType {
     func addProductToFav(index:Int)
     func removeProductFromFav(index:Int)
     func filterProductBySubCategory(subCategory:String)
+    var isEmptyCollection : PublishSubject<Bool> {get set}
 }

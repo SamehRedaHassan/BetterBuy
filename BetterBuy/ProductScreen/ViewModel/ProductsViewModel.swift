@@ -23,7 +23,7 @@ final class ProductsViewModel : ProductViewModelType{
     let disposeBag = DisposeBag()
     let favouriteCoreData : LocalDbType
     private var productResponse = BehaviorSubject<[Product]>(value:[])
-    
+    lazy var isEmptyCollection : PublishSubject<Bool> = PublishSubject()
     //MARK: - Initalizer
     init(category : String,brand : String,favouriteCoreData : LocalDbType,coordinator : Coordinator) {
         productsObservable = productResponse.asObservable()
@@ -50,6 +50,7 @@ final class ProductsViewModel : ProductViewModelType{
                                 let filtetedProduct = self.filterProductByCategory(products: productResponseData.products ?? [])
                                 self.products = filtetedProduct
                                 self.productResponse.onNext(filtetedProduct)
+                                self.isEmptyCollection.onNext(self.products?.isEmpty ?? true)
                             case .failure(let error):
                                 print(error.message)
                             case .internetFailure(let error):
@@ -85,6 +86,9 @@ final class ProductsViewModel : ProductViewModelType{
                 return (product.productType == subCategory)
             }
             )
+            self.isEmptyCollection.onNext(products!.filter { (product) -> Bool in
+                return (product.productType == subCategory)
+                }.isEmpty)
         }
         else if subCategory == "SHOES"
         {
@@ -92,15 +96,22 @@ final class ProductsViewModel : ProductViewModelType{
                 return (product.productType == subCategory)
             }
             )
+            self.isEmptyCollection.onNext(products!.filter { (product) -> Bool in
+            return (product.productType == subCategory)
+            }.isEmpty)
         }
         else if subCategory == "T-SHIRTS"{
             self.productResponse.onNext(products!.filter { (product) -> Bool in
                 return (product.productType == subCategory)
             }
             )
+            self.isEmptyCollection.onNext(products!.filter { (product) -> Bool in
+            return (product.productType == subCategory)
+            }.isEmpty)
         }
         else{
             self.productResponse.onNext(products!)
+            self.isEmptyCollection.onNext(products!.isEmpty)
         }
     }
     private func filterProductByBrands(products:[Product])->[Product] {
