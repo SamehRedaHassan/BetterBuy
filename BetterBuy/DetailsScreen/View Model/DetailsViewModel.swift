@@ -22,6 +22,7 @@ final class DetailsViewModel : DetailsViewModelType{
     var favourites : [Product]?
     var isInCart : Bool = false
     var isInCartObservable : BehaviorSubject<Bool>
+    var testInCart : Bool = false
     
     init(product : Product , db : LocalDbType , cartDb : CartDBManagerType  , coordinator: Coordinator){
         self.coordinator = coordinator
@@ -52,6 +53,7 @@ final class DetailsViewModel : DetailsViewModelType{
         cartDb.addToCart(product: product)
         print("Products:    \( cartDb.getAllProductsInCart().count)")
         isInCartObservable.onNext(true)
+        testInCart = true
     }
     
     func removeProductfromFav(product: Product) {
@@ -61,6 +63,7 @@ final class DetailsViewModel : DetailsViewModelType{
     func removeProductfromCart(product: Product) {
               cartDb.removeProduct(product: product)
              isInCartObservable.onNext(false)
+             testInCart = false
        }
     
     func ToggleAddAndRemoveFromCart(){

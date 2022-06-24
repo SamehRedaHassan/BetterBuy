@@ -52,6 +52,10 @@
 		0464330C284F6B3E00366B03 /* PostOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464330B284F6B3E00366B03 /* PostOrderResponse.swift */; };
 		0464330E284F700A00366B03 /* AddOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464330D284F700A00366B03 /* AddOrderResponse.swift */; };
 		04643310284F73EB00366B03 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464330F284F73EB00366B03 /* NavigationController.swift */; };
+		04689EDE2865B0E0005A6202 /* RegisterViewModelMoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04689EDD2865B0E0005A6202 /* RegisterViewModelMoc.swift */; };
+		04689EE02865B963005A6202 /* RegisterViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04689EDF2865B963005A6202 /* RegisterViewModelTest.swift */; };
+		04689EE22865C520005A6202 /* ProductDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04689EE12865C520005A6202 /* ProductDetailsTest.swift */; };
+		04689EE42865CE75005A6202 /* SettingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04689EE32865CE75005A6202 /* SettingTest.swift */; };
 		046FC07B283D8AD0000E46E8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07A283D8AD0000E46E8 /* Coordinator.swift */; };
 		046FC07D283D8AF3000E46E8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */; };
 		046FC07F283D8BC8000E46E8 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FC07E283D8BC8000E46E8 /* SplashScreen.xib */; };
@@ -168,7 +172,7 @@
 		76ED8AB6283ACFC6009F9C61 /* BetterBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AB4283ACFC6009F9C61 /* BetterBuy.xcdatamodeld */; };
 		76ED8AB8283ACFC9009F9C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB7283ACFC9009F9C61 /* Assets.xcassets */; };
 		76ED8ABB283ACFC9009F9C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ED8AB9283ACFC9009F9C61 /* LaunchScreen.storyboard */; };
-		76ED8AC6283ACFCA009F9C61 /* BetterBuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */; };
+		76ED8AC6283ACFCA009F9C61 /* CurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED8AC5283ACFCA009F9C61 /* CurrencyTest.swift */; };
 		76F11DF6284BDE4C005ADFF7 /* PaymentViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F11DF5284BDE4C005ADFF7 /* PaymentViewModelType.swift */; };
 		76FFC1122849FBC300FACAF0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFC1112849FBC300FACAF0 /* ActivityIndicator.swift */; };
 		76FFC114284A16EE00FACAF0 /* FontUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFC113284A16EE00FACAF0 /* FontUtility.swift */; };
@@ -238,6 +242,10 @@
 		0464330B284F6B3E00366B03 /* PostOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOrderResponse.swift; sourceTree = "<group>"; };
 		0464330D284F700A00366B03 /* AddOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderResponse.swift; sourceTree = "<group>"; };
 		0464330F284F73EB00366B03 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		04689EDD2865B0E0005A6202 /* RegisterViewModelMoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelMoc.swift; sourceTree = "<group>"; };
+		04689EDF2865B963005A6202 /* RegisterViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTest.swift; sourceTree = "<group>"; };
+		04689EE12865C520005A6202 /* ProductDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsTest.swift; sourceTree = "<group>"; };
+		04689EE32865CE75005A6202 /* SettingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTest.swift; sourceTree = "<group>"; };
 		046FC07A283D8AD0000E46E8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		046FC07C283D8AF3000E46E8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		046FC07E283D8BC8000E46E8 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
@@ -360,7 +368,7 @@
 		76ED8ABA283ACFC9009F9C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76ED8ABC283ACFC9009F9C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76ED8AC1283ACFCA009F9C61 /* BetterBuyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterBuyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBuyTests.swift; sourceTree = "<group>"; };
+		76ED8AC5283ACFCA009F9C61 /* CurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTest.swift; sourceTree = "<group>"; };
 		76ED8AC7283ACFCA009F9C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76F11DF5284BDE4C005ADFF7 /* PaymentViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModelType.swift; sourceTree = "<group>"; };
 		76FFC1112849FBC300FACAF0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -883,6 +891,11 @@
 		765C129A28633FB000F747BA /* Nada */ = {
 			isa = PBXGroup;
 			children = (
+				76ED8AC5283ACFCA009F9C61 /* CurrencyTest.swift */,
+				04689EDD2865B0E0005A6202 /* RegisterViewModelMoc.swift */,
+				04689EDF2865B963005A6202 /* RegisterViewModelTest.swift */,
+				04689EE12865C520005A6202 /* ProductDetailsTest.swift */,
+				04689EE32865CE75005A6202 /* SettingTest.swift */,
 			);
 			path = Nada;
 			sourceTree = "<group>";
@@ -1226,12 +1239,12 @@
 				763BA6FE28440A84008DC092 /* CartScreen */,
 				763BA6F32843BEED008DC092 /* LoginScreen */,
 				7682F166283EF80C004C3DBC /* ProductScreen */,
-				7682F159283EF769004C3DBC /* Categories */,
 				046FC080283D8C55000E46E8 /* Coordinators */,
 				046FC081283D8C84000E46E8 /* SplashScreen */,
 				045F5F5E283EB30E006853BB /* ProfileScreen */,
 				046FC08A283D9E6B000E46E8 /* RegisterScreen */,
 				045F5F55283EB2BE006853BB /* Settings */,
+				7682F159283EF769004C3DBC /* Categories */,
 				7607DE75283EB31300A014C7 /* HomeViewController */,
 				7607DE72283E8F8E00A014C7 /* BaseViewController */,
 				7607DE67283E8A9E00A014C7 /* TabBarController */,
@@ -1255,7 +1268,6 @@
 				765C129C28633FCA00F747BA /* Adel */,
 				765C129B28633FBE00F747BA /* Sameh */,
 				765C129A28633FB000F747BA /* Nada */,
-				76ED8AC5283ACFCA009F9C61 /* BetterBuyTests.swift */,
 				76ED8AC7283ACFCA009F9C61 /* Info.plist */,
 			);
 			path = BetterBuyTests;
@@ -1639,7 +1651,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76ED8AC6283ACFCA009F9C61 /* BetterBuyTests.swift in Sources */,
+				76ED8AC6283ACFCA009F9C61 /* CurrencyTest.swift in Sources */,
+				04689EE02865B963005A6202 /* RegisterViewModelTest.swift in Sources */,
+				04689EE22865C520005A6202 /* ProductDetailsTest.swift in Sources */,
+				04689EDE2865B0E0005A6202 /* RegisterViewModelMoc.swift in Sources */,
+				04689EE42865CE75005A6202 /* SettingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

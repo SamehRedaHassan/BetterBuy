@@ -73,10 +73,12 @@ class RegisterViewModel : RegisterViewModelType {
                 //print (result.customer?.firstName!)
                 print(result.customer?.id ?? 0)
                 
-                UserDefaults.saveUserObject(user: result.customer!)
-                UserDefaults.saveLoginStatus(_Val: true)
-                
-                self.successMsgSubject.onNext("Registered Successfully.")
+                if let result = result.customer{
+                    UserDefaults.saveUserObject(user: result)
+                    UserDefaults.saveLoginStatus(_Val: true)
+                    self.successMsgSubject.onNext("Registered Successfully.")
+
+                }
             }, onError: { (error) in
                 self.errorMsgSubject.onNext("An error occured please try again.")
             }, onCompleted: {
@@ -98,7 +100,6 @@ class RegisterViewModel : RegisterViewModelType {
                         self.customers = customers.customers ?? []
                         if(!(self.checkifUserExistBefore())){
                             self.registerUser()
-                            
                         } else {
                             self.errorMsgSubject.onNext("This email already exist please provide a new one or login instead")
                         }

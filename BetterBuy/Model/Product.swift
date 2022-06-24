@@ -29,6 +29,12 @@ struct Product: Codable {
         
     }
     
+    init(id : Int , title : String , description : String) {
+        self.id = id
+        self.title = title
+        self.description = description
+    }
+    
     init(response : [String : Any]?){
         guard let response = response else {
             print("failed To initialize \(String(describing: self))")
