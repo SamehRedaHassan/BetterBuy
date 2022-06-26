@@ -19,17 +19,13 @@ class LoginViewController: BaseViewController  {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet private weak var emailTxtView: UITextField!{
         didSet{
-            emailTxtView.rx.text.orEmpty
-                .bind(to: viewModel!.emailSubject)
-                .disposed(by: disposeBag)
+         
 
         }
     }
     @IBOutlet weak var passwordTxtView: UITextField!{
         didSet{
-            passwordTxtView.rx.text.orEmpty
-                .bind(to: viewModel!.passwordSubject)
-                .disposed(by: disposeBag)
+         
 
         }
     }
@@ -53,10 +49,15 @@ class LoginViewController: BaseViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.getAllCustomersData()
         emailTxtView.addBottomBorder()
         passwordTxtView.addBottomBorder()
         bindingBtn()
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.getAllCustomersData()
+
     }
     
     deinit {
@@ -94,6 +95,14 @@ class LoginViewController: BaseViewController  {
                    guard str != "" else {return}
                    Loaf(str ?? "Please provide valid input", state: .custom(.init(backgroundColor: .black, icon: UIImage(systemName: "info"))), sender: self).show()
                }).disposed(by: disposeBag)
+        
+        emailTxtView.rx.text.orEmpty
+                     .bind(to: viewModel!.emailSubject)
+                     .disposed(by: disposeBag)
+        
+        passwordTxtView.rx.text.orEmpty
+                     .bind(to: viewModel!.passwordSubject)
+                     .disposed(by: disposeBag)
         
     }
 }

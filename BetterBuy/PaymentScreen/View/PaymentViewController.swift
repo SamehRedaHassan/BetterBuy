@@ -106,7 +106,7 @@ class PaymentViewController: BaseViewController {
             self?.viewModel.checkPromoCode()
         }.disposed(by: disposeBag)
         
-        
+         
         viewModel.Internetmsg.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: "").drive(onNext: { (str) in
             guard str != "" else {return}
             Loaf(str , state: .error, sender: self).show()
@@ -119,6 +119,7 @@ class PaymentViewController: BaseViewController {
         
         
         viewModel.isValidPromoCode.asObservable().observeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInitiated)).asDriver(onErrorJustReturn: false).drive(onNext: {[weak self] (isValid) in
+            self?.discountLabel.text = "\(returnPrice(price: 10.0) )"
             self?.discountView.isHidden = !isValid
             
             if isValid {

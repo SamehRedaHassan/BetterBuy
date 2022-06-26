@@ -108,7 +108,7 @@ class ProductsViewController: BaseViewController{
     
     @IBAction func didChangeCategory(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0{
-            selectedCategory = "all"
+            selectedCategory = "All"
             self.productViewModel?.filterProductBySubCategory(subCategory: selectedCategory ?? "all")
         }
         else if sender.selectedSegmentIndex == 1{

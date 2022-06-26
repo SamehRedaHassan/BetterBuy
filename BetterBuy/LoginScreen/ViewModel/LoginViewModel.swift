@@ -75,15 +75,29 @@ final class LoginViewModel : LoginViewModelType{
     func checkUserInput(){
         let email = try! self.emailSubject.value()
         let pwd = try! self.passwordSubject.value()
-        for customer in customers ?? []{
-            if email == customer.email && pwd == customer.tags{
+        print(email)
+        print(pwd)
+        var isLogging = false
+        guard let cust = customers else {
+            print("no customers")
+            return}
+        for customer in cust{
+            if email.lowercased() == customer.email && pwd == customer.tags{
                 // Create JSON Encoder
                 UserDefaults.saveUserObject(user: customer)
                 UserDefaults.saveLoginStatus(_Val: true)
                 coordinator.goToHomeScreen()
+                isLogging = true
+                break
+            }else{
+                isLogging = false
             }
+         
         }
-        
+        if !isLogging {
+            errorMsgSubject.onNext("invalid user name or password")
+
+        }
     }
     
 }
