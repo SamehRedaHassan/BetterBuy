@@ -39,9 +39,10 @@ struct Order: Codable {
         case total_line_items_price
     }
     
-    init(customer: Customer, orderItems: [OrderItem]) {
+    init(customer: Customer, orderItems: [OrderItem],totalPrice : Float) {
         self.customer = customer
         self.orderItems = orderItems
+        self.totalPrice  = "\(totalPrice)"
     }
     
     init(response : [String : Any]?){

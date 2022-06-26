@@ -58,12 +58,16 @@ class CartViewModel : CartViewModelType{
     func createPostOrder() -> PostOrder? {
         guard let items = try? cartSubject.value() else {return nil}
         var itemsList : [OrderItem] = []
+        var totalPrice : Float = 0.0
+
         items.forEach { (product) in
             let order = OrderItem(id: 0, giftCard: nil, productExists: nil, productID: product.id, quantity: product.count, title: product.title, totalDiscount: nil, variantID: nil , price: String( product.variants?[0].price ?? "70.0"))
+            totalPrice += Float(product.variants?[0].price ?? "70.0")! * Float(product.count )
             itemsList.append(order)
             
         }
-        let order = Order(customer: UserDefaults.getUserObject()!, orderItems: itemsList)
+      print(totalPrice)
+        let order = Order(customer: UserDefaults.getUserObject()!, orderItems: itemsList , totalPrice: totalPrice )
         print(PostOrder(order: order))
         return PostOrder(order: order)
     }

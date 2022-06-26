@@ -20,10 +20,12 @@ final class ProductsViewModel : ProductViewModelType{
     //MARK: - data properties
     var productsObservable: Observable<[Product]>
     var products : [Product]?
+    var productsWithFilter : [Product]?
+    var subCategory:String = "All"
     let disposeBag = DisposeBag()
     let favouriteCoreData : LocalDbType
     private var productResponse = BehaviorSubject<[Product]>(value:[])
-    
+    lazy var isEmptyCollection : PublishSubject<Bool> = PublishSubject()
     //MARK: - Initalizer
     init(category : String,brand : String,favouriteCoreData : LocalDbType,coordinator : Coordinator) {
         productsObservable = productResponse.asObservable()
@@ -63,7 +65,12 @@ final class ProductsViewModel : ProductViewModelType{
                 
     }
     func navigateToProducts(index: Int) {
+        if subCategory == "All"{
         coordinator?.goToProductDetailsPage(product: products![index])
+        }
+        else{
+           coordinator?.goToProductDetailsPage(product: productsWithFilter![index])
+        }
     }
     
     //MARK:- filter data
@@ -81,26 +88,51 @@ final class ProductsViewModel : ProductViewModelType{
     }
     func filterProductBySubCategory(subCategory:String) {
         if subCategory == "ACCESSORIES"{
-            self.productResponse.onNext(products!.filter { (product) -> Bool in
+            let filteredData = products!.filter { (product) -> Bool in
                 return (product.productType == subCategory)
             }
-            )
+            self.productResponse.onNext(filteredData)
+            self.isEmptyCollection.onNext(filteredData.isEmpty)
+            self.productsWithFilter = filteredData
+            self.subCategory = "ACCESSORIES"
         }
         else if subCategory == "SHOES"
         {
-            self.productResponse.onNext(products!.filter { (product) -> Bool in
+//            self.productResponse.onNext(products!.filter { (product) -> Bool in
+//                return (product.productType == subCategory)
+//            }
+//            )
+//            self.isEmptyCollection.onNext(products!.filter { (product) -> Bool in
+//            return (product.productType == subCategory)
+//            }.isEmpty)
+            let filteredData = products!.filter { (product) -> Bool in
                 return (product.productType == subCategory)
             }
-            )
+            self.productResponse.onNext(filteredData)
+            self.isEmptyCollection.onNext(filteredData.isEmpty)
+            self.productsWithFilter = filteredData
+            self.subCategory = "SHOES"
         }
         else if subCategory == "T-SHIRTS"{
-            self.productResponse.onNext(products!.filter { (product) -> Bool in
+//            self.productResponse.onNext(products!.filter { (product) -> Bool in
+//                return (product.productType == subCategory)
+//            }
+//            )
+//            self.isEmptyCollection.onNext(products!.filter { (product) -> Bool in
+//            return (product.productType == subCategory)
+//            }.isEmpty)
+            let filteredData = products!.filter { (product) -> Bool in
                 return (product.productType == subCategory)
             }
-            )
+            self.productResponse.onNext(filteredData)
+            self.isEmptyCollection.onNext(filteredData.isEmpty)
+            self.productsWithFilter = filteredData
+            self.subCategory = "T-SHIRTS"
         }
         else{
             self.productResponse.onNext(products!)
+            self.isEmptyCollection.onNext(products!.isEmpty)
+            self.subCategory = "All"
         }
     }
     private func filterProductByBrands(products:[Product])->[Product] {

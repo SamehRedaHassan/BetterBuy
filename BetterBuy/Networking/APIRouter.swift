@@ -71,7 +71,7 @@ enum APIRouter : URLRequestConvertible{ //used to construct url Request
                     return "2022-04/customers/\(id)/addresses.json"
                 
                 case .getAllCoupons:
-                    return "2022-04/price_rules/1027348594860/discount_codes.json"
+                    return "2022-04/price_rules/1044090355889/discount_codes.json"
                 }
             }()
             //safe characters +
